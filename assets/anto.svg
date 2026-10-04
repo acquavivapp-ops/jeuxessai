@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" width="88" height="88" shape-rendering="crispEdges" role="img" aria-labelledby="title desc">
+  <title id="title">Antò, voix de Maquis FM dans Blue Night</title>
+  <desc id="desc">Portrait original en pixels : cagoule noire, grands yeux confiants, casque de radio, veste olive et cassette, sur un fond prune et corail.</desc>
+  <rect width="88" height="88" fill="#08121f"/>
+  <rect x="3" y="3" width="82" height="82" fill="#382947"/>
+  <path d="M5 5H82V24L22 83H5Z" fill="#4b345b"/>
+  <path d="M54 5H75L5 75V54Z" fill="#764d70" opacity=".5"/>
+  <path d="M5 67H15V53H23V63H32V43H45V66H53V54H62V61H72V49H82V83H5Z" fill="#20243b"/>
+  <rect x="12" y="57" width="7" height="2" fill="#ff8b7b"/>
+  <rect x="70" y="54" width="9" height="3" fill="#c392d9"/>
+  <path d="M4 4H27V6H6V25H4ZM61 82H82V61H84V84H61Z" fill="#ff8b7b"/>
+  <rect x="75" y="12" width="3" height="3" fill="#66e0df"/>
+  <path d="M7 38H10V41H13V44H10V47H7V44H4V41H7Z" fill="#e9c080"/>
+  <path d="M21 85V65L32 56V23L40 13H57L66 22V46L60 56L74 68V85Z" fill="#0b1522" opacity=".6"/>
+  <path d="M13 84V68L24 59H33V52H53V59H64L76 69V84Z" fill="#10212a"/>
+  <path d="M17 84V69L26 62H35V55H51V62H62L72 71V84Z" fill="#56694d"/>
+  <path d="M20 68H30V73H26V81H17V75H20ZM56 63H63V66H67V73H62V77H56Z" fill="#7c875c"/>
+  <path d="M26 75H35V84H22V79H26ZM61 74H70V81H66V84H59Z" fill="#344f40"/>
+  <path d="M33 59L39 66H48L54 60L50 57H36Z" fill="#183039"/>
+  <path d="M30 63H34V84H30ZM54 63H58V84H54Z" fill="#10212a"/>
+  <rect x="31" y="63" width="1" height="21" fill="#99aa79"/>
+  <rect x="55" y="63" width="1" height="21" fill="#99aa79"/>
+  <rect x="60" y="69" width="10" height="12" fill="#263c36"/>
+  <rect x="60" y="69" width="10" height="2" fill="#9cac7c"/>
+  <rect x="64" y="74" width="3" height="2" fill="#12232b"/>
+  <path d="M24 40V26H27V19H33V14H39V11H50V14H55V19H60V25H63V42H59V49H53V55H34V53H28V48H25Z" fill="#050c12"/>
+  <path d="M27 27H30V21H35V17H47V20H38V24H32V34H28V44H26Z" fill="#243442"/>
+  <path d="M33 19H39V17H48V19H38V22H33Z" fill="#4b667a"/>
+  <path d="M56 27H60V41H57V48H53V51H48V47H53V39H56Z" fill="#182331"/>
+  <path d="M28 28H40V30H43V28H54V31H57V41H45V39H39V42H28Z" fill="#c38c66"/>
+  <path d="M29 29H39V32H31V40H28V32ZM45 29H53V32H56V38H53V34H45Z" fill="#f0bd8d"/>
+  <rect x="31" y="33" width="9" height="7" fill="#fff0ca"/>
+  <rect x="45" y="32" width="9" height="7" fill="#fff0ca"/>
+  <rect x="35" y="33" width="4" height="6" fill="#111c29"/>
+  <rect x="48" y="32" width="4" height="6" fill="#111c29"/>
+  <rect x="35" y="33" width="2" height="2" fill="#fffaf0"/>
+  <rect x="48" y="32" width="2" height="2" fill="#fffaf0"/>
+  <path d="M28 28H37V26H41V29H29ZM45 26H51V25H56V28H45Z" fill="#142430"/>
+  <path d="M40 39H43V42H46V45H39V43H40Z" fill="#263342"/>
+  <path d="M36 46H51V50H48V52H40V50H36Z" fill="#dca273"/>
+  <rect x="38" y="47" width="11" height="3" fill="#fff0ca"/>
+  <rect x="40" y="50" width="7" height="1" fill="#8b5d52"/>
+  <path d="M21 32V23H24V17H29V13H36V9H51V12H58V16H63V22H66V34H63V23H60V19H55V16H50V13H36V16H30V20H26V25H24V32Z" fill="#1a2633"/>
+  <path d="M25 21H28V18H33V15H39V12H49V14H39V17H34V20H29V24H26Z" fill="#91a3ae"/>
+  <path d="M18 30H25V46H19V43H17V34H18Z" fill="#101d2a"/>
+  <rect x="18" y="32" width="5" height="10" fill="#758b95"/>
+  <rect x="18" y="33" width="2" height="7" fill="#c392d9"/>
+  <path d="M62 29H68V33H70V42H68V46H62Z" fill="#101d2a"/>
+  <rect x="64" y="32" width="4" height="10" fill="#758b95"/>
+  <rect x="67" y="34" width="2" height="6" fill="#ff8b7b"/>
+  <path d="M64 44H67V50H64V54H54V52H62V48H64Z" fill="#90a5ad"/>
+  <rect x="50" y="50" width="8" height="5" fill="#0d1c2b"/>
+  <rect x="51" y="51" width="4" height="2" fill="#ff8b7b"/>
+  <rect x="20" y="70" width="33" height="14" fill="#10202c"/>
+  <rect x="22" y="72" width="29" height="10" fill="#a68472"/>
+  <rect x="24" y="73" width="25" height="3" fill="#ff8b7b"/>
+  <rect x="25" y="77" width="6" height="4" fill="#253440"/>
+  <rect x="41" y="77" width="6" height="4" fill="#253440"/>
+  <rect x="27" y="78" width="2" height="2" fill="#e9c080"/>
+  <rect x="43" y="78" width="2" height="2" fill="#e9c080"/>
+  <rect x="32" y="78" width="8" height="2" fill="#253440"/>
+  <rect x="18" y="75" width="6" height="7" fill="#cf976e"/>
+  <rect x="18" y="75" width="3" height="2" fill="#f4c493"/>
+  <rect x="49" y="74" width="6" height="7" fill="#cf976e"/>
+  <rect x="51" y="74" width="3" height="2" fill="#f4c493"/>
+  <rect x="73" y="27" width="5" height="2" fill="#66e0df"/>
+  <rect x="75" y="31" width="7" height="2" fill="#66e0df"/>
+</svg>

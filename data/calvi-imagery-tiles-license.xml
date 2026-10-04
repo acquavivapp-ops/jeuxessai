@@ -1,0 +1,3333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csw:GetRecordByIdResponse xmlns:csw="http://www.opengis.net/cat/csw/2.0.2">
+  <mdb:MD_Metadata xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0" xmlns:gfc="http://standards.iso.org/iso/19110/gfc/1.1" xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/2.0" xmlns:gcx="http://standards.iso.org/iso/19115/-3/gcx/1.0" xmlns:gex="http://standards.iso.org/iso/19115/-3/gex/1.0" xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0" xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.0" xmlns:mas="http://standards.iso.org/iso/19115/-3/mas/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0" xmlns:mda="http://standards.iso.org/iso/19115/-3/mda/1.0" xmlns:mds="http://standards.iso.org/iso/19115/-3/mds/2.0" xmlns:mdt="http://standards.iso.org/iso/19115/-3/mdt/2.0" xmlns:mex="http://standards.iso.org/iso/19115/-3/mex/1.0" xmlns:mmi="http://standards.iso.org/iso/19115/-3/mmi/1.0" xmlns:mpc="http://standards.iso.org/iso/19115/-3/mpc/1.0" xmlns:mrc="http://standards.iso.org/iso/19115/-3/mrc/2.0" xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0" xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:mrl="http://standards.iso.org/iso/19115/-3/mrl/2.0" xmlns:mrs="http://standards.iso.org/iso/19115/-3/mrs/1.0" xmlns:msr="http://standards.iso.org/iso/19115/-3/msr/2.0" xmlns:mdq="http://standards.iso.org/iso/19157/-2/mdq/1.0" xmlns:dqm="http://standards.iso.org/iso/19157/-2/dqm/1.0" xmlns:mac="http://standards.iso.org/iso/19115/-3/mac/2.0" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" uuid="IGNF_BD-ORTHO">
+    <mdb:metadataIdentifier>
+      <mcc:MD_Identifier>
+        <mcc:code>
+          <gco:CharacterString>IGNF_BD-ORTHO</gco:CharacterString>
+        </mcc:code>
+      </mcc:MD_Identifier>
+    </mdb:metadataIdentifier>
+    <mdb:defaultLocale>
+      <lan:PT_Locale>
+        <lan:language>
+          <lan:LanguageCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#LanguageCode" codeListValue="fre">fre</lan:LanguageCode>
+        </lan:language>
+        <lan:characterEncoding>
+          <lan:MD_CharacterSetCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</lan:MD_CharacterSetCode>
+        </lan:characterEncoding>
+      </lan:PT_Locale>
+    </mdb:defaultLocale>
+    <mdb:metadataScope>
+      <mdb:MD_MetadataScope>
+        <mdb:resourceScope>
+          <mcc:MD_ScopeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ScopeCode" codeListValue="series">series</mcc:MD_ScopeCode>
+        </mdb:resourceScope>
+        <mdb:name>
+          <gco:CharacterString>Produit</gco:CharacterString>
+        </mdb:name>
+      </mdb:MD_MetadataScope>
+    </mdb:metadataScope>
+    <mdb:contact>
+      <cit:CI_Responsibility>
+        <cit:role>
+          <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact">pointOfContact</cit:CI_RoleCode>
+        </cit:role>
+        <cit:party>
+          <cit:CI_Organisation>
+            <cit:name>
+              <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+            </cit:name>
+            <cit:contactInfo>
+              <cit:CI_Contact>
+                <cit:address>
+                  <cit:CI_Address>
+                    <cit:deliveryPoint>
+                      <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                    </cit:deliveryPoint>
+                    <cit:deliveryPoint>
+                      <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                    </cit:deliveryPoint>
+                    <cit:city>
+                      <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                    </cit:city>
+                    <cit:postalCode>
+                      <gco:CharacterString>94165</gco:CharacterString>
+                    </cit:postalCode>
+                    <cit:country>
+                      <gco:CharacterString>FRANCE</gco:CharacterString>
+                    </cit:country>
+                    <cit:electronicMailAddress>
+                      <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                    </cit:electronicMailAddress>
+                  </cit:CI_Address>
+                </cit:address>
+                <cit:contactInstructions>
+                  <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                </cit:contactInstructions>
+              </cit:CI_Contact>
+            </cit:contactInfo>
+          </cit:CI_Organisation>
+        </cit:party>
+      </cit:CI_Responsibility>
+    </mdb:contact>
+    <mdb:dateInfo>
+      <cit:CI_Date>
+        <cit:date>
+          <gco:DateTime>2026-09-24T14:47:04.331225Z</gco:DateTime>
+        </cit:date>
+        <cit:dateType>
+          <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision">revision</cit:CI_DateTypeCode>
+        </cit:dateType>
+      </cit:CI_Date>
+    </mdb:dateInfo>
+    <mdb:metadataStandard>
+      <cit:CI_Citation>
+        <cit:title>
+          <gco:CharacterString>ISO 19115-3:2018</gco:CharacterString>
+        </cit:title>
+        <cit:edition>
+          <gco:CharacterString>1.0</gco:CharacterString>
+        </cit:edition>
+      </cit:CI_Citation>
+    </mdb:metadataStandard>
+    <mdb:spatialRepresentationInfo>
+      <msr:MD_VectorSpatialRepresentation id="IGN_BD-ORTHO.spatialRepresentationInfo_1">
+        <msr:topologyLevel>
+          <msr:MD_TopologyLevelCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="geometryOnly" />
+        </msr:topologyLevel>
+      </msr:MD_VectorSpatialRepresentation>
+    </mdb:spatialRepresentationInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/2154">EPSG:2154</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/2972">EPSG:2972</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/2975">EPSG:2975</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/4467">EPSG:4467</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/4471">EPSG:4471</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/5490">EPSG:5490</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/5490">EPSG:8903</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:identificationInfo>
+      <mri:MD_DataIdentification>
+        <mri:citation>
+          <cit:CI_Citation>
+            <cit:title>
+              <gco:CharacterString>BD ORTHO®</gco:CharacterString>
+            </cit:title>
+            <cit:alternateTitle>
+              <gco:CharacterString>Photographies aériennes</gco:CharacterString>
+            </cit:alternateTitle>
+            <cit:date>
+              <cit:CI_Date>
+                <cit:date>
+                  <gco:Date>2007-01-01</gco:Date>
+                </cit:date>
+                <cit:dateType>
+                  <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                </cit:dateType>
+              </cit:CI_Date>
+            </cit:date>
+            <cit:date>
+              <cit:CI_Date>
+                <cit:date>
+                  <gco:Date>2026-09-11</gco:Date>
+                </cit:date>
+                <cit:dateType>
+                  <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision">revision</cit:CI_DateTypeCode>
+                </cit:dateType>
+              </cit:CI_Date>
+            </cit:date>
+            <cit:edition>
+              <gco:CharacterString>2.0</gco:CharacterString>
+            </cit:edition>
+            <cit:identifier>
+              <mcc:MD_Identifier id="IGNF_BD-ORTHO.identifier">
+                <mcc:code>
+                  <gco:CharacterString>IGNF_BD-ORTHO</gco:CharacterString>
+                </mcc:code>
+              </mcc:MD_Identifier>
+            </cit:identifier>
+          </cit:CI_Citation>
+        </mri:citation>
+        <mri:abstract>
+          <gco:CharacterString>La BD ORTHO® est une collection d’ortho images géoréférencées et assemblées à partir des acquisitions aériennes triennales de l’IGN, en couleurs RVB et infrarouge, à 20 cm de résolution.
+
+Ces images aériennes sont des données de référence pour décrire et comprendre le territoire de manière détaillée. Elles servent de fonds de carte au quotidien par de nombreux professionnels au travers d’outils métiers et publics. Elles servent aussi à :
+- Produire de nombreuses bases de données pour l’occupation et l’usage des sols (OCSGE, Carhab), la foret (BD FORET®) et des modélisations 3D du terrain (MNS Correl)
+- Mettre à jour la BD TOPO® et entretenir le Registre Parcellaire Graphique (RPG) dans le cadre de la Politique Agricole Commune.
+
+Les prises de vues aériennes (PVA) sont réalisées chaque année sur une période estivale allant d’avril à octobre. Le programme d’acquisition suit une logique départementale ou territoriale et en tenant compte des contraintes d’actualité des programmes RPG et OCS GE.
+
+Quelques mois après le vol, une ortho express est mise à afin de permettre de disposer d’images exploitables rapidement.
+Cette ortho-image calculée automatiquement et sans correction géométrique interactive est désormais “vraie” c’est à dire que les éléments de sursol ne sont pas déversés, ce qui confère une meilleure visibilité du sol (avec pas ou peu de zones cachées) et une meilleure précision géométrique des objets en sursol afin moins de décalage que sur la BD ORTHO ®, notamment sur les bâtiments.
+
+Le produit couvre l'ensemble du territoire français métropolitain et ultramarin (sauf l’intérieur de la Guyane Française, la Polynésie Française, la Nouvelle-Calédonie et Wallis et Futuna) sauf sur les ZICAD (Zones Interdites à la Captation Aérienne des Données) pour lesquelles l’information est confidentielle conformément à la réglementation en vigueur.
+
+Il existe un millésime par an de BD ORTHO® depuis 2000 et un assemblage tous les 3 à 6 ans pour avoir un millésime couvrant l’ensemble du territoire.</gco:CharacterString>
+        </mri:abstract>
+        <mri:purpose>
+          <gco:CharacterString>La BD ORTHO® version 2.0 se compose d'images numériques (sans habillage ni surcharge) et d'indications de géoréférencement.
+			
+Le contenu informationnel permet localement une utilisation jusqu'au 1 : 2 000 pour mettre en valeur le territoire, enrichir la visualisation des données et des projets.</gco:CharacterString>
+        </mri:purpose>
+        <mri:status>
+          <mcc:MD_ProgressCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ProgressCode" codeListValue="onGoing">onGoing</mcc:MD_ProgressCode>
+        </mri:status>
+        <mri:pointOfContact>
+          <cit:CI_Responsibility>
+            <cit:role>
+              <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact">pointOfContact</cit:CI_RoleCode>
+            </cit:role>
+            <cit:party>
+              <cit:CI_Organisation>
+                <cit:name>
+                  <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+                </cit:name>
+                <cit:contactInfo>
+                  <cit:CI_Contact>
+                    <cit:address>
+                      <cit:CI_Address>
+                        <cit:deliveryPoint>
+                          <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                        </cit:deliveryPoint>
+                        <cit:deliveryPoint>
+                          <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                        </cit:deliveryPoint>
+                        <cit:city>
+                          <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                        </cit:city>
+                        <cit:postalCode>
+                          <gco:CharacterString>94165</gco:CharacterString>
+                        </cit:postalCode>
+                        <cit:country>
+                          <gco:CharacterString>FRANCE</gco:CharacterString>
+                        </cit:country>
+                        <cit:electronicMailAddress>
+                          <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                        </cit:electronicMailAddress>
+                      </cit:CI_Address>
+                    </cit:address>
+                    <cit:contactInstructions>
+                      <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                    </cit:contactInstructions>
+                  </cit:CI_Contact>
+                </cit:contactInfo>
+              </cit:CI_Organisation>
+            </cit:party>
+          </cit:CI_Responsibility>
+        </mri:pointOfContact>
+        <mri:spatialRepresentationType>
+          <mcc:MD_SpatialRepresentationTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="grid">grid</mcc:MD_SpatialRepresentationTypeCode>
+        </mri:spatialRepresentationType>
+        <mri:spatialResolution>
+          <mri:MD_Resolution>
+            <mri:distance>
+              <gco:Distance uom="m">0.15</gco:Distance>
+            </mri:distance>
+          </mri:MD_Resolution>
+        </mri:spatialResolution>
+        <mri:spatialResolution>
+          <mri:MD_Resolution>
+            <mri:distance>
+              <gco:Distance uom="m">0.2</gco:Distance>
+            </mri:distance>
+          </mri:MD_Resolution>
+        </mri:spatialResolution>
+        <mri:spatialResolution>
+          <mri:MD_Resolution>
+            <mri:distance>
+              <gco:Distance uom="m">0.5</gco:Distance>
+            </mri:distance>
+          </mri:MD_Resolution>
+        </mri:spatialResolution>
+        <mri:topicCategory>
+          <mri:MD_TopicCategoryCode>imageryBaseMapsEarthCover</mri:MD_TopicCategoryCode>
+        </mri:topicCategory>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>France métropolitaine</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-5.15</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>9.57</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>41.32</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>51.10</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>FXX</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Guadeloupe</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-61.82</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-60.99</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>15.82</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>16.52</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>GLP</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Guyane</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-54.61</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-51.61</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>2.10</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>5.76</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>GUF</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Martinique</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-61.24</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-60.80</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>14.38</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>14.89</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>MTQ</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Mayotte</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>45.01</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>45.31</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>-13.02</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>-12.63</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>MYT</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>La Réunion</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>55.21</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>55.85</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>-21.40</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>-20.86</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>REU</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Saint-Barthélemy</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-62.93</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-62.78</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>17.87</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>17.98</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>BLM</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Saint-Martin</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-63.16</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-62.90</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>18.04</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>18.13</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>MAF</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Saint-Pierre-et-Miquelon</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-56.53</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-56.07</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>46.74</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>47.15</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>SPM</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Dates de publication</gco:CharacterString>
+            </gex:description>
+            <gex:temporalElement>
+              <gex:EX_TemporalExtent>
+                <gex:extent>
+                  <TimePeriod xmlns="http://www.opengis.net/gml/3.2" gml:id="d471763222e1907">
+                    <beginPosition>2007-01-01</beginPosition>
+                    <endPosition>2026-01-01</endPosition>
+                  </TimePeriod>
+                </gex:extent>
+              </gex:EX_TemporalExtent>
+            </gex:temporalElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:resourceMaintenance>
+          <mmi:MD_MaintenanceInformation id="IGNF_BD-ORTHO.resourceMaintenance_1">
+            <mmi:maintenanceAndUpdateFrequency>
+              <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="irregular" />
+            </mmi:maintenanceAndUpdateFrequency>
+            <mmi:maintenanceNote>
+              <gco:CharacterString>Le recueil et le traitement des prises de vues sur le territoire national sont organisés de façon à garantir, pour la BD ORTHO®, une ancienneté moyenne de trois ans et une ancienneté maximum de cinq ans. Environ 1/3 du territoire est mis à jour chaque année.</gco:CharacterString>
+            </mmi:maintenanceNote>
+          </mmi:MD_MaintenanceInformation>
+        </mri:resourceMaintenance>
+        <mri:graphicOverview>
+          <mcc:MD_BrowseGraphic>
+            <mcc:fileName>
+              <gco:CharacterString>https://data.geopf.fr/annexes/ressources/metadata/thumbnail/vignette-bd-ortho.jpg</gco:CharacterString>
+            </mcc:fileName>
+            <mcc:fileDescription>
+              <gco:CharacterString>Aperçu</gco:CharacterString>
+            </mcc:fileDescription>
+            <mcc:fileType>
+              <gco:CharacterString>image/jpeg</gco:CharacterString>
+            </mcc:fileType>
+          </mcc:MD_BrowseGraphic>
+        </mri:graphicOverview>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gco:CharacterString>Ortho-imagerie</gco:CharacterString>
+            </mri:keyword>
+            <mri:thesaurusName>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
+                </cit:title>
+                <cit:date>
+                  <cit:CI_Date>
+                    <cit:date>
+                      <gco:Date>2008-06-01</gco:Date>
+                    </cit:date>
+                    <cit:dateType>
+                      <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                    </cit:dateType>
+                  </cit:CI_Date>
+                </cit:date>
+              </cit:CI_Citation>
+            </mri:thesaurusName>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialScope/national">National</gcx:Anchor>
+            </mri:keyword>
+            <mri:thesaurusName>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialScope">INSPIRE Spatial Scope</gcx:Anchor>
+                </cit:title>
+                <cit:date>
+                  <cit:CI_Date>
+                    <cit:date>
+                      <gco:Date>2019-05-22</gco:Date>
+                    </cit:date>
+                    <cit:dateType>
+                      <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                    </cit:dateType>
+                  </cit:CI_Date>
+                </cit:date>
+              </cit:CI_Citation>
+            </mri:thesaurusName>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gcx:Anchor xlink:href="http://publications.europa.eu/resource/authority/bna/c_dd313021">Observation de la terre et environnement</gcx:Anchor>
+            </mri:keyword>
+            <mri:thesaurusName>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gcx:Anchor xlink:href="http://data.europa.eu/bna/asd487ae75">High-value dataset categories</gcx:Anchor>
+                </cit:title>
+                <cit:date>
+                  <cit:CI_Date>
+                    <cit:date>
+                      <gco:Date>2023-09-27</gco:Date>
+                    </cit:date>
+                    <cit:dateType>
+                      <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                    </cit:dateType>
+                  </cit:CI_Date>
+                </cit:date>
+              </cit:CI_Citation>
+            </mri:thesaurusName>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gco:CharacterString>hvd</gco:CharacterString>
+            </mri:keyword>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gco:CharacterString>Observation de la terre et environnement</gco:CharacterString>
+            </mri:keyword>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gco:CharacterString>données ouvertes</gco:CharacterString>
+            </mri:keyword>
+            <mri:keyword>
+              <gco:CharacterString>photographies aériennes</gco:CharacterString>
+            </mri:keyword>
+            <mri:keyword>
+              <gco:CharacterString>territoires</gco:CharacterString>
+            </mri:keyword>
+            <mri:type>
+              <mri:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme" />
+            </mri:type>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:resourceSpecificUsage>
+          <mri:MD_Usage id="IGNF_BD-ORTHO.resourceSpecificUsage_1">
+            <mri:specificUsage>
+              <gco:CharacterString>Échelles d'affichage</gco:CharacterString>
+            </mri:specificUsage>
+            <mri:userDeterminedLimitations>
+              <gco:CharacterString>Échelles comprises entre le 1 : 1 000 et le 1 : 2 000 000.</gco:CharacterString>
+            </mri:userDeterminedLimitations>
+            <mri:userContactInfo>
+              <cit:CI_Responsibility>
+                <cit:role>
+                  <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="custodian">custodian</cit:CI_RoleCode>
+                </cit:role>
+                <cit:party>
+                  <cit:CI_Organisation>
+                    <cit:name>
+                      <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+                    </cit:name>
+                    <cit:contactInfo>
+                      <cit:CI_Contact>
+                        <cit:address>
+                          <cit:CI_Address>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:city>
+                              <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                            </cit:city>
+                            <cit:postalCode>
+                              <gco:CharacterString>94165</gco:CharacterString>
+                            </cit:postalCode>
+                            <cit:country>
+                              <gco:CharacterString>FRANCE</gco:CharacterString>
+                            </cit:country>
+                            <cit:electronicMailAddress>
+                              <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                            </cit:electronicMailAddress>
+                          </cit:CI_Address>
+                        </cit:address>
+                        <cit:contactInstructions>
+                          <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                        </cit:contactInstructions>
+                      </cit:CI_Contact>
+                    </cit:contactInfo>
+                  </cit:CI_Organisation>
+                </cit:party>
+              </cit:CI_Responsibility>
+            </mri:userContactInfo>
+          </mri:MD_Usage>
+        </mri:resourceSpecificUsage>
+        <mri:resourceConstraints>
+          <mco:MD_LegalConstraints>
+            <mco:accessConstraints>
+              <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" />
+            </mco:accessConstraints>
+            <mco:otherConstraints>
+              <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations">Pas de restriction d'accès public selon INSPIRE</gcx:Anchor>
+            </mco:otherConstraints>
+          </mco:MD_LegalConstraints>
+        </mri:resourceConstraints>
+        <mri:resourceConstraints>
+          <mco:MD_LegalConstraints>
+            <mco:useConstraints>
+              <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_RestrictionCode" codeListValue="license" />
+            </mco:useConstraints>
+          </mco:MD_LegalConstraints>
+        </mri:resourceConstraints>
+        <mri:resourceConstraints>
+          <mco:MD_LegalConstraints>
+            <mco:useConstraints>
+              <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" />
+            </mco:useConstraints>
+            <mco:otherConstraints>
+              <gcx:Anchor xlink:href="https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf">Licence Ouverte / Open License (compatible ODC-BY, CC-BY 2.0)</gcx:Anchor>
+            </mco:otherConstraints>
+          </mco:MD_LegalConstraints>
+        </mri:resourceConstraints>
+        <mri:defaultLocale>
+          <lan:PT_Locale>
+            <lan:language>
+              <lan:LanguageCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#LanguageCode" codeListValue="fre">fre</lan:LanguageCode>
+            </lan:language>
+            <lan:characterEncoding gco:nilReason="unknown" />
+          </lan:PT_Locale>
+        </mri:defaultLocale>
+      </mri:MD_DataIdentification>
+    </mdb:identificationInfo>
+    <mdb:contentInfo />
+    <mdb:distributionInfo>
+      <mrd:MD_Distribution>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_BD-ORTHO.distributionFormat.JPEG2000_E080">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>JP2_080</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>Standard</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_BD-ORTHO.distributionFormat.wmts">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>WMTS</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>1.0.0</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_BD-ORTHO.distributionFormat.wms">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>WMS</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>1.3.0</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_BD-ORTHO.distributionFormat.wfs">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>WFS</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>2.0.0</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributor>
+          <mrd:MD_Distributor id="IGNF_BD-ORTHO.distributor.IGN-F">
+            <mrd:distributorContact>
+              <cit:CI_Responsibility>
+                <cit:role>
+                  <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="distributor">distributor</cit:CI_RoleCode>
+                </cit:role>
+                <cit:party>
+                  <cit:CI_Organisation>
+                    <cit:name>
+                      <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+                    </cit:name>
+                    <cit:contactInfo>
+                      <cit:CI_Contact>
+                        <cit:address>
+                          <cit:CI_Address>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:city>
+                              <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                            </cit:city>
+                            <cit:postalCode>
+                              <gco:CharacterString>94165</gco:CharacterString>
+                            </cit:postalCode>
+                            <cit:country>
+                              <gco:CharacterString>FRANCE</gco:CharacterString>
+                            </cit:country>
+                            <cit:electronicMailAddress>
+                              <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                            </cit:electronicMailAddress>
+                          </cit:CI_Address>
+                        </cit:address>
+                        <cit:contactInstructions>
+                          <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                        </cit:contactInstructions>
+                      </cit:CI_Contact>
+                    </cit:contactInfo>
+                  </cit:CI_Organisation>
+                </cit:party>
+              </cit:CI_Responsibility>
+            </mrd:distributorContact>
+          </mrd:MD_Distributor>
+        </mrd:distributor>
+        <mrd:transferOptions>
+          <mrd:MD_DigitalTransferOptions>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/telechargement/resource/BDORTHO</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/ProtocolValue/WWW:DOWNLOAD-1.0-http--download">WWW:DOWNLOAD-1.0-http--download</gcx:Anchor>
+                </cit:protocol>
+                <cit:applicationProfile>
+                  <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/ApplicationProfile/view">Service de téléchargement</gcx:Anchor>
+                </cit:applicationProfile>
+                <cit:name>
+                  <gco:CharacterString>BD ORTHO®</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO®</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>HR.ORTHOIMAGERY.ORTHOPHOTOS</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® 20 cm</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® 50 cm</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>HR.ORTHOIMAGERY.ORTHOPHOTOS.L93</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® 20 cm L93</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2000-2005</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2000-2005</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2006-2010</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2006-2010</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2011-2015</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2011-2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2016-2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2016-2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2021-2023</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2021-2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2000</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2000</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2001</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2001</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2002</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2002</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2003</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2003</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2004</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2004</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2005</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2005</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2006</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2006</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2007</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2007</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2008</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2008</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2009</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2009</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2010</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2010</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2011</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2011</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2012</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2012</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2013</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2013</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2014</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2014</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2015</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2016</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2016</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2017</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2017</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2018</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2018</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2019</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2019</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2021</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2021</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2022</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2022</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2023</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.2024</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2024</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2013</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2013</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2014</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2014</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2015</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2016</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2016</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2017</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2017</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2018</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2018</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2019</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2019</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2021</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2021</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2022</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2022</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2023</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2024</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2024</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.SOCLE-ASP.2018</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO ASP 2018 (édition 2019)</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2021</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2021</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2022</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2022</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2024</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2024</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2025</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2025</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2026</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2026</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.URGENCE.ALEX</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Orthophotographie d’urgence Alex</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® 50 cm</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>HR.ORTHOIMAGERY.ORTHOPHOTOS</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® 20 cm</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2000-2005</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2000-2005</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2006-2010</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2006-2010</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2011-2015</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2011-2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2016-2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2016-2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2021-2023</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2021-2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2000</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2000</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2001</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2001</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2002</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2002</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2003</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2003</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2004</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2004</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2005</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2005</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2006</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2006</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2007</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2007</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2008</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2008</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2009</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2009</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2010</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2010</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2011</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2011</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2012</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2012</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2013</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2013</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2014</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2014</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2015</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2016</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2016</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2017</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2017</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2018</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2018</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2019</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2019</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2021</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2021</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2022</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2022</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2023</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS2024</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Photographies aériennes 2024</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2013</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2013</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2014</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2014</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2015</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2016</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2016</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2017</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2017</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2018</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2018</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2019</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2019</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2021</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2021</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2022</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2022</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2023</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.IRC.2024</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO IRC 2024</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.SOCLE-ASP.2018</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO ASP 2018 (édition 2019)</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2021</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2021</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2022</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2022</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2024</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2024</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC2025</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2025</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.ORTHO-ASP_PAC26</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHO-ASP_PAC2026</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.URGENCE.ALEX</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Orthophotographie d’urgence Alex</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-v/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaiquage BD ORTHO</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-v/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2000-2005</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2000-2005</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-v/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2006-2010</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2006-2010</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-v/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2011-2015</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2011-2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-v/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2016-2020</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2016-2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-v/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2021-2023</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2021-2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-v/ows?SERVICE=WMS&amp;VERSION=1.3.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORHOPHOTOS.URGENCE.ALEX.GRAPHE-MOSAIQUAGE</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage urgence Alex</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WFS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>Graphe de mosaïquage BD ORTHO</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE:graphe_bdortho</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WFS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2000-2005:graphe_bdortho</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2000-2005</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WFS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2006-2010:graphe_bdortho</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2006-2010</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WFS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2011-2015:graphe_bdortho</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2011-2015</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WFS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2016-2020:graphe_bdortho</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2016-2020</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WFS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE.2021-2023:graphe_bdortho</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Graphe de mosaïquage ORTHO 2021-2023</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/DC_BDORTHO_2-0.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® - Descriptif de contenu</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/DL_raster_ORTHO.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Produits ORTHO - Descriptif de livraison</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/SE_DL_raster_ORTHO.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Produits ORTHO - Descriptif de livraison - Suivi des évolutions</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/SE_BDORTHO.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® - Suivi des évolutions</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/TA-ORTHO-1km.zip</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® - Tableau d'assemblage 1km</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/TA-ORTHO-5km.zip</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® - Tableau d'assemblage 5km</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/Tableaux_Années_PVA_BDORTHO.zip</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Tableaux des années de prise de vue aérienne</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/Partenariats_BDORTHO.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® - Liste des partenaires</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/RCQ_BDORTHO.zip</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® - Rapports de contrôle qualité</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/DT_JPEG2000.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Descriptif Technique du JPEG2000</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://cartes.gouv.fr/catalogue/dataset/IGNF_ORTHO-EXPRESS</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>ORTHO EXPRESS</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://macarte.ign.fr/carte/7PZNqB/Programmation-socle-aerienne-spatiale-2025</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® 2025 - Suivi d'acquisition / production</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://macarte.ign.fr/carte/jWAUIL/Derniers-millesimes-BD-ORTHO-disponibles</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO® - Millésime</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://macarte.ign.fr/carte/MEuqC4/Programmation-socle-aerienne-spatiale-2026</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>BD ORTHO 2026 Suivi d'acquisition / production</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+          </mrd:MD_DigitalTransferOptions>
+        </mrd:transferOptions>
+      </mrd:MD_Distribution>
+    </mdb:distributionInfo>
+    <mdb:dataQualityInfo>
+      <mdq:DQ_DataQuality>
+        <mdq:scope>
+          <mcc:MD_Scope>
+            <mcc:level>
+              <mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_ScopeCode" codeListValue="series" />
+            </mcc:level>
+          </mcc:MD_Scope>
+        </mdq:scope>
+        <mdq:report>
+          <mdq:DQ_DomainConsistency>
+            <mdq:measure>
+              <mdq:DQ_MeasureReference>
+                <mdq:nameOfMeasure>
+                  <gco:CharacterString>Value domain conformance</gco:CharacterString>
+                </mdq:nameOfMeasure>
+              </mdq:DQ_MeasureReference>
+            </mdq:measure>
+            <mdq:result>
+              <mdq:DQ_ConformanceResult>
+                <mdq:specification>
+                  <cit:CI_Citation>
+                    <cit:title>
+                      <gco:CharacterString>Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</gco:CharacterString>
+                    </cit:title>
+                    <cit:date>
+                      <cit:CI_Date>
+                        <cit:date>
+                          <gco:Date>2010-12-08</gco:Date>
+                        </cit:date>
+                        <cit:dateType>
+                          <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                        </cit:dateType>
+                      </cit:CI_Date>
+                    </cit:date>
+                  </cit:CI_Citation>
+                </mdq:specification>
+                <mdq:explanation>
+                  <gco:CharacterString>Dataset is conformant to the Inspire data specification.</gco:CharacterString>
+                </mdq:explanation>
+                <mdq:pass>
+                  <gco:Boolean>true</gco:Boolean>
+                </mdq:pass>
+              </mdq:DQ_ConformanceResult>
+            </mdq:result>
+          </mdq:DQ_DomainConsistency>
+        </mdq:report>
+      </mdq:DQ_DataQuality>
+    </mdb:dataQualityInfo>
+    <mdb:resourceLineage>
+      <mrl:LI_Lineage>
+        <mrl:statement>
+          <gco:CharacterString>Le produit BD ORTHO® version 2.0 est une collection de mosaïques d'orthophotographies numériques en couleurs (RVB) et en proche Infra-Rouge fausses Couleurs (IRC), rectifiées dans la projection adaptée au territoire couvert.
+				  
+				  Dernières mises à jour : Téléchargement BD ORTHO® IRC et RVB - D013, D014 - 2026
+				                           Téléchargement BD ORTHO® RVB - Relivraison D021 - 2014
+										   Flux WMTS et WMS-Raster ORTHOIMAGERY.ORTHOPHOTOS, HR.ORTHOIMAGERY.ORTHOPHOTOS, ORTHOIMAGERY.ORTHOPHOTOS.BDORTHO, ORTHOIMAGERY.ORTHOPHOTOS.IRC D008, D012, D015, D051, D054, D057, D074 et D974 - 2025
+										   Flux WFS et WMS-Vecteur ORTHOIMAGERY.ORTHOPHOTOS.GRAPHE-MOSAIQUAGE D008, D012, D015, D051, D054, D057, D074 et D974 - 2025</gco:CharacterString>
+        </mrl:statement>
+        <mrl:scope>
+          <mcc:MD_Scope>
+            <mcc:level>
+              <mcc:MD_ScopeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ScopeCode" codeListValue="series">series</mcc:MD_ScopeCode>
+            </mcc:level>
+          </mcc:MD_Scope>
+        </mrl:scope>
+      </mrl:LI_Lineage>
+    </mdb:resourceLineage>
+    <mdb:metadataConstraints>
+      <mco:MD_SecurityConstraints>
+        <mco:useLimitation>
+          <gco:CharacterString>Aucune contrainte</gco:CharacterString>
+        </mco:useLimitation>
+        <mco:classification>
+          <mco:MD_ClassificationCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_ClassificationCode" codeListValue="unclassified" />
+        </mco:classification>
+      </mco:MD_SecurityConstraints>
+    </mdb:metadataConstraints>
+  </mdb:MD_Metadata>
+</csw:GetRecordByIdResponse>
+

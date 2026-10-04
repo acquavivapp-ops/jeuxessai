@@ -1,0 +1,2458 @@
+{
+  "archive": "/workspace/blue-night.zip",
+  "zipSha256": "1ecbcaa3ceb7dda7f6a85920047ae0db1cf63e0405cd3059c912e3269a54299f",
+  "zipBytes": 154745490,
+  "extractedFileCount": 846,
+  "extracted": "/tmp/blue-night-photo-mobility-check-6JzZZz/blue-night",
+  "validatedAtUTC": "2026-10-04T18:53:34.248Z",
+  "browser": "Chromium / Linux; real Safari not tested",
+  "noDependenciesToPlay": true,
+  "ignoredOriginalsAreSeparatelyDistributed": true,
+  "manifest": {
+    "runtimeTiles": 698,
+    "baseRuntimeTiles": 288,
+    "detailRuntimeTiles": 410,
+    "verifiedRuntimeBytes": 122108095,
+    "excludedOriginalJPEGs": 178,
+    "excludedComparisonJPEGs": 12,
+    "overviewBytes": 269716,
+    "image": {
+      "width": 17884,
+      "height": 15466
+    },
+    "metresPerPixel": {
+      "x": 0.4999823864907179,
+      "y": 0.49997171214276476
+    },
+    "detailMetresPerPixel": {
+      "x": 0.25,
+      "y": 0.25
+    },
+    "detailAreaSquareKm": 23.875,
+    "licenseVerifiedByHash": true
+  },
+  "aerial": {
+    "vegetationCount": 12000,
+    "photoPlayableVehicles": 251,
+    "persistentPhotoMasks": 251,
+    "vehicleCoverage": {
+      "status": "ready",
+      "observed": 251,
+      "converted": 251,
+      "rejected": [],
+      "aliases": [],
+      "byType": {
+        "car": {
+          "observed": 96,
+          "converted": 96,
+          "rejected": 0
+        },
+        "boat": {
+          "observed": 153,
+          "converted": 153,
+          "rejected": 0
+        },
+        "plane": {
+          "observed": 2,
+          "converted": 2,
+          "rejected": 0
+        }
+      },
+      "outOfScope": [
+        {
+          "id": "photo-car-port-extension-08",
+          "x": 16475,
+          "y": 8774,
+          "angle": 1.08,
+          "width": 9,
+          "length": 22,
+          "color": "#373543",
+          "maskPolygon": [
+            [
+              16474.61,
+              8759.47
+            ],
+            [
+              16486.86,
+              8782.4
+            ],
+            [
+              16475.39,
+              8788.53
+            ],
+            [
+              16463.14,
+              8765.6
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16497,
+              "y": 8720,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#6f7180"
+          },
+          "groundColor": "#6f7180",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1367,
+              "y": 163,
+              "w": 24,
+              "h": 30
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1379,
+              178
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16475,8774); no placement inferred from roads alone"
+          },
+          "excludedReason": "uncertain-dark-canopy-versus-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-09",
+          "x": 16502,
+          "y": 8770,
+          "angle": 1.08,
+          "width": 8,
+          "length": 20,
+          "color": "#dceadb",
+          "maskPolygon": [
+            [
+              16501.64,
+              8756.59
+            ],
+            [
+              16512.95,
+              8777.76
+            ],
+            [
+              16502.36,
+              8783.41
+            ],
+            [
+              16491.05,
+              8762.24
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16497,
+              "y": 8720,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#6f7180"
+          },
+          "groundColor": "#6f7180",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1395,
+              "y": 160,
+              "w": 22,
+              "h": 28
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1406,
+              174
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16502,8770); no placement inferred from roads alone"
+          },
+          "excludedReason": "duplicate-or-shadow-of-port-extension-07"
+        },
+        {
+          "id": "photo-car-port-extension-10",
+          "x": 16438,
+          "y": 8820,
+          "angle": 1.08,
+          "width": 7.5,
+          "length": 20,
+          "color": "#585a67",
+          "maskPolygon": [
+            [
+              16437.42,
+              8806.71
+            ],
+            [
+              16448.73,
+              8827.87
+            ],
+            [
+              16438.58,
+              8833.29
+            ],
+            [
+              16427.27,
+              8812.13
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16490,
+              "y": 8945,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#c2cecd"
+          },
+          "groundColor": "#c2cecd",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1331,
+              "y": 210,
+              "w": 22,
+              "h": 28
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1342,
+              224
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16438,8820); no placement inferred from roads alone"
+          },
+          "excludedReason": "empty-parking-bay-not-a-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-11",
+          "x": 16442,
+          "y": 8834,
+          "angle": 1.08,
+          "width": 7.5,
+          "length": 20,
+          "color": "#585f71",
+          "maskPolygon": [
+            [
+              16441.42,
+              8820.71
+            ],
+            [
+              16452.73,
+              8841.87
+            ],
+            [
+              16442.58,
+              8847.29
+            ],
+            [
+              16431.27,
+              8826.13
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16490,
+              "y": 8945,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#c2cecd"
+          },
+          "groundColor": "#c2cecd",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1335,
+              "y": 224,
+              "w": 22,
+              "h": 28
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1346,
+              238
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16442,8834); no placement inferred from roads alone"
+          },
+          "excludedReason": "empty-parking-bay-not-a-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-17",
+          "x": 16497,
+          "y": 8915,
+          "angle": -0.8,
+          "width": 8,
+          "length": 20,
+          "color": "#838381",
+          "maskPolygon": [
+            [
+              16484.34,
+              8919.43
+            ],
+            [
+              16501.06,
+              8902.21
+            ],
+            [
+              16509.66,
+              8910.57
+            ],
+            [
+              16492.94,
+              8927.79
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16490,
+              "y": 8945,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#c2cecd"
+          },
+          "groundColor": "#c2cecd",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1388,
+              "y": 306,
+              "w": 26,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1401,
+              319
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16497,8915); no placement inferred from roads alone"
+          },
+          "excludedReason": "parking-pavement-next-to-a-vehicle-not-a-separate-body"
+        },
+        {
+          "id": "photo-car-port-extension-18",
+          "x": 16467,
+          "y": 8937,
+          "angle": -0.8,
+          "width": 8,
+          "length": 20,
+          "color": "#48454e",
+          "maskPolygon": [
+            [
+              16454.34,
+              8941.43
+            ],
+            [
+              16471.06,
+              8924.21
+            ],
+            [
+              16479.66,
+              8932.57
+            ],
+            [
+              16462.94,
+              8949.79
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16490,
+              "y": 8945,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#c2cecd"
+          },
+          "groundColor": "#c2cecd",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1358,
+              "y": 328,
+              "w": 26,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1371,
+              341
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16467,8937); no placement inferred from roads alone"
+          },
+          "excludedReason": "empty-parking-bay-not-a-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-19",
+          "x": 16440,
+          "y": 9000,
+          "angle": -0.8,
+          "width": 8,
+          "length": 20,
+          "color": "#cfd5d3",
+          "maskPolygon": [
+            [
+              16427.34,
+              9004.43
+            ],
+            [
+              16444.06,
+              8987.21
+            ],
+            [
+              16452.66,
+              8995.57
+            ],
+            [
+              16435.94,
+              9012.79
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16490,
+              "y": 8945,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#c2cecd"
+          },
+          "groundColor": "#c2cecd",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1331,
+              "y": 391,
+              "w": 26,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1344,
+              404
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16440,9000); no placement inferred from roads alone"
+          },
+          "excludedReason": "pavement-shadow-no-confirmed-vehicle-body"
+        },
+        {
+          "id": "photo-car-port-extension-21",
+          "x": 16403,
+          "y": 9087,
+          "angle": -0.8,
+          "width": 8,
+          "length": 20,
+          "color": "#afaba2",
+          "maskPolygon": [
+            [
+              16390.34,
+              9091.43
+            ],
+            [
+              16407.06,
+              9074.21
+            ],
+            [
+              16415.66,
+              9082.57
+            ],
+            [
+              16398.94,
+              9099.79
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16371,
+              "y": 9115,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#acada6"
+          },
+          "groundColor": "#acada6",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1294,
+              "y": 478,
+              "w": 26,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1307,
+              491
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16403,9087); no placement inferred from roads alone"
+          },
+          "excludedReason": "pavement-and-small-street-fixtures-not-a-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-22",
+          "x": 16394,
+          "y": 9093,
+          "angle": -0.8,
+          "width": 8,
+          "length": 20,
+          "color": "#747371",
+          "maskPolygon": [
+            [
+              16381.34,
+              9097.43
+            ],
+            [
+              16398.06,
+              9080.21
+            ],
+            [
+              16406.66,
+              9088.57
+            ],
+            [
+              16389.94,
+              9105.79
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16371,
+              "y": 9115,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#acada6"
+          },
+          "groundColor": "#acada6",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1285,
+              "y": 484,
+              "w": 26,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1298,
+              497
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16394,9093); no placement inferred from roads alone"
+          },
+          "excludedReason": "pavement-and-small-street-fixtures-not-a-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-24",
+          "x": 16326,
+          "y": 9123,
+          "angle": -0.8,
+          "width": 8,
+          "length": 20,
+          "color": "#686b7c",
+          "maskPolygon": [
+            [
+              16313.34,
+              9127.43
+            ],
+            [
+              16330.06,
+              9110.21
+            ],
+            [
+              16338.66,
+              9118.57
+            ],
+            [
+              16321.94,
+              9135.79
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16371,
+              "y": 9115,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#acada6"
+          },
+          "groundColor": "#acada6",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1217,
+              "y": 514,
+              "w": 26,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1230,
+              527
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16326,9123); no placement inferred from roads alone"
+          },
+          "excludedReason": "empty-road-parking-gap-not-a-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-27",
+          "x": 16273,
+          "y": 8508,
+          "angle": -1.24,
+          "width": 7.5,
+          "length": 18,
+          "color": "#c3c3c3",
+          "maskPolygon": [
+            [
+              16263.99,
+              8516.54
+            ],
+            [
+              16271.13,
+              8495.73
+            ],
+            [
+              16282.01,
+              8499.46
+            ],
+            [
+              16274.87,
+              8520.27
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16291,
+              "y": 8543,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#535153"
+          },
+          "groundColor": "#535153",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r1",
+            "sha256": "35ba8e32ce7ef49bc740788342338380a63c3deebd9ee132639b0ea02a8c217c",
+            "pixelRect": {
+              "x": 1167,
+              "y": 1947,
+              "w": 20,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1177,
+              1960
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 6548,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Native image review finds pale pavement, not a distinguishable vehicle body; retained as rejected observation, not a playable actor."
+          },
+          "excludedReason": "pale-pavement-not-a-confirmed-vehicle"
+        },
+        {
+          "id": "photo-car-port-extension-28",
+          "x": 16252,
+          "y": 8676,
+          "angle": -1.24,
+          "width": 7.5,
+          "length": 18,
+          "color": "#e2e1dc",
+          "maskPolygon": [
+            [
+              16242.99,
+              8684.54
+            ],
+            [
+              16250.13,
+              8663.73
+            ],
+            [
+              16261.01,
+              8667.46
+            ],
+            [
+              16253.87,
+              8688.27
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16291,
+              "y": 8543,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#000000"
+          },
+          "groundColor": "#000000",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1146,
+              "y": 67,
+              "w": 20,
+              "h": 26
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1156,
+              80
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Parked or road vehicle body manually inspected in the true .25 m port/quay/station original at world (16252,8676); no placement inferred from roads alone"
+          },
+          "excludedReason": "uncertain-white-pavement-versus-partial-vehicle"
+        },
+        {
+          "id": "photo-plane-airport-03",
+          "x": 27471.5,
+          "y": 27590.5,
+          "angle": -0.294,
+          "width": 48,
+          "length": 35,
+          "color": "#d9d8cc",
+          "maskPolygon": [
+            [
+              27454,
+              27590
+            ],
+            [
+              27456,
+              27600
+            ],
+            [
+              27460,
+              27604
+            ],
+            [
+              27462,
+              27598
+            ],
+            [
+              27470,
+              27595
+            ],
+            [
+              27478,
+              27614
+            ],
+            [
+              27486,
+              27613
+            ],
+            [
+              27486,
+              27606
+            ],
+            [
+              27477,
+              27592
+            ],
+            [
+              27487,
+              27587
+            ],
+            [
+              27486,
+              27582
+            ],
+            [
+              27477,
+              27585
+            ],
+            [
+              27471,
+              27567
+            ],
+            [
+              27464,
+              27566
+            ],
+            [
+              27461,
+              27571
+            ],
+            [
+              27467,
+              27588
+            ],
+            [
+              27460,
+              27590
+            ],
+            [
+              27457,
+              27586
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 27496,
+              "y": 27612,
+              "w": 8,
+              "h": 8
+            },
+            "color": "#909498"
+          },
+          "groundColor": "#909498",
+          "sourcePlacement": {
+            "tileId": "detail-airport-c3-r3",
+            "sha256": "29f638890577477685b9f4354c8db075f69e78f6d964617d069a836998354a8b",
+            "pixelRect": {
+              "x": 310,
+              "y": 1422,
+              "w": 33,
+              "h": 48
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              327.5,
+              1446.5
+            ],
+            "sourceBoundsWorld": {
+              "x": 27144,
+              "y": 26144,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Manually verified native airport photograph, source original SHA-256 checked; silhouette/body measurements visually estimated to 1\u20132 native pixels"
+          },
+          "mobilityType": "plane",
+          "excludedReason": "outside-calvi-administrative-boundary; actual aircraft preserved as source evidence, not relocated into Calvi"
+        },
+        {
+          "id": "photo-plane-airport-04",
+          "x": 27510,
+          "y": 27689,
+          "angle": -0.303,
+          "width": 42,
+          "length": 35,
+          "color": "#d9d8cc",
+          "maskPolygon": [
+            [
+              27491,
+              27686
+            ],
+            [
+              27492,
+              27697
+            ],
+            [
+              27496,
+              27702
+            ],
+            [
+              27500,
+              27701
+            ],
+            [
+              27499,
+              27694
+            ],
+            [
+              27508,
+              27692
+            ],
+            [
+              27517,
+              27709
+            ],
+            [
+              27525,
+              27708
+            ],
+            [
+              27524,
+              27701
+            ],
+            [
+              27515,
+              27688
+            ],
+            [
+              27527,
+              27685
+            ],
+            [
+              27526,
+              27680
+            ],
+            [
+              27515,
+              27683
+            ],
+            [
+              27514,
+              27670
+            ],
+            [
+              27505,
+              27668
+            ],
+            [
+              27502,
+              27673
+            ],
+            [
+              27507,
+              27686
+            ],
+            [
+              27498,
+              27689
+            ],
+            [
+              27497,
+              27685
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 27545,
+              "y": 27675,
+              "w": 8,
+              "h": 8
+            },
+            "color": "#a5a8a7"
+          },
+          "groundColor": "#a5a8a7",
+          "sourcePlacement": {
+            "tileId": "detail-airport-c3-r3",
+            "sha256": "29f638890577477685b9f4354c8db075f69e78f6d964617d069a836998354a8b",
+            "pixelRect": {
+              "x": 347,
+              "y": 1524,
+              "w": 36,
+              "h": 41
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              366,
+              1545
+            ],
+            "sourceBoundsWorld": {
+              "x": 27144,
+              "y": 26144,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Manually verified native airport photograph, source original SHA-256 checked; silhouette/body measurements visually estimated to 1\u20132 native pixels"
+          },
+          "mobilityType": "plane",
+          "excludedReason": "outside-calvi-administrative-boundary; actual aircraft preserved as source evidence, not relocated into Calvi"
+        },
+        {
+          "id": "photo-plane-airport-05",
+          "x": 27531,
+          "y": 27742.5,
+          "angle": -0.278,
+          "width": 36,
+          "length": 28,
+          "color": "#d9d8cc",
+          "maskPolygon": [
+            [
+              27516,
+              27738
+            ],
+            [
+              27517,
+              27750
+            ],
+            [
+              27521,
+              27754
+            ],
+            [
+              27525,
+              27752
+            ],
+            [
+              27523,
+              27747
+            ],
+            [
+              27531,
+              27745
+            ],
+            [
+              27535,
+              27761
+            ],
+            [
+              27544,
+              27760
+            ],
+            [
+              27543,
+              27752
+            ],
+            [
+              27536,
+              27742
+            ],
+            [
+              27545,
+              27740
+            ],
+            [
+              27544,
+              27735
+            ],
+            [
+              27535,
+              27739
+            ],
+            [
+              27534,
+              27725
+            ],
+            [
+              27526,
+              27724
+            ],
+            [
+              27523,
+              27730
+            ],
+            [
+              27529,
+              27741
+            ],
+            [
+              27522,
+              27743
+            ],
+            [
+              27521,
+              27738
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 27562,
+              "y": 27722,
+              "w": 8,
+              "h": 8
+            },
+            "color": "#a0a3a4"
+          },
+          "groundColor": "#a0a3a4",
+          "sourcePlacement": {
+            "tileId": "detail-airport-c3-r3",
+            "sha256": "29f638890577477685b9f4354c8db075f69e78f6d964617d069a836998354a8b",
+            "pixelRect": {
+              "x": 372,
+              "y": 1580,
+              "w": 29,
+              "h": 37
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              387,
+              1598.5
+            ],
+            "sourceBoundsWorld": {
+              "x": 27144,
+              "y": 26144,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Manually verified native airport photograph, source original SHA-256 checked; silhouette/body measurements visually estimated to 1\u20132 native pixels"
+          },
+          "mobilityType": "plane",
+          "excludedReason": "outside-calvi-administrative-boundary; actual aircraft preserved as source evidence, not relocated into Calvi"
+        },
+        {
+          "id": "photo-plane-airport-06",
+          "x": 27882,
+          "y": 27779,
+          "angle": 1.5707963267948966,
+          "width": 48,
+          "length": 34,
+          "color": "#d9d8cc",
+          "maskPolygon": [
+            [
+              27871,
+              27761
+            ],
+            [
+              27895,
+              27761
+            ],
+            [
+              27895,
+              27766
+            ],
+            [
+              27886,
+              27767
+            ],
+            [
+              27886,
+              27776
+            ],
+            [
+              27907,
+              27780
+            ],
+            [
+              27907,
+              27785
+            ],
+            [
+              27895,
+              27784
+            ],
+            [
+              27894,
+              27790
+            ],
+            [
+              27889,
+              27790
+            ],
+            [
+              27888,
+              27784
+            ],
+            [
+              27886,
+              27792
+            ],
+            [
+              27882,
+              27796
+            ],
+            [
+              27878,
+              27792
+            ],
+            [
+              27877,
+              27784
+            ],
+            [
+              27875,
+              27784
+            ],
+            [
+              27874,
+              27791
+            ],
+            [
+              27869,
+              27791
+            ],
+            [
+              27869,
+              27784
+            ],
+            [
+              27857,
+              27784
+            ],
+            [
+              27857,
+              27779
+            ],
+            [
+              27877,
+              27776
+            ],
+            [
+              27878,
+              27767
+            ],
+            [
+              27871,
+              27767
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 27836,
+              "y": 27746,
+              "w": 8,
+              "h": 8
+            },
+            "color": "#a0a2a1"
+          },
+          "groundColor": "#a0a2a1",
+          "sourcePlacement": {
+            "tileId": "detail-airport-c3-r3",
+            "sha256": "29f638890577477685b9f4354c8db075f69e78f6d964617d069a836998354a8b",
+            "pixelRect": {
+              "x": 713,
+              "y": 1617,
+              "w": 50,
+              "h": 35
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              738,
+              1635
+            ],
+            "sourceBoundsWorld": {
+              "x": 27144,
+              "y": 26144,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Manually verified native airport photograph, source original SHA-256 checked; silhouette/body measurements visually estimated to 1\u20132 native pixels"
+          },
+          "mobilityType": "plane",
+          "excludedReason": "outside-calvi-administrative-boundary; actual aircraft preserved as source evidence, not relocated into Calvi"
+        },
+        {
+          "id": "photo-boat-port-001-01",
+          "x": 16792.44,
+          "y": 8381.88,
+          "angle": 0.84122,
+          "width": 10.6,
+          "length": 17.5,
+          "color": "#e1e2d7",
+          "maskPolygon": [
+            [
+              16785.86,
+              8377.19
+            ],
+            [
+              16789.46,
+              8374.71
+            ],
+            [
+              16793.13,
+              8374.61
+            ],
+            [
+              16794.43,
+              8375.67
+            ],
+            [
+              16800.26,
+              8385.6
+            ],
+            [
+              16801.16,
+              8387.79
+            ],
+            [
+              16798.86,
+              8390.1
+            ],
+            [
+              16797.76,
+              8390.18
+            ],
+            [
+              16787.81,
+              8384.74
+            ],
+            [
+              16785.6,
+              8382.03
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16808,
+              "y": 8371,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#1a2533"
+          },
+          "groundColor": "#1a2533",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r1",
+            "sha256": "35ba8e32ce7ef49bc740788342338380a63c3deebd9ee132639b0ea02a8c217c",
+            "pixelRect": {
+              "x": 1689.6,
+              "y": 1826.61,
+              "w": 15.56,
+              "h": 15.57
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1696.44,
+              1833.88
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 6548,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Native IGN white hull pixels with individually inspected source outline; grouped neighbouring vessels split along their visible berth row, not inferred from random parking positions; boarding is the nearest unchanged OSM pier-axis point, not an invented land polygon. Ground patch is inspected neighbouring photograph water, not pavement.",
+            "boardingPixel": [
+              1609.948,
+              1953.157
+            ],
+            "observationGroup": 1,
+            "splitCount": 1,
+            "supportPixelCount": 82,
+            "observationMethod": "white-hull connected pixels; each source group visually reviewed and multiple hulls separated; no generated or relocated berth positions"
+          },
+          "mobilityType": "boat",
+          "boarding": {
+            "x": 16705.948,
+            "y": 8501.157
+          },
+          "excludedReason": "confirmed-deck-not-a-vessel",
+          "sourcePierId": "osm-pier-1089398758",
+          "bodyPolygonWorld": [
+            [
+              16787,
+              8378
+            ],
+            [
+              16790,
+              8376
+            ],
+            [
+              16793,
+              8376
+            ],
+            [
+              16794,
+              8377
+            ],
+            [
+              16799,
+              8385
+            ],
+            [
+              16800,
+              8387
+            ],
+            [
+              16798,
+              8389
+            ],
+            [
+              16797,
+              8389
+            ],
+            [
+              16789,
+              8384
+            ],
+            [
+              16787,
+              8382
+            ]
+          ]
+        },
+        {
+          "id": "photo-boat-port-002-01",
+          "x": 16749.24,
+          "y": 8392.42,
+          "angle": -0.70069,
+          "width": 9.6,
+          "length": 21.3,
+          "color": "#e1e2d7",
+          "maskPolygon": [
+            [
+              16738.69,
+              8396.51
+            ],
+            [
+              16742.6,
+              8391.89
+            ],
+            [
+              16748.93,
+              8386.6
+            ],
+            [
+              16753.63,
+              8383.75
+            ],
+            [
+              16756.94,
+              8383.97
+            ],
+            [
+              16758.28,
+              8388.44
+            ],
+            [
+              16758.34,
+              8389.58
+            ],
+            [
+              16751.62,
+              8397.26
+            ],
+            [
+              16745.45,
+              8401.29
+            ],
+            [
+              16744.32,
+              8401.22
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16738,
+              "y": 8408,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#212437"
+          },
+          "groundColor": "#212437",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r1",
+            "sha256": "35ba8e32ce7ef49bc740788342338380a63c3deebd9ee132639b0ea02a8c217c",
+            "pixelRect": {
+              "x": 1642.69,
+              "y": 1835.75,
+              "w": 19.65,
+              "h": 17.54
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1653.24,
+              1844.42
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 6548,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Native IGN white hull pixels with individually inspected source outline; grouped neighbouring vessels split along their visible berth row, not inferred from random parking positions; boarding is the nearest unchanged OSM pier-axis point, not an invented land polygon. Ground patch is inspected neighbouring photograph water, not pavement.",
+            "boardingPixel": [
+              1609.948,
+              1953.157
+            ],
+            "observationGroup": 2,
+            "splitCount": 1,
+            "supportPixelCount": 135,
+            "observationMethod": "white-hull connected pixels; each source group visually reviewed and multiple hulls separated; no generated or relocated berth positions"
+          },
+          "mobilityType": "boat",
+          "boarding": {
+            "x": 16705.948,
+            "y": 8501.157
+          },
+          "excludedReason": "confirmed-deck-not-a-vessel",
+          "sourcePierId": "osm-pier-1089398758",
+          "bodyPolygonWorld": [
+            [
+              16740,
+              8396
+            ],
+            [
+              16744,
+              8392
+            ],
+            [
+              16749,
+              8388
+            ],
+            [
+              16753,
+              8385
+            ],
+            [
+              16756,
+              8385
+            ],
+            [
+              16757,
+              8389
+            ],
+            [
+              16757,
+              8390
+            ],
+            [
+              16751,
+              8396
+            ],
+            [
+              16746,
+              8400
+            ],
+            [
+              16745,
+              8400
+            ]
+          ]
+        },
+        {
+          "id": "photo-boat-port-021-01",
+          "x": 17010.68,
+          "y": 8758.16,
+          "angle": 0.57376,
+          "width": 39.7,
+          "length": 71,
+          "color": "#e1e2d7",
+          "maskPolygon": [
+            [
+              16972.62,
+              8751.77
+            ],
+            [
+              16974.66,
+              8747.61
+            ],
+            [
+              16989.23,
+              8725.83
+            ],
+            [
+              16990.27,
+              8724.81
+            ],
+            [
+              16991.3,
+              8724.79
+            ],
+            [
+              16995.39,
+              8726.74
+            ],
+            [
+              17008.9,
+              8733.6
+            ],
+            [
+              17021.75,
+              8740.82
+            ],
+            [
+              17037.38,
+              8753.77
+            ],
+            [
+              17047.37,
+              8765.27
+            ],
+            [
+              17047.37,
+              8766.3
+            ],
+            [
+              17033.86,
+              8788.11
+            ],
+            [
+              17031.81,
+              8788.14
+            ],
+            [
+              17018.4,
+              8784.34
+            ],
+            [
+              17000.27,
+              8775.19
+            ],
+            [
+              16977.6,
+              8757.99
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 17035,
+              "y": 8796,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#1a2431"
+          },
+          "groundColor": "#1a2431",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1876.62,
+              "y": 128.79,
+              "w": 74.75,
+              "h": 63.35
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1914.68,
+              162.16
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Native IGN white hull pixels with individually inspected source outline; grouped neighbouring vessels split along their visible berth row, not inferred from random parking positions; boarding is the nearest unchanged OSM pier-axis point, not an invented land polygon. Ground patch is inspected neighbouring photograph water, not pavement.",
+            "boardingPixel": [
+              1871.737,
+              132.549
+            ],
+            "observationGroup": 21,
+            "splitCount": 1,
+            "supportPixelCount": 2128,
+            "observationMethod": "white-hull connected pixels; each source group visually reviewed and multiple hulls separated; no generated or relocated berth positions"
+          },
+          "mobilityType": "boat",
+          "boarding": {
+            "x": 16967.737,
+            "y": 8728.549
+          },
+          "excludedReason": "confirmed-pontoon-not-a-vessel",
+          "sourcePierId": "osm-pier-1089398758",
+          "bodyPolygonWorld": [
+            [
+              16974,
+              8752
+            ],
+            [
+              16976,
+              8748
+            ],
+            [
+              16990,
+              8727
+            ],
+            [
+              16991,
+              8726
+            ],
+            [
+              16992,
+              8726
+            ],
+            [
+              16996,
+              8728
+            ],
+            [
+              17009,
+              8735
+            ],
+            [
+              17021,
+              8742
+            ],
+            [
+              17036,
+              8754
+            ],
+            [
+              17046,
+              8765
+            ],
+            [
+              17046,
+              8766
+            ],
+            [
+              17033,
+              8787
+            ],
+            [
+              17031,
+              8787
+            ],
+            [
+              17018,
+              8783
+            ],
+            [
+              17001,
+              8774
+            ],
+            [
+              16979,
+              8758
+            ]
+          ]
+        },
+        {
+          "id": "photo-boat-port-106-01",
+          "x": 16627.23,
+          "y": 9482.21,
+          "angle": -0.71333,
+          "width": 8.3,
+          "length": 80.7,
+          "color": "#e1e2d7",
+          "maskPolygon": [
+            [
+              16599.88,
+              9502.84
+            ],
+            [
+              16610.79,
+              9491.7
+            ],
+            [
+              16658.03,
+              9454.06
+            ],
+            [
+              16662.06,
+              9452.08
+            ],
+            [
+              16663.07,
+              9452.1
+            ],
+            [
+              16656.09,
+              9459.13
+            ],
+            [
+              16644.14,
+              9470.19
+            ],
+            [
+              16609.05,
+              9502.03
+            ],
+            [
+              16603.02,
+              9507
+            ],
+            [
+              16600.94,
+              9504.92
+            ]
+          ],
+          "groundPatch": {
+            "sourceBoundsWorld": {
+              "x": 16643,
+              "y": 9433,
+              "w": 6,
+              "h": 6
+            },
+            "color": "#1e2334"
+          },
+          "groundColor": "#1e2334",
+          "sourcePlacement": {
+            "tileId": "detail-urban-c2-r2",
+            "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+            "pixelRect": {
+              "x": 1503.88,
+              "y": 856.08,
+              "w": 63.19,
+              "h": 54.92
+            },
+            "pixelCoordinateSpace": "source-image",
+            "centerPixel": [
+              1531.23,
+              886.21
+            ],
+            "sourceBoundsWorld": {
+              "x": 15096,
+              "y": 8596,
+              "w": 2048,
+              "h": 2048
+            },
+            "sourceImageWidth": 2048,
+            "sourceImageHeight": 2048,
+            "method": "manual verified photo annotation; playable model and ground/water clone are artistic",
+            "inspectionNote": "Native IGN white hull pixels with individually inspected source outline; grouped neighbouring vessels split along their visible berth row, not inferred from random parking positions; boarding is the nearest unchanged OSM pier-axis point, not an invented land polygon. Ground patch is inspected neighbouring photograph water, not pavement.",
+            "boardingPixel": [
+              1506.74,
+              858.075
+            ],
+            "observationGroup": 106,
+            "splitCount": 1,
+            "supportPixelCount": 326,
+            "observationMethod": "white-hull connected pixels; each source group visually reviewed and multiple hulls separated; no generated or relocated berth positions"
+          },
+          "mobilityType": "boat",
+          "boarding": {
+            "x": 16602.74,
+            "y": 9454.075
+          },
+          "excludedReason": "dry-stored-hull-outside-navigable-water",
+          "sourcePierId": "osm-pier-115676057",
+          "bodyPolygonWorld": [
+            [
+              16601,
+              9502
+            ],
+            [
+              16612,
+              9491
+            ],
+            [
+              16657,
+              9455
+            ],
+            [
+              16661,
+              9453
+            ],
+            [
+              16662,
+              9453
+            ],
+            [
+              16655,
+              9460
+            ],
+            [
+              16643,
+              9471
+            ],
+            [
+              16610,
+              9501
+            ],
+            [
+              16604,
+              9506
+            ],
+            [
+              16602,
+              9504
+            ]
+          ]
+        }
+      ],
+      "coverageRegions": [
+        {
+          "id": "initial-port-and-quai",
+          "boundsWorld": {
+            "x": 15800,
+            "y": 8340,
+            "w": 1500,
+            "h": 1160
+          },
+          "scope": "Inspected starting port, parking and quay observations; false surfaces retained with explicit reasons. Other unobserved background vehicles may remain."
+        },
+        {
+          "id": "marina-observed-hull-groups",
+          "boundsWorld": {
+            "x": 16470,
+            "y": 8340,
+            "w": 830,
+            "h": 1160
+          },
+          "observedGroups": 107,
+          "vehicleObservations": 157,
+          "eligibleObservations": 153,
+          "scope": "Every one of the107 reviewed bright-hull connected groups is retained as individual observations or explicit exclusions. Boats outside this inspection window, dark undetected hulls and tiny unresolved craft are not an exhaustive port census."
+        },
+        {
+          "id": "airport-native-source",
+          "boundsWorld": {
+            "x": 27144,
+            "y": 24096,
+            "w": 2048,
+            "h": 4096
+          },
+          "scope": "Inspected terminal car parks and six clearly distinguishable small aircraft; four aircraft outside Calvi administrative boundary archived rather than moved."
+        }
+      ],
+      "activationCellSize": 512
+    },
+    "pierCount": 6,
+    "pierOriginalOSMHashesVerified": true,
+    "sourceAnnotationHashesVerified": true,
+    "nativeSourceBoatCapsulesVerified": 153,
+    "openingCarAtExactPhotoCoordinates": true,
+    "openingMaskPersistsAfterActualDrive": true
+  },
+  "realPhotographicGround": true,
+  "titlePhoto": {
+    "imagery": {
+      "status": "ready",
+      "available": 698,
+      "baseAvailable": 288,
+      "detailAvailable": 410,
+      "detailResident": 2,
+      "detailPending": 0,
+      "detailMetresPerPixel": {
+        "x": 0.25,
+        "y": 0.25
+      },
+      "bestMetresPerPixel": {
+        "x": 0.25,
+        "y": 0.25
+      },
+      "resident": 2,
+      "pending": 0,
+      "failed": 0,
+      "decodedBytes": 8388608,
+      "reservedDecodeBytes": 0,
+      "maximumBytes": 16777216,
+      "maximumResident": 4,
+      "requests": 2,
+      "revision": 4,
+      "overviewReady": true,
+      "overviewBytes": 3629056
+    },
+    "renderer": {
+      "photoMode": true,
+      "groundEntries": 4,
+      "groundBytes": 4395728,
+      "maximumGroundBytes": 33554432,
+      "roofEntries": 30,
+      "roofBytes": 1859616,
+      "maximumRoofBytes": 16777216,
+      "foliageEntries": 29,
+      "foliageBytes": 164976,
+      "maximumFoliageBytes": 4194304,
+      "vegetationVisible": 29,
+      "seaRippleCount": 10,
+      "aerialMaskCount": 43,
+      "maskSignature": "photo-boat-port-005-01|photo-boat-port-006-01|photo-boat-port-007-01|photo-boat-port-008-01|photo-boat-port-011-01|photo-boat-port-012-01|photo-boat-port-013-01|photo-boat-port-015-01|photo-boat-port-015-02|photo-boat-port-016-01|photo-boat-port-018-01|photo-boat-port-018-02|photo-boat-port-019-01|photo-boat-port-020-01|photo-boat-port-022-01|photo-boat-port-022-02|photo-boat-port-023-01|photo-boat-port-024-01|photo-boat-port-026-01|photo-boat-port-027-01|photo-boat-port-028-01|photo-boat-port-029-01|photo-boat-port-029-02|photo-boat-port-031-01|photo-boat-port-033-01|photo-boat-port-036-01|photo-car-port-01|photo-car-port-02|photo-car-port-03|photo-car-port-04|photo-car-port-05|photo-car-port-06|photo-car-port-extension-01|photo-car-port-extension-02|photo-car-port-extension-03|photo-car-port-extension-04|photo-car-port-extension-05|photo-car-port-extension-06|photo-car-port-extension-07|photo-car-port-extension-12|photo-car-port-extension-13|photo-car-port-extension-14|photo-car-port-extension-16",
+      "actorUnderCanopy": 6,
+      "actorsInLowVegetation": 0,
+      "playerUnderCanopy": false,
+      "visibleVegetation": 29,
+      "seaRippleLines": 10,
+      "appliedVehicleMasks": 43,
+      "waterMaskReady": true
+    }
+  },
+  "offlinePhoto": {
+    "imagery": {
+      "status": "ready",
+      "available": 698,
+      "baseAvailable": 288,
+      "detailAvailable": 410,
+      "detailResident": 2,
+      "detailPending": 0,
+      "detailMetresPerPixel": {
+        "x": 0.25,
+        "y": 0.25
+      },
+      "bestMetresPerPixel": {
+        "x": 0.25,
+        "y": 0.25
+      },
+      "resident": 2,
+      "pending": 0,
+      "failed": 0,
+      "decodedBytes": 8388608,
+      "reservedDecodeBytes": 0,
+      "maximumBytes": 16777216,
+      "maximumResident": 4,
+      "requests": 2,
+      "revision": 4,
+      "overviewReady": true,
+      "overviewBytes": 3629056
+    },
+    "renderer": {
+      "photoMode": true,
+      "groundEntries": 4,
+      "groundBytes": 4395728,
+      "maximumGroundBytes": 33554432,
+      "roofEntries": 30,
+      "roofBytes": 1859616,
+      "maximumRoofBytes": 16777216,
+      "foliageEntries": 29,
+      "foliageBytes": 164976,
+      "maximumFoliageBytes": 4194304,
+      "vegetationVisible": 29,
+      "seaRippleCount": 10,
+      "aerialMaskCount": 43,
+      "maskSignature": "photo-boat-port-005-01|photo-boat-port-006-01|photo-boat-port-007-01|photo-boat-port-008-01|photo-boat-port-011-01|photo-boat-port-012-01|photo-boat-port-013-01|photo-boat-port-015-01|photo-boat-port-015-02|photo-boat-port-016-01|photo-boat-port-018-01|photo-boat-port-018-02|photo-boat-port-019-01|photo-boat-port-020-01|photo-boat-port-022-01|photo-boat-port-022-02|photo-boat-port-023-01|photo-boat-port-024-01|photo-boat-port-026-01|photo-boat-port-027-01|photo-boat-port-028-01|photo-boat-port-029-01|photo-boat-port-029-02|photo-boat-port-031-01|photo-boat-port-033-01|photo-boat-port-036-01|photo-car-port-01|photo-car-port-02|photo-car-port-03|photo-car-port-04|photo-car-port-05|photo-car-port-06|photo-car-port-extension-01|photo-car-port-extension-02|photo-car-port-extension-03|photo-car-port-extension-04|photo-car-port-extension-05|photo-car-port-extension-06|photo-car-port-extension-07|photo-car-port-extension-12|photo-car-port-extension-13|photo-car-port-extension-14|photo-car-port-extension-16",
+      "actorUnderCanopy": 6,
+      "actorsInLowVegetation": 0,
+      "playerUnderCanopy": false,
+      "visibleVegetation": 29,
+      "seaRippleLines": 10,
+      "appliedVehicleMasks": 43,
+      "waterMaskReady": true
+    }
+  },
+  "finalPhoto": {
+    "imagery": {
+      "status": "ready",
+      "available": 698,
+      "baseAvailable": 288,
+      "detailAvailable": 410,
+      "detailResident": 2,
+      "detailPending": 0,
+      "detailMetresPerPixel": {
+        "x": 0.25,
+        "y": 0.25
+      },
+      "bestMetresPerPixel": {
+        "x": 0.25,
+        "y": 0.25
+      },
+      "resident": 2,
+      "pending": 0,
+      "failed": 0,
+      "decodedBytes": 8388608,
+      "reservedDecodeBytes": 0,
+      "maximumBytes": 16777216,
+      "maximumResident": 4,
+      "requests": 2,
+      "revision": 4,
+      "overviewReady": true,
+      "overviewBytes": 3629056
+    },
+    "renderer": {
+      "photoMode": true,
+      "groundEntries": 6,
+      "groundBytes": 6519576,
+      "maximumGroundBytes": 33554432,
+      "roofEntries": 71,
+      "roofBytes": 5159096,
+      "maximumRoofBytes": 16777216,
+      "foliageEntries": 60,
+      "foliageBytes": 336224,
+      "maximumFoliageBytes": 4194304,
+      "vegetationVisible": 31,
+      "seaRippleCount": 14,
+      "aerialMaskCount": 55,
+      "maskSignature": "photo-boat-port-005-01|photo-boat-port-006-01|photo-boat-port-007-01|photo-boat-port-008-01|photo-boat-port-011-01|photo-boat-port-012-01|photo-boat-port-013-01|photo-boat-port-014-01|photo-boat-port-015-01|photo-boat-port-015-02|photo-boat-port-016-01|photo-boat-port-018-01|photo-boat-port-018-02|photo-boat-port-019-01|photo-boat-port-020-01|photo-boat-port-022-01|photo-boat-port-022-02|photo-boat-port-023-01|photo-boat-port-024-01|photo-boat-port-025-01|photo-boat-port-026-01|photo-boat-port-027-01|photo-boat-port-028-01|photo-boat-port-029-01|photo-boat-port-029-02|photo-boat-port-031-01|photo-boat-port-033-01|photo-boat-port-036-01|photo-boat-port-038-01|photo-boat-port-039-01|photo-boat-port-040-01|photo-boat-port-041-01|photo-boat-port-042-01|photo-boat-port-044-01|photo-boat-port-045-01|photo-boat-port-045-02|photo-boat-port-046-01|photo-car-port-01|photo-car-port-02|photo-car-port-03|photo-car-port-04|photo-car-port-05|photo-car-port-06|photo-car-port-extension-01|photo-car-port-extension-02|photo-car-port-extension-03|photo-car-port-extension-04|photo-car-port-extension-05|photo-car-port-extension-06|photo-car-port-extension-07|photo-car-port-extension-12|photo-car-port-extension-13|photo-car-port-extension-14|photo-car-port-extension-15|photo-car-port-extension-16",
+      "actorUnderCanopy": 5,
+      "actorsInLowVegetation": 0,
+      "playerUnderCanopy": false,
+      "visibleVegetation": 31,
+      "seaRippleLines": 14,
+      "appliedVehicleMasks": 55,
+      "waterMaskReady": true
+    }
+  },
+  "fixedBackingBufferDuringCarAndMotorcycleZoom": [
+    1280,
+    800
+  ],
+  "sixWeapons": [
+    "pistol",
+    "smg",
+    "launcher",
+    "shotgun",
+    "rifle",
+    "carbine"
+  ],
+  "sixDistinctIcons": 6,
+  "sixWantedStars": true,
+  "mobilityTypes": [
+    "boat",
+    "helicopter",
+    "motorcycle",
+    "plane"
+  ],
+  "actualCarTravel": 18.776382709301334,
+  "actualFootTravelOffline": 9.726915758211055,
+  "offlineFootWalk": {
+    "from": {
+      "x": 16533.689,
+      "y": 8679.178
+    },
+    "to": {
+      "x": 16541.79033410524,
+      "y": 8673.794573964233
+    },
+    "goal": {
+      "x": 16541.689,
+      "y": 8673.178
+    },
+    "travel": 9.726915758211055
+  },
+  "motorcycle": {
+    "stolenViaE": true,
+    "actualTravel": 27.455974656436076,
+    "brakedAndLeftViaControls": true
+  },
+  "previouslyRejectedSourceCar": {
+    "id": "aerial-car-photo-car-port-03",
+    "annotationId": "photo-car-port-03",
+    "stolenThroughE": true,
+    "actualTravel": 40.82080721194858,
+    "persistentMask": true,
+    "photoPixelChange": 33.39665909782758,
+    "pavementError": 24.05618201853624,
+    "pausePixelsFrozen": true
+  },
+  "boat": {
+    "id": "aerial-boat-photo-boat-port-016-01",
+    "sourceAnnotation": "photo-boat-port-016-01",
+    "stolenThroughE": true,
+    "boardedFromRealQuay": true,
+    "actualTravel": 135.6014138572916,
+    "openWaterExitRefused": true,
+    "returnedAndDisembarked": true,
+    "exit": {
+      "player": {
+        "x": 16571.51720592757,
+        "y": 8679.365511708636,
+        "altitude": 0
+      },
+      "boat": {
+        "x": 16597.046295190925,
+        "y": 8656.909652754153,
+        "angle": -0.7214398024125278,
+        "boarding": {
+          "x": 16571.51720592757,
+          "y": 8679.365511708636
+        }
+      },
+      "originalBoarding": {
+        "x": 16564.146475140737,
+        "y": 8669.64799491944
+      },
+      "returnMooringDistance": 5.708576426573043,
+      "exitBoardingDistance": 0,
+      "exitHullDistance": 15.715792256411088,
+      "pedestrianRadius": 4,
+      "exitOnLand": true,
+      "exitInMunicipality": true,
+      "exitOnPier": false,
+      "contract": "E selects a clear accessible shore/deck exit within 28 px of the current hull and updates boarding to that exit; native canOccupy and segment checks run before accepting E."
+    }
+  },
+  "ordinaryShotsIgnite": true,
+  "secondaryExplosion": true,
+  "pauseFreezesFireWantedAndPixels": true,
+  "dayAndNightViaActualControls": true,
+  "offlineMovementAndClock": true,
+  "cache": {
+    "version": "blue-night-v17-calvi-solid-world",
+    "cachedVisitedHDTiles": 2,
+    "observedHDRequests": 4,
+    "visitedTileDecodesOffline": true,
+    "unvisitedTileStatus": 503,
+    "overviewDecodesOffline": true,
+    "sourceRequests": [],
+    "externalRequests": []
+  },
+  "offline": {
+    "status": "ready",
+    "image": [
+      4096,
+      3542
+    ],
+    "overview": [
+      1024,
+      886
+    ],
+    "visitedImage": [
+      1024,
+      1024
+    ],
+    "atlasReady": true,
+    "atlasTiles": 698,
+    "atlasBaseTiles": 288,
+    "atlasDetailTiles": 410,
+    "detailMetresPerPixel": {
+      "x": 0.25,
+      "y": 0.25
+    },
+    "atlasBounds": {
+      "west": 8.7063593,
+      "south": 42.5150237,
+      "east": 8.8153936,
+      "north": 42.5844865
+    },
+    "waterMask": {
+      "status": "ready",
+      "metadata": {
+        "kind": "conservative-photographic-water-colour-cells",
+        "city": "Calvi",
+        "boundsWGS84": {
+          "west": 8.7063593,
+          "south": 42.5150237,
+          "east": 8.8153936,
+          "north": 42.5844865
+        },
+        "worldWidth": 35766.74,
+        "worldHeight": 30930.25,
+        "vectorSourceSha256": "0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf",
+        "imageryManifestAsset": "data/calvi-imagery-tiles.json",
+        "imageryManifestSha256": "88cceb7f3f4a12d2de82bd6874a5d4b51daafc868b90f81466564781d1dadfa5",
+        "provider": "IGN GeoPlateforme",
+        "product": "BD ORTHO",
+        "attribution": "\u00a9 IGN \u2014 BD ORTHO \u2014 Licence Ouverte / Open Licence",
+        "licenseRecordAsset": "data/calvi-imagery-tiles-license.xml",
+        "licenseRecordSha256": "2f06194365679e932ce0933aee9c93a1d7a784364c8f3c401931cbae8870b87e",
+        "thresholds": {
+          "blueMinusRedMinimum": 8,
+          "blueMinusGreenMinimum": 2,
+          "blueMinimum": 25,
+          "luminanceMaximum": 110,
+          "cellRule": "Every source pixel in the cell must pass; one rejected pixel clears the cell"
+        },
+        "columns": 32,
+        "rows": 32,
+        "bitOrder": "row-major, most significant bit first within each byte",
+        "sourcePixels": "Day-colour pixels of the archived JPEGs; runtime day/night does not change classification",
+        "limitations": "Colour classification for sparse artistic waves. OSM marine geometry must also accept each point. Not coastline measurement, depth, boat recognition, or collision data.",
+        "priority": "Detail lod=1 cells override base lod=0 cells wherever detail coverage exists",
+        "tileCount": 698,
+        "baseTileCount": 288,
+        "detailTileCount": 410,
+        "waterCellCount": 69166
+      },
+      "tiles": 698
+    },
+    "pierModule": true,
+    "pierCount": 6,
+    "aerialMetadata": {
+      "status": "ready",
+      "version": 1,
+      "kind": "photo-supported-game-objects",
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.5150237,
+        "east": 8.8153936,
+        "north": 42.5844865
+      },
+      "worldWidth": 35766.74,
+      "worldHeight": 30930.25,
+      "observationImage": {
+        "width": 17884,
+        "height": 15466
+      },
+      "sourceMetresPerPixel": 0.5,
+      "sourceManifestSha256": "bbbe8d62868cfa124d491d31230689a038a6d3151ef658bd169eeb9691d12c4f",
+      "vectorSha256": "0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf",
+      "attribution": "\u00a9 IGN \u2014 BD ORTHO \u2014 Licence Ouverte / Open Licence",
+      "licence": "Licence Ouverte / Open Licence; OSM masks ODbL-1.0",
+      "vegetationNote": "Conservative colour-derived canopy/low scrub clusters, not exhaustive tree species/count/height measurements",
+      "vehiclesNote": "Manually verified photographed cars, boats and aircraft in inspected areas; not an exhaustive detection of every vehicle in Calvi",
+      "coverageRegions": [
+        {
+          "id": "initial-port-and-quai",
+          "boundsWorld": {
+            "x": 15800,
+            "y": 8340,
+            "w": 1500,
+            "h": 1160
+          },
+          "scope": "Inspected starting port, parking and quay observations; false surfaces retained with explicit reasons. Other unobserved background vehicles may remain."
+        },
+        {
+          "id": "marina-observed-hull-groups",
+          "boundsWorld": {
+            "x": 16470,
+            "y": 8340,
+            "w": 830,
+            "h": 1160
+          },
+          "observedGroups": 107,
+          "vehicleObservations": 157,
+          "eligibleObservations": 153,
+          "scope": "Every one of the107 reviewed bright-hull connected groups is retained as individual observations or explicit exclusions. Boats outside this inspection window, dark undetected hulls and tiny unresolved craft are not an exhaustive port census."
+        },
+        {
+          "id": "airport-native-source",
+          "boundsWorld": {
+            "x": 27144,
+            "y": 24096,
+            "w": 2048,
+            "h": 4096
+          },
+          "scope": "Inspected terminal car parks and six clearly distinguishable small aircraft; four aircraft outside Calvi administrative boundary archived rather than moved."
+        }
+      ],
+      "vegetationCount": 12000,
+      "vehicleCount": 251,
+      "observedVehicleCount": 271,
+      "excludedObservationCount": 20,
+      "manualVegetationCount": 32,
+      "maximumVegetation": 12000,
+      "heightSource": "Artistic canopy elevation; not LiDAR tree height",
+      "photographModified": false
+    },
+    "aerialVegetationAnnotations": 12000,
+    "aerialVehicleAnnotations": 251,
+    "aerialSourceAnnotationsMatch": true,
+    "unvisitedTileStatus": 503,
+    "grid": [
+      449,
+      388
+    ],
+    "terrain": "IGN LiDAR HD MNT",
+    "coverage": {
+      "scope": "Actual municipal land-node mask",
+      "landGridCoverageVerified": true,
+      "landNodeCount": 79276,
+      "validLandNodeCount": 79276,
+      "missingLandNodeCount": 0,
+      "maskedOutsideMunicipalLandCount": 94936,
+      "note": "Outside municipal land, values are explicitly null; offshore WMS nodata interpolation is never interpreted as bathymetry or filled with invented heights. All actual municipal land nodes were validated."
+    },
+    "urban": [
+      173,
+      224
+    ],
+    "urbanSpacing": {
+      "eastWest": 5.005072674418605,
+      "northSouth": 4.991905829596412
+    },
+    "buildingHeights": 1355,
+    "knownHeights": 1355,
+    "unknownHeights": 2538,
+    "buildings": 3893,
+    "roads": 1552,
+    "bounds": {
+      "west": 8.7063593,
+      "south": 42.5150237,
+      "east": 8.8153936,
+      "north": 42.5844865
+    },
+    "boundary": {
+      "ok": true,
+      "type": "Feature",
+      "insee": "2B050",
+      "sourceId": 1151255,
+      "geometry": "MultiPolygon",
+      "polygons": 5
+    },
+    "imageryBounds": {
+      "west": 8.7063593,
+      "south": 42.5150237,
+      "east": 8.8153936,
+      "north": 42.5844865
+    },
+    "clockModule": true,
+    "policeModule": true,
+    "mobilityModule": true
+  },
+  "errors": [],
+  "verificationRun": {
+    "exitCode": 0,
+    "currentArchiveSha256": "1ecbcaa3ceb7dda7f6a85920047ae0db1cf63e0405cd3059c912e3269a54299f",
+    "browserClosed": true,
+    "activeChromiumProcesses": 0,
+    "server4181Closed": true,
+    "port4173OpenAndUntouched": true
+  }
+}

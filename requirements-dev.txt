@@ -1,0 +1,2 @@
+# Optional development tools for verified aerial JPEG import/crop tests.
+Pillow==12.3.0

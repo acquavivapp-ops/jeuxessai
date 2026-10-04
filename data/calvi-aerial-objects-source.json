@@ -1,0 +1,3122 @@
+{
+  "boundsWGS84": {
+    "west": 8.7063593,
+    "south": 42.5150237,
+    "east": 8.8153936,
+    "north": 42.5844865
+  },
+  "worldWidth": 35766.74,
+  "worldHeight": 30930.25,
+  "image": {
+    "width": 17884,
+    "height": 15466
+  },
+  "attribution": "\u00a9 IGN \u2014 BD ORTHO \u2014 Licence Ouverte / Open Licence",
+  "sourceTiles": [
+    {
+      "id": "c0-r0",
+      "column": 0,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 0,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.57528827069701,
+        "east": 8.718845446633864,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.7063593%2C42.5844865%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "118b94810ba721a2fbaafbd711840ec17215cc5c95ff41512518b70fc7cd02a7",
+      "byteLength": 384940,
+      "downloadedAt": "2026-10-04T12:24:12.644852+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.7063593%2C42.5844865%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r0",
+      "column": 1,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 2048,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.57528827069701,
+        "east": 8.731331593267726,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.718845446633864%2C42.5844865%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "c6e04ef4435ae2c8173470fb8809c4d6dcab6ee213435a21e1b2e0a3205ea719",
+      "byteLength": 571847,
+      "downloadedAt": "2026-10-04T12:24:00.750313+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.718845446633864%2C42.5844865%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r0",
+      "column": 2,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.57528827069701,
+        "east": 8.743817739901589,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.731331593267726%2C42.5844865%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "6d5fc3c18d54271365f7842535baaf47fe406d37f8a371e886c05a03d54efafd",
+      "byteLength": 422277,
+      "downloadedAt": "2026-10-04T12:23:49.781051+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.731331593267726%2C42.5844865%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r0",
+      "column": 3,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.57528827069701,
+        "east": 8.75630388653545,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.743817739901589%2C42.5844865%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "688c4026431ffed30f501d8acffdd0ebe72fe7c57e430a29e1b30ca8f7b03bb1",
+      "byteLength": 373288,
+      "downloadedAt": "2026-10-04T12:23:43.369494+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.743817739901589%2C42.5844865%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r0",
+      "column": 4,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 8192,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.57528827069701,
+        "east": 8.768790033169314,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.75630388653545%2C42.5844865%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "d6f185e65b02e2d111a270641311a59f940c41c81087ba7938a8a727509fdbc3",
+      "byteLength": 832543,
+      "downloadedAt": "2026-10-04T12:23:40.411771+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.75630388653545%2C42.5844865%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r0",
+      "column": 5,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 10240,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.57528827069701,
+        "east": 8.781276179803177,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.768790033169314%2C42.5844865%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "e07cf7abcc70ded94f475c71596d0c8fcae7808ac3230b3e2795f402ce111a1e",
+      "byteLength": 1052855,
+      "downloadedAt": "2026-10-04T12:23:44.296459+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.768790033169314%2C42.5844865%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r0",
+      "column": 6,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 12288,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.57528827069701,
+        "east": 8.793762326437038,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.781276179803177%2C42.5844865%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "3ebd054a307b9153aaef335cb5d3444197e144bf6656a932967df459d32c2177",
+      "byteLength": 478313,
+      "downloadedAt": "2026-10-04T12:23:56.659482+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.781276179803177%2C42.5844865%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r0",
+      "column": 7,
+      "row": 0,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 14336,
+        "y": 0,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 0.0,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.57528827069701,
+        "east": 8.806248473070902,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.793762326437038%2C42.5844865%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "6ace2c2053147bbd463d9525643d38b70fb7205e09f72b4d9a641e4c7c8ecaa8",
+      "byteLength": 945876,
+      "downloadedAt": "2026-10-04T12:24:01.324348+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.793762326437038%2C42.5844865%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r0",
+      "column": 8,
+      "row": 0,
+      "width": 1500,
+      "height": 2048,
+      "pixelRect": {
+        "x": 16384,
+        "y": 0,
+        "w": 1500,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 0.0,
+        "w": 2999.8943189443075,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.57528827069701,
+        "east": 8.8153936,
+        "north": 42.5844865
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r0.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.806248473070902%2C42.5844865%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "d7dc21ba779495d56cc3423aebf430169916c943bc22b06f0c98d9b0f11346f9",
+      "byteLength": 712599,
+      "downloadedAt": "2026-10-04T12:24:12.936568+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.57528827069701%2C8.806248473070902%2C42.5844865%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c0-r1",
+      "column": 0,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 0,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.56609004139403,
+        "east": 8.718845446633864,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.7063593%2C42.57528827069701%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "eb06c17eb8f55d465f43f96ee456c48dc7649718616bde9f33d437fc58357535",
+      "byteLength": 690087,
+      "downloadedAt": "2026-10-04T12:24:05.922742+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.7063593%2C42.57528827069701%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r1",
+      "column": 1,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 2048,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.56609004139403,
+        "east": 8.731331593267726,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.718845446633864%2C42.57528827069701%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "9c664d04dcdb20c31832f97ef7af705ffcfa0915f91ae18fdf8758e394deee04",
+      "byteLength": 868616,
+      "downloadedAt": "2026-10-04T12:23:55.422444+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.718845446633864%2C42.57528827069701%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r1",
+      "column": 2,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.56609004139403,
+        "east": 8.743817739901589,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.731331593267726%2C42.57528827069701%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "81d026c70ea648da9f02fede37f642432b67c8ab8637cc691991110b2c1cd416",
+      "byteLength": 830476,
+      "downloadedAt": "2026-10-04T12:23:44.153191+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.731331593267726%2C42.57528827069701%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r1",
+      "column": 3,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.56609004139403,
+        "east": 8.75630388653545,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.743817739901589%2C42.57528827069701%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "1cff5a3fa86c4cceb3b0a27a9830870d3a585080440205377076af0e64de0923",
+      "byteLength": 790627,
+      "downloadedAt": "2026-10-04T12:23:36.562013+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.743817739901589%2C42.57528827069701%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r1",
+      "column": 4,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 8192,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.56609004139403,
+        "east": 8.768790033169314,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.75630388653545%2C42.57528827069701%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "36fd436249e3b73b7a56a592a12195bb1e2127fa0dbc15cd1ad4e523389e96c9",
+      "byteLength": 646926,
+      "downloadedAt": "2026-10-04T12:23:33.886240+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.75630388653545%2C42.57528827069701%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r1",
+      "column": 5,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 10240,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.56609004139403,
+        "east": 8.781276179803177,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.768790033169314%2C42.57528827069701%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "31f68a2901c2d00912a16979adc50c432d2ca7eaedad7b5bde14110ce817b407",
+      "byteLength": 1131853,
+      "downloadedAt": "2026-10-04T12:23:37.124311+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.768790033169314%2C42.57528827069701%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r1",
+      "column": 6,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 12288,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.56609004139403,
+        "east": 8.793762326437038,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.781276179803177%2C42.57528827069701%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "7a1e727114ac9d4d04f26d5c6182da429bc30681b6c4c82d00a421b576ca5b81",
+      "byteLength": 703226,
+      "downloadedAt": "2026-10-04T12:23:46.973371+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.781276179803177%2C42.57528827069701%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r1",
+      "column": 7,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 14336,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 4095.768265873529,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.56609004139403,
+        "east": 8.806248473070902,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.793762326437038%2C42.57528827069701%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "099267616e38044b2c81d3d93682140d356235076757e3421c6fdf34620dc4cf",
+      "byteLength": 1044217,
+      "downloadedAt": "2026-10-04T12:23:55.209477+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.793762326437038%2C42.57528827069701%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r1",
+      "column": 8,
+      "row": 1,
+      "width": 1500,
+      "height": 2048,
+      "pixelRect": {
+        "x": 16384,
+        "y": 2048,
+        "w": 1500,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 4095.768265873529,
+        "w": 2999.8943189443075,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.56609004139403,
+        "east": 8.8153936,
+        "north": 42.57528827069701
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.806248473070902%2C42.57528827069701%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "d191edc55aa6dd58c45f9530fc0b4b438d09b92960c32795e0fca35d0916e14f",
+      "byteLength": 691491,
+      "downloadedAt": "2026-10-04T12:24:06.582247+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56609004139403%2C8.806248473070902%2C42.57528827069701%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c0-r2",
+      "column": 0,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 0,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.55689181209104,
+        "east": 8.718845446633864,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.7063593%2C42.56609004139403%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "b79d021c2ca1c0352eb25a5fa2981692dd91acd1dfa5e8ba0c7594f8c1f27a95",
+      "byteLength": 480326,
+      "downloadedAt": "2026-10-04T12:24:03.390726+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.7063593%2C42.56609004139403%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r2",
+      "column": 1,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 2048,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.55689181209104,
+        "east": 8.731331593267726,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.718845446633864%2C42.56609004139403%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "331445ed324adbe57476fbfe5988fa1a5036cf5b6d68315956349cd0aa45a1c7",
+      "byteLength": 1032258,
+      "downloadedAt": "2026-10-04T12:23:52.500344+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.718845446633864%2C42.56609004139403%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r2",
+      "column": 2,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.55689181209104,
+        "east": 8.743817739901589,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.731331593267726%2C42.56609004139403%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "9c2fbd863b484fed5c0e241bb11a5f33c508a951d91c9a2613caafed55057d12",
+      "byteLength": 1057040,
+      "downloadedAt": "2026-10-04T12:23:40.327298+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.731331593267726%2C42.56609004139403%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r2",
+      "column": 3,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.55689181209104,
+        "east": 8.75630388653545,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.743817739901589%2C42.56609004139403%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "6cbe53abc6332b3eaec3e72f7745020cd4c9fc073d417d54871ce2a836c1b27c",
+      "byteLength": 1155002,
+      "downloadedAt": "2026-10-04T12:23:34.471167+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.743817739901589%2C42.56609004139403%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r2",
+      "column": 4,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 8192,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.55689181209104,
+        "east": 8.768790033169314,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.75630388653545%2C42.56609004139403%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "08d5a864d6b20d648b3bd8b34dc79db9e4fa7b15a09517bcc7e21a4338d8bc9d",
+      "byteLength": 561291,
+      "downloadedAt": "2026-10-04T12:23:33.881909+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.75630388653545%2C42.56609004139403%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r2",
+      "column": 5,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 10240,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.55689181209104,
+        "east": 8.781276179803177,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.768790033169314%2C42.56609004139403%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "c871511f57267853522ace6323f78cb748b36a8956d00b2ba2071b85cd895b3d",
+      "byteLength": 593489,
+      "downloadedAt": "2026-10-04T12:23:34.146256+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.768790033169314%2C42.56609004139403%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r2",
+      "column": 6,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 12288,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.55689181209104,
+        "east": 8.793762326437038,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.781276179803177%2C42.56609004139403%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "f08e343f2807c3976e8cedf679db8b9cc240c171b89844925c8c7fe246b78aab",
+      "byteLength": 695376,
+      "downloadedAt": "2026-10-04T12:23:41.245498+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.781276179803177%2C42.56609004139403%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r2",
+      "column": 7,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 14336,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 8191.536531747058,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.55689181209104,
+        "east": 8.806248473070902,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.793762326437038%2C42.56609004139403%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "15aaac96420b0ff25396a7d462fce003c66a7542fd5b1c4e89436d2c80006457",
+      "byteLength": 912514,
+      "downloadedAt": "2026-10-04T12:23:52.955063+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.793762326437038%2C42.56609004139403%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r2",
+      "column": 8,
+      "row": 2,
+      "width": 1500,
+      "height": 2048,
+      "pixelRect": {
+        "x": 16384,
+        "y": 4096,
+        "w": 1500,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 8191.536531747058,
+        "w": 2999.8943189443075,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.55689181209104,
+        "east": 8.8153936,
+        "north": 42.56609004139403
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.806248473070902%2C42.56609004139403%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "26cfcc85937d1932a2d63a63438dc0341c06753eaf2a1438a6605ff4ec3d724c",
+      "byteLength": 601169,
+      "downloadedAt": "2026-10-04T12:24:05.644363+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.55689181209104%2C8.806248473070902%2C42.56609004139403%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c0-r3",
+      "column": 0,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 0,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.54769358278805,
+        "east": 8.718845446633864,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.7063593%2C42.55689181209104%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "3233dce14fdbcc92f5a93492764ceddd00852119784ef0e64bd0167e3c565a50",
+      "byteLength": 478746,
+      "downloadedAt": "2026-10-04T12:24:09.785304+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.7063593%2C42.55689181209104%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r3",
+      "column": 1,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 2048,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.54769358278805,
+        "east": 8.731331593267726,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.718845446633864%2C42.55689181209104%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "f2012105f1945bc3e25c753c065159ed985c2d45a76eae032a29579ff4fd8b0c",
+      "byteLength": 1031405,
+      "downloadedAt": "2026-10-04T12:23:58.021013+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.718845446633864%2C42.55689181209104%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r3",
+      "column": 2,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.54769358278805,
+        "east": 8.743817739901589,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.731331593267726%2C42.55689181209104%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "66d1f5072613cdde39238019c7adf1922af56ee5f573dedbcdde6fa0cd7a530f",
+      "byteLength": 1016259,
+      "downloadedAt": "2026-10-04T12:23:46.667977+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.731331593267726%2C42.55689181209104%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r3",
+      "column": 3,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.54769358278805,
+        "east": 8.75630388653545,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.743817739901589%2C42.55689181209104%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "883a6613447c9ff69d704b1a7af98ec10a2ae95e0c45cc75e319836f65dd08af",
+      "byteLength": 1122948,
+      "downloadedAt": "2026-10-04T12:23:38.122392+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.743817739901589%2C42.55689181209104%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r3",
+      "column": 4,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 8192,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.54769358278805,
+        "east": 8.768790033169314,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.75630388653545%2C42.55689181209104%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "c524abdc7cf1b5daf7f4b5812a98820dbc9343ed605d62b1ec122248e10b43f1",
+      "byteLength": 951360,
+      "downloadedAt": "2026-10-04T12:23:37.343326+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.75630388653545%2C42.55689181209104%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r3",
+      "column": 5,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 10240,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.54769358278805,
+        "east": 8.781276179803177,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.768790033169314%2C42.55689181209104%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "ed80979aa53cf5786ea58e67fc92e12541067dd9757276da268f16b1eb804c67",
+      "byteLength": 865046,
+      "downloadedAt": "2026-10-04T12:23:39.696847+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.768790033169314%2C42.55689181209104%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r3",
+      "column": 6,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 12288,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.54769358278805,
+        "east": 8.793762326437038,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.781276179803177%2C42.55689181209104%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "c348e3044a7449e74ae86d914ea1286d038afcc9855eada2cd9f1a1db2f4b18a",
+      "byteLength": 848962,
+      "downloadedAt": "2026-10-04T12:23:46.305232+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.781276179803177%2C42.55689181209104%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r3",
+      "column": 7,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 14336,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 12287.304797620587,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.54769358278805,
+        "east": 8.806248473070902,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.793762326437038%2C42.55689181209104%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "9b77ce44c386e3bbbd0499131a845a12e3775da03d5856246db8f45e6cc724dd",
+      "byteLength": 808878,
+      "downloadedAt": "2026-10-04T12:23:58.432051+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.793762326437038%2C42.55689181209104%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r3",
+      "column": 8,
+      "row": 3,
+      "width": 1500,
+      "height": 2048,
+      "pixelRect": {
+        "x": 16384,
+        "y": 6144,
+        "w": 1500,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 12287.304797620587,
+        "w": 2999.8943189443075,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.54769358278805,
+        "east": 8.8153936,
+        "north": 42.55689181209104
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.806248473070902%2C42.55689181209104%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "ce9fb2c0e2e3ca8da9a6f9cb1f68f725d32eec4c236abfacce25c76dc43ac683",
+      "byteLength": 653862,
+      "downloadedAt": "2026-10-04T12:24:07.897269+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.54769358278805%2C8.806248473070902%2C42.55689181209104%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c0-r4",
+      "column": 0,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 0,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.53849535348506,
+        "east": 8.718845446633864,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.7063593%2C42.54769358278805%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "eedeed6e3762f371ff9be91b71ef026cb5d2f66e0cceae694fcee4745ec5bfc2",
+      "byteLength": 596642,
+      "downloadedAt": "2026-10-04T12:24:12.547331+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.7063593%2C42.54769358278805%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r4",
+      "column": 1,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 2048,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.53849535348506,
+        "east": 8.731331593267726,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.718845446633864%2C42.54769358278805%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "2ce077478079f2d57aa7de41d71e6b93e3f5c1bc846d9fa30cf406e162601f8d",
+      "byteLength": 997151,
+      "downloadedAt": "2026-10-04T12:24:01.456383+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.718845446633864%2C42.54769358278805%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r4",
+      "column": 2,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.53849535348506,
+        "east": 8.743817739901589,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.731331593267726%2C42.54769358278805%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "80573b1dab6c6de3d09d8ee8774e9a889446e754a4893a833b8ca3fddee43dc1",
+      "byteLength": 1003642,
+      "downloadedAt": "2026-10-04T12:23:50.040469+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.731331593267726%2C42.54769358278805%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r4",
+      "column": 3,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.53849535348506,
+        "east": 8.75630388653545,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.743817739901589%2C42.54769358278805%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "50995ef18149b2b17f7dc3c07ce194c290ed87c36c371c3c81e375f4864618a0",
+      "byteLength": 969577,
+      "downloadedAt": "2026-10-04T12:23:47.030327+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.743817739901589%2C42.54769358278805%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r4",
+      "column": 4,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 8192,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.53849535348506,
+        "east": 8.768790033169314,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.75630388653545%2C42.54769358278805%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "f211606e3fb3c82ad8329803584732bcb6799528fc91c7b70f8523a14337e14f",
+      "byteLength": 941795,
+      "downloadedAt": "2026-10-04T12:23:43.641309+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.75630388653545%2C42.54769358278805%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r4",
+      "column": 5,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 10240,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.53849535348506,
+        "east": 8.781276179803177,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.768790033169314%2C42.54769358278805%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "59be9616acd126d99d24617c88d9c9596e77e76d4c7c4ea9af4afbcb271cafbc",
+      "byteLength": 872322,
+      "downloadedAt": "2026-10-04T12:23:49.773049+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.768790033169314%2C42.54769358278805%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r4",
+      "column": 6,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 12288,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.53849535348506,
+        "east": 8.793762326437038,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.781276179803177%2C42.54769358278805%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "d80b7322bca120ac0b8e80ebd93e91c60b5c0493c836808d55f52028c8a5494e",
+      "byteLength": 934619,
+      "downloadedAt": "2026-10-04T12:23:52.631175+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.781276179803177%2C42.54769358278805%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r4",
+      "column": 7,
+      "row": 4,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 14336,
+        "y": 8192,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 16383.073063494116,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.53849535348506,
+        "east": 8.806248473070902,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.793762326437038%2C42.54769358278805%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "f247bcccb4d7f13c98e6e71efb2774974bdebcb5cd5d62cec03a86e9762aa009",
+      "byteLength": 876013,
+      "downloadedAt": "2026-10-04T12:24:03.252257+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.793762326437038%2C42.54769358278805%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r4",
+      "column": 8,
+      "row": 4,
+      "width": 1500,
+      "height": 2048,
+      "pixelRect": {
+        "x": 16384,
+        "y": 8192,
+        "w": 1500,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 16383.073063494116,
+        "w": 2999.8943189443075,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.53849535348506,
+        "east": 8.8153936,
+        "north": 42.54769358278805
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r4.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.806248473070902%2C42.54769358278805%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "90ef80a533e566663e0f3b92ad43c2432741036248668e60443cdcdafda1e143",
+      "byteLength": 587541,
+      "downloadedAt": "2026-10-04T12:24:14.676242+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.53849535348506%2C8.806248473070902%2C42.54769358278805%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c0-r5",
+      "column": 0,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 0,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.52929712418208,
+        "east": 8.718845446633864,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.7063593%2C42.53849535348506%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "74df5b231fb5d2dbb4e9eb210e995917586ed0d19924ce5ba54bfc04b8baf28f",
+      "byteLength": 595051,
+      "downloadedAt": "2026-10-04T12:24:14.801031+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.7063593%2C42.53849535348506%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r5",
+      "column": 1,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 2048,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.52929712418208,
+        "east": 8.731331593267726,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.718845446633864%2C42.53849535348506%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "09ed295228d9390801436aefe456f92c58a7372e6fd3002af02759ab8b33ec65",
+      "byteLength": 975976,
+      "downloadedAt": "2026-10-04T12:24:10.229515+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.718845446633864%2C42.53849535348506%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r5",
+      "column": 2,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.52929712418208,
+        "east": 8.743817739901589,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.731331593267726%2C42.53849535348506%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "74d94d9c22527d6e7410353c959830894c0b305af8e8fa992f6afec86c89f52f",
+      "byteLength": 991305,
+      "downloadedAt": "2026-10-04T12:24:03.634728+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.731331593267726%2C42.53849535348506%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r5",
+      "column": 3,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.52929712418208,
+        "east": 8.75630388653545,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.743817739901589%2C42.53849535348506%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "6a3f0b72e10341d75de175b7a50d007a9c79005ee42cef60f67105e18e2cb1f8",
+      "byteLength": 865166,
+      "downloadedAt": "2026-10-04T12:23:58.811302+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.743817739901589%2C42.53849535348506%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r5",
+      "column": 4,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 8192,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.52929712418208,
+        "east": 8.768790033169314,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.75630388653545%2C42.53849535348506%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "9962d6a3fcb90371b9e1e157de15dd39cd5e913b15b3e28199e1c14b17c190a6",
+      "byteLength": 916803,
+      "downloadedAt": "2026-10-04T12:23:55.926469+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.75630388653545%2C42.53849535348506%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r5",
+      "column": 5,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 10240,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.52929712418208,
+        "east": 8.781276179803177,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.768790033169314%2C42.53849535348506%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "15fe1dd1ec4c8c574648b2365e51da6d2ec52135a8f86bcf3c4e75b9c1c868fb",
+      "byteLength": 939601,
+      "downloadedAt": "2026-10-04T12:23:59.712408+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.768790033169314%2C42.53849535348506%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r5",
+      "column": 6,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 12288,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.52929712418208,
+        "east": 8.793762326437038,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.781276179803177%2C42.53849535348506%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "e6a357358ee4c8b646219c62a2a21dd910926b52231ee8fa6210a2c35f8c4157",
+      "byteLength": 819360,
+      "downloadedAt": "2026-10-04T12:24:03.892714+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.781276179803177%2C42.53849535348506%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r5",
+      "column": 7,
+      "row": 5,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 14336,
+        "y": 10240,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 20478.841329367646,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.52929712418208,
+        "east": 8.806248473070902,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.793762326437038%2C42.53849535348506%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "2c3391f411ebc254661b0a69913ea07070d25392068e8419c2e83d0d2b74116c",
+      "byteLength": 808412,
+      "downloadedAt": "2026-10-04T12:24:12.525778+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.793762326437038%2C42.53849535348506%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r5",
+      "column": 8,
+      "row": 5,
+      "width": 1500,
+      "height": 2048,
+      "pixelRect": {
+        "x": 16384,
+        "y": 10240,
+        "w": 1500,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 20478.841329367646,
+        "w": 2999.8943189443075,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.52929712418208,
+        "east": 8.8153936,
+        "north": 42.53849535348506
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r5.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.806248473070902%2C42.53849535348506%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "10ce3dc65de821ab2b80fcf50c985d89cb66dbafb5aa54a71bbb42172adc17ed",
+      "byteLength": 714398,
+      "downloadedAt": "2026-10-04T12:24:16.288347+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52929712418208%2C8.806248473070902%2C42.53849535348506%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c0-r6",
+      "column": 0,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 0,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.52009889487909,
+        "east": 8.718845446633864,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.7063593%2C42.52929712418208%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "5081117ee88ee600aede48732c1548ff0a62eeb7513d7481e318bde6d9cf5223",
+      "byteLength": 553750,
+      "downloadedAt": "2026-10-04T12:24:20.923809+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.7063593%2C42.52929712418208%2C8.718845446633864&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r6",
+      "column": 1,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 2048,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.52009889487909,
+        "east": 8.731331593267726,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.718845446633864%2C42.52929712418208%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "927d3a0a25a055abc728aac1e7884c14997810f83bc0c84a56931d27e1a2bcdb",
+      "byteLength": 889496,
+      "downloadedAt": "2026-10-04T12:24:16.677441+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.718845446633864%2C42.52929712418208%2C8.731331593267726&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r6",
+      "column": 2,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.52009889487909,
+        "east": 8.743817739901589,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.731331593267726%2C42.52929712418208%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "e02da6ecce8dc0444bcc1326f69df6722ec117d014584f19d48c901dc3f98c6e",
+      "byteLength": 1092509,
+      "downloadedAt": "2026-10-04T12:24:15.385908+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.731331593267726%2C42.52929712418208%2C8.743817739901589&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r6",
+      "column": 3,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.52009889487909,
+        "east": 8.75630388653545,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.743817739901589%2C42.52929712418208%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "9b41c7e5001fb2956115c3037bb5797bf99abf56e19e02fed2fd38528d654269",
+      "byteLength": 1035981,
+      "downloadedAt": "2026-10-04T12:24:09.244479+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.743817739901589%2C42.52929712418208%2C8.75630388653545&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r6",
+      "column": 4,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 8192,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.52009889487909,
+        "east": 8.768790033169314,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.75630388653545%2C42.52929712418208%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "e79350fc4c1b369cfb4510113154b50e6087a9737303f4a103b7d9e6cb80495a",
+      "byteLength": 848148,
+      "downloadedAt": "2026-10-04T12:24:05.979025+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.75630388653545%2C42.52929712418208%2C8.768790033169314&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r6",
+      "column": 5,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 10240,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.52009889487909,
+        "east": 8.781276179803177,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.768790033169314%2C42.52929712418208%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "937d984454a04920e655863f50d7574fed138205331acfd00b606b04b1f686dc",
+      "byteLength": 796682,
+      "downloadedAt": "2026-10-04T12:24:09.980778+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.768790033169314%2C42.52929712418208%2C8.781276179803177&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r6",
+      "column": 6,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 12288,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.52009889487909,
+        "east": 8.793762326437038,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.781276179803177%2C42.52929712418208%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "5786dd255f0d6cf8c51cc586c27d18ce5723fe23f536974a5c9ace01a240a345",
+      "byteLength": 737919,
+      "downloadedAt": "2026-10-04T12:24:14.725772+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.781276179803177%2C42.52929712418208%2C8.793762326437038&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r6",
+      "column": 7,
+      "row": 6,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 14336,
+        "y": 12288,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 24574.609595241174,
+        "w": 4095.855710131961,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.52009889487909,
+        "east": 8.806248473070902,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.793762326437038%2C42.52929712418208%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "e93f32d23a7238c2ce7ccda8b2b18167e33aa1690bf5d1a5b291139d184c73ae",
+      "byteLength": 830169,
+      "downloadedAt": "2026-10-04T12:24:18.844839+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.793762326437038%2C42.52929712418208%2C8.806248473070902&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r6",
+      "column": 8,
+      "row": 6,
+      "width": 1500,
+      "height": 2048,
+      "pixelRect": {
+        "x": 16384,
+        "y": 12288,
+        "w": 1500,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 24574.609595241174,
+        "w": 2999.8943189443075,
+        "h": 4095.768265873529
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.52009889487909,
+        "east": 8.8153936,
+        "north": 42.52929712418208
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r6.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.806248473070902%2C42.52929712418208%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "128a9f0553987c63342e18130f599343587f87ae83c80703e2ca1fbae63125ac",
+      "byteLength": 688594,
+      "downloadedAt": "2026-10-04T12:24:20.857185+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52009889487909%2C8.806248473070902%2C42.52929712418208%2C8.8153936&WIDTH=1500&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c0-r7",
+      "column": 0,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 0,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 0.0,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.7063593,
+        "south": 42.5150237,
+        "east": 8.718845446633864,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c0-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.7063593%2C42.52009889487909%2C8.718845446633864&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "6d65b91f9ec018e1c3b34eff7935c8a6a2f548101aa4fca9a684e0a09af973ff",
+      "byteLength": 500488,
+      "downloadedAt": "2026-10-04T12:24:22.658669+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.7063593%2C42.52009889487909%2C8.718845446633864&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c1-r7",
+      "column": 1,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 2048,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 4095.855710131961,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.718845446633864,
+        "south": 42.5150237,
+        "east": 8.731331593267726,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c1-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.718845446633864%2C42.52009889487909%2C8.731331593267726&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "57afe01798bcf4a6a78b3dc18b1eaafc896edc5af5aec31614336b5c27912bc9",
+      "byteLength": 553600,
+      "downloadedAt": "2026-10-04T12:24:22.078621+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.718845446633864%2C42.52009889487909%2C8.731331593267726&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c2-r7",
+      "column": 2,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 4096,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 8191.711420263922,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.731331593267726,
+        "south": 42.5150237,
+        "east": 8.743817739901589,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c2-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.731331593267726%2C42.52009889487909%2C8.743817739901589&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "00781e2c64d4aaf7b2efab7c2e424bd3e551e1838ca75911eda543897997983e",
+      "byteLength": 581564,
+      "downloadedAt": "2026-10-04T12:24:20.370947+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.731331593267726%2C42.52009889487909%2C8.743817739901589&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c3-r7",
+      "column": 3,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 6144,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 12287.567130395884,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.743817739901589,
+        "south": 42.5150237,
+        "east": 8.75630388653545,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c3-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.743817739901589%2C42.52009889487909%2C8.75630388653545&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "222be0c8f7ab82da643ef34522ec9b7f7e1446f0b6feb30ffbd64d6d892bc97a",
+      "byteLength": 556601,
+      "downloadedAt": "2026-10-04T12:24:18.410956+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.743817739901589%2C42.52009889487909%2C8.75630388653545&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c4-r7",
+      "column": 4,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 8192,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 16383.422840527845,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.75630388653545,
+        "south": 42.5150237,
+        "east": 8.768790033169314,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c4-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.75630388653545%2C42.52009889487909%2C8.768790033169314&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "012d88d32553248967efdbf5b8ec2fddd574508177fb794dd261859c326c2cf6",
+      "byteLength": 443604,
+      "downloadedAt": "2026-10-04T12:24:17.302821+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.75630388653545%2C42.52009889487909%2C8.768790033169314&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c5-r7",
+      "column": 5,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 10240,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 20479.278550659805,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.768790033169314,
+        "south": 42.5150237,
+        "east": 8.781276179803177,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c5-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.768790033169314%2C42.52009889487909%2C8.781276179803177&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "1634a0adde10f55db508cecca483261e835f3799ef7b8c504329797de6699c00",
+      "byteLength": 434333,
+      "downloadedAt": "2026-10-04T12:24:18.337375+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.768790033169314%2C42.52009889487909%2C8.781276179803177&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c6-r7",
+      "column": 6,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 12288,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 24575.13426079177,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.781276179803177,
+        "south": 42.5150237,
+        "east": 8.793762326437038,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c6-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.781276179803177%2C42.52009889487909%2C8.793762326437038&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "4c79c7d002e03b18f2203a858faa6bdd0f73a3519fdb9062fe4720a9a59dd3e3",
+      "byteLength": 435518,
+      "downloadedAt": "2026-10-04T12:24:19.823137+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.781276179803177%2C42.52009889487909%2C8.793762326437038&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c7-r7",
+      "column": 7,
+      "row": 7,
+      "width": 2048,
+      "height": 1130,
+      "pixelRect": {
+        "x": 14336,
+        "y": 14336,
+        "w": 2048,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 28670.98997092373,
+        "y": 28670.377861114703,
+        "w": 4095.855710131961,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.793762326437038,
+        "south": 42.5150237,
+        "east": 8.806248473070902,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c7-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.793762326437038%2C42.52009889487909%2C8.806248473070902&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "964de1e737ee13188a93463380ddd38a83a20a388134734723f40bf673bcc180",
+      "byteLength": 485647,
+      "downloadedAt": "2026-10-04T12:24:22.192039+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.793762326437038%2C42.52009889487909%2C8.806248473070902&WIDTH=2048&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "c8-r7",
+      "column": 8,
+      "row": 7,
+      "width": 1500,
+      "height": 1130,
+      "pixelRect": {
+        "x": 16384,
+        "y": 14336,
+        "w": 1500,
+        "h": 1130
+      },
+      "boundsWorld": {
+        "x": 32766.84568105569,
+        "y": 28670.377861114703,
+        "w": 2999.8943189443075,
+        "h": 2259.872138885297
+      },
+      "boundsWGS84": {
+        "west": 8.806248473070902,
+        "south": 42.5150237,
+        "east": 8.8153936,
+        "north": 42.52009889487909
+      },
+      "url": "./assets/aerial/source-2048/calvi-c8-r7.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.806248473070902%2C42.52009889487909%2C8.8153936&WIDTH=1500&HEIGHT=1130&TRANSPARENT=FALSE",
+      "sha256": "240551b7a0f3badc24eb3d11b23524528f68b09c9e217b2b1d7eb4a86b8dcaac",
+      "byteLength": 373673,
+      "downloadedAt": "2026-10-04T12:24:22.217420+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.806248473070902%2C42.52009889487909%2C8.8153936&WIDTH=1500&HEIGHT=1130&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    }
+  ],
+  "sourceManifestSha256": "bbbe8d62868cfa124d491d31230689a038a6d3151ef658bd169eeb9691d12c4f",
+  "note": "Immutable .5 m photo-observation atlas; newer higher resolution gameplay tiles may use the same world coordinates.",
+  "annotationSources": [
+    {
+      "id": "detail-urban-c2-r1",
+      "regionId": "urban",
+      "column": 2,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 15096.0,
+        "y": 6548.0,
+        "w": 2048.0,
+        "h": 2048.0
+      },
+      "boundsWGS84": {
+        "west": 8.752379199851092,
+        "south": 42.56518170198511,
+        "east": 8.75862249310063,
+        "north": 42.56978107684952
+      },
+      "url": "./assets/aerial/source-2048/calvi-detail-urban-c2-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56518170198511%2C8.752379199851092%2C42.56978107684952%2C8.75862249310063&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "35ba8e32ce7ef49bc740788342338380a63c3deebd9ee132639b0ea02a8c217c",
+      "byteLength": 897096,
+      "downloadedAt": "2026-10-04T13:34:31.531165+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56518170198511%2C8.752379199851092%2C42.56978107684952%2C8.75862249310063&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "detail-urban-c2-r2",
+      "regionId": "urban",
+      "column": 2,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 4096,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 15096.0,
+        "y": 8596.0,
+        "w": 2048.0,
+        "h": 2048.0
+      },
+      "boundsWGS84": {
+        "west": 8.752379199851092,
+        "south": 42.5605823271207,
+        "east": 8.75862249310063,
+        "north": 42.56518170198511
+      },
+      "url": "./assets/aerial/source-2048/calvi-detail-urban-c2-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5605823271207%2C8.752379199851092%2C42.56518170198511%2C8.75862249310063&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "540cd39af2155d51180a659f2df6a812f5c6d719db9ccd4403e40b564fd99e55",
+      "byteLength": 797537,
+      "downloadedAt": "2026-10-04T13:34:29.503011+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5605823271207%2C8.752379199851092%2C42.56518170198511%2C8.75862249310063&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "detail-airport-c3-r2",
+      "regionId": "airport",
+      "column": 3,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 27144.0,
+        "y": 24096.0,
+        "w": 2048.0,
+        "h": 2048.0
+      },
+      "boundsWGS84": {
+        "west": 8.789107323420643,
+        "south": 42.52577260524648,
+        "east": 8.79535061667018,
+        "north": 42.53037198011089
+      },
+      "url": "./assets/aerial/source-2048/calvi-detail-airport-c3-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52577260524648%2C8.789107323420643%2C42.53037198011089%2C8.79535061667018&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "a5b4c221c4e2e9922cf084e0c899d36712ee513486b34634087c9c8707f3202a",
+      "byteLength": 647159,
+      "downloadedAt": "2026-10-04T13:35:20.552719+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52577260524648%2C8.789107323420643%2C42.53037198011089%2C8.79535061667018&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "detail-airport-c3-r3",
+      "regionId": "airport",
+      "column": 3,
+      "row": 3,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 6144,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 27144.0,
+        "y": 26144.0,
+        "w": 2048.0,
+        "h": 2048.0
+      },
+      "boundsWGS84": {
+        "west": 8.789107323420643,
+        "south": 42.52117323038207,
+        "east": 8.79535061667018,
+        "north": 42.52577260524648
+      },
+      "url": "./assets/aerial/source-2048/calvi-detail-airport-c3-r3.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52117323038207%2C8.789107323420643%2C42.52577260524648%2C8.79535061667018&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "29f638890577477685b9f4354c8db075f69e78f6d964617d069a836998354a8b",
+      "byteLength": 607431,
+      "downloadedAt": "2026-10-04T13:35:24.185845+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.52117323038207%2C8.789107323420643%2C42.52577260524648%2C8.79535061667018&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "detail-urban-c3-r1",
+      "regionId": "urban",
+      "column": 3,
+      "row": 1,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 2048,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 17144.0,
+        "y": 6548.0,
+        "w": 2048.0,
+        "h": 2048.0
+      },
+      "boundsWGS84": {
+        "west": 8.75862249310063,
+        "south": 42.56518170198511,
+        "east": 8.764865786350168,
+        "north": 42.56978107684952
+      },
+      "url": "./assets/aerial/source-2048/calvi-detail-urban-c3-r1.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56518170198511%2C8.75862249310063%2C42.56978107684952%2C8.764865786350168&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "155a8d2d9f8255e1ab7bf9b5da04f628b80cb6bc81cfdd49a636696cc74ded62",
+      "byteLength": 548888,
+      "downloadedAt": "2026-10-04T13:34:28.611911+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56518170198511%2C8.75862249310063%2C42.56978107684952%2C8.764865786350168&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    },
+    {
+      "id": "detail-urban-c3-r2",
+      "regionId": "urban",
+      "column": 3,
+      "row": 2,
+      "width": 2048,
+      "height": 2048,
+      "pixelRect": {
+        "x": 6144,
+        "y": 4096,
+        "w": 2048,
+        "h": 2048
+      },
+      "boundsWorld": {
+        "x": 17144.0,
+        "y": 8596.0,
+        "w": 2048.0,
+        "h": 2048.0
+      },
+      "boundsWGS84": {
+        "west": 8.75862249310063,
+        "south": 42.5605823271207,
+        "east": 8.764865786350168,
+        "north": 42.56518170198511
+      },
+      "url": "./assets/aerial/source-2048/calvi-detail-urban-c3-r2.jpg",
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5605823271207%2C8.75862249310063%2C42.56518170198511%2C8.764865786350168&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE",
+      "sha256": "9573cee406432e74de9500dd1f815a6b5e2942784be1b9bcc9e7ef40efe76490",
+      "byteLength": 296211,
+      "downloadedAt": "2026-10-04T13:34:28.604367+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5605823271207%2C8.75862249310063%2C42.56518170198511%2C8.764865786350168&WIDTH=2048&HEIGHT=2048&TRANSPARENT=FALSE"
+      },
+      "fullyDecodedDuringImport": true
+    }
+  ],
+  "piers": [
+    {
+      "id": "osm-pier-115676052",
+      "sourceId": 115676052,
+      "kind": "pier",
+      "points": [
+        [
+          16480.361,
+          9043.639
+        ],
+        [
+          16731.633,
+          9327.503
+        ]
+      ],
+      "width": 10,
+      "widthEstimated": true,
+      "widthSource": "visual estimate of native IGN photograph, approximately 2.5 m; no OSM width tag",
+      "heightEstimated": true,
+      "heightMeters": 0.7,
+      "heightSource": "artistic deck elevation; no survey measurement",
+      "sourcePlacement": {
+        "provider": "OpenStreetMap",
+        "sourceFile": "data/calvi-osm-parts/part-2.osm.xml.gz",
+        "sha256": "0c8ef87a5dc4340db2b346a0f7b7f78c314afd37c7450d67ff53adccf69de67f",
+        "compressedSha256": "ab7a0b9ac9036cd6447e86594e63b6e8dd58ce09a237770e4026bdc011b25a96",
+        "osmId": 115676052,
+        "nodeIds": [
+          "1306210723",
+          "1306210644"
+        ],
+        "coordinatesWGS84": [
+          [
+            8.7565994,
+            42.5641764
+          ],
+          [
+            8.7573654,
+            42.5635389
+          ]
+        ],
+        "tags": {
+          "man_made": "pier"
+        },
+        "method": "original OSM man_made=pier node geometry projected to the unchanged Calvi world"
+      }
+    },
+    {
+      "id": "osm-pier-115676056",
+      "sourceId": 115676056,
+      "kind": "pier",
+      "points": [
+        [
+          16541.703,
+          8908.631
+        ],
+        [
+          16827.845,
+          9222.596
+        ]
+      ],
+      "width": 10,
+      "widthEstimated": true,
+      "widthSource": "visual estimate of native IGN photograph, approximately 2.5 m; no OSM width tag",
+      "heightEstimated": true,
+      "heightMeters": 0.7,
+      "heightSource": "artistic deck elevation; no survey measurement",
+      "sourcePlacement": {
+        "provider": "OpenStreetMap",
+        "sourceFile": "data/calvi-osm-parts/part-2.osm.xml.gz",
+        "sha256": "0c8ef87a5dc4340db2b346a0f7b7f78c314afd37c7450d67ff53adccf69de67f",
+        "compressedSha256": "ab7a0b9ac9036cd6447e86594e63b6e8dd58ce09a237770e4026bdc011b25a96",
+        "osmId": 115676056,
+        "nodeIds": [
+          "1306210692",
+          "1306210627"
+        ],
+        "coordinatesWGS84": [
+          [
+            8.7567864,
+            42.5644796
+          ],
+          [
+            8.7576587,
+            42.5637745
+          ]
+        ],
+        "tags": {
+          "man_made": "pier"
+        },
+        "method": "original OSM man_made=pier node geometry projected to the unchanged Calvi world"
+      }
+    },
+    {
+      "id": "osm-pier-115676057",
+      "sourceId": 115676057,
+      "kind": "pier",
+      "points": [
+        [
+          16577.753,
+          9475.825
+        ],
+        [
+          16666.814,
+          9398.303
+        ]
+      ],
+      "width": 10,
+      "widthEstimated": true,
+      "widthSource": "visual estimate of native IGN photograph, approximately 2.5 m; no OSM width tag",
+      "heightEstimated": true,
+      "heightMeters": 0.7,
+      "heightSource": "artistic deck elevation; no survey measurement",
+      "sourcePlacement": {
+        "provider": "OpenStreetMap",
+        "sourceFile": "data/calvi-osm-parts/part-2.osm.xml.gz",
+        "sha256": "0c8ef87a5dc4340db2b346a0f7b7f78c314afd37c7450d67ff53adccf69de67f",
+        "compressedSha256": "ab7a0b9ac9036cd6447e86594e63b6e8dd58ce09a237770e4026bdc011b25a96",
+        "osmId": 115676057,
+        "nodeIds": [
+          "1306210696",
+          "1306210652"
+        ],
+        "coordinatesWGS84": [
+          [
+            8.7568963,
+            42.5632058
+          ],
+          [
+            8.7571678,
+            42.5633799
+          ]
+        ],
+        "tags": {
+          "man_made": "pier"
+        },
+        "method": "original OSM man_made=pier node geometry projected to the unchanged Calvi world"
+      }
+    },
+    {
+      "id": "osm-pier-115676059",
+      "sourceId": 115676059,
+      "kind": "pier",
+      "points": [
+        [
+          16399.73,
+          9113.726
+        ],
+        [
+          16595.894,
+          9337.834
+        ]
+      ],
+      "width": 10,
+      "widthEstimated": true,
+      "widthSource": "visual estimate of native IGN photograph, approximately 2.5 m; no OSM width tag",
+      "heightEstimated": true,
+      "heightMeters": 0.7,
+      "heightSource": "artistic deck elevation; no survey measurement",
+      "sourcePlacement": {
+        "provider": "OpenStreetMap",
+        "sourceFile": "data/calvi-osm-parts/part-2.osm.xml.gz",
+        "sha256": "0c8ef87a5dc4340db2b346a0f7b7f78c314afd37c7450d67ff53adccf69de67f",
+        "compressedSha256": "ab7a0b9ac9036cd6447e86594e63b6e8dd58ce09a237770e4026bdc011b25a96",
+        "osmId": 115676059,
+        "nodeIds": [
+          "1306210683",
+          "1306210662"
+        ],
+        "coordinatesWGS84": [
+          [
+            8.7563536,
+            42.564019
+          ],
+          [
+            8.7569516,
+            42.5635157
+          ]
+        ],
+        "tags": {
+          "man_made": "pier"
+        },
+        "method": "original OSM man_made=pier node geometry projected to the unchanged Calvi world"
+      }
+    },
+    {
+      "id": "osm-pier-115676060",
+      "sourceId": 115676060,
+      "kind": "pier",
+      "points": [
+        [
+          16593.991,
+          8708.211
+        ],
+        [
+          16871.703,
+          9035.713
+        ]
+      ],
+      "width": 10,
+      "widthEstimated": true,
+      "widthSource": "visual estimate of native IGN photograph, approximately 2.5 m; no OSM width tag",
+      "heightEstimated": true,
+      "heightMeters": 0.7,
+      "heightSource": "artistic deck elevation; no survey measurement",
+      "sourcePlacement": {
+        "provider": "OpenStreetMap",
+        "sourceFile": "data/calvi-osm-parts/part-2.osm.xml.gz",
+        "sha256": "0c8ef87a5dc4340db2b346a0f7b7f78c314afd37c7450d67ff53adccf69de67f",
+        "compressedSha256": "ab7a0b9ac9036cd6447e86594e63b6e8dd58ce09a237770e4026bdc011b25a96",
+        "osmId": 115676060,
+        "nodeIds": [
+          "1306210617",
+          "1306210671"
+        ],
+        "coordinatesWGS84": [
+          [
+            8.7569458,
+            42.5649297
+          ],
+          [
+            8.7577924,
+            42.5641942
+          ]
+        ],
+        "tags": {
+          "man_made": "pier"
+        },
+        "method": "original OSM man_made=pier node geometry projected to the unchanged Calvi world"
+      }
+    },
+    {
+      "id": "osm-pier-1089398758",
+      "sourceId": 1089398758,
+      "kind": "pier",
+      "points": [
+        [
+          16705.948,
+          8501.157
+        ],
+        [
+          16944.395,
+          8762.401
+        ],
+        [
+          16991.402,
+          8694.229
+        ]
+      ],
+      "width": 10,
+      "widthEstimated": true,
+      "widthSource": "visual estimate of native IGN photograph, approximately 2.5 m; no OSM width tag",
+      "heightEstimated": true,
+      "heightMeters": 0.7,
+      "heightSource": "artistic deck elevation; no survey measurement",
+      "sourcePlacement": {
+        "provider": "OpenStreetMap",
+        "sourceFile": "data/calvi-osm-parts/part-2.osm.xml.gz",
+        "sha256": "0c8ef87a5dc4340db2b346a0f7b7f78c314afd37c7450d67ff53adccf69de67f",
+        "compressedSha256": "ab7a0b9ac9036cd6447e86594e63b6e8dd58ce09a237770e4026bdc011b25a96",
+        "osmId": 1089398758,
+        "nodeIds": [
+          "9979284712",
+          "9979284713",
+          "9979284714"
+        ],
+        "coordinatesWGS84": [
+          [
+            8.7572871,
+            42.5653947
+          ],
+          [
+            8.758014,
+            42.564808
+          ],
+          [
+            8.7581573,
+            42.5649611
+          ]
+        ],
+        "tags": {
+          "man_made": "pier"
+        },
+        "method": "original OSM man_made=pier node geometry projected to the unchanged Calvi world"
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "source": "IGN LiDAR HD MNT",
+  "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=IGNF_LIDAR-HD_MNT_ELEVATION.ELEVATIONGRIDCOVERAGE.WGS84G&STYLES=&CRS=EPSG%3A4326&BBOX=42.55997757847534%2C8.754469476744186%2C42.57002242152466%2C8.765030523255815&WIDTH=173&HEIGHT=224&FORMAT=image%2Fx-bil%3Bbits%3D32",
+  "layer": "IGNF_LIDAR-HD_MNT_ELEVATION.ELEVATIONGRIDCOVERAGE.WGS84G",
+  "sourceLicense": "Licence Ouverte / Open Licence",
+  "license": {
+    "identifier": "Licence Ouverte / Open Licence",
+    "version": null,
+    "providerRecord": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http%3A%2F%2Fstandards.iso.org%2Fiso%2F19115%2F-3%2Fmdb%2F2.0&elementSetName=full&ID=IGNF_MNT-LIDAR-HD",
+    "providerLicenceStatement": "Licence Ouverte / Open License (compatible ODC-BY, CC-BY 2.0)",
+    "providerLicenceReference": "https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+    "recordSha256": "d4aa95cb6a7aee9d968eaa4b4491facabc9be1e3e60c502f15b209ef9c3eef3e",
+    "verification": "Official IGN ISO product metadata explicitly names the open licence; CC-BY compatibility is not a licence version"
+  },
+  "attribution": "© IGN — MNT LiDAR HD — Licence Ouverte / Open Licence",
+  "sourceArchive": "calvi-source-lidar-urban-mnt.bil",
+  "sha256": "f02a99b55ad1e227fff82e56f7c6d277142d03fb186b15df0668b17069d3d83d",
+  "mapSha256": "cf6d339ed9d834a6a1e02d5512e1c6ecd96b72050db6fbdd906366b1fca2d217",
+  "downloadedAt": "2026-10-04T09:17:00.741369+00:00",
+  "observationDate": null,
+  "observationDateNote": "Local airborne acquisition date and vertical reference have not been established from the product record; this is not a reconstruction of 1994.",
+  "nativeProductSpacingMetres": 0.5,
+  "gridSpacingMetres": {
+    "eastWest": 5.005072674418605,
+    "northSouth": 4.991905829596412
+  },
+  "sampleGridBounds": {
+    "west": 8.7545,
+    "south": 42.56,
+    "east": 8.765,
+    "north": 42.57
+  },
+  "sourceRequestBounds": {
+    "west": 8.754469476744186,
+    "south": 42.55997757847534,
+    "east": 8.765030523255815,
+    "north": 42.57002242152466
+  },
+  "georeferencing": {
+    "crs": "EPSG:4326",
+    "wmsVersion": "1.3.0",
+    "bboxAxisOrder": "latitude,longitude",
+    "imageAxes": "right=east, down=south",
+    "pixelInterpretation": "PixelIsArea centres aligned with map-endpoint sample nodes by a half-step request buffer",
+    "bilEncoding": "little-endian IEEE float32, one band, first row north"
+  },
+  "quantisationMetres": 0.001,
+  "quantisationNote": "Storage rounding only; not a survey accuracy claim",
+  "responseHeaders": {
+    "contentType": "image/x-bil;bits=32",
+    "lastModified": null,
+    "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=IGNF_LIDAR-HD_MNT_ELEVATION.ELEVATIONGRIDCOVERAGE.WGS84G&STYLES=&CRS=EPSG%3A4326&BBOX=42.55997757847534%2C8.754469476744186%2C42.57002242152466%2C8.765030523255815&WIDTH=173&HEIGHT=224&FORMAT=image%2Fx-bil%3Bbits%3D32"
+  },
+  "columns": 173,
+  "rows": 224,
+  "rawBytes": 155008,
+  "minElevation": -0.466,
+  "maxElevation": 63.857,
+  "role": "Authentic ~5m urban detail retained from the previous exact WGS84 bounds; never stretched over the municipality"
+}

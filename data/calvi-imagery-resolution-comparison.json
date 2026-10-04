@@ -1,0 +1,350 @@
+{
+  "status": "ready",
+  "purpose": "Compare actual IGN BD ORTHO exports of identical 100 m × 100 m extents; all JPEGs are original WMS bytes",
+  "provider": "IGN GeoPlateforme",
+  "product": "BD ORTHO",
+  "attribution": "© IGN — BD ORTHO — Licence Ouverte / Open Licence",
+  "licenseRecordAsset": "data/calvi-imagery-tiles-license.xml",
+  "nativeResolutionEstablished": false,
+  "conclusion": "Quarter-metre export retains visibly finer real coast/palm/car/tree detail than half-metre exports; 0.2 m yields little additional visual detail and was not selected for the game",
+  "selectedRequestedMetresPerPixel": 0.25,
+  "diagnosticSourcesBytes": 313877,
+  "records": [
+    {
+      "zone": "port",
+      "requestedMetresPerPixel": 0.5,
+      "boundsWGS84": {
+        "west": 8.7561903033936,
+        "south": 42.564550842298395,
+        "east": 8.7574096966064,
+        "north": 42.5654491577016
+      },
+      "boundsWorld": {
+        "x": 16346.16393481672,
+        "y": 8476.907879109505,
+        "w": 400,
+        "h": 400
+      },
+      "width": 200,
+      "height": 200,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.564550842298395%2C8.7561903033936%2C42.5654491577016%2C8.7574096966064&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE",
+      "byteLength": 12492,
+      "sha256": "55853bd57e4a5d46d18f6540daa7864927bbc5e02e188afb346d6829e6fe4e41",
+      "downloadedAt": "2026-10-04T13:28:48.970948+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.564550842298395%2C8.7561903033936%2C42.5654491577016%2C8.7574096966064&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/port-0.5.jpg"
+    },
+    {
+      "zone": "port",
+      "requestedMetresPerPixel": 0.25,
+      "boundsWGS84": {
+        "west": 8.7561903033936,
+        "south": 42.564550842298395,
+        "east": 8.7574096966064,
+        "north": 42.5654491577016
+      },
+      "boundsWorld": {
+        "x": 16346.16393481672,
+        "y": 8476.907879109505,
+        "w": 400,
+        "h": 400
+      },
+      "width": 400,
+      "height": 400,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.564550842298395%2C8.7561903033936%2C42.5654491577016%2C8.7574096966064&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE",
+      "byteLength": 36890,
+      "sha256": "38460cf6883841ab2ce9c18a01dc1360757f88d1391d5f24d6e85af6e9610e1b",
+      "downloadedAt": "2026-10-04T13:28:49.188110+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.564550842298395%2C8.7561903033936%2C42.5654491577016%2C8.7574096966064&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/port-0.25.jpg"
+    },
+    {
+      "zone": "port",
+      "requestedMetresPerPixel": 0.2,
+      "boundsWGS84": {
+        "west": 8.7561903033936,
+        "south": 42.564550842298395,
+        "east": 8.7574096966064,
+        "north": 42.5654491577016
+      },
+      "boundsWorld": {
+        "x": 16346.16393481672,
+        "y": 8476.907879109505,
+        "w": 400,
+        "h": 400
+      },
+      "width": 500,
+      "height": 500,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.564550842298395%2C8.7561903033936%2C42.5654491577016%2C8.7574096966064&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE",
+      "byteLength": 51608,
+      "sha256": "d252817fde2055a32be937beabeccaa09422d9e105827152b7372c62a2416a80",
+      "downloadedAt": "2026-10-04T13:28:49.186508+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.564550842298395%2C8.7561903033936%2C42.5654491577016%2C8.7574096966064&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/port-0.2.jpg"
+    },
+    {
+      "zone": "bay",
+      "requestedMetresPerPixel": 0.5,
+      "boundsWGS84": {
+        "west": 8.7581903033936,
+        "south": 42.5616508422984,
+        "east": 8.7594096966064,
+        "north": 42.5625491577016
+      },
+      "boundsWorld": {
+        "x": 17002.22794403239,
+        "y": 9768.21380112683,
+        "w": 400,
+        "h": 400
+      },
+      "width": 200,
+      "height": 200,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5616508422984%2C8.7581903033936%2C42.5625491577016%2C8.7594096966064&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE",
+      "byteLength": 2418,
+      "sha256": "343cde87e2d414baf3bcec182534e6e7edcb7c9672c16273ba6341aa861f69e0",
+      "downloadedAt": "2026-10-04T13:28:49.861722+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5616508422984%2C8.7581903033936%2C42.5625491577016%2C8.7594096966064&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/bay-0.5.jpg"
+    },
+    {
+      "zone": "bay",
+      "requestedMetresPerPixel": 0.25,
+      "boundsWGS84": {
+        "west": 8.7581903033936,
+        "south": 42.5616508422984,
+        "east": 8.7594096966064,
+        "north": 42.5625491577016
+      },
+      "boundsWorld": {
+        "x": 17002.22794403239,
+        "y": 9768.21380112683,
+        "w": 400,
+        "h": 400
+      },
+      "width": 400,
+      "height": 400,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5616508422984%2C8.7581903033936%2C42.5625491577016%2C8.7594096966064&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE",
+      "byteLength": 9204,
+      "sha256": "677bbfeaf9e912d6214b87a72a9860ddb9174baa18f602af2480966a23b3c4d5",
+      "downloadedAt": "2026-10-04T13:28:50.135178+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5616508422984%2C8.7581903033936%2C42.5625491577016%2C8.7594096966064&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/bay-0.25.jpg"
+    },
+    {
+      "zone": "bay",
+      "requestedMetresPerPixel": 0.2,
+      "boundsWGS84": {
+        "west": 8.7581903033936,
+        "south": 42.5616508422984,
+        "east": 8.7594096966064,
+        "north": 42.5625491577016
+      },
+      "boundsWorld": {
+        "x": 17002.22794403239,
+        "y": 9768.21380112683,
+        "w": 400,
+        "h": 400
+      },
+      "width": 500,
+      "height": 500,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5616508422984%2C8.7581903033936%2C42.5625491577016%2C8.7594096966064&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE",
+      "byteLength": 13559,
+      "sha256": "19c2cef635b0c0ee22a9c9788dd2fc752dad03a164ceda79c9f81bd5a83de717",
+      "downloadedAt": "2026-10-04T13:28:50.339748+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5616508422984%2C8.7581903033936%2C42.5625491577016%2C8.7594096966064&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/bay-0.2.jpg"
+    },
+    {
+      "zone": "vegetation",
+      "requestedMetresPerPixel": 0.5,
+      "boundsWGS84": {
+        "west": 8.7651903033936,
+        "south": 42.5507508422984,
+        "east": 8.7664096966064,
+        "north": 42.551649157701604
+      },
+      "boundsWorld": {
+        "x": 19298.45197628637,
+        "y": 14621.742956300537,
+        "w": 400,
+        "h": 400
+      },
+      "width": 200,
+      "height": 200,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5507508422984%2C8.7651903033936%2C42.551649157701604%2C8.7664096966064&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE",
+      "byteLength": 10211,
+      "sha256": "501a25f933b24960ba77f4a5326c7137d5614a5a3666a5a6de6169f5dc51c8bc",
+      "downloadedAt": "2026-10-04T13:28:50.487995+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5507508422984%2C8.7651903033936%2C42.551649157701604%2C8.7664096966064&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/vegetation-0.5.jpg"
+    },
+    {
+      "zone": "vegetation",
+      "requestedMetresPerPixel": 0.25,
+      "boundsWGS84": {
+        "west": 8.7651903033936,
+        "south": 42.5507508422984,
+        "east": 8.7664096966064,
+        "north": 42.551649157701604
+      },
+      "boundsWorld": {
+        "x": 19298.45197628637,
+        "y": 14621.742956300537,
+        "w": 400,
+        "h": 400
+      },
+      "width": 400,
+      "height": 400,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5507508422984%2C8.7651903033936%2C42.551649157701604%2C8.7664096966064&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE",
+      "byteLength": 30761,
+      "sha256": "28d2a2587d6a489d721ad7ceb6e4a2f9de2f55068e1e81e104ea0d553c391c98",
+      "downloadedAt": "2026-10-04T13:28:50.659530+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5507508422984%2C8.7651903033936%2C42.551649157701604%2C8.7664096966064&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/vegetation-0.25.jpg"
+    },
+    {
+      "zone": "vegetation",
+      "requestedMetresPerPixel": 0.2,
+      "boundsWGS84": {
+        "west": 8.7651903033936,
+        "south": 42.5507508422984,
+        "east": 8.7664096966064,
+        "north": 42.551649157701604
+      },
+      "boundsWorld": {
+        "x": 19298.45197628637,
+        "y": 14621.742956300537,
+        "w": 400,
+        "h": 400
+      },
+      "width": 500,
+      "height": 500,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5507508422984%2C8.7651903033936%2C42.551649157701604%2C8.7664096966064&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE",
+      "byteLength": 43350,
+      "sha256": "0077c78d67e6b42d10a1c6088c6ec883095acd40fe1e15d94f85b5880bdef67c",
+      "downloadedAt": "2026-10-04T13:28:50.939207+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5507508422984%2C8.7651903033936%2C42.551649157701604%2C8.7664096966064&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/vegetation-0.2.jpg"
+    },
+    {
+      "zone": "parking",
+      "requestedMetresPerPixel": 0.5,
+      "boundsWGS84": {
+        "west": 8.75452533190562,
+        "south": 42.56456635593391,
+        "east": 8.75574472511842,
+        "north": 42.56546467133712
+      },
+      "boundsWorld": {
+        "x": 15800,
+        "y": 8470,
+        "w": 400,
+        "h": 400
+      },
+      "width": 200,
+      "height": 200,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56456635593391%2C8.75452533190562%2C42.56546467133712%2C8.75574472511842&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE",
+      "byteLength": 12119,
+      "sha256": "3b722338859fb5470dc85c0c676b2a8324ecfe675f1a49216015075fb4f1918e",
+      "downloadedAt": "2026-10-04T13:38:25.545660+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56456635593391%2C8.75452533190562%2C42.56546467133712%2C8.75574472511842&WIDTH=200&HEIGHT=200&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/parking-0.5.jpg"
+    },
+    {
+      "zone": "parking",
+      "requestedMetresPerPixel": 0.25,
+      "boundsWGS84": {
+        "west": 8.75452533190562,
+        "south": 42.56456635593391,
+        "east": 8.75574472511842,
+        "north": 42.56546467133712
+      },
+      "boundsWorld": {
+        "x": 15800,
+        "y": 8470,
+        "w": 400,
+        "h": 400
+      },
+      "width": 400,
+      "height": 400,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56456635593391%2C8.75452533190562%2C42.56546467133712%2C8.75574472511842&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE",
+      "byteLength": 37843,
+      "sha256": "79329997007864bfec74f77d40829fd5b1880d92b1fa133707aef62e004a4814",
+      "downloadedAt": "2026-10-04T13:38:25.984543+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56456635593391%2C8.75452533190562%2C42.56546467133712%2C8.75574472511842&WIDTH=400&HEIGHT=400&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/parking-0.25.jpg"
+    },
+    {
+      "zone": "parking",
+      "requestedMetresPerPixel": 0.2,
+      "boundsWGS84": {
+        "west": 8.75452533190562,
+        "south": 42.56456635593391,
+        "east": 8.75574472511842,
+        "north": 42.56546467133712
+      },
+      "boundsWorld": {
+        "x": 15800,
+        "y": 8470,
+        "w": 400,
+        "h": 400
+      },
+      "width": 500,
+      "height": 500,
+      "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56456635593391%2C8.75452533190562%2C42.56546467133712%2C8.75574472511842&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE",
+      "byteLength": 53422,
+      "sha256": "2318b384a0af85cd85a91e41685d5cb45e03595a819e266854780d6f8d96fd0f",
+      "downloadedAt": "2026-10-04T13:38:25.988044+00:00",
+      "responseHeaders": {
+        "contentType": "image/jpeg",
+        "lastModified": null,
+        "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.56456635593391%2C8.75452533190562%2C42.56546467133712%2C8.75574472511842&WIDTH=500&HEIGHT=500&TRANSPARENT=FALSE"
+      },
+      "asset": "assets/aerial/source-2048/resolution-comparison/parking-0.2.jpg"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "blue-night",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototype arcade tactile en Corse, pixel art et synthèse chiptune locale.",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "test": "node --test tests/*.test.js",
+    "test:map": "python3 tools/test-import-calvi.py",
+    "test:boundary": "python3 tools/test-import-boundary.py",
+    "test:terrain": "python3 tools/test-import-elevation.py",
+    "test:imagery": "python3 tools/import-imagery.py --self-test",
+    "test:imagery:tiles": "python3 tools/test-import-imagery-tiles.py",
+    "test:heights": "python3 tools/test-import-building-heights.py",
+    "test:lidar": "python3 tools/import-lidar-elevation.py --self-test",
+    "test:browser": "playwright test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0"
+  }
+}

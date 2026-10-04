@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 88 88" width="88" height="88" shape-rendering="crispEdges" role="img" aria-labelledby="title desc">
+  <title id="title">Ninu, pilote improvisé de Blue Night</title>
+  <desc id="desc">Portrait original en pixels : cagoule noire, regard calme, veste militaire olive et volant, sur un fond bleu pétrole et cyan.</desc>
+  <rect width="88" height="88" fill="#08121f"/>
+  <rect x="3" y="3" width="82" height="82" fill="#18333f"/>
+  <path d="M5 5H61L5 61Z" fill="#245462"/>
+  <path d="M5 60L60 5H78L5 78Z" fill="#2b6570" opacity=".55"/>
+  <path d="M5 73H15V54H23V62H30V47H40V66H52V51H61V59H72V44H82V83H5Z" fill="#0b2130"/>
+  <rect x="13" y="61" width="3" height="8" fill="#42818a"/>
+  <rect x="64" y="62" width="4" height="3" fill="#66e0df"/>
+  <rect x="73" y="50" width="5" height="2" fill="#66e0df"/>
+  <path d="M4 4H27V6H6V25H4ZM61 82H82V61H84V84H61Z" fill="#66e0df"/>
+  <rect x="76" y="12" width="3" height="3" fill="#ff8b7b"/>
+  <rect x="12" y="33" width="2" height="6" fill="#e9c080"/>
+  <rect x="10" y="35" width="6" height="2" fill="#e9c080"/>
+  <path d="M23 85V66L32 59V22L41 13H57L66 24V44L61 56L75 66V85Z" fill="#050e18" opacity=".6"/>
+  <path d="M13 84V69L22 60H33V53H56V60H66L76 70V84Z" fill="#101f26"/>
+  <path d="M16 84V69L24 63H35V55H53V63H65L72 71V84Z" fill="#53664c"/>
+  <path d="M16 71L24 64H34V72H27V83H16ZM53 64H64L69 68V77H62V83H54Z" fill="#76805a"/>
+  <path d="M20 74H27V77H23V83H16V79H20ZM61 69H67V73H71V79H62Z" fill="#354a3d"/>
+  <path d="M31 61L39 68H48L56 61L52 58H35Z" fill="#1c3032"/>
+  <path d="M29 64H33V84H29ZM55 64H59V84H55Z" fill="#15282d"/>
+  <path d="M30 64H31V84H30ZM56 64H57V84H56Z" fill="#88a078"/>
+  <rect x="18" y="69" width="10" height="11" fill="#253c36"/>
+  <rect x="18" y="69" width="10" height="2" fill="#91a37b"/>
+  <rect x="21" y="73" width="4" height="2" fill="#101f26"/>
+  <rect x="60" y="70" width="10" height="11" fill="#253c36"/>
+  <rect x="60" y="70" width="10" height="2" fill="#91a37b"/>
+  <rect x="63" y="74" width="4" height="2" fill="#101f26"/>
+  <path d="M24 40V26H27V19H32V14H38V11H50V14H56V19H60V27H63V42H60V50H54V56H33V53H28V48H25Z" fill="#050c12"/>
+  <path d="M27 39V27H30V21H35V17H49V20H38V24H34V31H30V42Z" fill="#21333e"/>
+  <path d="M31 21H35V18H45V20H36V24H32Z" fill="#446674"/>
+  <path d="M57 28H60V42H57V49H52V52H47V48H53V41H56Z" fill="#111e29"/>
+  <path d="M28 30H39V29H52V32H57V40H49V38H40V41H29Z" fill="#ba8b67"/>
+  <path d="M29 31H39V33H32V38H29ZM43 31H52V33H56V36H50V34H43Z" fill="#e8be92"/>
+  <rect x="31" y="34" width="9" height="4" fill="#f5e7c8"/>
+  <rect x="45" y="33" width="9" height="4" fill="#f5e7c8"/>
+  <rect x="36" y="34" width="3" height="4" fill="#121b26"/>
+  <rect x="49" y="33" width="3" height="4" fill="#121b26"/>
+  <rect x="30" y="33" width="11" height="2" fill="#131d26"/>
+  <path d="M44 31H51V30H55V33H44Z" fill="#131d26"/>
+  <rect x="36" y="35" width="1" height="1" fill="#fff6dc"/>
+  <rect x="49" y="34" width="1" height="1" fill="#fff6dc"/>
+  <path d="M41 37H44V40H47V43H39V41H41Z" fill="#21313a"/>
+  <path d="M29 43H34V47H40V51H50V53H34V50H30Z" fill="#17252e"/>
+  <rect x="42" y="47" width="8" height="2" fill="#283a44"/>
+  <rect x="45" y="46" width="5" height="1" fill="#4b6770"/>
+  <path d="M35 69H51V72H55V83H51V85H35V83H31V73H35Z" fill="#091923"/>
+  <path d="M36 71H49V73H52V81H49V83H36V81H33V75H36Z" fill="#638489"/>
+  <path d="M38 73H48V75H50V80H47V81H39V80H35V76H38Z" fill="#142c36"/>
+  <path d="M41 74H44V81H41ZM35 77H50V79H35Z" fill="#91b2ad"/>
+  <rect x="32" y="74" width="4" height="7" fill="#c69770"/>
+  <rect x="50" y="73" width="4" height="7" fill="#c69770"/>
+  <rect x="32" y="74" width="2" height="2" fill="#f2c89b"/>
+  <rect x="50" y="73" width="2" height="2" fill="#f2c89b"/>
+  <rect x="7" y="80" width="12" height="2" fill="#ff8b7b"/>
+  <rect x="73" y="27" width="7" height="2" fill="#66e0df"/>
+  <rect x="73" y="31" width="4" height="2" fill="#66e0df"/>
+</svg>

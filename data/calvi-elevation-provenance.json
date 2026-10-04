@@ -1,0 +1,38 @@
+{
+  "city": "Calvi",
+  "source": "SRTM GL1",
+  "sourceUrl": "https://raw.githubusercontent.com/fafa1899/SRTM/fd7a14a17517ab31798b7ace0a5d1fe8a8416433/SRTM-GL1/Eurasia/N42E008.tif",
+  "license": "Public domain (USGS/NASA SRTM data)",
+  "attribution": "SRTM data courtesy of the U.S. Geological Survey",
+  "sourceEpoch": "Shuttle Radar Topography Mission, February 2000",
+  "downloadedAt": "2026-10-04T06:35:09.677001+00:00",
+  "importedAt": "2026-10-04T10:50:00.056810+00:00",
+  "sha256": "cdc460b1feadf3c59d257d16714bfc694bf98aacbdb98765b9a3af5617ee9cf1",
+  "rawSha256": "cdc460b1feadf3c59d257d16714bfc694bf98aacbdb98765b9a3af5617ee9cf1",
+  "rawSource": "data/calvi-source-N42E008.tif",
+  "verticalReference": "SRTM orthometric elevation, EGM96, metres",
+  "accuracyNote": "Radar surface elevation: buildings/vegetation and coastal interpolation can affect heights; not an IGN ground survey",
+  "sourceGrid": {
+    "columns": 3601,
+    "rows": 3601,
+    "longitudeStep": 0.0002777777777777778,
+    "latitudeStep": 0.0002777777777777778
+  },
+  "gridSpacingMetres": {
+    "eastWest": 22.752378342705285,
+    "northSouth": 30.80702599631325
+  },
+  "minimum": -8.408,
+  "maximum": 702.519,
+  "orientation": "north-up, row-major",
+  "resampling": "bilinear at the source sampling scale; does not add terrain detail",
+  "bounds": {
+    "west": 8.7063593,
+    "south": 42.5150237,
+    "east": 8.8153936,
+    "north": 42.5844865
+  },
+  "columns": 394,
+  "rows": 252,
+  "generatedModule": "data/calvi-elevation.js"
+}

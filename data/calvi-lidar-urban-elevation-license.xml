@@ -1,0 +1,1216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<csw:GetRecordByIdResponse xmlns:csw="http://www.opengis.net/cat/csw/2.0.2">
+  <mdb:MD_Metadata xmlns:mdb="http://standards.iso.org/iso/19115/-3/mdb/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cat="http://standards.iso.org/iso/19115/-3/cat/1.0" xmlns:gfc="http://standards.iso.org/iso/19110/gfc/1.1" xmlns:cit="http://standards.iso.org/iso/19115/-3/cit/2.0" xmlns:gcx="http://standards.iso.org/iso/19115/-3/gcx/1.0" xmlns:gex="http://standards.iso.org/iso/19115/-3/gex/1.0" xmlns:lan="http://standards.iso.org/iso/19115/-3/lan/1.0" xmlns:srv="http://standards.iso.org/iso/19115/-3/srv/2.0" xmlns:mas="http://standards.iso.org/iso/19115/-3/mas/1.0" xmlns:mcc="http://standards.iso.org/iso/19115/-3/mcc/1.0" xmlns:mco="http://standards.iso.org/iso/19115/-3/mco/1.0" xmlns:mda="http://standards.iso.org/iso/19115/-3/mda/1.0" xmlns:mds="http://standards.iso.org/iso/19115/-3/mds/2.0" xmlns:mdt="http://standards.iso.org/iso/19115/-3/mdt/2.0" xmlns:mex="http://standards.iso.org/iso/19115/-3/mex/1.0" xmlns:mmi="http://standards.iso.org/iso/19115/-3/mmi/1.0" xmlns:mpc="http://standards.iso.org/iso/19115/-3/mpc/1.0" xmlns:mrc="http://standards.iso.org/iso/19115/-3/mrc/2.0" xmlns:mrd="http://standards.iso.org/iso/19115/-3/mrd/1.0" xmlns:mri="http://standards.iso.org/iso/19115/-3/mri/1.0" xmlns:mrl="http://standards.iso.org/iso/19115/-3/mrl/2.0" xmlns:mrs="http://standards.iso.org/iso/19115/-3/mrs/1.0" xmlns:msr="http://standards.iso.org/iso/19115/-3/msr/2.0" xmlns:mdq="http://standards.iso.org/iso/19157/-2/mdq/1.0" xmlns:dqm="http://standards.iso.org/iso/19157/-2/dqm/1.0" xmlns:mac="http://standards.iso.org/iso/19115/-3/mac/2.0" xmlns:gco="http://standards.iso.org/iso/19115/-3/gco/1.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" uuid="IGNF_MNT-LIDAR-HD">
+    <mdb:metadataIdentifier>
+      <mcc:MD_Identifier>
+        <mcc:code>
+          <gco:CharacterString>IGNF_MNT-LIDAR-HD</gco:CharacterString>
+        </mcc:code>
+      </mcc:MD_Identifier>
+    </mdb:metadataIdentifier>
+    <mdb:defaultLocale>
+      <lan:PT_Locale>
+        <lan:language>
+          <lan:LanguageCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#LanguageCode" codeListValue="fre">fre</lan:LanguageCode>
+        </lan:language>
+        <lan:characterEncoding>
+          <lan:MD_CharacterSetCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_CharacterSetCode" codeListValue="utf8">utf8</lan:MD_CharacterSetCode>
+        </lan:characterEncoding>
+      </lan:PT_Locale>
+    </mdb:defaultLocale>
+    <mdb:metadataScope>
+      <mdb:MD_MetadataScope>
+        <mdb:resourceScope>
+          <mcc:MD_ScopeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ScopeCode" codeListValue="series">series</mcc:MD_ScopeCode>
+        </mdb:resourceScope>
+        <mdb:name>
+          <gco:CharacterString>Produit</gco:CharacterString>
+        </mdb:name>
+      </mdb:MD_MetadataScope>
+    </mdb:metadataScope>
+    <mdb:contact>
+      <cit:CI_Responsibility>
+        <cit:role>
+          <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact">pointOfContact</cit:CI_RoleCode>
+        </cit:role>
+        <cit:party>
+          <cit:CI_Organisation>
+            <cit:name>
+              <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+            </cit:name>
+            <cit:contactInfo>
+              <cit:CI_Contact>
+                <cit:address>
+                  <cit:CI_Address>
+                    <cit:deliveryPoint>
+                      <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                    </cit:deliveryPoint>
+                    <cit:deliveryPoint>
+                      <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                    </cit:deliveryPoint>
+                    <cit:city>
+                      <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                    </cit:city>
+                    <cit:postalCode>
+                      <gco:CharacterString>94165</gco:CharacterString>
+                    </cit:postalCode>
+                    <cit:country>
+                      <gco:CharacterString>FRANCE</gco:CharacterString>
+                    </cit:country>
+                    <cit:electronicMailAddress>
+                      <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                    </cit:electronicMailAddress>
+                  </cit:CI_Address>
+                </cit:address>
+                <cit:contactInstructions>
+                  <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                </cit:contactInstructions>
+              </cit:CI_Contact>
+            </cit:contactInfo>
+          </cit:CI_Organisation>
+        </cit:party>
+      </cit:CI_Responsibility>
+    </mdb:contact>
+    <mdb:dateInfo>
+      <cit:CI_Date>
+        <cit:date>
+          <gco:DateTime>2026-09-30T09:30:24.785697Z</gco:DateTime>
+        </cit:date>
+        <cit:dateType>
+          <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision">revision</cit:CI_DateTypeCode>
+        </cit:dateType>
+      </cit:CI_Date>
+    </mdb:dateInfo>
+    <mdb:metadataStandard>
+      <cit:CI_Citation>
+        <cit:title>
+          <gco:CharacterString>ISO 19115-3:2018</gco:CharacterString>
+        </cit:title>
+        <cit:edition>
+          <gco:CharacterString>1.0</gco:CharacterString>
+        </cit:edition>
+      </cit:CI_Citation>
+    </mdb:metadataStandard>
+    <mdb:spatialRepresentationInfo>
+      <msr:MD_VectorSpatialRepresentation id="IGNF_MNT-LIDAR-HD.spatialRepresentationInfo_1">
+        <msr:topologyLevel>
+          <msr:MD_TopologyLevelCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_TopologyLevelCode" codeListValue="geometryOnly" />
+        </msr:topologyLevel>
+      </msr:MD_VectorSpatialRepresentation>
+    </mdb:spatialRepresentationInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/2154">EPSG:2154</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/2975">EPSG:2975</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/4471">EPSG:4471</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:referenceSystemInfo>
+      <mrs:MD_ReferenceSystem>
+        <mrs:referenceSystemIdentifier>
+          <mcc:MD_Identifier>
+            <mcc:code>
+              <gcx:Anchor xlink:href="http://www.opengis.net/def/crs/EPSG/0/5490">EPSG:5490</gcx:Anchor>
+            </mcc:code>
+            <mcc:codeSpace>
+              <gco:CharacterString>urn:ogc:def:crs:IGNF:1.1</gco:CharacterString>
+            </mcc:codeSpace>
+          </mcc:MD_Identifier>
+        </mrs:referenceSystemIdentifier>
+      </mrs:MD_ReferenceSystem>
+    </mdb:referenceSystemInfo>
+    <mdb:identificationInfo>
+      <mri:MD_DataIdentification>
+        <mri:citation>
+          <cit:CI_Citation>
+            <cit:title>
+              <gco:CharacterString>MNT LiDAR HD</gco:CharacterString>
+            </cit:title>
+            <cit:alternateTitle>
+              <gco:CharacterString>MNT, LiDAR HD</gco:CharacterString>
+            </cit:alternateTitle>
+            <cit:date>
+              <cit:CI_Date>
+                <cit:date>
+                  <gco:Date>2025-01-01</gco:Date>
+                </cit:date>
+                <cit:dateType>
+                  <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                </cit:dateType>
+              </cit:CI_Date>
+            </cit:date>
+            <cit:date>
+              <cit:CI_Date>
+                <cit:date>
+                  <gco:Date>2026-09-30</gco:Date>
+                </cit:date>
+                <cit:dateType>
+                  <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="revision">revision</cit:CI_DateTypeCode>
+                </cit:dateType>
+              </cit:CI_Date>
+            </cit:date>
+            <cit:edition>
+              <gco:CharacterString>1.0</gco:CharacterString>
+            </cit:edition>
+            <cit:identifier>
+              <mcc:MD_Identifier id="IGNF_MNT-LIDAR-HD.identifier">
+                <mcc:code>
+                  <gco:CharacterString>IGNF_MNT-LIDAR-HD</gco:CharacterString>
+                </mcc:code>
+              </mcc:MD_Identifier>
+            </cit:identifier>
+          </cit:CI_Citation>
+        </mri:citation>
+        <mri:abstract>
+          <gco:CharacterString>Le produit MNT LiDAR HD est le modèle numérique de terrain dérivé du nuage de points LiDAR HD issu de l’acquisition réalisée dans cadre du programme national LiDAR HD avec une densité d’au moins 10 impulsions au m² et 5 impulsions au m² au-dessus de 3200 m d’altitude. Il est dérivé des points « sol », des points « eau » et des « points virtuels » contenus dans le nuage de points LiDAR HD classé.
+
+Ce produit doit couvrir toute la France métropolitaine et les DROM (Départements et Régions d’Outre-Mer sauf la Guyane) d’ici 2026. 
+
+Vous pouvez suivre l’avancement de la disponibilité des données nuage de point ici : https://macarte.ign.fr/carte/mThSup/diffusionMNxLiDARHD
+
+Il est diffusé sous formes de dalles de 1kmx1km et est disponible au pas de 50 centimètres et sous format GeoTiff. Une version au pas de 5m sera également disponible prochainement.   
+
+Les modèles numériques sont composés d’une grille rectangulaire dont chaque nœud est doté d’une altitude. À un nœud de la grille correspond un numéro de colonne et un numéro de ligne (c,l), des coordonnées bidimensionnelles (X,Y) et une altitude Z exprimées en mètres. Les coordonnées X et Y associées aux nœuds des modèles numériques sont des valeurs métriques entières en projection. Ces grilles sont écrites et fournies sous format image (.tif).
+
+Les modèles numériques issus du programme LiDAR HD font l’objet de restrictions sur les ZICAD (Zones Interdites à la Captation Aérienne des Données) pour lesquelles l’information est confidentielle. Les données ne sont pas fournies sur ces zones conformément à la réglementation en vigueur (dans ce cas, une valeur nodata est utilisée). 
+
+L’IGN diffuse une autre donnée modèle numérique de terrain intitulée RGE ALTI® : le MNT LiDAR HD préfigure la nouvelle génération de référentiel sol proposé par l’Institut.
+
+**[Rejoignez la communauté d’utilisateurs des produits issus du LiDAR HD.](https://www.expertises-territoires.fr/jcms/pl1_562084/fr/communaute-lidar-hd)** 
+
+Pour accéder à l'interface de téléchargement de cette donnée, merci de vous orienter également vers la partie liens ci-dessous.</gco:CharacterString>
+        </mri:abstract>
+        <mri:purpose gco:nilReason="missing">
+          <gco:CharacterString />
+        </mri:purpose>
+        <mri:status>
+          <mcc:MD_ProgressCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ProgressCode" codeListValue="onGoing">onGoing</mcc:MD_ProgressCode>
+        </mri:status>
+        <mri:pointOfContact>
+          <cit:CI_Responsibility>
+            <cit:role>
+              <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="pointOfContact">pointOfContact</cit:CI_RoleCode>
+            </cit:role>
+            <cit:party>
+              <cit:CI_Organisation>
+                <cit:name>
+                  <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+                </cit:name>
+                <cit:contactInfo>
+                  <cit:CI_Contact>
+                    <cit:address>
+                      <cit:CI_Address>
+                        <cit:deliveryPoint>
+                          <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                        </cit:deliveryPoint>
+                        <cit:deliveryPoint>
+                          <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                        </cit:deliveryPoint>
+                        <cit:city>
+                          <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                        </cit:city>
+                        <cit:postalCode>
+                          <gco:CharacterString>94165</gco:CharacterString>
+                        </cit:postalCode>
+                        <cit:country>
+                          <gco:CharacterString>FRANCE</gco:CharacterString>
+                        </cit:country>
+                        <cit:electronicMailAddress>
+                          <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                        </cit:electronicMailAddress>
+                      </cit:CI_Address>
+                    </cit:address>
+                    <cit:contactInstructions>
+                      <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                    </cit:contactInstructions>
+                  </cit:CI_Contact>
+                </cit:contactInfo>
+              </cit:CI_Organisation>
+            </cit:party>
+          </cit:CI_Responsibility>
+        </mri:pointOfContact>
+        <mri:spatialRepresentationType>
+          <mcc:MD_SpatialRepresentationTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="grid">grid</mcc:MD_SpatialRepresentationTypeCode>
+        </mri:spatialRepresentationType>
+        <mri:spatialResolution>
+          <mri:MD_Resolution>
+            <mri:equivalentScale>
+              <mri:MD_RepresentativeFraction id="IGNF_MNT-LIDAR-HD.spatialResolution_1">
+                <mri:denominator>
+                  <gco:Integer>25000</gco:Integer>
+                </mri:denominator>
+              </mri:MD_RepresentativeFraction>
+            </mri:equivalentScale>
+          </mri:MD_Resolution>
+        </mri:spatialResolution>
+        <mri:topicCategory>
+          <mri:MD_TopicCategoryCode>elevation</mri:MD_TopicCategoryCode>
+        </mri:topicCategory>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>France métropolitaine</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-5.15</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>9.57</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>41.32</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>51.10</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>FXX</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Guadeloupe</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-61.82</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-60.99</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>15.82</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>16.52</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>GLP</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Martinique</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-61.24</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-60.80</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>14.38</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>14.89</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>MTQ</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Mayotte</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>45.01</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>45.31</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>-13.02</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>-12.63</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>MYT</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>La Réunion</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>55.21</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>55.85</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>-21.40</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>-20.86</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>REU</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Saint-Barthélemy</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-62.93</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-62.78</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>17.87</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>17.98</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>BLM</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Saint-Martin</gco:CharacterString>
+            </gex:description>
+            <gex:geographicElement>
+              <gex:EX_GeographicBoundingBox>
+                <gex:westBoundLongitude>
+                  <gco:Decimal>-63.16</gco:Decimal>
+                </gex:westBoundLongitude>
+                <gex:eastBoundLongitude>
+                  <gco:Decimal>-62.90</gco:Decimal>
+                </gex:eastBoundLongitude>
+                <gex:southBoundLatitude>
+                  <gco:Decimal>18.04</gco:Decimal>
+                </gex:southBoundLatitude>
+                <gex:northBoundLatitude>
+                  <gco:Decimal>18.13</gco:Decimal>
+                </gex:northBoundLatitude>
+              </gex:EX_GeographicBoundingBox>
+            </gex:geographicElement>
+            <gex:geographicElement>
+              <gex:EX_GeographicDescription>
+                <gex:geographicIdentifier>
+                  <mcc:MD_Identifier>
+                    <mcc:authority>
+                      <cit:CI_Citation>
+                        <cit:title>
+                          <gco:CharacterString>ISO 3166 alpha 3</gco:CharacterString>
+                        </cit:title>
+                        <cit:date>
+                          <cit:CI_Date>
+                            <cit:date>
+                              <gco:Date>1974</gco:Date>
+                            </cit:date>
+                            <cit:dateType>
+                              <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                            </cit:dateType>
+                          </cit:CI_Date>
+                        </cit:date>
+                      </cit:CI_Citation>
+                    </mcc:authority>
+                    <mcc:code>
+                      <gco:CharacterString>MAF</gco:CharacterString>
+                    </mcc:code>
+                  </mcc:MD_Identifier>
+                </gex:geographicIdentifier>
+              </gex:EX_GeographicDescription>
+            </gex:geographicElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:extent>
+          <gex:EX_Extent>
+            <gex:description>
+              <gco:CharacterString>Dates de publication</gco:CharacterString>
+            </gex:description>
+            <gex:temporalElement>
+              <gex:EX_TemporalExtent>
+                <gex:extent>
+                  <TimePeriod xmlns="http://www.opengis.net/gml/3.2" gml:id="d483392809e1580">
+                    <beginPosition>2021-01-01</beginPosition>
+                    <endPosition>2026-01-01</endPosition>
+                  </TimePeriod>
+                </gex:extent>
+              </gex:EX_TemporalExtent>
+            </gex:temporalElement>
+          </gex:EX_Extent>
+        </mri:extent>
+        <mri:resourceMaintenance>
+          <mmi:MD_MaintenanceInformation id="IGNF_MNT-LIDAR-HD.resourceMaintenance_1">
+            <mmi:maintenanceAndUpdateFrequency>
+              <mmi:MD_MaintenanceFrequencyCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_MaintenanceFrequencyCode" codeListValue="irregular" />
+            </mmi:maintenanceAndUpdateFrequency>
+            <mmi:maintenanceNote>
+              <gco:CharacterString>L’ensemble des acquisitions et des productions est réparti sur 5 ans en fonction des besoins prioritaires exprimés par les commanditaires nationaux et locaux du projet et de leurs usages.</gco:CharacterString>
+            </mmi:maintenanceNote>
+          </mmi:MD_MaintenanceInformation>
+        </mri:resourceMaintenance>
+        <mri:graphicOverview>
+          <mcc:MD_BrowseGraphic>
+            <mcc:fileName>
+              <gco:CharacterString>https://data.geopf.fr/annexes/ressources/metadata/thumbnail/vignette-mnt-lidar-hd.jpg</gco:CharacterString>
+            </mcc:fileName>
+            <mcc:fileDescription>
+              <gco:CharacterString>Aperçu</gco:CharacterString>
+            </mcc:fileDescription>
+            <mcc:fileType>
+              <gco:CharacterString>image/jpeg</gco:CharacterString>
+            </mcc:fileType>
+          </mcc:MD_BrowseGraphic>
+        </mri:graphicOverview>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gco:CharacterString>Altitude</gco:CharacterString>
+            </mri:keyword>
+            <mri:thesaurusName>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>GEMET - INSPIRE themes, version 1.0</gco:CharacterString>
+                </cit:title>
+                <cit:date>
+                  <cit:CI_Date>
+                    <cit:date>
+                      <gco:Date>2008-06-01</gco:Date>
+                    </cit:date>
+                    <cit:dateType>
+                      <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                    </cit:dateType>
+                  </cit:CI_Date>
+                </cit:date>
+              </cit:CI_Citation>
+            </mri:thesaurusName>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialScope/national">National</gcx:Anchor>
+            </mri:keyword>
+            <mri:thesaurusName>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/SpatialScope">INSPIRE Spatial Scope</gcx:Anchor>
+                </cit:title>
+                <cit:date>
+                  <cit:CI_Date>
+                    <cit:date>
+                      <gco:Date>2019-05-22</gco:Date>
+                    </cit:date>
+                    <cit:dateType>
+                      <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                    </cit:dateType>
+                  </cit:CI_Date>
+                </cit:date>
+              </cit:CI_Citation>
+            </mri:thesaurusName>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:descriptiveKeywords>
+          <mri:MD_Keywords>
+            <mri:keyword>
+              <gco:CharacterString>données ouvertes</gco:CharacterString>
+            </mri:keyword>
+            <mri:keyword>
+              <gco:CharacterString>nuages de points</gco:CharacterString>
+            </mri:keyword>
+            <mri:keyword>
+              <gco:CharacterString>précision altimétrique</gco:CharacterString>
+            </mri:keyword>
+            <mri:keyword>
+              <gco:CharacterString>produits dérivés</gco:CharacterString>
+            </mri:keyword>
+            <mri:type>
+              <mri:MD_KeywordTypeCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_KeywordTypeCode" codeListValue="theme" />
+            </mri:type>
+          </mri:MD_Keywords>
+        </mri:descriptiveKeywords>
+        <mri:resourceSpecificUsage>
+          <mri:MD_Usage id="IGNF_MNT-LIDAR-HD.resourceSpecificUsage_1">
+            <mri:specificUsage>
+              <gco:CharacterString>Échelles d'affichage</gco:CharacterString>
+            </mri:specificUsage>
+            <mri:userDeterminedLimitations>
+              <gco:CharacterString>Échelles comprises entre le 1 : 1 000 et le 1 : 50 000.</gco:CharacterString>
+            </mri:userDeterminedLimitations>
+            <mri:userContactInfo>
+              <cit:CI_Responsibility>
+                <cit:role>
+                  <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="custodian">custodian</cit:CI_RoleCode>
+                </cit:role>
+                <cit:party>
+                  <cit:CI_Organisation>
+                    <cit:name>
+                      <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+                    </cit:name>
+                    <cit:contactInfo>
+                      <cit:CI_Contact>
+                        <cit:address>
+                          <cit:CI_Address>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:city>
+                              <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                            </cit:city>
+                            <cit:postalCode>
+                              <gco:CharacterString>94165</gco:CharacterString>
+                            </cit:postalCode>
+                            <cit:country>
+                              <gco:CharacterString>FRANCE</gco:CharacterString>
+                            </cit:country>
+                            <cit:electronicMailAddress>
+                              <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                            </cit:electronicMailAddress>
+                          </cit:CI_Address>
+                        </cit:address>
+                        <cit:contactInstructions>
+                          <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                        </cit:contactInstructions>
+                      </cit:CI_Contact>
+                    </cit:contactInfo>
+                  </cit:CI_Organisation>
+                </cit:party>
+              </cit:CI_Responsibility>
+            </mri:userContactInfo>
+          </mri:MD_Usage>
+        </mri:resourceSpecificUsage>
+        <mri:resourceConstraints>
+          <mco:MD_LegalConstraints>
+            <mco:accessConstraints>
+              <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" />
+            </mco:accessConstraints>
+            <mco:otherConstraints>
+              <gcx:Anchor xlink:href="http://inspire.ec.europa.eu/metadata-codelist/LimitationsOnPublicAccess/noLimitations">Pas de restriction d'accès public selon INSPIRE</gcx:Anchor>
+            </mco:otherConstraints>
+          </mco:MD_LegalConstraints>
+        </mri:resourceConstraints>
+        <mri:resourceConstraints>
+          <mco:MD_LegalConstraints>
+            <mco:useConstraints>
+              <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_RestrictionCode" codeListValue="license" />
+            </mco:useConstraints>
+          </mco:MD_LegalConstraints>
+        </mri:resourceConstraints>
+        <mri:resourceConstraints>
+          <mco:MD_LegalConstraints>
+            <mco:useConstraints>
+              <mco:MD_RestrictionCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_RestrictionCode" codeListValue="otherRestrictions" />
+            </mco:useConstraints>
+            <mco:otherConstraints>
+              <gcx:Anchor xlink:href="https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf">Licence Ouverte / Open License (compatible ODC-BY, CC-BY 2.0)</gcx:Anchor>
+            </mco:otherConstraints>
+          </mco:MD_LegalConstraints>
+        </mri:resourceConstraints>
+        <mri:defaultLocale>
+          <lan:PT_Locale>
+            <lan:language>
+              <lan:LanguageCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#LanguageCode" codeListValue="fre">fre</lan:LanguageCode>
+            </lan:language>
+            <lan:characterEncoding gco:nilReason="unknown" />
+          </lan:PT_Locale>
+        </mri:defaultLocale>
+      </mri:MD_DataIdentification>
+    </mdb:identificationInfo>
+    <mdb:contentInfo />
+    <mdb:distributionInfo>
+      <mrd:MD_Distribution>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_MNT-LIDAR-HD.distributionFormat.GeoTIFF">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>GeoTIFF 32 bits</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>1.0</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_MNT-LIDAR-HD.distributionFormat.wmts">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>WMTS</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>1.0.0</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_MNT-LIDAR-HD.distributionFormat.wms">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>WMS</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>1.3.0</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributionFormat>
+          <mrd:MD_Format id="IGNF_MNT-LIDAR-HD.distributionFormat.wfs">
+            <mrd:formatSpecificationCitation>
+              <cit:CI_Citation>
+                <cit:title>
+                  <gco:CharacterString>WFS</gco:CharacterString>
+                </cit:title>
+                <cit:date gco:nilReason="unknown" />
+                <cit:edition>
+                  <gco:CharacterString>2.0.0</gco:CharacterString>
+                </cit:edition>
+              </cit:CI_Citation>
+            </mrd:formatSpecificationCitation>
+          </mrd:MD_Format>
+        </mrd:distributionFormat>
+        <mrd:distributor>
+          <mrd:MD_Distributor id="IGNF_MNT-LIDAR-HD.distributor.IGN-F">
+            <mrd:distributorContact>
+              <cit:CI_Responsibility>
+                <cit:role>
+                  <cit:CI_RoleCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_RoleCode" codeListValue="distributor">distributor</cit:CI_RoleCode>
+                </cit:role>
+                <cit:party>
+                  <cit:CI_Organisation>
+                    <cit:name>
+                      <gco:CharacterString>INSTITUT NATIONAL DE L'INFORMATION GEOGRAPHIQUE ET FORESTIERE (IGN)</gco:CharacterString>
+                    </cit:name>
+                    <cit:contactInfo>
+                      <cit:CI_Contact>
+                        <cit:address>
+                          <cit:CI_Address>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>IGN - Support utilisateurs</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:deliveryPoint>
+                              <gco:CharacterString>73 avenue de Paris</gco:CharacterString>
+                            </cit:deliveryPoint>
+                            <cit:city>
+                              <gco:CharacterString>SAINT-MANDÉ CÉDEX</gco:CharacterString>
+                            </cit:city>
+                            <cit:postalCode>
+                              <gco:CharacterString>94165</gco:CharacterString>
+                            </cit:postalCode>
+                            <cit:country>
+                              <gco:CharacterString>FRANCE</gco:CharacterString>
+                            </cit:country>
+                            <cit:electronicMailAddress>
+                              <gco:CharacterString>contact.geoservices@ign.fr</gco:CharacterString>
+                            </cit:electronicMailAddress>
+                          </cit:CI_Address>
+                        </cit:address>
+                        <cit:contactInstructions>
+                          <gcx:FileName src="https://data.geopf.fr/annexes/ressources/logos/ign.jpg">Logo</gcx:FileName>
+                        </cit:contactInstructions>
+                      </cit:CI_Contact>
+                    </cit:contactInfo>
+                  </cit:CI_Organisation>
+                </cit:party>
+              </cit:CI_Responsibility>
+            </mrd:distributorContact>
+          </mrd:MD_Distributor>
+        </mrd:distributor>
+        <mrd:transferOptions>
+          <mrd:MD_DigitalTransferOptions>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://cartes.gouv.fr/telechargement/IGNF_MNT-LIDAR-HD</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Interface de téléchargement des produits dérivés LiDAR HD</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://www.expertises-territoires.fr/jcms/pl1_562084/fr/communaute-lidar-hd</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Rejoindre la communauté LiDAR HD</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/DC_LiDAR_HD_1-0.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Produits dérivés LiDAR HD - Descriptif de contenu et d'accès aux données</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/SE_LiDAR_HD.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Produits dérivés LiDAR HD - Suivi des évolutions</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/Descriptif_MTD_LIDARHD.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Produits dérivés LiDAR HD - Fiche descriptive des métadonnées</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/Offre_Produit_LiDAR_2025-08.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Offre produit LiDAR</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/annexes/ressources/documentation/Traitements_Produits_LiDAR_2025-08.pdf</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Traitements produits LiDAR</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://visionneuse-lidarhd.ign.fr/</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>MNT Ombragé - Visionneuse</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://www.ign.fr/institut/lidar-hd-vers-une-nouvelle-cartographie-3d-du-territoire</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Nuages de points LiDAR HD - vers une nouvelle cartographie 3D du territoire</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://github.com/IGNF/myria3d</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Ressources pour prendre en main et entraîner de premiers modèles</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://docs.qgis.org/3.34/fr/docs/training_manual/forestry/basic_lidar.html</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Documentation QGIS - MNE à partir de données LiDAR</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://www.youtube.com/watch?v=xEuvea13u70</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Création d’un Modèle Numérique de Surface sur QGis 3.34</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://www.youtube.com/watch?v=5_lDZGonu4U</gco:CharacterString>
+                </cit:linkage>
+                <cit:description>
+                  <gco:CharacterString>Création d’un Modèle Numérique de Terrain sur QGis 3.34</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wms-r/wms?service=wms&amp;version=1.3.0&amp;request=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>IGNF_LIDAR-HD_MNT_ELEVATION.ELEVATIONGRIDCOVERAGE.SHADOW</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>MNT issu de LiDAR HD</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wmts?SERVICE=WMTS&amp;VERSION=1.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WMTS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>IGNF_LIDAR-HD_MNT_ELEVATION.ELEVATIONGRIDCOVERAGE.SHADOW</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>MNT issu de LiDAR HD</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+            <mrd:onLine>
+              <cit:CI_OnlineResource>
+                <cit:linkage>
+                  <gco:CharacterString>https://data.geopf.fr/wfs/ows?SERVICE=WFS&amp;VERSION=2.0.0&amp;REQUEST=GetCapabilities</gco:CharacterString>
+                </cit:linkage>
+                <cit:protocol>
+                  <gcx:MimeFileType type="">OGC:WFS</gcx:MimeFileType>
+                </cit:protocol>
+                <cit:name>
+                  <gco:CharacterString>IGNF_LIDAR-HD_METADONNEE:metadata</gco:CharacterString>
+                </cit:name>
+                <cit:description>
+                  <gco:CharacterString>Métadonnée du LiDAR HD</gco:CharacterString>
+                </cit:description>
+              </cit:CI_OnlineResource>
+            </mrd:onLine>
+          </mrd:MD_DigitalTransferOptions>
+        </mrd:transferOptions>
+      </mrd:MD_Distribution>
+    </mdb:distributionInfo>
+    <mdb:dataQualityInfo>
+      <mdq:DQ_DataQuality>
+        <mdq:scope>
+          <mcc:MD_Scope>
+            <mcc:level>
+              <mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_ScopeCode" codeListValue="series" />
+            </mcc:level>
+          </mcc:MD_Scope>
+        </mdq:scope>
+        <mdq:report>
+          <mdq:DQ_DomainConsistency>
+            <mdq:measure>
+              <mdq:DQ_MeasureReference>
+                <mdq:nameOfMeasure>
+                  <gco:CharacterString>Value domain conformance</gco:CharacterString>
+                </mdq:nameOfMeasure>
+              </mdq:DQ_MeasureReference>
+            </mdq:measure>
+            <mdq:result>
+              <mdq:DQ_ConformanceResult>
+                <mdq:specification>
+                  <cit:CI_Citation>
+                    <cit:title>
+                      <gco:CharacterString>Commission Regulation (EU) No 1089/2010 of 23 November 2010 implementing Directive 2007/2/EC of the European Parliament and of the Council as regards interoperability of spatial data sets and services</gco:CharacterString>
+                    </cit:title>
+                    <cit:date>
+                      <cit:CI_Date>
+                        <cit:date>
+                          <gco:Date>2010-12-08</gco:Date>
+                        </cit:date>
+                        <cit:dateType>
+                          <cit:CI_DateTypeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#CI_DateTypeCode" codeListValue="publication">publication</cit:CI_DateTypeCode>
+                        </cit:dateType>
+                      </cit:CI_Date>
+                    </cit:date>
+                  </cit:CI_Citation>
+                </mdq:specification>
+                <mdq:explanation>
+                  <gco:CharacterString>Dataset is conformant to the Inspire data specification.</gco:CharacterString>
+                </mdq:explanation>
+                <mdq:pass>
+                  <gco:Boolean>true</gco:Boolean>
+                </mdq:pass>
+              </mdq:DQ_ConformanceResult>
+            </mdq:result>
+          </mdq:DQ_DomainConsistency>
+        </mdq:report>
+      </mdq:DQ_DataQuality>
+    </mdb:dataQualityInfo>
+    <mdb:resourceLineage>
+      <mrl:LI_Lineage>
+        <mrl:statement>
+          <gco:CharacterString>Le produit MNT LiDAR HD est le modèle numérique de terrain dérivé du nuage de points LiDAR HD issu de l’acquisition réalisée dans cadre du programme national LiDAR HD avec une densité d’au moins 10 impulsions au m² et 5 impulsions au m² au-dessus de 3200 m d’altitude. Il est dérivé des points « sol », des points « eau » et des « points virtuels » contenus dans le nuage de points LiDAR HD classé.
+				  
+                  Dernière mise à jour : Téléchargement et Flux WFS, WMS Raster et WMTS - Blocs CBL (Comminges, Bigorre Lomagne), NJ (Cluny), SAS (Saintonge Aunis Sèvres)</gco:CharacterString>
+        </mrl:statement>
+        <mrl:scope>
+          <mcc:MD_Scope>
+            <mcc:level>
+              <mcc:MD_ScopeCode codeList="https://standards.iso.org/iso/19115/resources/Codelists/cat/codelists.xml#MD_ScopeCode" codeListValue="series">series</mcc:MD_ScopeCode>
+            </mcc:level>
+          </mcc:MD_Scope>
+        </mrl:scope>
+        <mrl:source>
+          <mrl:LI_Source>
+            <mrl:description>
+              <gco:CharacterString>Le produit MNT LiDAR HD est le modèle numérique de terrain dérivé du nuage de points LiDAR HD issu de l’acquisition réalisée dans cadre du programme national LiDAR HD avec une densité d’au moins 10 impulsions au m² et 5 impulsions au m² au-dessus de 3200 m d’altitude. Il est dérivé des points « sol », des points « eau » et des « points virtuels » contenus dans le nuage de points LiDAR HD classé.</gco:CharacterString>
+            </mrl:description>
+          </mrl:LI_Source>
+        </mrl:source>
+      </mrl:LI_Lineage>
+    </mdb:resourceLineage>
+    <mdb:metadataConstraints>
+      <mco:MD_SecurityConstraints>
+        <mco:useLimitation>
+          <gco:CharacterString>Aucune contrainte</gco:CharacterString>
+        </mco:useLimitation>
+        <mco:classification>
+          <mco:MD_ClassificationCode codeList="http://standards.iso.org/iso/19139/resources/gmxCodelists.xml#MD_ClassificationCode" codeListValue="unclassified" />
+        </mco:classification>
+      </mco:MD_SecurityConstraints>
+    </mdb:metadataConstraints>
+  </mdb:MD_Metadata>
+</csw:GetRecordByIdResponse>
+

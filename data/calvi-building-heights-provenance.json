@@ -1,0 +1,47 @@
+{
+  "city": "Calvi",
+  "source": "IGN BD TOPO",
+  "layer": "BDTOPO_V3:batiment",
+  "sourceUrl": "https://data.geopf.fr/wfs",
+  "sourceLicense": "Licence Ouverte / Open Licence",
+  "sourceDate": null,
+  "importedAt": "2026-10-04T10:50:12.181100+00:00",
+  "sourceFeatureCount": 5147,
+  "matchedBuildingCount": 1355,
+  "unknownBuildingCount": 2538,
+  "skipped": {
+    "missingHeight": 38,
+    "invalidGeometry": 0,
+    "missingSourceId": 0
+  },
+  "heightMeaning": "IGN source hauteur, or explicitly derived roof maximum minus ground minimum. Not a roof shape survey; field accuracy and observation epochs may vary.",
+  "matching": "Mutual geometric best match: IoU >= 0.70, gap >= 0.15 in both directions. Ambiguous or changed footprints remain unknown.",
+  "sha256": "7aa36abcfcbf9bdcc9f34e2619fa32f114fb5a272fc3a4b33dbb5a06dffa3a7a",
+  "mapSha256": "e49162975dadeaf127018620f4c8fcdee8a3937fdce73f9f291b7fed11389773",
+  "sourceArchive": "calvi-building-heights-source.geojson.gz",
+  "license": {
+    "identifier": "Licence Ouverte / Open Licence",
+    "version": null,
+    "providerRecord": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http%3A%2F%2Fstandards.iso.org%2Fiso%2F19115%2F-3%2Fmdb%2F2.0&elementSetName=full&ID=IGNF_BD-TOPO",
+    "providerLicenceStatement": "Licence Ouverte / Open License (compatible ODC-BY, CC-BY 2.0)https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+    "providerLicenceReference": "https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+    "recordSha256": "93aaee502a6bbc5b4984f66ae0d3029ab4eae27c35c4260696584be539379b21",
+    "verification": "Official IGN ISO product metadata explicitly names the open licence; CC-BY compatibility is not a licence version"
+  },
+  "bounds": {
+    "west": 8.7063593,
+    "south": 42.5150237,
+    "east": 8.8153936,
+    "north": 42.5844865
+  },
+  "requests": [
+    "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=BDTOPO_V3%3Abatiment&SRSNAME=CRS%3A84&BBOX=8.7063593%2C42.5150237%2C8.8153936%2C42.5844865%2CCRS%3A84&OUTPUTFORMAT=application%2Fjson&COUNT=1000&STARTINDEX=0",
+    "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=BDTOPO_V3%3Abatiment&SRSNAME=CRS%3A84&BBOX=8.7063593%2C42.5150237%2C8.8153936%2C42.5844865%2CCRS%3A84&OUTPUTFORMAT=application%2Fjson&COUNT=1000&STARTINDEX=1000",
+    "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=BDTOPO_V3%3Abatiment&SRSNAME=CRS%3A84&BBOX=8.7063593%2C42.5150237%2C8.8153936%2C42.5844865%2CCRS%3A84&OUTPUTFORMAT=application%2Fjson&COUNT=1000&STARTINDEX=2000",
+    "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=BDTOPO_V3%3Abatiment&SRSNAME=CRS%3A84&BBOX=8.7063593%2C42.5150237%2C8.8153936%2C42.5844865%2CCRS%3A84&OUTPUTFORMAT=application%2Fjson&COUNT=1000&STARTINDEX=3000",
+    "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=BDTOPO_V3%3Abatiment&SRSNAME=CRS%3A84&BBOX=8.7063593%2C42.5150237%2C8.8153936%2C42.5844865%2CCRS%3A84&OUTPUTFORMAT=application%2Fjson&COUNT=1000&STARTINDEX=4000",
+    "https://data.geopf.fr/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=BDTOPO_V3%3Abatiment&SRSNAME=CRS%3A84&BBOX=8.7063593%2C42.5150237%2C8.8153936%2C42.5844865%2CCRS%3A84&OUTPUTFORMAT=application%2Fjson&COUNT=1000&STARTINDEX=5000"
+  ],
+  "rawBytes": 7056779,
+  "derivedHeights": 0
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Calvi",
+  "insee": "2B050",
+  "source": "OpenStreetMap administrative boundary",
+  "sourceId": 1151255,
+  "osmTags": {
+    "admin_level": "8",
+    "boundary": "administrative",
+    "name": "Calvi",
+    "name:br": "Calvi",
+    "name:ko": "칼비",
+    "population": "5746",
+    "population:date": "2021",
+    "postal_code": "20260",
+    "ref:FR:SIREN": "212000509",
+    "ref:INSEE": "2B050",
+    "source:name:br": "same as name",
+    "source:population": "INSEE 2024",
+    "type": "boundary",
+    "website": "https://ville-calvi.corsica",
+    "wikidata": "Q202439",
+    "wikipedia": "fr:Calvi"
+  },
+  "bounds": {
+    "west": 8.7063593,
+    "south": 42.5150237,
+    "east": 8.8153936,
+    "north": 42.5844865
+  },
+  "areaSquareKm": 31.61441,
+  "areaMethod": "Approximate local equirectangular area of the actual OSM boundary; not an official cadastral surface",
+  "sourceUrl": "https://api.openstreetmap.org/api/0.6/relation/1151255/full",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "sha256": "afc74c3c2cfcd9f6769be76b76911e6a223a38317e8e888e3ba8d745407246de",
+  "rawBytes": 483356,
+  "importedAt": "2026-10-04T10:32:02.095854+00:00",
+  "rawSource": "data/calvi-boundary-source.osm.xml.gz",
+  "sourceKind": "OSM administrative relation, not an IGN cadastral or historical contour"
+}

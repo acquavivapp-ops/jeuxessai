@@ -1,0 +1,53 @@
+{
+  "status": "ready",
+  "kind": "aerial-orthophotography",
+  "provider": "IGN GeoPlateforme",
+  "product": "BD ORTHO",
+  "layer": "ORTHOIMAGERY.ORTHOPHOTOS",
+  "sourceUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.7063593%2C42.5844865%2C8.8153936&WIDTH=4096&HEIGHT=3542&TRANSPARENT=FALSE",
+  "metadataUrl": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http%3A%2F%2Fstandards.iso.org%2Fiso%2F19115%2F-3%2Fmdb%2F2.0&elementSetName=full&ID=IGNF_BD-ORTHO",
+  "asset": "assets/calvi-orthophoto.jpg",
+  "boundsWGS84": {
+    "west": 8.7063593,
+    "south": 42.5150237,
+    "east": 8.8153936,
+    "north": 42.5844865
+  },
+  "image": {
+    "width": 4096,
+    "height": 3542,
+    "format": "image/jpeg",
+    "bytes": 2890277,
+    "sha256": "4a60ad0c960bafcc2673563e9cfae4a7a774ef23f344f6c41fcff735628fa19b",
+    "fullyDecodedDuringImport": true
+  },
+  "georeferencing": {
+    "crs": "EPSG:4326",
+    "wmsVersion": "1.3.0",
+    "bboxAxisOrder": "latitude,longitude",
+    "imageAxes": "right=east, down=south",
+    "worldWidth": 35766.74,
+    "worldHeight": 30930.25,
+    "imageToWorld": "x=u*worldWidth/imageWidth; y=v*worldHeight/imageHeight",
+    "vectorSourceSha256": "0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf"
+  },
+  "license": {
+    "identifier": "Licence Ouverte / Open Licence",
+    "version": null,
+    "providerRecord": "https://data.geopf.fr/csw?REQUEST=GetRecordById&SERVICE=CSW&VERSION=2.0.2&OUTPUTSCHEMA=http%3A%2F%2Fstandards.iso.org%2Fiso%2F19115%2F-3%2Fmdb%2F2.0&elementSetName=full&ID=IGNF_BD-ORTHO",
+    "licenseText": "https://github.com/etalab/licence-ouverte/blob/master/LO.md",
+    "providerLicenceReference": "https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+    "providerLicenceStatement": "Licence Ouverte / Open License (compatible ODC-BY, CC-BY 2.0)",
+    "recordSha256": "2f06194365679e932ce0933aee9c93a1d7a784364c8f3c401931cbae8870b87e",
+    "verification": "Official IGN BD ORTHO ISO metadata record explicitly mentions the open licence"
+  },
+  "attribution": "© IGN — BD ORTHO — Licence Ouverte / Open Licence",
+  "downloadedAt": "2026-10-04T10:50:10.799955+00:00",
+  "captureDate": null,
+  "captureDateNote": "Current WMS mosaic; local aerial acquisition date has not been established",
+  "responseHeaders": {
+    "contentType": "image/jpeg",
+    "lastModified": null,
+    "finalUrl": "https://data.geopf.fr/wms-r/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ORTHOIMAGERY.ORTHOPHOTOS&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=42.5150237%2C8.7063593%2C42.5844865%2C8.8153936&WIDTH=4096&HEIGHT=3542&TRANSPARENT=FALSE"
+  }
+}

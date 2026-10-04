@@ -1,0 +1,70 @@
+{
+  "source": "OpenStreetMap",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "requests": [
+    {
+      "name": "part-0.osm.xml.gz",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=8.706159300000001,42.5148237,8.760876450000001,42.5497551",
+      "bounds": [
+        8.706159300000001,
+        42.5148237,
+        8.760876450000001,
+        42.5497551
+      ],
+      "sha256": "7d3f10ed4603bdf1c3534abc15cb2cbc31d8098f52da91aaad2401d1452db92a",
+      "rawBytes": 5099986,
+      "downloadedAt": "2026-10-04T10:33:57.859614+00:00"
+    },
+    {
+      "name": "part-1.osm.xml.gz",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=8.760876450000001,42.5148237,8.8155936,42.5497551",
+      "bounds": [
+        8.760876450000001,
+        42.5148237,
+        8.8155936,
+        42.5497551
+      ],
+      "sha256": "7194eadacb0ec06dc06091367e9e5a11e9c964ca7900a9b81d7498b7c477a6e8",
+      "rawBytes": 4371634,
+      "downloadedAt": "2026-10-04T10:33:57.856027+00:00"
+    },
+    {
+      "name": "part-2.osm.xml.gz",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=8.706159300000001,42.5497551,8.760876450000001,42.5846865",
+      "bounds": [
+        8.706159300000001,
+        42.5497551,
+        8.760876450000001,
+        42.5846865
+      ],
+      "sha256": "0c8ef87a5dc4340db2b346a0f7b7f78c314afd37c7450d67ff53adccf69de67f",
+      "rawBytes": 10017537,
+      "downloadedAt": "2026-10-04T10:34:02.244227+00:00"
+    },
+    {
+      "name": "part-3.osm.xml.gz",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=8.760876450000001,42.5497551,8.8155936,42.5846865",
+      "bounds": [
+        8.760876450000001,
+        42.5497551,
+        8.8155936,
+        42.5846865
+      ],
+      "sha256": "42a452b95d8a1b2ca44f11bd28e196ee6f0e90ff6ac1d233be3d298ff5ca88db",
+      "rawBytes": 4717102,
+      "downloadedAt": "2026-10-04T10:34:01.053183+00:00"
+    }
+  ],
+  "requestedBounds": {
+    "west": 8.706159300000001,
+    "south": 42.5148237,
+    "east": 8.8155936,
+    "north": 42.5846865
+  },
+  "municipalBoundarySourceId": 1151255,
+  "sha256": "0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf",
+  "rawBytes": 20322773,
+  "assembly": "Actual source objects deduplicated by type/ID, retaining the highest downloaded source version; no geometry or tags invented",
+  "snapshotNote": "Individual OSM requests are not an atomic global timestamp; request retrieval times are retained"
+}

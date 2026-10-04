@@ -1,0 +1,51 @@
+{
+  "city": "Calvi",
+  "source": "OpenStreetMap",
+  "sourceUrl": "https://api.openstreetmap.org/api/0.6/map?bbox=8.706159300000001,42.5148237,8.760876450000001,42.5497551",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "downloadedAt": "2026-10-04T10:34:07.019843+00:00",
+  "osmTimestamp": "",
+  "sha256": "0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf",
+  "bounds": {
+    "west": 8.7063593,
+    "south": 42.5150237,
+    "east": 8.8153936,
+    "north": 42.5844865
+  },
+  "projection": "local equirectangular metres at the extract's middle latitude, north up",
+  "pixelsPerMetre": 4,
+  "roadWidths": "Illustrative widths inferred from highway class, not measured OSM widths",
+  "municipality": {
+    "name": "Calvi",
+    "insee": "2B050",
+    "source": "OpenStreetMap administrative boundary",
+    "sourceId": 1151255,
+    "bounds": {
+      "west": 8.7063593,
+      "south": 42.5150237,
+      "east": 8.8153936,
+      "north": 42.5844865
+    },
+    "areaSquareKm": 31.61441
+  },
+  "importedAt": "2026-10-04T10:48:02.151365+00:00",
+  "inputFormat": "OSM API XML",
+  "sourceRequests": [
+    "https://api.openstreetmap.org/api/0.6/map?bbox=8.706159300000001,42.5148237,8.760876450000001,42.5497551",
+    "https://api.openstreetmap.org/api/0.6/map?bbox=8.760876450000001,42.5148237,8.8155936,42.5497551",
+    "https://api.openstreetmap.org/api/0.6/map?bbox=8.706159300000001,42.5497551,8.760876450000001,42.5846865",
+    "https://api.openstreetmap.org/api/0.6/map?bbox=8.760876450000001,42.5497551,8.8155936,42.5846865"
+  ],
+  "sourceAssembly": "Actual source objects deduplicated by type/ID, retaining the highest downloaded source version; no geometry or tags invented",
+  "sourceSnapshotNote": "Individual OSM requests are not an atomic global timestamp; request retrieval times are retained",
+  "rawExtract": "data/calvi-osm.xml.gz",
+  "generatedModule": "data/calvi-map.js",
+  "counts": {
+    "roads": 1552,
+    "buildings": 3893,
+    "coastlines": 8,
+    "places": 28,
+    "areas": 313
+  }
+}
