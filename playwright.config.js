@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test';
 import { existsSync } from 'node:fs';
 
 const testPort = Number(process.env.BLUE_NIGHT_TEST_PORT || 4173);
-if (!Number.isInteger(testPort) || testPort < 1 || testPort > 65535) throw new Error('Invalid Blue Night test port');
+if (!Number.isInteger(testPort) || testPort < 1 || testPort > 65535) throw new Error('Invalid CALVI LA VIE test port');
 const baseURL = `http://127.0.0.1:${testPort}`;
 
 export default defineConfig({

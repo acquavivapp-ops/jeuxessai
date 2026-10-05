@@ -203,6 +203,96 @@ export function drawArcadeActor(ctx, person, time = 0, { player = false, reduced
   ctx.restore();
 }
 
+// Coordinates stay on the ground plane. The renderer supplies terrain and
+// altitude exactly once, while the wing sits above the suspended shoulders.
+export function drawArcadeAirborneActor(ctx, person, time = 0, { reducedEffects = false, lighting = null } = {}) {
+  if (!person) return;
+  sceneLight = lighting || { daylight: 0, night: 1, sunAngle: -.75 * Math.PI };
+  const angle = person.dir ?? person.angle ?? 0;
+  const inflation = person.airborneMode === 'parachute' ? clamp(person.parachuteInflation ?? 1, 0, 1) : 0;
+  const opened = inflation * inflation * (3 - 2 * inflation);
+  const cloth = material('#cf9c6b'), olive = material('#71815b'), cream = material('#e0d4b1');
+  const sway = reducedEffects ? 0 : Math.sin(time * 3.2) * .45;
+  const co = Math.cos(angle), si = Math.sin(angle);
+  ctx.save(); ctx.translate(person.x, person.y);
+  if (opened > .001) {
+    const span = 3 + opened * 19, depth = 2 + opened * 6;
+    const wingX = -co * 5 * opened, wingY = -si * 5 * opened - 22 * opened;
+    // The raised arch reads as a parachute at every heading. Steering banks
+    // the wing gently while the body and ground motion retain their direction.
+    const wingAngle = -co * .16 + sway * .015 * opened;
+    const wc = Math.cos(wingAngle), ws = Math.sin(wingAngle);
+    const wingPoint = (x, y) => [wingX + x * wc - y * ws, wingY + x * ws + y * wc];
+    const handPoint = side => [1.1 * co - side * 4.9 * si, 1.1 * si + side * 4.9 * co];
+    // Pale cords retain a dark underside against both bright roofs and sea.
+    for (const u of [-1, -.48, .48, 1]) {
+      const from = wingPoint(u * span, depth * (.32 + .3 * Math.sqrt(1 - u * u)));
+      const to = handPoint((Math.sin(angle) < 0 ? -1 : 1) * (u < 0 ? 1 : -1));
+      seam(ctx, [from, to], '#25383b', .9);
+      seam(ctx, [from, to], cream.pale, .38);
+    }
+    ctx.save(); ctx.translate(wingX, wingY); ctx.rotate(wingAngle);
+    const top = u => -depth * (.42 + .72 * Math.sqrt(Math.max(0, 1 - u * u)));
+    const bottom = u => depth * (.32 + .3 * Math.sqrt(Math.max(0, 1 - u * u)));
+    const contour = [];
+    for (let i = 0; i <= 14; i++) { const u = i / 7 - 1; contour.push([u * span, top(u)]); }
+    for (let i = 14; i >= 0; i--) { const u = i / 7 - 1; contour.push([u * span, bottom(u)]); }
+    poly(ctx, contour, INK);
+    for (let i = 0; i < 7; i++) {
+      const u = i / 3.5 - 1, v = (i + 1) / 3.5 - 1;
+      const panel = i === 3 ? olive : i % 2 ? cream : cloth;
+      poly(ctx, [[u * span, top(u) + .5], [v * span, top(v) + .5], [v * span, bottom(v) - .45], [u * span, bottom(u) - .45]], panel.base);
+      seam(ctx, [[u * span + .15, top(u) + .85], [u * span + .15, bottom(u) - .65]], panel.light, .38);
+      seam(ctx, [[u * span, bottom(u) - .2], [v * span, bottom(v) - .2]], panel.deep, .7);
+    }
+    seam(ctx, contour.slice(0, 15), cream.pale, .55);
+    ctx.restore();
+  }
+  ctx.save(); ctx.rotate(angle);
+  const suit = material('#63734f'), reach = (1 - opened) * 4.7;
+  for (const side of [-1, 1]) {
+    const knee = side * (2 + (1 - opened) * 1.8), foot = side * (3 + (1 - opened) * 1.9);
+    seam(ctx, [[-2.4, side * 1.5], [-5.9, knee], [-8.5, foot]], INK, 2.65);
+    seam(ctx, [[-2.4, side * 1.5], [-5.9, knee], [-8.1, foot]], suit.dark, 1.65);
+    seam(ctx, [[-7.7, foot], [-9.2, foot + side * .35]], '#15242b', 1.5);
+    const elbow = [1.3 + reach * .23, side * (4.2 + reach * .63) + sway * (1 - opened)];
+    const hand = [1.1 + reach * .55, side * (4.9 + reach) + sway * (1 - opened)];
+    seam(ctx, [[.8, side * 2.3], elbow, hand], INK, 2.35);
+    seam(ctx, [[.8, side * 2.3], elbow, hand], side < 0 ? suit.light : suit.base, 1.35);
+    oval(ctx, hand[0], hand[1], .75, .72, '#273c33');
+  }
+  poly(ctx, [[-3.5, -2.1], [-1.8, -3], [1.9, -2.65], [2.7, -1.5], [2.6, 1.6], [1.8, 2.8], [-1.8, 3], [-3.5, 2.1]], INK);
+  poly(ctx, [[-3.1, -1.8], [-1.65, -2.65], [1.65, -2.3], [2.2, -1.25], [2.15, 1.3], [1.6, 2.4], [-1.6, 2.65], [-3.1, 1.8]], suit.base);
+  // The packed harness stays visible in freefall and under the open wing.
+  poly(ctx, [[-2.7, -1.75], [.4, -2], [1.35, -1.2], [1.35, 1.3], [.3, 2], [-2.7, 1.75]], suit.deep);
+  seam(ctx, [[-2.45, -1.5], [.25, -1.7], [1.05, -.85]], suit.light, .45);
+  seam(ctx, [[-2.7, -2.05], [-1.35, -.4], [-2.7, 2.05]], '#c2b28b', .58);
+  seam(ctx, [[1.45, -2.15], [-.35, -.25], [1.45, 2.15]], '#c2b28b', .58);
+  oval(ctx, 3.2, 0, 2.35, 2.15, '#14232b');
+  poly(ctx, [[1.25, -.5], [2.05, -1.55], [3.65, -1.7], [4.4, -.85], [3.1, -.75], [2.1, .65]], '#405056');
+  seam(ctx, [[2, -1.25], [3.6, -1.45], [4.55, -.4]], '#819091', .35);
+  box(ctx, 4.95, -.75, .4, 1.5, '#b7b098');
+  ctx.restore(); ctx.restore();
+}
+
+export function drawArcadeAirborneShadow(ctx, person, { lighting = null } = {}) {
+  if (!person || !(person.altitude > 0)) return;
+  const light = lighting || {}, altitude = Math.max(0, person.altitude);
+  const inflation = person.airborneMode === 'parachute' ? clamp(person.parachuteInflation ?? 1, 0, 1) : 0;
+  const expansion = 1 + Math.min(.15, altitude / 600);
+  const angle = person.dir ?? person.angle ?? 0;
+  ctx.save(); ctx.translate(person.x + altitude * .2 * (light.shadowX ?? .65), person.y + altitude * .2 * (light.shadowY ?? .85));
+  ctx.scale(expansion, expansion); ctx.save(); ctx.rotate(angle);
+  ctx.globalAlpha *= Math.max(.07, .23 - altitude / 1500);
+  oval(ctx, 0, 0, 7.6, 3.3, '#132b31');
+  ctx.restore(); ctx.globalAlpha *= Math.max(.07, .23 - altitude / 1500);
+  if (inflation > .01) {
+    ctx.translate(-Math.cos(angle) * 5 * inflation, -Math.sin(angle) * 5 * inflation); ctx.rotate(-Math.cos(angle) * .16);
+    oval(ctx, 0, 0, 3 + inflation * 19, 2 + inflation * 6.2, '#132b31');
+  }
+  ctx.restore();
+}
+
 const MODELS = [
   { rear: 13, front: 14, cabin: [-7, 4], nose: 3, hatch: true },
   { rear: 15, front: 15, cabin: [-7, 3], nose: 2 },

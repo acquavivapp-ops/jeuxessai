@@ -1,4 +1,4 @@
-// Original Web Audio score for BLUE NIGHT: Calvi after hours, 114 BPM.
+// Original Web Audio score for CALVI LA VIE: Calvi after hours, 114 BPM.
 // Synthesized locally; no recording, download, or audio before a user gesture.
 const TEMPO = 114;
 const MELODIES = [

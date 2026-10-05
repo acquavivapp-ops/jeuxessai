@@ -1,7 +1,6 @@
-# Blue Night · Calvi Afterhours
+# CALVI LA VIE · Calvi Afterhours
 
-**Une commune méditerranéenne du jour à la nuit, en 1994.** La nuit est longue ;
-les raccourcis aussi. Blue Night associe la liberté des premiers GTA à
+**Une commune méditerranéenne du jour à la nuit, en 1994.** CALVI LA VIE associe la liberté des premiers GTA à
 une identité corse originale, des silhouettes d’arcade lisibles et une
 photographie aérienne réelle enrichie de lumière et de profondeur.
 
@@ -125,8 +124,11 @@ Ces types de véhicules s’ajoutent aux voitures. La mer et le survol restent
 dans le rectangle de Calvi ; les déplacements à pied et atterrissages
 respectent la commune. Six vrais axes de pontons OSM ouvrent un passage
 à pied au port, avec une largeur de jeu estimée de 10 pixels, soit 2,5 m.
-Le bateau demande un accostage accessible, et les appareils un atterrissage
-avant la sortie. Les déplacements des passants et agents à pied peuvent
+Le bateau demande un accostage accessible. Les appareils permettent
+un atterrissage suivi d’une sortie ou un saut en vol avec **E/Entrée ou SAUTER**,
+puis l’ouverture du parachute avec **Espace ou PARACHUTE** pendant la chute.
+La voile et la silhouette doivent rendre la descente et la direction lisibles.
+Les déplacements des passants et agents à pied peuvent
 suivre le sol libre hors chaussée, en respectant le contour et les obstacles.
 Les placements fictifs et observations accessibles servent la partie,
 sans certifier les installations aéronautiques. Les quatre observations
@@ -158,18 +160,12 @@ joueur en tenant compte de l’altitude, dans un budget de 64 effets. L’explos
 déclenche la chaîne garde ainsi sa présence visuelle ; cette sélection
 concerne le rendu, avec les mêmes coordonnées et dégâts de jeu.
 
-## Deux voix, deux regards
+## Silhouettes des personnages
 
-**Ninu** est le pilote improvisé. Il reste calme jusque dans les mauvais
-virages et parle avec un sarcasme tranquille. « Si le moteur fait du
-bruit, on baisse la radio. » Son portrait privilégie le cyan, les yeux
-mi-clos et le volant. Son autorité vient surtout de sa certitude que le
-détour était prévu.
-
-**Antò** s'occupe de Maquis FM et des cassettes. Bruyant, confiant et
-toujours une annonce en retard, il commente la route depuis la face B.
-« J'ai enregistré le plan. Face B. Sous les polyphonies. » Son portrait
-utilise prune et corail, de grands yeux, un casque et une cassette.
+Les personnages gardent leurs silhouettes et accessoires : regard
+mi-clos, volant et accent cyan pour l’un ; grands yeux, casque, cassette
+et accents prune et corail pour l’autre. Leurs noms, biographies et
+répliques n’apparaissent plus dans l’interface.
 
 Les deux portraits originaux, [ninu.svg](../assets/ninu.svg) et
 [anto.svg](../assets/anto.svg), mesurent **88 × 88 pixels**. Cagoules
@@ -203,31 +199,22 @@ Elles ne modifient ni rues, ni empreintes bâties, ni DEM. Calvi est
 l’unique carte jouable et suit le contour communal OSM INSEE 2B050 ;
 ce contour reste distinct des ambiances artistiques.
 
-## Radio, commerces et petites affaires
+## Interface, commerces et missions
 
-`STREET_RADIO` contient des interventions originales de la station,
-de Ninu et d'Antò, ainsi que des publicités imaginaires : Garage
-du Cousin, K7 Club, Pizza Panique et Rubans & Cie.
-L'humour repose sur les détours, autoradios, cassettes et commerces
-absurdes. Une réplique doit se lire rapidement pendant une virée.
+Le menu conserve le titre, le choix du mode, l’heure de départ et le
+bouton de jeu. Les panneaux de répliques, biographies et présentation
+narrative ont été supprimés. L’humour vient des silhouettes, véhicules,
+accessoires et enseignes plutôt que de dialogues affichés.
 
 Les trois affaires gardent leurs identifiants et lieux : le hangar du
 port, le bureau des tampons de la vieille ville et la réserve de
-parpaings au marché. Leur narration tourne autour des inaugurations
-répétées, des formulaires imbriqués et des vues sur mer promises aux
-parpaings. Ces histoires ne décrivent pas les occupants réels des
-empreintes de bâtiments importées.
-
-Edmond Simeoni, Petru Guelfucci, François Mitterrand et Charles Pasqua
-restent les quatre caméos historiques. Leurs portraits sont des
-caricatures originales et **toutes leurs répliques sont inventées**.
-La radio distingue ces interludes satiriques des annonces de la
-station et de l'équipage. Aucun enregistrement ni citation réelle
-n'est attribué à ces personnalités.
+parpaings au marché. Leurs titres servent aux objectifs ; leurs anciens
+textes narratifs et répliques ont été retirés. Les missions ne décrivent
+pas les occupants réels des empreintes de bâtiments importées.
 
 La direction musicale vise une radio électronique locale : basse
-ronde, petites percussions, motif FM, souffle de cassette et annonces
-courtes, avec une couleur house des années 90. Les compositions et
+ronde, petites percussions, motif FM et souffle de cassette, avec une
+couleur house des années 90. Les compositions et
 bruitages restent originaux. Cette intention ne prétend pas reproduire
 un artiste, un répertoire ni la programmation historique d'une vraie
 radio de Calvi.
@@ -240,7 +227,7 @@ MNT IGN LiDAR HD, avec l’ancien radar SRTM conservé en secours. Les
 dates locales d’acquisition IGN restent inconnues ; la géométrie actuelle
 et la campagne radar de 2000 ne prouvent pas l’état exact de la ville
 en 1994. Lumières, façades, enseignes, personnages, véhicules et petites
-affaires forment l’interprétation artistique de Blue Night.
+affaires forment l’interprétation artistique de CALVI LA VIE.
 
 **© OpenStreetMap contributors · ODbL 1.0** et **© IGN · Licence Ouverte**
 restent les attributions des données effectivement importées. Requêtes,
@@ -254,4 +241,4 @@ publication du jeu ni validation humaine sur téléphone ou Mac/Safari.
 Le téléchargement de WebKit a été refusé par la politique réseau de
 l’environnement. Les chemins de décodage de secours testés dans Chromium
 ne remplacent pas un essai sur Safari réel. Les résultats automatiques
-et mesures de performance figurent dans [VERIFICATION.md](VERIFICATION.md).
+figurent dans [VERIFICATION-CALVI-LA-VIE.md](VERIFICATION-CALVI-LA-VIE.md) ; les mesures de performance antérieures restent dans [VERIFICATION.md](VERIFICATION.md).

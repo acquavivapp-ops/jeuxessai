@@ -1,5 +1,5 @@
 import { sampleElevation, terrainGradient } from './terrain.js';
-import { drawArcadeActor, drawArcadeCar, photographicVehicleDimensions } from './neon-art.js';
+import { drawArcadeActor, drawArcadeAirborneActor, drawArcadeAirborneShadow, drawArcadeCar, photographicVehicleDimensions } from './neon-art.js';
 import { drawBloodDecal, drawFire, drawExplosion, drawDestructionDust } from './effects-art.js';
 import { osmHeightMeters } from './building-height.js';
 import { timeOfDay } from './game-time.js';
@@ -176,6 +176,9 @@ const cameraState = new WeakMap();
 const liftAt = (world, x, y) => Math.max(0, sampleElevation(world, x, y)) * ELEVATION_SCALE;
 export const vehicleVisualLift = vehicle => ['helicopter', 'plane'].includes(vehicle?.mobilityType)
   && Number.isFinite(vehicle.altitude) ? Math.max(0, vehicle.altitude) * ELEVATION_SCALE : 0;
+export const playerVisualLift = person => ['freefall', 'parachute'].includes(person?.airborneMode)
+  && Number.isFinite(person.altitude) ? Math.max(0, person.altitude) * ELEVATION_SCALE : 0;
+const entityVisualLift = object => vehicleVisualLift(object) || playerVisualLift(object);
 const maximumLiftCache = new WeakMap();
 function maximumLift(world) {
   const data = world?.terrain;
@@ -273,7 +276,7 @@ export function cameraFor(game, canvas = null) {
   const focus = game.vehicle || game.player || { x: width / 2, y: height / 2 };
   const world = game.world || {};
   const look = game.vehicle ? clamp(game.vehicle.speed || 0, -55, 150) * 0.3 : 0;
-  const airLift = vehicleVisualLift(game.vehicle), maxLift = maximumLift(world) + airLift;
+  const airLift = entityVisualLift(focus), maxLift = maximumLift(world) + airLift;
   const targetX = clamp(focus.x + Math.cos(focus.angle || 0) * look - width / 2, 0, Math.max(0, (world.width || 1500) - width));
   const targetY = clamp(focus.y - liftAt(world, focus.x, focus.y) - airLift + Math.sin(focus.angle || 0) * look - height / 2, -maxLift, Math.max(-maxLift, (world.height || 1400) - height));
   const elapsed = Number.isFinite(game.elapsed) ? game.elapsed : 0;
@@ -324,8 +327,8 @@ export function photoViewBounds(game, canvas = null) {
 function visible(object, camera, margin = 20) {
   if (object.x + (object.w || margin) < camera.x - margin || object.x > camera.x + camera.width + margin
     || object.y + (object.h || margin) < camera.y - margin
-    || object.y > camera.y + camera.height + maximumLift(camera.world) + vehicleVisualLift(object) + margin) return false;
-  const y = object.y - liftAt(camera.world, object.x + (object.w || 0) / 2, object.y + (object.h || 0) / 2) - vehicleVisualLift(object);
+    || object.y > camera.y + camera.height + maximumLift(camera.world) + entityVisualLift(object) + margin) return false;
+  const y = object.y - liftAt(camera.world, object.x + (object.w || 0) / 2, object.y + (object.h || 0) / 2) - entityVisualLift(object);
   return object.x + (object.w || margin) >= camera.x - margin && object.x <= camera.x + camera.width + margin &&
     y + (object.h || margin) >= camera.y - margin && y <= camera.y + camera.height + margin;
 }
@@ -1279,7 +1282,7 @@ function footprint(b) {
     [[b.x, b.y], [b.x + b.w, b.y], [b.x + b.w, b.y + b.h], [b.x, b.y + b.h]];
 }
 export function buildingOccludes(b, focus, world = null) {
-  if (!focus || b.destroyed || vehicleVisualLift(focus) > .5 || pointInFootprint(focus.x, focus.y, b)) return false;
+  if (!focus || b.destroyed || entityVisualLift(focus) > .5 || pointInFootprint(focus.x, focus.y, b)) return false;
   const lift = liftAt(world, b.x + b.w / 2, b.y + b.h / 2), z = visualHeight(b);
   const roof = footprint(b).map(([x, y]) => [x - 4, y - z - lift]);
   const y = focus.y - liftAt(world, focus.x, focus.y);
@@ -1669,7 +1672,7 @@ export function vegetationOccludes(tree, person, world, angle = null) {
   if (Math.abs(dx) > profile.radius + 24) return false;
   const personGround = foliageProjection(world, person), treeGround = foliageProjection(world, tree);
   if (personGround.elevation + (person.altitude || 0) >= treeGround.elevation + (tree.heightMeters || 4)) return false;
-  const dy = person.y - personGround.lift - (tree.y - treeGround.lift);
+  const dy = person.y - personGround.lift - playerVisualLift(person) - (tree.y - treeGround.lift);
   if (dy < -profile.radius - profile.height - 24 || dy > profile.radius + 24) return false;
   angle ??= !person.kind && !person.onFoot && Number.isFinite(person.aimAngle) ? person.aimAngle : person.dir ?? person.angle ?? 0;
   const actor = { x: person.x, y: tree.y + dy, angle };
@@ -1749,13 +1752,18 @@ function photographedFoliage(ctx, tree, world, native = false) {
 }
 function photographicActorOcclusion(ctx, tree, person, world, angle) {
   if (!vegetationOccludes(tree, person, world, angle)) return false;
-  const profile = foliageProfile(tree), projected = { x: person.x, y: person.y - liftAt(world, person.x, person.y), angle };
+  const profile = foliageProfile(tree), projected = { x: person.x, y: person.y - liftAt(world, person.x, person.y) - playerVisualLift(person), angle };
   ctx.save();
   // Low scrub hides the trailing feet, preserving the head and shoulders.
   // Taller crowns cover the body only where photographic leaves intersect.
   path(ctx, pointsAt(projected, profile.legsOnly ? [[-11, -4.3], [-2.8, -4.3], [-2.8, 4.3], [-11, 4.3]]
     : [[-12, -8], [21, -8], [21, 8], [-12, 8]])); ctx.clip();
-  onTerrain(ctx, world, tree, () => photographedFoliage(ctx, tree, world, true));
+  onTerrain(ctx, world, tree, () => {
+    photographedFoliage(ctx, tree, world, true);
+    // Airborne bodies paint after ground objects. Restore raised leaves only
+    // below their physical crown; vegetationOccludes excludes higher jumps.
+    if (playerVisualLift(person) > 0 && !profile.legsOnly) photographedFoliage(ctx, tree, world);
+  });
   ctx.restore(); return true;
 }
 const rippleCellsCache = new WeakMap();
@@ -1804,6 +1812,9 @@ function aircraftShadow(ctx, vehicle) {
 }
 
 function actor(ctx, person, t, player = false, reducedEffects = false) {
+  if (player && ['freefall', 'parachute'].includes(person.airborneMode)) {
+    drawArcadeAirborneActor(ctx, person, t, { reducedEffects, lighting: materialLight }); return;
+  }
   drawArcadeActor(ctx, person, t, { player, reducedEffects, lighting: materialLight });
   if (person.dead || person.knockedDown) return;
   const uniform = person.kind === 'gendarme' || person.role === 'officer' || person.onFoot;
@@ -1978,6 +1989,8 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
     photographedFoliage(ctx, tree, world, true);
   });
   for (const c of game.cars || []) if (vehicleVisualLift(c) > 0 && visible(c, camera, 180)) onTerrain(ctx, world, c, () => aircraftShadow(ctx, c));
+  if (!game.vehicle && playerVisualLift(game.player) > 0 && visible(game.player, camera, 80))
+    onTerrain(ctx, world, game.player, () => drawArcadeAirborneShadow(ctx, game.player, { lighting: materialLight }));
   eveningLights(ctx, game, camera, t, reducedEffects, nearbyBuildings, nearbyScenery);
   if (game.helicopter && visible(game.helicopter, camera, 180)) helicopterGround(ctx, game.helicopter, world);
   for (const block of game.roadblocks || []) if (visible(block, camera, 50)) onTerrain(ctx, world, block, () => roadblockCue(ctx, block, t, reducedEffects));
@@ -1991,7 +2004,7 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
   const queue = (object, paint, depth = null) => {
     const foliage = object.kind === 'tree' || object.kind === 'scrub' || object.type === 'tree' || object.type === 'scrub';
     if (!visible(object, camera, foliage ? (object.radius || 8) + (object.heightMeters || 0) * ELEVATION_SCALE + 8 : object.polygon || object.w > 28 && object.h > 28 ? 130 : 55)) return;
-    const airLift = vehicleVisualLift(object);
+    const airLift = entityVisualLift(object);
     objects.push({ object, paint, airLift, depth: depth ?? (airLift > .5 ? camera.y + camera.height + 100 + airLift
       : object.y + (object.h || 0) - liftAt(world, object.x + (object.w || 0) / 2, object.y + (object.h || 0) / 2)) });
   };
@@ -2038,7 +2051,7 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
   for (const entry of objects) onTerrain(ctx, world, entry.object, () => {
     ctx.save(); if (entry.airLift) ctx.translate(0, -entry.airLift); entry.paint();
     if (personSet.has(entry.object)) {
-      ctx.save(); ctx.translate(0, liftAt(world, entry.object.x, entry.object.y));
+      ctx.save(); ctx.translate(0, liftAt(world, entry.object.x, entry.object.y) + entry.airLift);
       const angle = entry.object === game.player && Number.isFinite(entry.object.aimAngle) ? entry.object.aimAngle : entry.object.dir ?? entry.object.angle ?? 0;
       let underTree = false, inScrub = false;
       for (const tree of nearTrees) if (photographicActorOcclusion(ctx, tree, entry.object, world, angle)) {

@@ -1,0 +1,137 @@
+{
+  "revision": "v18-calvi-la-vie",
+  "unique_browser_tests_executed": 34,
+  "unique_browser_tests_validated": 34,
+  "unresolved_failures": 0,
+  "skipped_tests": 0,
+  "disabled_tests": 0,
+  "workers": 1,
+  "browser": "Chromium /usr/bin/chromium, touch-capable contexts",
+  "test_port": 4182,
+  "runs": [
+    {
+      "scope": "affected title/help/dialogue/HUD/options/geography",
+      "exit_code": 0,
+      "passed": 11,
+      "failed": 0,
+      "reported_duration": "2.1m"
+    },
+    {
+      "scope": "original PNG title and initial helicopter route",
+      "exit_code": 1,
+      "passed": 1,
+      "failed": 1,
+      "diagnosis": "public foot route blocked by existing calvi-car-5; route corrected around the actual actor"
+    },
+    {
+      "scope": "helicopter route with ground-health assertion",
+      "exit_code": 1,
+      "passed": 0,
+      "failed": 1,
+      "diagnosis": "normal police interception at the ground after a successful parachute descent; contact-speed and airborne-health assertions added"
+    },
+    {
+      "scope": "corrected public helicopter/parachute scenario",
+      "exit_code": 0,
+      "passed": 1,
+      "failed": 0,
+      "reported_duration": "1.4m"
+    },
+    {
+      "scope": "remaining browser regression cases",
+      "exit_code": 1,
+      "passed": 20,
+      "failed": 2,
+      "reported_duration": "5.9m",
+      "diagnosis": "two outdated runner/asset expectations: 4-second blast wait and abandoned SVG logo requested offline"
+    },
+    {
+      "scope": "corrected blast/result/audio and offline photographic assets",
+      "exit_code": 0,
+      "passed": 2,
+      "failed": 0,
+      "reported_duration": "40.8s"
+    }
+  ],
+  "mobile_layout": {
+    "viewports_validated": [
+      [
+        320,
+        568
+      ],
+      [
+        375,
+        667
+      ],
+      [
+        390,
+        844
+      ],
+      [
+        430,
+        932
+      ],
+      [
+        844,
+        390
+      ],
+      [
+        1280,
+        800
+      ]
+    ],
+    "portrait_and_landscape_compact_hud_height_px": 74,
+    "portrait_and_landscape_expanded_hud_height_px": 139.9375,
+    "minimum_main_touch_target_px": 44,
+    "main_controls_receive_input_at_visible_centres": true,
+    "secondary_information_hidden_by_default_on_mobile": true
+  },
+  "parachute": {
+    "world": "shipped Calvi world",
+    "public_flow": "walk with visible stick, E board helicopter, Space take off, E jump, visible PARACHUTE button deploy, stick steer, Escape pause/resume, land",
+    "pause_freezes_player_and_canvas": true,
+    "pre_contact_vertical_speed_mps": -5.5,
+    "pre_contact_hearts": 3,
+    "landed_mode": "playing",
+    "ground_police_interception_remains_possible": true,
+    "player_positions_health_missions_and_game_clock_injected": false,
+    "plane_browser_route_exercised": false
+  },
+  "branding_and_offline": {
+    "production_logo": "assets/calvi-la-vie-logo.png",
+    "logo_natural_dimensions": [
+      1536,
+      1024
+    ],
+    "original_logo_phone_fit_validated": true,
+    "production_logo_and_photographic_assets_decode_offline": true,
+    "offline_city_map_modules_time_and_vehicle_actions_validated": true,
+    "photographic_source_coordinates_budgets_masks_and_pause_frames_preserved": true
+  },
+  "test_adjustments": [
+    "assert absent radio/character presentation and gameplay help instead of removed narrative portraits",
+    "assert compact/expanded mobile HUD and usable controls, including 844x390 landscape",
+    "assert original PNG production logo, remove obsolete offline SVG expectation",
+    "increase blast-health wall timeout from 4 to 6 seconds while preserving simulation, fuse, result, replay and audio assertions"
+  ],
+  "modified_test_files": [
+    "tests/browser/game.spec.js",
+    "tests/browser/graphics.spec.js",
+    "tests/browser/mobility.spec.js"
+  ],
+  "screenshots": [
+    "/tmp/calvi-la-vie-qa/playing-390x844.png",
+    "/tmp/calvi-la-vie-qa/playing-844x390.png",
+    "/tmp/calvi-la-vie-qa/details-390x844.png",
+    "/tmp/calvi-la-vie-qa/details-844x390.png",
+    "/tmp/calvi-la-vie-qa/title-390x844.png",
+    "/tmp/calvi-la-vie-qa/title-844x390.png",
+    "/tmp/calvi-la-vie-qa/parachute-390x844.png"
+  ],
+  "cleanup": {
+    "own_browser_processes_completed": true,
+    "own_server_stopped": true,
+    "server_termination_exit_code": 130,
+    "port_4182_unbound_check_exit_code": 1
+  }
+}

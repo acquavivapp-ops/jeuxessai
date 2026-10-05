@@ -1,9 +1,10 @@
 import { CALVI_MAP } from './data/calvi-map.js';
 import { createCalviWorld } from './calvi-world.js';
-import { attachTerrain, terrainGradient } from './terrain.js';
+import { attachTerrain, terrainGradient, sampleElevation } from './terrain.js';
 import { initCombat, shoot, cycleWeapon, updateCombat, applyExplosion, collidePedestrians, createBlast } from './combat.js';
 import { initPolice, reportCrime, spawnPolice, updatePolice } from './police.js';
-import { MOBILITY, initializeMobility, isMobilityVehicle, isAirborne, vehicleRadius, vehicleHalfLength, canBoardVehicle, canTransferBoats, mobilityAction, mobilityExitPoint, mobilityExit, updateMobility } from './mobility.js';
+import { MOBILITY, initializeMobility, isMobilityVehicle, isAirborne, vehicleRadius, vehicleHalfLength, canBoardVehicle, canTransferBoats, mobilityAction, mobilityExitPoint, mobilityExit, updateMobility, updateAbandonedAircraft } from './mobility.js';
+import { isPlayerAirborne, initializeParachute, deployParachute, updateParachute } from './parachute.js';
 import { createMobilityVehicles } from './mobility-spawns.js';
 import { createAerialStarter, createAerialVehicles } from './aerial-vehicles.js';
 import { CALVI_AERIAL_OBJECTS } from './data/calvi-aerial-objects.js';
@@ -245,6 +246,7 @@ export class Game {
     const starts = this.world.starts;
     if (!starts?.player || !Number.isFinite(starts.player.x) || !Number.isFinite(starts.player.y)) throw new Error('La carte ne fournit pas de départ jouable.');
     this.player = { dir: -Math.PI / 2, ...starts.player, altitude: 0, walk: 0, vx: 0, vy: 0, invulnerable: 0, plantAnim: 0 };
+    initializeParachute(this.player);
     this.carSpatial = null;
     this.cars = structuredClone(starts.cars || []);
     this.vehicleBodies = new Map();
@@ -261,6 +263,7 @@ export class Game {
     this.world.visualMeta.aerialVehicleCoverage = aerial.coverage;
     for (const vehicle of this.cars) initializeMobility(vehicle);
     this.vehicleId = null;
+    this.abandonedAircraft = new Set();
     this.placeSceneryPeople();
     this.bottles = []; this.blasts = []; this.police = [];
     this.particles = []; this.popups = [];
@@ -341,9 +344,10 @@ export class Game {
   }
   resume() { if (this.mode === 'paused') { this.mode = 'playing'; this.emit('resume'); } }
   active() { return this.mode === 'playing' && !this.tutorial; }
-  shoot(options = {}) { return shoot(this, options); }
+  shoot(options = {}) { return !isPlayerAirborne(this) && shoot(this, options); }
   cycleWeapon() { return cycleWeapon(this); }
-  vehicleAction() { return mobilityAction(this); }
+  vehicleAction() { return isPlayerAirborne(this) ? this.deployParachute() : mobilityAction(this); }
+  deployParachute() { return deployParachute(this); }
   surfaceSlope(x, y) { return terrainGradient(this.world, x, y).slope; }
   groundWalkingFactor(x, y, radius = this.playerRadius) { return vegetationMovementFactor(this.vegetationGroundIndex, x, y, radius); }
 
@@ -447,6 +451,31 @@ export class Game {
     return true;
   }
 
+  playerAirborneObstacle(x, y, elevation) {
+    const radius = this.playerRadius;
+    for (let cy = Math.floor((y - radius) / 128); cy <= Math.floor((y + radius) / 128); cy++) {
+      for (let cx = Math.floor((x - radius) / 128); cx <= Math.floor((x + radius) / 128); cx++) {
+        for (const b of this.buildingIndex.get(`${cx},${cy}`) || []) {
+          if (b.destroyed || !circleHitsBuilding(x, y, radius, b)) continue;
+          const roof = sampleElevation(this.world, b.x + b.w / 2, b.y + b.h / 2) + (b.construction?.height || (b.construction?.floors || 2) * 3);
+          if (elevation <= roof) return { building: b, elevation: roof };
+        }
+      }
+    }
+    return null;
+  }
+
+  playerLandingCause(x, y) {
+    const radius = this.playerRadius;
+    if (x - radius < 0 || y - radius < 0 || x + radius > this.world.width || y + radius > this.world.height) return 'boundary';
+    const pier = circleFitsPier(this.pierIndex, x, y, radius);
+    if (!pier && (this.landRegions.length && !this.landRegions.some((region) => circleFitsRegion(region, x, y, radius))
+      || !this.world.coastalSeaMask && this.seaRegions.some((ring) => insideIndexedRing(x, y, ring) || indexedCircleTouches(ring, x, y, radius))
+      || !this.world.landPolygons?.length && !this.world.seaPolygons?.length && this.waterBodies.some((p) => circleHitsRect(x, y, radius, p)))) return 'water';
+    if (!pier && this.municipalRegions.length && !this.municipalRegions.some((region) => circleFitsRegion(region, x, y, radius))) return 'boundary';
+    return 'landing';
+  }
+
   canCarOccupy(x, y, angle, ignoreCar = null, { staticOnly = false, body = null } = {}) {
     if (!this.mappedPhysics) return this.canOccupy(x, y, CAR_RADIUS, ignoreCar, { staticOnly });
     body ||= this.vehicleBodies.get(ignoreCar) || CLASSIC_CAR_BODY;
@@ -487,6 +516,7 @@ export class Game {
   }
 
   interactionTarget() {
+    if (isPlayerAirborne(this)) return null;
     if (this.vehicle) {
       if (this.vehicle.mobilityType !== 'boat' || mobilityExitPoint(this, this.vehicle)) return null;
       return this.cars.filter((car) => canTransferBoats(this, this.vehicle, car)).sort((a, b) => distance(a, this.player) - distance(b, this.player))[0] || null;
@@ -496,7 +526,7 @@ export class Game {
   }
 
   interact() {
-    if (!this.active()) return false;
+    if (!this.active() || isPlayerAirborne(this)) return false;
     const car = this.vehicle;
     if (car) {
       if (isMobilityVehicle(car)) {
@@ -539,7 +569,7 @@ export class Game {
   }
 
   plant() {
-    if (!this.active()) return false;
+    if (!this.active() || isPlayerAirborne(this)) return false;
     if (this.vehicle) { this.emit('notice', { message: 'Descends de voiture pour poser.' }); return false; }
     if (this.plantCooldown > 0) return false;
     if (this.bottles.length >= MAX_BOTTLES) { this.emit('notice', { message: 'Trois bouteilles maximum : attends le prochain BOUM !' }); return false; }
@@ -568,11 +598,11 @@ export class Game {
   }
 
   hurt(cause, { altitude = 0 } = {}) {
-    if (isAirborne(this.vehicle) && (cause === 'gendarme' || cause === 'blast' && Math.abs(altitude - this.player.altitude) > 8)) return;
+    if ((isAirborne(this.vehicle) || isPlayerAirborne(this)) && (cause === 'gendarme' || cause === 'blast' && Math.abs(altitude - this.player.altitude) > 8)) return;
     if (this.player.invulnerable > 0 || this.mode !== 'playing') return;
     this.hearts--; this.player.invulnerable = 2; this.lastCause = cause;
     this.shake = .25; if (this.vehicle) this.vehicle.speed *= .35;
-    this.popup(this.player.x, this.player.y - 12, cause === 'blast' ? 'TROP PRÈS !' : 'INTERPELLÉ !', '#ffaaaa');
+    this.popup(this.player.x, this.player.y - 12, cause === 'fall' ? 'CHUTE !' : cause === 'blast' ? 'TROP PRÈS !' : 'INTERPELLÉ !', '#ffaaaa');
     this.emit('hurt', { cause }); if (this.hearts <= 0) this.finish(false, cause);
   }
 
@@ -934,14 +964,14 @@ export class Game {
         const desired = Math.atan2(y - car.y, x - car.x), angle = car.angle + clamp(angleDelta(car.angle, desired), -4 * dt, 4 * dt);
         if (this.canCarOccupy(car.x, car.y, angle, car.id)) car.angle = angle;
         const move = Math.min(d, (car.cruise || 38) * dt), next = { x: car.x + Math.cos(car.angle) * move, y: car.y + Math.sin(car.angle) * move };
-        const playerClear = this.vehicleId || distance(next, this.player) >= 15 + this.playerRadius;
+        const playerClear = this.vehicleId || isPlayerAirborne(this) || distance(next, this.player) >= 15 + this.playerRadius;
         if (playerClear && this.canCarOccupy(next.x, next.y, car.angle, car.id)) { car.x = next.x; car.y = next.y; car.speed = car.cruise || 38; } else car.speed = 0;
         continue;
       }
       const direction = Math.cos(car.angle) > 0 ? 1 : -1;
       const next = { x: car.x + direction * car.cruise * dt, y: car.y };
       if (next.x < 50 || next.x > this.world.width - 50) { car.angle = direction > 0 ? Math.PI : 0; continue; }
-      const playerClear = this.vehicleId || distance(next, this.player) >= CAR_RADIUS + PLAYER_RADIUS;
+      const playerClear = this.vehicleId || isPlayerAirborne(this) || distance(next, this.player) >= CAR_RADIUS + PLAYER_RADIUS;
       if (playerClear && this.canOccupy(next.x, next.y, CAR_RADIUS, car.id)) { car.x = next.x; car.speed = car.cruise; } else car.speed = 0;
     }
   }
@@ -997,7 +1027,9 @@ export class Game {
       const previous = { id: this.vehicle.id, x: this.vehicle.x, y: this.vehicle.y, angle: this.vehicle.angle, speed: this.vehicle.speed };
       if (!updateMobility(this, dt, input)) this.moveCar(dt, input);
       if (this.vehicle && !isAirborne(this.vehicle) && this.vehicle.mobilityType !== 'boat') collidePedestrians(this, previous, this.vehicle, dt);
-    } else this.moveFoot(dt, input);
+    } else if (!updateParachute(this, dt, input)) this.moveFoot(dt, input);
+    if (this.mode !== 'playing') return;
+    updateAbandonedAircraft(this, dt);
     this.player.aimAngle = Number.isFinite(input.aimAngle) ? input.aimAngle : this.player.dir;
     this.updateTraffic(dt);
     this.updatePedestrians(dt);
@@ -1019,7 +1051,7 @@ export class Game {
     this.popups = this.popups.filter((p) => p.life > 0);
     if (this.mode !== 'playing') return;
     this.updatePolice(dt);
-    if (this.mode === 'playing' && !this.missionComplete && this.demolished === 3 && distance(this.player, this.rendezvous) <= this.rendezvous.radius && !this.bottles.length && !this.blasts.length) {
+    if (this.mode === 'playing' && !isPlayerAirborne(this) && !isAirborne(this.vehicle) && !this.missionComplete && this.demolished === 3 && distance(this.player, this.rendezvous) <= this.rendezvous.radius && !this.bottles.length && !this.blasts.length) {
       if (this.sessionMode === 'mission') this.finish(true, 'complete');
       else {
         this.missionComplete = true; this.score += this.hearts * 100;

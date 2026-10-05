@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { walkTo } from './helpers.js';
+import { walkTo, canvasDigest } from './helpers.js';
 
 const snapshot = page => page.evaluate(() => window.blueNight.snapshot());
 async function begin(page) {
@@ -116,4 +116,70 @@ test('a photographed boat is stolen from the real quay, sails on water and permi
   expect(disembarked.vehicleId).toBeNull();
   expect(Math.hypot(disembarked.player.x - boat.boarding.x, disembarked.player.y - boat.boarding.y)).toBeLessThan(12);
   expect(disembarked.hearts).toBeGreaterThan(0);
+});
+
+test('the real port helicopter permits jumping, opening a parachute, steering and landing through public controls', async ({ page }, testInfo) => {
+  test.setTimeout(120_000);
+  const errors = []; page.on('pageerror', error => errors.push(error.message));
+  await begin(page);
+  const initial = await snapshot(page), helicopter = initial.cars.find(car => car.id === 'calvi-helicopter-port');
+  expect(helicopter).toBeDefined();
+  // The quay aisle and OSM streets lead around the actual buildings and photo
+  // vehicles to the source parking. Every waypoint uses the visible stick.
+  const route = [{ x: 16480, y: 8736 }, { x: 16480, y: 8716 }, { x: 16472, y: 8708 },
+    { x: 16456, y: 8708 }, { x: 16448, y: 8716 }, { x: 16304, y: 8708 },
+    { x: 16256, y: 8676 }, { x: 16168, y: 8572 }, { x: 16144, y: 8548 },
+    { x: 16120, y: 8540 }, { x: 16112, y: 8540 }, { x: 16040, y: 8580 },
+    { x: 16000, y: 8612 }, { x: 15976, y: 8660 }, { x: 15960, y: 8690 },
+    { x: 15960, y: 8730 }, { x: 15948, y: 8768 }, { x: helicopter.x, y: helicopter.y + 24 }];
+  for (const waypoint of route) await walkTo(page, waypoint, { radius: 1.5, timeout: 12000 });
+  expect((await snapshot(page)).interactionTarget?.id).toBe(helicopter.id);
+  await page.keyboard.press('e');
+  expect((await snapshot(page)).vehicleId).toBe(helicopter.id);
+  await page.keyboard.press('Space');
+  await expect.poll(async () => (await snapshot(page)).vehicle.altitude, { timeout: 8000 }).toBeGreaterThan(75);
+  await expect(page.locator('#boom')).toHaveAccessibleName(/sauter/i);
+  await page.keyboard.press('e');
+  const falling = await snapshot(page);
+  expect(falling.vehicleId).toBeNull(); expect(falling.player.airborneMode).toBe('freefall');
+  expect(falling.player.altitude).toBeGreaterThan(0);
+  await expect(page.locator('#location')).toContainText('CHUTE LIBRE');
+  await expect(page.locator('#plant')).toHaveAccessibleName(/parachute/i);
+  await page.locator('#plant').click();
+  await expect.poll(async () => (await snapshot(page)).player.airborneMode).toBe('parachute');
+  await expect(page.locator('#location')).toContainText('PARACHUTE');
+  await expect(page.locator('#plant')).toBeDisabled();
+  await expect.poll(async () => (await snapshot(page)).player.parachuteInflation).toBe(1);
+  const canopyScreenshot = testInfo.outputPath('parachute-mobile.png');
+  await page.screenshot({ path: canopyScreenshot });
+  await testInfo.attach('parachute-mobile', { path: canopyScreenshot, contentType: 'image/png' });
+  await page.keyboard.press('Escape');
+  const paused = await snapshot(page), pausedCanvas = await canvasDigest(page);
+  await page.waitForTimeout(250);
+  expect((await snapshot(page)).player).toEqual(paused.player);
+  expect((await snapshot(page)).elapsed).toBe(paused.elapsed);
+  expect(await canvasDigest(page)).toBe(pausedCanvas);
+  await page.getByRole('button', { name: 'REPRENDRE', exact: true }).click();
+  await walkTo(page, { x: helicopter.x, y: helicopter.y + 24 }, { radius: 2 });
+  const guided = await snapshot(page);
+  expect(guided.player.y).toBeGreaterThan(falling.player.y + 15);
+  expect(guided.player.altitude).toBeGreaterThan(0);
+  expect(guided.hearts).toBe(initial.hearts);
+  const beforeContact = await page.waitForFunction(() => {
+    const state = window.blueNight.snapshot();
+    return state.player.airborneMode === 'parachute' && state.player.altitude > 0 && state.player.altitude < 2
+      && { verticalSpeed: state.player.verticalSpeed, hearts: state.hearts };
+  }, null, { timeout: 20000 });
+  const descending = await beforeContact.jsonValue();
+  expect(descending.verticalSpeed).toBeCloseTo(-5.5, 1); expect(descending.hearts).toBe(initial.hearts);
+  await expect.poll(async () => (await snapshot(page)).player.airborneMode, { timeout: 20000 }).toBeNull();
+  const landed = await snapshot(page);
+  expect(landed.player.altitude).toBe(0); expect(landed.mode).toBe('playing');
+  // Theft still permits a patrol to intercept the player on the ground; the
+  // intact airborne hearts and safe contact speed distinguish that from a fall.
+  expect(landed.hearts).toBeGreaterThan(0); expect(landed.vehicleId).toBeNull();
+  expect(landed.cars.find(car => car.id === helicopter.id).altitude).toBeGreaterThan(0);
+  await expect(page.locator('#location')).toContainText('À PIED');
+  await expect(page.locator('#plant')).toBeEnabled();
+  expect(errors).toEqual([]);
 });

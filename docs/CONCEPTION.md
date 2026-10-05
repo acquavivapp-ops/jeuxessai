@@ -1,6 +1,6 @@
-# Blue Night — Calvi, 1994
+# CALVI LA VIE — Calvi, 1994
 
-Blue Night est un jeu d’action en vue aérienne, à pied, en voiture, à moto, en bateau, en hélicoptère et en avion, inspiré des premières années de GTA. Calvi est son unique carte : les rues, bâtiments, littoral et limite de la commune proviennent d’OpenStreetMap. Relief, photographie aérienne et hauteurs disponibles viennent d’IGN. Ces données actuelles sont habillées d’un univers corse fictif de 1994.
+CALVI LA VIE est un jeu d’action en vue aérienne, à pied, en voiture, à moto, en bateau, en hélicoptère et en avion, inspiré des premières années de GTA. Calvi est son unique carte : les rues, bâtiments, littoral et limite de la commune proviennent d’OpenStreetMap. Relief, photographie aérienne et hauteurs disponibles viennent d’IGN. Ces données actuelles sont habillées d’un univers corse fictif de 1994.
 
 ## Territoire et déplacements
 
@@ -25,7 +25,7 @@ Six vrais axes de pontons OSM permettent la circulation à pied dans le port. La
 | Hélicoptère | Espace ou DÉCOLLER pour prendre de la hauteur, direction pour voler. ATTERRIR demande un sol libre et peu pentu ; relâcher le déplacement pour achever la descente. |
 | Avion | Direction pour rouler, Espace ou DÉCOLLER pour armer le départ, puis accélérer droit devant. En vol, ATTERRIR demande une approche terrestre dégagée, une pente faible et une vitesse réduite. |
 
-**E/Entrée ou MONTER** permet de prendre un véhicule accessible ; **E/Entrée ou SORTIR** permet d’en descendre après ralentissement. La proximité seule ne suffit pas : le passage jusqu’à l’interaction doit éviter murs et troncs, et une sortie demande une place réellement praticable. Un appareil volant doit être posé avant la sortie. Sur téléphone, le stick gauche pilote et le bouton contextuel affiche FREIN, DÉCOLLER, ATTERRIR ou ANNULER selon la situation. Le vol est une mécanique d’arcade avec une altitude de jeu et des collisions selon la hauteur des obstacles.
+**E/Entrée ou MONTER** permet de prendre un véhicule accessible ; **E/Entrée ou SORTIR** permet d’en descendre après ralentissement. La proximité seule ne suffit pas : le passage jusqu’à l’interaction doit éviter murs et troncs, et une sortie au sol demande une place réellement praticable. En avion ou en hélicoptère, **E/Entrée ou SAUTER** permet aussi de quitter l’appareil en vol ; **Espace ou PARACHUTE** ouvre le parachute pendant la chute. Sur téléphone, le stick gauche pilote et les boutons contextuels suivent l’état réel : FREIN, DÉCOLLER, ATTERRIR, ANNULER, SAUTER ou PARACHUTE. Le vol et la chute sont des mécaniques d’arcade avec une altitude de jeu et des collisions selon la hauteur des obstacles.
 
 Les premiers transports ont des placements fictifs sur des surfaces vérifiées ; les véhicules ajoutés depuis la photographie gardent une position observée et un comportement de jeu. Cet ensemble n’est pas un inventaire exhaustif de véhicules réels. Les parkings et le rivage restent ceux de la carte source. L’aire aéroportuaire OSM **200335795** et la piste **8113537** proviennent de l’archive existante ; les placements ne créent ni nouvelle piste ni héliport réel. La coque entière du bateau est vérifiée sur l’eau, son embarquement à pied sur un accès libre, et les véhicules au sol gardent une sortie praticable. Les avions photographiques gardent des règles de décollage et d’atterrissage d’arcade, sans certification des accès aéronautiques.
 
@@ -67,6 +67,6 @@ Les renforts arrivent après une annonce et un délai. Les tirs policiers sont a
 
 L’exploration libre est proposée par défaut, sans limite de durée. Trois dépôts fictifs restent facultatifs. Le mode missions demande de les détruire puis de revenir au port en 180 secondes. Les deux modes commencent avec trois vies. Les empreintes source ne décrivent ni les occupants réels ni la fragilité réelle des constructions.
 
-Ninu et Antò portent des tenues olive et des cagoules noires, avec des silhouettes humoristiques. Maquis FM diffuse textes, publicités et compositions originaux. Edmond Simeoni, Petru Guelfucci, François Mitterrand et Charles Pasqua apparaissent en caricatures narratives ; leurs répliques sont inventées. Graphismes, portraits, logos et musique n’utilisent aucune ressource de GTA ou Nintendo.
+Les personnages portent des tenues olive et des cagoules noires, avec des silhouettes humoristiques. L’interface affiche les objectifs, états et commandes ; les noms des personnages, répliques, biographies et textes de présentation ont été retirés. La musique et les bruitages restent originaux. Graphismes, portraits, logos et musique n’utilisent aucune ressource de GTA ou Nintendo.
 
-[Lancement](../README.md) · [Cartographie](CARTOGRAPHIE.md) · [Direction artistique](DIRECTION-ARTISTIQUE.md) · [Vérifications](VERIFICATION.md) · [Essais humains](PLAYTEST.md)
+[Lancement](../README.md) · [Cartographie](CARTOGRAPHIE.md) · [Direction artistique](DIRECTION-ARTISTIQUE.md) · [Vérifications v18](VERIFICATION-CALVI-LA-VIE.md) · [Essais humains](PLAYTEST.md)

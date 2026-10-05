@@ -1,4 +1,4 @@
-# Protocole de test humain de Blue Night · Calvi
+# Protocole de test humain de CALVI LA VIE · Calvi
 
 **Guide pour une future séance : aucun participant humain et aucun téléphone physique n’ont servi à un playtest.** Les résultats automatisés effectivement obtenus et leurs limites figurent dans le [README](../README.md). Ce protocole ne constitue pas un résultat de test.
 
@@ -65,7 +65,7 @@ Observer le délai entre annonce et action, la visibilité des tirs et les choix
 
 ### Interruption et commandes
 
-Changer brièvement d’application pendant une conduite, une navigation, un vol, une bouteille active et une poursuite. Vérifier gel du temps, des projectiles, des incendies, de l’altitude et des animations, puis reprise volontaire sans commande restée active. Tester aussi la pause manuelle, l’annulation d’un toucher et un changement d’orientation. Sur ordinateur : flèches/ZQSD/WASD pour bouger et piloter, E/Entrée pour monter, voler ou descendre, Espace pour poser à pied, freiner sur route ou en bateau, décoller ou demander l’atterrissage en appareil volant, Échap pour la pause.
+Changer brièvement d’application pendant une conduite, une navigation, un vol, une chute, une descente en parachute, une bouteille active et une poursuite. Vérifier gel du temps, des projectiles, des incendies, de l’altitude et des animations, puis reprise volontaire sans commande restée active. Tester aussi la pause manuelle, l’annulation d’un toucher et un changement d’orientation. Sur ordinateur : flèches/ZQSD/WASD pour bouger et piloter, E/Entrée pour monter, voler, descendre ou sauter d’un avion/hélicoptère en vol, Espace pour poser à pied, freiner sur route ou en bateau, décoller ou demander l’atterrissage en appareil volant, puis ouvrir le parachute pendant la chute ; Échap pour la pause.
 
 ### Moto, navigation et vol
 
@@ -75,10 +75,10 @@ Prévoir des essais dirigés supplémentaires en mode libre : les cinq minutes d
 |---|---|
 | Moto du cousin | Depuis le départ du port, rejoindre la moto voisine à pied, monter, tourner, freiner, reculer et descendre. Comparer sa maniabilité à une voiture et vérifier que les axes du port restent accessibles. |
 | Bateaux du port | Rejoindre La Face B depuis le quai, puis un bateau photographique accessible par un ponton. Monter depuis un vrai bord de coque, naviguer au large, tourner et ralentir. Essayer un transfert vers une autre coque proche et lente par un passage libre. Approcher une rive ou un ponton libre, descendre puis réembarquer. Observer refus de traverser la terre, de monter par un passage obstrué et de sortir loin d’un accès praticable. |
-| Hélico Maquis FM | Rejoindre le parking à l’ouest du port par les rues, décoller, survoler le relief puis revenir sur un sol dégagé. Demander ATTERRIR, relâcher le déplacement et attendre la pose avant SORTIR. Vérifier annonce et refus de sortie en altitude. |
-| Avions de Calvi | Rejoindre l’aéroport, puis Le Dernier Départ et les deux avions photographiques activés dans la commune. Vérifier accès réel à pied et interaction, rouler, armer le décollage et accélérer dans une direction dégagée. Tester virages en vol, approche sur terre libre, vitesse réduite, atterrissage et sortie après ralentissement. Les quatre avions observés hors commune restent archivés et ne doivent pas être proposés comme véhicules jouables. |
+| Hélicoptère du port | Rejoindre le parking à l’ouest du port par les rues, décoller, survoler le relief puis revenir sur un sol dégagé. Demander ATTERRIR, relâcher le déplacement et attendre la pose avant SORTIR. Lors d’un essai distinct, utiliser E/Entrée ou SAUTER en altitude, puis Espace ou PARACHUTE pendant la chute ; comparer chute libre et descente sous voile. |
+| Avions de Calvi | Rejoindre l’aéroport, puis l’avion de départ et les deux avions photographiques activés dans la commune. Vérifier accès réel à pied et interaction, rouler, armer le décollage et accélérer dans une direction dégagée. Tester virages en vol, approche sur terre libre, vitesse réduite, atterrissage et sortie après ralentissement. Dans un essai distinct, sauter en vol, ouvrir le parachute et vérifier la direction et l’arrivée sur un sol praticable. Les quatre avions observés hors commune restent archivés et ne doivent pas être proposés comme véhicules jouables. |
 
-Sur petit écran, vérifier lisibilité des véhicules, rotor, altitude, coque et repères d’accostage. Les libellés MONTER/SORTIR et FREIN/DÉCOLLER/ATTERRIR/ANNULER doivent correspondre à l’état réel. Une sortie refusée doit expliquer l’action suivante sans immobiliser la partie. Tester aussi pause en montée ou en descente et reprise sans changement brutal d’altitude.
+Sur petit écran, vérifier lisibilité des véhicules, rotor, altitude, coque, parachute et repères d’accostage. Les libellés MONTER/SORTIR/SAUTER et FREIN/DÉCOLLER/ATTERRIR/ANNULER/PARACHUTE doivent correspondre à l’état réel. Une sortie au sol refusée doit expliquer l’action suivante sans immobiliser la partie. Tester aussi pause en montée, en chute ou en descente sous voile et reprise sans changement brutal d’altitude. Vérifier que le menu et les écrans de jeu ne présentent plus de noms, répliques ou biographies de personnages ni de textes narratifs de présentation.
 
 ## Étendue et géographie de Calvi
 
@@ -96,7 +96,7 @@ Présenter « géographie actuelle stylisée, ambiance 1994 et missions fictives
 |---|---|
 | Compréhension | Distingue libre et missions ; trouve un dépôt puis comprend le rendez-vous ; différencie compte à rebours et horloge. |
 | Confort | Directions accidentelles, freinage, marche arrière, stationnement, accostage, vol, accès aux boutons et coordination des pouces. |
-| Transports | Rejoint et prend un véhicule ; distingue freinage et décollage ; comprend sortie au quai ou après atterrissage ; peut reprendre un bateau après débarquement. |
+| Transports | Rejoint et prend un véhicule ; distingue freinage, décollage et saut ; comprend sortie au quai ou après atterrissage, ouverture du parachute et retour au sol ; peut reprendre un bateau après débarquement. |
 | Passages et végétation | Distingue tronc, couronne, maquis bas et grand buisson ; voit les jambes couvertes sans flottement ; comprend accès à pied au ponton et refus d’une interaction obstruée. |
 | Caméra et visée | Suit le joueur à pied et au volant ; vise pendant le changement de zoom ; comprend relief et obstruction des tirs. |
 | Combat | Change parmi six armes ; identifie souffle, impacts, incendie et résistance des bâtiments. |
@@ -118,6 +118,6 @@ Ces seuils servent à comparer cinq observations, sans portée statistique ; auc
 
 ## Préparation technique séparée
 
-Avant les séances, vérifier exploration et missions, six armes, tir continu, vol et destruction de véhicules, impacts sur acteurs et piétons, bâtiments de résistances variées, relief et visée, cycle jour/nuit, six niveaux de recherche et arrivées effectives des renforts. Contrôler troncs, ralentissement du maquis, grands buissons, occlusion locale du feuillage et acteurs à pied hors chaussée. Examiner moto, navigation limitée à l’eau, pontons à pied, embarquement par un passage libre, débarquement, décollage, survol, refus de sortie en altitude, atterrissage valide ou refusé et reprise après pause. Vérifier les observations photo activées et les avions hors commune exclus. Vérifier trois missions dans plusieurs ordres, extraction, victoire, dégâts, fin au temps, score et redémarrage ; vérifier aussi pointeurs, sauvegarde, audio et rechargement hors ligne après un premier chargement.
+Avant les séances, vérifier exploration et missions, six armes, tir continu, vol et destruction de véhicules, impacts sur acteurs et piétons, bâtiments de résistances variées, relief et visée, cycle jour/nuit, six niveaux de recherche et arrivées effectives des renforts. Contrôler troncs, ralentissement du maquis, grands buissons, occlusion locale du feuillage et acteurs à pied hors chaussée. Examiner moto, navigation limitée à l’eau, pontons à pied, embarquement par un passage libre, débarquement, décollage, survol, saut depuis les deux types d’appareils, chute libre, ouverture et direction du parachute, atterrissage valide ou refusé et reprise après pause. Vérifier les observations photo activées et les avions hors commune exclus. Vérifier trois missions dans plusieurs ordres, extraction, victoire, dégâts, fin au temps, score et redémarrage ; vérifier aussi pointeurs, sauvegarde, audio, absence des textes de personnages et rechargement hors ligne après un premier chargement.
 
 Consigner commande ou scénario, résultat, appareil et limites dans les documents de vérification. Un test automatique ou une inspection du code ne valide ni le confort d’un vrai pouce, ni le plaisir de conduire, ni le mixage sur un haut-parleur mobile. Le présent guide reste un protocole à exécuter.

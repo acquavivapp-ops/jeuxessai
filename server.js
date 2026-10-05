@@ -19,4 +19,4 @@ http.createServer(async (req, res) => {
     const type = mime[extname(path)] || 'application/octet-stream';
     res.writeHead(200, { 'Content-Type': type + (type.startsWith('text/') || type.endsWith('+xml') ? '; charset=utf-8' : ''), 'Cache-Control': 'no-cache', 'X-Content-Type-Options': 'nosniff' }).end(body);
   } catch { res.writeHead(404).end('Introuvable'); }
-}).listen(port, host, () => console.log(`Blue Night — serveur prêt, port ${port}`));
+}).listen(port, host, () => console.log(`CALVI LA VIE — serveur prêt, port ${port}`));

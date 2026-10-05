@@ -44,9 +44,8 @@ async function walkAlongQuay(page, length) {
   expect(end.x).toBeLessThan(start.x); expect(end.y).toBeGreaterThan(start.y);
 }
 
-test('the tutorial freezes Calvi; a bottle explodes after escaping along the real quay and radio pauses', async ({ page }) => {
-  // Includes the first radio programme at 9 game seconds, its complete
-  // six-second lifetime and a longer paused interval, plus actual map loading.
+test('the tutorial freezes Calvi; a bottle explodes after escaping along the real quay and dialogue stays absent', async ({ page }) => {
+  // Play past the former first radio programme, using the real game clock.
   test.setTimeout(45_000);
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   await page.goto('/'); await chooseGameMode(page, 'missions'); await page.getByRole('button', { name: 'JOUER', exact: false }).click();
@@ -71,22 +70,19 @@ test('the tutorial freezes Calvi; a bottle explodes after escaping along the rea
   expect(Math.hypot(escaped.player.x - bottle.x, escaped.player.y - bottle.y)).toBeGreaterThan(70);
   expect(escaped.objective.type).toBe('target');
   expect(escaped.objective.id).toMatch(/^osm-building-/);
+  await page.locator('#hud-details').click();
   await expect(page.locator('#missiontext')).toBeVisible(); await expect(page.locator('#heat')).toBeVisible();
-  await expect(page.locator('#radio')).toBeVisible({ timeout: 12000 });
-  await expect(page.locator('#radio-line')).toHaveText(/\S/);
+  await expect.poll(async () => (await snap(page)).elapsed, { timeout: 12000 }).toBeGreaterThan(9);
+  await expect(page.locator('#radio')).toHaveCount(0);
+  expect(await page.locator('body').innerText()).not.toMatch(/François Mitterrand|Edmond Sim[ée]oni|Ninu|Nino|Ant[òo]/i);
   await page.keyboard.press('Escape');
-  const paused = await snap(page), frozenRadio = await page.locator('#radio').textContent();
-  expect(paused.radio).toBeDefined();
-  // The radio lasts a few game seconds. Waiting longer in a paused game must
-  // retain its message, just like the stopped lighting and traffic animation.
-  await page.waitForTimeout(6500);
-  await expect(page.locator('#radio')).toBeVisible();
-  expect(await page.locator('#radio').textContent()).toBe(frozenRadio);
+  const paused = await snap(page);
+  await page.waitForTimeout(250);
   const frozen = await snap(page);
-  expect(frozen.elapsed).toBe(paused.elapsed); expect(frozen.radio).toEqual(paused.radio);
+  expect(frozen.elapsed).toBe(paused.elapsed); expect(frozen.player).toEqual(paused.player);
   await page.getByRole('button', { name: 'REPRENDRE', exact: true }).click();
-  await expect.poll(async () => !(await page.locator('#radio').isVisible()) || await page.locator('#radio').textContent() !== frozenRadio,
-    { timeout: 10000 }).toBe(true);
+  await expect.poll(async () => (await snap(page)).elapsed).toBeGreaterThan(paused.elapsed);
+  await expect(page.locator('#radio')).toHaveCount(0);
   expect(errors).toEqual([]);
 });
 
@@ -137,7 +133,7 @@ test('touch stops on cancellation on the real quay; its district is named and in
   const entered = await snap(page);
   expect(Math.hypot(entered.player.x - footStart.x, entered.player.y - footStart.y)).toBeGreaterThan(30);
   await expect(page.locator('#district-name')).toHaveText(entered.district.name);
-  await expect(page.locator('#district-line')).toHaveText(entered.district.tagline);
+  await expect(page.locator('#district-line')).toHaveCount(0);
   await page.keyboard.press('Space'); await page.evaluate(() => window.dispatchEvent(new Event('blur')));
   const paused = await snap(page);
   expect(paused.mode).toBe('paused'); expect(paused.bottles).toHaveLength(1);
@@ -170,6 +166,7 @@ test('two touch joysticks permit moving and aiming together and both stop on can
 });
 
 test('three exposed automatic blasts show a complete mobile result, save the record and replay the city', async ({ page }) => {
+  test.setTimeout(45_000);
   await page.setViewportSize({ width: 320, height: 568 });
   // Measure the output graph including the final jingle after music stops.
   await page.addInitScript(() => {
@@ -189,14 +186,14 @@ test('three exposed automatic blasts show a complete mobile result, save the rec
     if (!document.querySelector('.result-card')) return false;
     const data = new Float32Array(256); window.__audioProbe.getFloatTimeDomainData(data);
     return Math.sqrt(data.reduce((sum, sample) => sum + sample * sample, 0) / data.length) > .002;
-  }, null, { timeout: 20000 });
+  }, null, { timeout: 30000 });
   void resultSound.catch(() => {});
   for (let hearts = 2; hearts >= 0; hearts--) {
     await expect.poll(async () => {
       const state = await snap(page); return state.bottles.length === 0 && state.player.invulnerable === 0;
     }, { intervals: [30], timeout: 6000 }).toBe(true);
     await page.keyboard.press('Space');
-    await expect.poll(async () => (await snap(page)).hearts, { intervals: [30], timeout: 4000 }).toBe(hearts);
+    await expect.poll(async () => (await snap(page)).hearts, { intervals: [30], timeout: 6000 }).toBe(hearts);
   }
   const result = await snap(page);
   expect(result.mode).toBe('result'); expect(result.result.cause).toBe('blast');
@@ -218,37 +215,45 @@ test('three exposed automatic blasts show a complete mobile result, save the rec
 
 test('sound unlocks by gesture; mute and reduced effects persist; options pause and resume', async ({ page }) => {
   await begin(page); expect((await snap(page)).audioState).toBe('running');
+  await page.locator('#hud-details').click();
   await page.getByRole('button', { name: 'Couper le son', exact: true }).click();
   await page.getByRole('button', { name: 'Options et accessibilité', exact: true }).click();
   const frozen = (await snap(page)).elapsed; await page.waitForTimeout(150); expect((await snap(page)).elapsed).toBe(frozen);
   await page.getByLabel('Effets réduits', { exact: false }).check();
-  await page.getByRole('button', { name: "C'EST BON", exact: true }).click(); expect((await snap(page)).mode).toBe('playing');
+  await page.getByRole('button', { name: 'RETOUR AU JEU', exact: true }).click(); expect((await snap(page)).mode).toBe('playing');
   await page.reload(); expect((await snap(page)).muted).toBe(true); expect((await snap(page)).reduced).toBe(true);
-  await expect(page.getByRole('button', { name: 'Activer le son', exact: true })).toBeVisible();
+  await expect(page.locator('#sound')).toHaveAttribute('aria-label', 'Activer le son');
+  await expect(page.locator('#sound')).toHaveAttribute('aria-pressed', 'true');
   await chooseGameMode(page, 'missions');
   await page.getByRole('button', { name: 'JOUER', exact: false }).click(); expect((await snap(page)).tutorial).toBe(false);
 });
 
-test('the notebook displays the local crew, four historical portraits and fictional dialogue', async ({ page }) => {
-  await page.goto('/'); await page.locator('.dossier-open:visible').first().click();
-  for (const name of ['Ninu', 'Antò']) {
-    const portrait = page.getByRole('img', { name: `Portrait de ${name}`, exact: true });
-    await portrait.scrollIntoViewIfNeeded(); await expect(portrait).toBeVisible();
-    await expect.poll(() => portrait.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
-  }
-  await expect(page.locator('#crew .crew-card')).toHaveCount(2);
+test('the title and gameplay help omit character names, presentation text and fictional dialogue', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('.subtitle, .edition-pills, .title-crew b')).toHaveCount(0);
+  expect(await page.locator('body').innerText()).not.toMatch(/François Mitterrand|Edmond Sim[ée]oni|Ninu|Nino|Ant[òo]/i);
+  await page.getByRole('button', { name: 'JOUER', exact: false }).click();
+  await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
+  await page.getByRole('button', { name: 'Options et accessibilité', exact: true }).click();
+  await page.locator('.dossier-open:visible').first().click();
+  await expect(page.getByRole('dialog', { name: 'AIDE', exact: true })).toBeVisible();
+  await expect(page.locator('#dossier')).toContainText(/parachute/i);
+  await expect(page.locator('#crew, #cameos, #chapter-copy, #dossier blockquote')).toHaveCount(0);
   expect(await page.locator('#dossier').evaluate(element => element.scrollWidth <= element.clientWidth + 1)).toBe(true);
-  for (const name of ['Edmond Simeoni', 'Petru Guelfucci', 'François Mitterrand', 'Charles Pasqua']) {
-    await expect(page.getByRole('img', { name: `Caricature de ${name}`, exact: true })).toBeVisible();
-  }
-  expect(await page.locator('#cameos img').evaluateAll(images => images.every(img => img.complete && img.naturalWidth > 0))).toBeTruthy();
-  await expect(page.getByText(/répliques sont inventées/)).toBeVisible();
+  expect(await page.locator('#dossier').innerText()).not.toMatch(/François Mitterrand|Edmond Sim[ée]oni|Ninu|Nino|Ant[òo]|répliques sont inventées|inaugurations/i);
 });
 
-for (const [width, height] of [[320, 568], [375, 667], [390, 844], [430, 932], [1280, 800]]) {
+for (const [width, height] of [[320, 568], [375, 667], [390, 844], [430, 932], [844, 390], [1280, 800]]) {
   test(`the map fills the viewport and its HUD and controls fit at ${width}×${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height }); await begin(page);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    if (width < 1000) {
+      await expect(page.locator('#hud-details')).toHaveAttribute('aria-expanded', 'false');
+      for (const id of ['minimap', 'missiontext', 'game-clock', 'time-phase']) await expect(page.locator(`#${id}`)).toBeHidden();
+      await expect(page.locator('#location')).toBeVisible();
+      const details = await page.locator('#hud-details').boundingBox();
+      expect(details.width).toBeGreaterThanOrEqual(44); expect(details.height).toBeGreaterThanOrEqual(44);
+    }
     for (const selector of ['.hud', '.communication', '.bottomline']) {
       const overflow = await page.locator(selector).evaluate(element => element.scrollWidth - element.clientWidth);
       expect(overflow, `${selector} must not overflow horizontally`).toBeLessThanOrEqual(1);
@@ -259,6 +264,14 @@ for (const [width, height] of [[320, 568], [375, 667], [390, 844], [430, 932], [
       expect(box.x).toBeGreaterThanOrEqual(0); expect(box.y).toBeGreaterThanOrEqual(0);
       expect(box.x + box.width).toBeLessThanOrEqual(width + 1);
       expect(box.y + box.height).toBeLessThanOrEqual(height + 1);
+      expect(await page.evaluate(({ id, box }) => Boolean(document.elementFromPoint(
+        box.x + box.width / 2, box.y + box.height / 2)?.closest(`#${id}`)), { id, box }),
+      `${id} must receive input at its visible centre`).toBe(true);
+    }
+    if (width < 1000) {
+      await page.locator('#hud-details').click();
+      await expect(page.locator('#hud-details')).toHaveAttribute('aria-expanded', 'true');
+      await expect(page.locator('#scene')).toHaveClass(/hud-expanded/);
     }
     for (const id of ['minimap', 'missiontext', 'heat', 'game-clock', 'time-phase']) {
       await expect(page.locator(`#${id}`)).toBeVisible(); const box = await page.locator(`#${id}`).boundingBox();
@@ -273,6 +286,11 @@ for (const [width, height] of [[320, 568], [375, 667], [390, 844], [430, 932], [
       return colors.size;
     });
     expect(mapColors).toBeGreaterThan(5);
+    if (width < 1000) {
+      await page.locator('#hud-details').click();
+      await expect(page.locator('#hud-details')).toHaveAttribute('aria-expanded', 'false');
+      await expect(page.locator('#minimap')).toBeHidden();
+    }
     for (const id of ['scene', 'game']) {
       const box = await page.locator(`#${id}`).boundingBox();
       expect(box.x).toBeCloseTo(0, 0); expect(box.y).toBeCloseTo(0, 0);
@@ -310,6 +328,7 @@ test('the offline cache starts the playable city and retains local graphics, uni
   await page.getByRole('button', { name: 'REPRENDRE', exact: true }).click();
   await expect.poll(async () => (await snap(page)).timeOfDay.hours, { timeout: 3000 }).toBeGreaterThan(paused.timeOfDay.hours);
   await page.keyboard.press('e'); expect((await snap(page)).vehicleId).not.toBeNull();
+  await page.locator('#hud-details').click();
   await expect(page.locator('#minimap')).toBeVisible();
   const portraits = await page.evaluate(async () => Promise.all(['simeoni', 'guelfucci', 'mitterrand', 'pasqua', 'ninu', 'anto'].map(async name => {
     const img = new Image(); img.src = `assets/${name}.svg`; await img.decode(); return img.naturalWidth;

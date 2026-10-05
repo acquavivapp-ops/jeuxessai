@@ -46,3 +46,153 @@ dialog{border-radius:18px;padding:30px 24px;background:linear-gradient(140deg,#1
 .scanlines{display:none}
 .hud,.minimap,.district-badge,.stick{backdrop-filter:none;-webkit-backdrop-filter:none}
 .district-badge{background:#0d1835df}
+
+/* Mobile keeps the world visible; the details button reveals secondary HUD data. */
+#hud-details{display:none}
+#flight-status{color:var(--cyan);font-variant-numeric:tabular-nums}
+#flight-status:empty{display:none}
+
+@media (max-width:600px), (pointer:coarse) and (max-width:1100px), (max-height:520px) and (max-width:1100px){
+  .scene{
+    --touch-size:84px;
+    --control-bottom:calc(8px + env(safe-area-inset-bottom));
+    --hud-top:max(8px,env(safe-area-inset-top));
+    --hud-left:max(8px,env(safe-area-inset-left));
+    --hud-right:max(8px,env(safe-area-inset-right));
+  }
+  .hud{
+    top:var(--hud-top);left:var(--hud-left);right:var(--hud-right);
+    width:auto;min-width:0;padding:5px 8px;border-radius:12px;
+    background:#101b32b8;box-shadow:none;
+  }
+  .topbar{min-height:44px;gap:8px}
+  .brand{display:none}
+  .tools{margin-left:auto;gap:2px}
+  .icon-button{
+    display:inline-grid;place-items:center;width:44px;height:44px;
+    border:0;border-radius:9px;background:transparent;
+  }
+  .icon-button svg{width:20px;height:20px}
+  #hud-details{display:inline-grid}
+  #hud-details[aria-expanded=true]{color:var(--cyan);background:#69f5db16}
+  .tools #sound{display:none}
+  .dashboard{
+    position:absolute;top:17px;left:12px;display:block;
+    margin:0;padding:0;border:0;
+  }
+  .dashboard .stat:not(.lives-stat),.lives-stat>span{display:none}
+  .lives-stat strong{padding:0;font-size:16px;line-height:1.3;letter-spacing:1px}
+  .locationbar{min-height:18px;margin:0;gap:8px;font-size:9px;line-height:18px}
+  #location{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #heat{flex-shrink:0;font-size:12px;letter-spacing:1px;line-height:18px}
+  #flight-status{font-size:9px;line-height:18px;white-space:nowrap}
+  .clockbar,.minimap,.district-badge,.communication,.bottomline{display:none}
+
+  .controls{
+    left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));
+    bottom:var(--control-bottom);height:94px;gap:8px;flex-wrap:nowrap;
+    align-items:flex-end;justify-content:space-between;
+  }
+  .stick{width:var(--touch-size);height:var(--touch-size);background-color:#10223935;box-shadow:none}
+  .stick-block>small{display:none}
+  .aim-stick{margin-left:0}
+  .actions{
+    position:absolute;left:50%;right:auto;bottom:0;transform:translateX(-50%);
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:6px;width:min(160px,calc(100% - 188px));max-width:none;margin:0;
+  }
+  .action{
+    min-width:44px;width:100%;height:44px;padding:4px 3px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:2px;border-radius:10px;text-align:center;box-shadow:none;
+    background:#14233cba;
+  }
+  .action svg{width:15px;height:15px;flex-shrink:0}
+  .action b,.action.weapon b{max-width:100%;font-size:8px;letter-spacing:0;line-height:11px;white-space:nowrap}
+  .action small{display:none}
+  .action.fire{background:#ba5266d9}
+  .action.boom{background:#64d5c7df}
+
+  .scene.hud-expanded .hud{background:#101b32ed}
+  .scene.hud-expanded .tools #sound{display:inline-grid}
+  .scene.hud-expanded .brand{display:block;font-size:11px;letter-spacing:.5px}
+  .scene.hud-expanded .brand small{display:none}
+  .scene.hud-expanded .dashboard{
+    position:static;display:grid;grid-template-columns:1fr .7fr 1fr;
+    margin-top:4px;padding-top:5px;gap:6px;border-top:1px solid #ffffff0d;
+  }
+  .scene.hud-expanded .dashboard .stat{display:block}
+  .scene.hud-expanded .stat>span{display:block;font-size:7px;letter-spacing:.7px}
+  .scene.hud-expanded .stat strong{font-size:17px;line-height:1.35}
+  .scene.hud-expanded .lives-stat strong{font-size:14px;letter-spacing:0}
+  .scene.hud-expanded .locationbar{margin-top:3px}
+  .scene.hud-expanded .clockbar{display:flex;margin-top:3px;padding-top:3px;min-height:18px}
+  .scene.hud-expanded .clockbar #game-clock{font-size:10px}
+  .scene.hud-expanded .clockbar small,.scene.hud-expanded .clockbar #police-response{font-size:7px}
+  .scene.hud-expanded .minimap{
+    display:block;top:calc(var(--hud-top) + 147px);right:var(--hud-right);
+    width:104px;padding:4px;background:#101b32dc;border-radius:10px;box-shadow:none;
+  }
+  .scene.hud-expanded .minimap canvas{width:94px;height:78px}
+  .scene.hud-expanded .minimap>span{font-size:7px;letter-spacing:0;line-height:16px;padding:0}
+  .scene.hud-expanded .communication{
+    display:block;top:calc(var(--hud-top) + 147px);left:var(--hud-left);
+    width:calc(100% - var(--hud-left) - var(--hud-right) - 112px);
+    max-width:380px;max-height:106px;padding:7px 8px;
+    overflow:hidden;background:#101b32dc;border-radius:10px;
+  }
+  .scene.hud-expanded .mission-summary{display:block;font-size:8px;line-height:15px}
+  .scene.hud-expanded .mission-summary strong{display:block;font-size:9px;line-height:15px}
+  .scene.hud-expanded .ticker{font-size:9px;line-height:14px;margin-top:4px}
+  .scene.hud-expanded .bottomline{
+    display:flex;left:var(--hud-left);right:var(--hud-right);
+    bottom:calc(var(--control-bottom) + 103px);gap:8px;
+    padding:4px 7px;font-size:8px;line-height:16px;
+    border-radius:8px;background:#101b32b8;
+  }
+  .scene.hud-expanded .bottomline #best{font-size:8px}
+  .keyboard-hint{display:none}
+}
+
+@media (max-width:355px){
+  .scene{--touch-size:76px}
+  .actions{width:calc(100% - 168px);gap:5px}
+  .scene.hud-expanded .brand{display:none}
+  .scene.hud-expanded .communication{width:calc(100% - var(--hud-left) - var(--hud-right) - 104px)}
+  .scene.hud-expanded .minimap{width:96px}
+  .scene.hud-expanded .minimap canvas{width:86px;height:72px}
+}
+
+@media (orientation:landscape) and (max-height:520px) and (max-width:1100px){
+  .hud{right:auto;width:min(360px,calc(100% - var(--hud-left) - var(--hud-right)))}
+  .controls{height:84px}
+  .actions{grid-template-columns:repeat(4,minmax(0,1fr));width:280px;max-width:calc(100% - 188px)}
+  .scene.hud-expanded .minimap{top:var(--hud-top)}
+  .scene.hud-expanded .communication{
+    top:var(--hud-top);left:calc(var(--hud-left) + 370px);
+    width:calc(100% - var(--hud-left) - var(--hud-right) - 482px);max-height:134px;
+  }
+  .scene.hud-expanded .bottomline{
+    right:auto;width:min(360px,calc(100% - var(--hud-left) - var(--hud-right)));
+    top:calc(var(--hud-top) + 147px);bottom:auto;
+  }
+}
+
+@media (orientation:landscape) and (max-height:520px) and (max-width:700px){
+  .scene{--touch-size:76px}
+  .hud{width:min(310px,calc(100% - var(--hud-left) - var(--hud-right)))}
+  .scene.hud-expanded .brand{display:none}
+  .scene.hud-expanded .communication{
+    top:calc(var(--hud-top) + 147px);left:var(--hud-left);
+    width:min(310px,calc(100% - var(--hud-left) - var(--hud-right)));max-height:62px;
+  }
+  .scene.hud-expanded .bottomline{left:auto;right:var(--hud-right);top:calc(var(--hud-top) + 107px);width:140px}
+}
+
+@media (max-width:1000px), (pointer:coarse) and (max-width:1100px){
+  .scene.player-airborne #fire,.scene.player-airborne #weapon,.scene.player-airborne #boom,.scene.player-airborne .aim-stick{display:none}
+  .scene.player-airborne .actions{grid-template-columns:1fr;max-width:130px}
+  .scene.player-airborne #plant{height:48px}
+}
+
+.arcade-logo{image-rendering:auto;object-fit:contain}

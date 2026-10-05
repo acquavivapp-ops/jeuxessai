@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Game } from '../engine.js';
-import { canLandVehicle, canTransferBoats } from '../mobility.js';
+import { canLandVehicle, canTransferBoats, mobilityExitPoint } from '../mobility.js';
 import { damageCar } from '../combat.js';
 import { capsuleWorld, rectangleBuilding } from './fixtures/worlds.js';
 
@@ -114,14 +114,14 @@ test('a boat boards from a real land-water edge, respects shoreline and returns 
   assert.equal(game.cars.find((v) => v.id === id).mobilityMode, 'water');
 });
 
-test('a helicopter takes off, overflies a solid building, rejects its roof and lands before a real exit', () => {
+test('a helicopter takes off, overflies a solid building, rejects its roof and completes a ground exit after landing', () => {
   const { game } = scene('helicopter', { world: { buildings: [rectangleBuilding('roof', 580, 440, 180, 120)] } });
   assert.equal(game.interact(), true); assert.equal(game.vehicleAction(), true);
   advance(game, 4); assert.equal(game.vehicle.altitude, 80);
   advance(game, 1.9, { x: 1, y: 0 }); advance(game, 1.2);
   assert.ok(game.player.x > 580 && game.player.x < 760);
   assert.equal(game.canOccupy(game.player.x, game.player.y), false);
-  assert.equal(game.interact(), false, 'A pilot cannot step out while airborne');
+  assert.equal(mobilityExitPoint(game, game.vehicle), null, 'Flight cannot offer a walking exit or a roof landing');
   assert.equal(game.vehicleAction(), true); advance(game, 1);
   assert.equal(game.vehicle.altitude, 80, 'A building is not an allowed landing pad');
   advance(game, 2.1, { x: -1, y: 0 }); advance(game, 6);
@@ -134,7 +134,7 @@ test('a helicopter cannot land over the sea and cannot fly outside the map recta
   game.interact(); game.vehicleAction(); advance(game, 4);
   advance(game, 2.8, { x: 1, y: 0 }); advance(game, 1.2);
   assert.ok(game.player.x > 700); game.vehicleAction(); advance(game, 5);
-  assert.equal(game.vehicle.altitude, 80); assert.equal(game.interact(), false);
+  assert.equal(game.vehicle.altitude, 80); assert.equal(mobilityExitPoint(game, game.vehicle), null);
   advance(game, 10, { x: 1, y: 0 });
   assert.ok(game.vehicle.x <= 1488 && game.vehicle.x >= 1485);
   assert.equal(game.hearts, 3);
@@ -150,7 +150,7 @@ test('an airplane requires a real acceleration run, keeps forward flight, lands 
   advance(game, 5, { x: 1, y: 0 }); assert.equal(game.vehicle.altitude, 95);
   const x = game.player.x; advance(game, 1);
   assert.ok(game.player.x > x + 150, 'Releasing directional input does not stop a flying airplane');
-  assert.equal(game.interact(), false);
+  assert.equal(mobilityExitPoint(game, game.vehicle), null, 'An in-flight jump is distinct from a safe ground exit');
   game.vehicleAction(); advance(game, 8, { x: 1, y: 0 });
   assert.equal(game.vehicle.altitude, 0); assert.equal(game.vehicle.mobilityMode, 'ground');
   advance(game, 1, { brake: true });

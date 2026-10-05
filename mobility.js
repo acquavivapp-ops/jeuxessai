@@ -1,4 +1,5 @@
 // Arcade locomotion. Coordinates stay in the real map; altitude is metres.
+import { jumpFromAircraft, isPlayerAirborne } from './parachute.js';
 const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
 const delta = (a, b) => Math.atan2(Math.sin(b - a), Math.cos(b - a));
 const distance = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
@@ -53,6 +54,7 @@ export function initializeMobility(vehicle) {
   vehicle.altitude ??= 0; vehicle.speed ??= 0; vehicle.angle ??= 0;
   vehicle.vx = 0; vehicle.vy = 0; vehicle.rotor = 0;
   vehicle.takeoffRequested = false; vehicle.landingRequested = false;
+  vehicle.abandonedFlight = false;
   return vehicle;
 }
 
@@ -74,7 +76,7 @@ export function canLandVehicle(game, vehicle, x = vehicle.x, y = vehicle.y) {
 }
 
 export function canBoardVehicle(game, vehicle) {
-  if (!isMobilityVehicle(vehicle) || vehicle.destroyed || vehicle.locked || vehicle.pendingRoadblock || vehicle.altitude > 0) return false;
+  if (isPlayerAirborne(game) || !isMobilityVehicle(vehicle) || vehicle.destroyed || vehicle.locked || vehicle.pendingRoadblock || vehicle.altitude > 0) return false;
   if (vehicle.mobilityType === 'boat') {
     const boarding = vehicle.boarding;
     return Boolean(boarding && distanceToVehicleHull(boarding, vehicle) <= 28 && distance(game.player, boarding) <= 22 && game.canOccupy(boarding.x, boarding.y, game.playerRadius, vehicle.id) && game.clearSegment(game.player, boarding, game.playerRadius, vehicle.id, false) && game.clearBuildingSegment?.(boarding, vehicle, 2) && game.clearVehicleSegment(boarding, vehicle, game.playerRadius, vehicle.id));
@@ -125,6 +127,7 @@ export function mobilityExitPoint(game, vehicle) {
 }
 
 export function mobilityExit(game, vehicle) {
+  if (vehicle.altitude > 0 && ['plane', 'helicopter'].includes(vehicle.mobilityType)) return jumpFromAircraft(game, vehicle);
   if (vehicle.altitude > 0 || vehicle.takeoffRequested) { notice(game, 'Atterris avant de descendre du véhicule.'); return false; }
   if (Math.abs(vehicle.speed) > 15) { notice(game, 'Ralentis avant de descendre du véhicule.'); return false; }
   const exit = mobilityExitPoint(game, vehicle);
@@ -135,6 +138,26 @@ export function mobilityExit(game, vehicle) {
   game.player.vx = 0; game.player.vy = 0; game.player.altitude = 0;
   game.emit('car', { entered: false, id: vehicle.id, mobilityType: vehicle.mobilityType });
   return true;
+}
+
+// Detached aircraft keep their own flight state; only occupied mobility copies
+// its position and altitude into the player. A helicopter coasts to a hover and
+// an airplane retains forward flight until the existing map/obstacle limits.
+export function updateAbandonedAircraft(game, dt) {
+  for (const vehicle of game.abandonedAircraft || []) {
+    if (!vehicle.abandonedFlight || vehicle.destroyed || vehicle.id === game.vehicleId) { game.abandonedAircraft.delete(vehicle); continue; }
+    if (vehicle.mobilityType === 'helicopter') {
+      vehicle.rotor = (vehicle.rotor + 28 * dt) % (Math.PI * 2);
+      vehicle.vx += clamp(-vehicle.vx, -MOBILITY.helicopter.acceleration * dt, MOBILITY.helicopter.acceleration * dt);
+      vehicle.vy += clamp(-vehicle.vy, -MOBILITY.helicopter.acceleration * dt, MOBILITY.helicopter.acceleration * dt);
+      if (game.canVehicleOccupy(vehicle, vehicle.x + vehicle.vx * dt, vehicle.y, vehicle.angle)) vehicle.x += vehicle.vx * dt; else vehicle.vx = 0;
+      if (game.canVehicleOccupy(vehicle, vehicle.x, vehicle.y + vehicle.vy * dt, vehicle.angle)) vehicle.y += vehicle.vy * dt; else vehicle.vy = 0;
+      vehicle.speed = Math.hypot(vehicle.vx, vehicle.vy);
+    } else if (vehicle.mobilityType === 'plane') {
+      advanceSpeed(vehicle, Math.max(160, vehicle.speed), MOBILITY.plane.acceleration, dt);
+      moveWithCollision(game, vehicle, dt, true);
+    }
+  }
 }
 
 function steer(vehicle, input, dt, rate, reverseAllowed) {
@@ -156,14 +179,14 @@ function advanceSpeed(vehicle, target, acceleration, dt) {
   vehicle.speed += clamp(target - vehicle.speed, -acceleration * dt, acceleration * dt);
 }
 
-function moveWithCollision(game, vehicle, dt) {
+function moveWithCollision(game, vehicle, dt, silent = false) {
   const dx = Math.cos(vehicle.angle) * vehicle.speed * dt, dy = Math.sin(vehicle.angle) * vehicle.speed * dt;
   let blocked = false;
   if (game.canVehicleOccupy(vehicle, vehicle.x + dx, vehicle.y, vehicle.angle)) vehicle.x += dx; else blocked = true;
   if (game.canVehicleOccupy(vehicle, vehicle.x, vehicle.y + dy, vehicle.angle)) vehicle.y += dy; else blocked = true;
   if (blocked) {
     vehicle.speed *= .4;
-    if (game.crashCooldown <= 0) { notice(game, vehicle.mobilityType === 'boat' ? 'La coque touche la rive : reprends le large.' : vehicle.altitude > 8 ? 'Limite ou obstacle : tourne pour repartir.' : 'Obstacle : ralentis et change de direction.'); game.crashCooldown = 1.2; }
+    if (!silent && game.crashCooldown <= 0) { notice(game, vehicle.mobilityType === 'boat' ? 'La coque touche la rive : reprends le large.' : vehicle.altitude > 8 ? 'Limite ou obstacle : tourne pour repartir.' : 'Obstacle : ralentis et change de direction.'); game.crashCooldown = 1.2; }
   }
   vehicle.vx = dx / dt; vehicle.vy = dy / dt;
 }

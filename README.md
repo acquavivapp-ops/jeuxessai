@@ -1,4 +1,10 @@
-# Blue Night
+# CALVI LA VIE
+
+La version v18 intègre le **logo original fourni**, retire les dialogues, les noms et les présentations des personnages, et allège l’interface mobile. Le bouton **ⓘ** affiche les informations secondaires. En avion ou en hélicoptère, **E / SAUTER** quitte l’appareil en vol ; **Espace / PARACHUTE** ouvre la voile, puis le stick gauche ou les touches de déplacement dirigent la descente. Il faut ouvrir assez tôt et viser un sol libre.
+
+Captures v18 : [Accueil et logo](docs/calvi-la-vie-title.png) · [Téléphone](docs/calvi-la-vie-phone.png) · [Paysage](docs/calvi-la-vie-landscape.png) · [Informations dépliées](docs/calvi-la-vie-details.png) · [Parachute](docs/calvi-la-vie-parachute.png).
+
+Les vérifications propres à cette version sont dans [VERIFICATION-CALVI-LA-VIE.md](docs/VERIFICATION-CALVI-LA-VIE.md). Les captures et mesures v17 ci-dessous restent des observations de la version précédente.
 
 **Calvi, 1994 : photographie détaillée, végétation en volume et arcade sur terre, en mer et dans les airs.** La commune entière reste l’unique carte jouable. Le fond visible est maintenant une photographie aérienne IGN détaillée : les routes, quais, toits et arbres sont ceux de l’image, superposés au relief du terrain et aux volumes des empreintes bâties.
 
@@ -8,14 +14,13 @@ Les bâtiments conservent leur toit photographique sur un volume issu de leur em
 
 **251 véhicules photographiés deviennent jouables à leur position source : 96 voitures, 153 bateaux et deux avions.** La voiture du départ, observation `photo-car-port-04`, est déjà à vous, et **E** permet de voler les autres. L’observation `photo-car-port-05` reste une autre voiture accessible. Les **251 petits masques** de matière voisine restent au lieu d’origine après déplacement ou destruction ; les photographies sources restent intactes. Ce traitement couvre les observations vérifiées du port, des parkings et de l’aéroport, sans exhaustivité sur toute la commune. Les **20 observations exclues** restent archivées avec leur raison et leurs coordonnées. La mer conserve sa matière photographique avec un **clapotis léger**, limité à l’eau et figé pendant la pause. Un [masque des pixels bleus](data/CALVI_WATER_SURFACE.md) évite les reflets sur les quais et les bateaux photographiés.
 
-[Jour](docs/blue-night-day.png) · [Nuit](docs/blue-night-afterhours.png) · [Conduite](docs/blue-night-afterhours-driving.png) · [Téléphone](docs/blue-night-afterhours-phone.png) · [Parking avant départ](docs/blue-night-photo-origin.png) · [Après départ](docs/blue-night-photo-pavement.png) · [Moto](docs/blue-night-motorcycle.png) · [Bateau](docs/blue-night-boat.png) · [Devant l’arbre](docs/blue-night-tree-front.png) · [Sous sa couronne](docs/blue-night-tree-canopy.png) · [Hélicoptère — capture v15](docs/blue-night-helicopter.png)
+Captures v17, antérieures à la suppression des textes de personnages et à l’ajout du parachute : [Jour](docs/blue-night-day.png) · [Nuit](docs/blue-night-afterhours.png) · [Conduite](docs/blue-night-afterhours-driving.png) · [Téléphone](docs/blue-night-afterhours-phone.png) · [Parking avant départ](docs/blue-night-photo-origin.png) · [Après départ](docs/blue-night-photo-pavement.png) · [Moto](docs/blue-night-motorcycle.png) · [Bateau](docs/blue-night-boat.png) · [Devant l’arbre](docs/blue-night-tree-front.png) · [Sous sa couronne](docs/blue-night-tree-canopy.png) · [Hélicoptère — capture v15](docs/blue-night-helicopter.png)
 
 ## Lancer
 
-Node.js **20 ou supérieur** suffit pour jouer. Décompressez `blue-night.zip`, puis :
+Node.js **20 ou supérieur** suffit pour jouer. Décompressez le ZIP du jeu, placez-vous dans le dossier contenant `package.json`, puis :
 
 ```bash
-cd blue-night
 npm start
 ```
 
@@ -33,7 +38,7 @@ Après un premier chargement complet sur localhost ou HTTPS, le fond de carte et
 | Hélicoptère | Parking près du port | Décollage, vol stationnaire et direction libre ; atterrissage sur un sol dégagé. |
 | Avion | Aire de stationnement de l’aéroport | Armer le décollage puis accélérer droit devant ; maintenir le vol, aligner et demander l’atterrissage sur une approche libre. |
 
-La moto, le bateau de départ, l’hélicoptère et le premier avion sont placés fictivement sur les surfaces réelles de Calvi. Les observations ne certifient ni une propriété réelle ni une installation aéronautique. Quatre autres avions visibles au sud de l’aéroport sont archivés mais restent hors jeu, car ils sont hors du contour communal importé. Le personnage ne sort pas en plein vol ou en pleine mer. Un avion ou un hélicoptère détruit sans issue terrestre sûre entraîne une défaite, sans téléportation. La coque du bateau respecte le littoral ; les appareils peuvent survoler le rectangle photographié, tandis que sorties et atterrissages exigent un vrai sol praticable de la commune.
+La moto, le bateau de départ, l’hélicoptère et le premier avion sont placés fictivement sur les surfaces réelles de Calvi. Les observations ne certifient ni une propriété réelle ni une installation aéronautique. Quatre autres avions visibles au sud de l’aéroport sont archivés mais restent hors jeu, car ils sont hors du contour communal importé. En avion ou en hélicoptère, **E/Entrée ou SAUTER** permet de quitter l’appareil en vol ; **Espace ou PARACHUTE** ouvre ensuite le parachute pendant la chute. Le bateau demande toujours un accès à terre ou un transfert vers une autre coque. La coque respecte le littoral ; les appareils peuvent survoler le rectangle photographié, tandis qu’atterrissages et retours à pied exigent un vrai sol praticable de la commune.
 
 Au port, **six axes de pontons OSM réels** donnent accès à pied aux emplacements d’embarquement. Leur largeur de jeu de **10 pixels du monde, soit 2,5 m**, est estimée à partir de la photographie ; les axes source sont archivés. Ces passages n’ouvrent pas une route aux voitures. Monter, voler ou sortir exige un accès réellement libre, sans franchir un mur ou un tronc par simple proximité.
 
@@ -48,9 +53,11 @@ Les bateaux photographiques utilisent un corps physique inscrit dans la vraie fo
 | Poser une bouteille à pied | POSER | Espace |
 | Freiner voiture / moto / bateau | FREIN maintenu | Espace maintenu |
 | Décoller / demander l’atterrissage | Bouton contextuel | Espace, une pression |
+| Sauter d’un avion / hélicoptère en vol | SAUTER | E ou Entrée |
+| Ouvrir le parachute pendant la chute | PARACHUTE | Espace |
 | Pause / reprise | Pause | Échap |
 
-Dans les airs, le **Lance-BOUM** permet de viser le sol ; ses projectiles descendent avant leur impact. Les autres armes ne tirent pas sur des cibles terrestres depuis le vol. À pied et dans les véhicules terrestres ou le bateau, les six armes gardent leurs règles d’arcade.
+À bord d’un appareil en vol, le **Lance-BOUM** permet de viser le sol ; ses projectiles descendent avant leur impact. Les autres armes ne tirent pas sur des cibles terrestres depuis le vol. À pied et dans les véhicules terrestres ou le bateau, les six armes gardent leurs règles d’arcade.
 
 ## Temps, missions et police
 
@@ -70,20 +77,20 @@ Le relief est un vrai **MNT IGN LiDAR HD**, échantillonné à environ **20 m** 
 
 La caméra se rapproche à pied (**1,95**) et recule progressivement en véhicule (**1,65**). Son bitmap conserve la taille de l’écran pendant le zoom. Le rendu utilise des index et caches bornés ; il ne construit pas un canevas géant de Calvi. Calculs de collisions sur les objets lointains, allocations temporaires, peintures opaques sur la photo et flous permanents de l’interface ont été retirés ou réduits.
 
-Le dernier banc Chromium Linux mesure environ **31 images/s sur bureau et 47 en portrait émulé**, au CPU normal avec diagnostic compact. Le stress CPU ×4 reste lent. Les deux méthodes d’observation et leurs résultats figurent dans [VERIFICATION.md](docs/VERIFICATION.md) ; ils ne constituent pas un essai sur Mac/Safari ni une comparaison contrôlée aux versions précédentes.
+Le banc Chromium Linux de la version v17 mesure environ **31 images/s sur bureau et 47 en portrait émulé**, au CPU normal avec diagnostic compact. Le stress CPU ×4 reste lent. Les deux méthodes d’observation et leurs résultats figurent dans [VERIFICATION.md](docs/VERIFICATION.md) ; ils ne constituent pas un essai sur Mac/Safari ni une comparaison contrôlée aux versions précédentes.
 
-La population initiale compte **291 véhicules : 251 issus des observations photographiques et 40 placements fictifs ou véhicules de trafic**. Les passants se déplacent sur un sol libre, au-delà des seuls segments de rue, en respectant les obstacles et le contour communal. Ninu et Antò portent tenues olive et cagoules noires humoristiques. Maquis FM diffuse compositions et publicités originales. Edmond Simeoni, Petru Guelfucci, François Mitterrand et Charles Pasqua apparaissent en caricatures narratives avec des répliques inventées. Missions, comportements, enseignes et commerces sont fictifs. Aucun graphisme, logo ou morceau de GTA ou Nintendo n’est utilisé.
+La population initiale compte **291 véhicules : 251 issus des observations photographiques et 40 placements fictifs ou véhicules de trafic**. Les passants se déplacent sur un sol libre, au-delà des seuls segments de rue, en respectant les obstacles et le contour communal. Les personnages portent tenues olive et cagoules noires humoristiques. L’interface garde les informations de jeu et les commandes ; noms des personnages, dialogues, biographies et textes de présentation ont été retirés. La bande-son conserve ses compositions originales. Missions, comportements, enseignes et commerces sont fictifs. Aucun graphisme, logo ou morceau de GTA ou Nintendo n’est utilisé.
 
 ## Sources et développement
 
 **© OpenStreetMap contributors · ODbL 1.0** pour vecteurs et contour ; **© IGN · Licence Ouverte** pour MNT, hauteurs et orthophotographies. Archives, requêtes, empreintes et fiches de droits accompagnent les données. Le contour OSM n’est pas un relevé cadastral certifié. Les dates locales de prise de vue et de levé IGN, ainsi que la référence verticale précise du MNT, restent inconnues. La géographie actuelle n’est pas une reconstruction de 1994.
 
-Le ZIP jouable contient les tuiles de jeu et leurs métadonnées. Pour réimporter ou vérifier toutes les réponses JPEG originales, décompressez également **`blue-night-imagery-sources.zip` dans le même dossier** ; il complète `blue-night/assets/aerial/source-2048/`. Il n’est pas nécessaire pour jouer. Les importeurs ne téléchargent rien automatiquement au démarrage. La végétation et les voitures photographiques sont décrites dans [CALVI_AERIAL_OBJECTS.md](data/CALVI_AERIAL_OBJECTS.md).
+Le ZIP jouable contient les tuiles de jeu et leurs métadonnées. Pour réimporter ou vérifier toutes les réponses JPEG originales, les archives facultatives **`blue-night-imagery-sources.zip`** restent compatibles : copiez leur contenu `blue-night/assets/aerial/source-2048/` dans le dossier `assets/aerial/source-2048/` du jeu décompressé. Ces originaux ne sont pas nécessaires pour jouer. Les importeurs ne téléchargent rien automatiquement au démarrage. La végétation et les voitures photographiques sont décrites dans [CALVI_AERIAL_OBJECTS.md](data/CALVI_AERIAL_OBJECTS.md).
 
 Pour les tests : `npm ci`, puis `npm test`. Les tests géographiques sont lancés par `npm run test:map`, `test:boundary`, `test:terrain`, `test:imagery`, `test:imagery:tiles`, `test:heights` et `test:lidar`. Les contrôles des objets photographiques sont `tools/test-import-aerial-objects.py` et `tools/import-aerial-objects.py --check` avec le Python du venv. Les imports standards utilisent Python 3 ; les tests JPEG détaillés nécessitent **Pillow 12.3.0**, déclaré dans [requirements-dev.txt](requirements-dev.txt). Installez-le dans un environnement virtuel, puis utilisez son Python pour `tools/test-import-imagery-tiles.py` et `tools/import-imagery-tiles.py --check`. Les contrôles du clapotis utilisent `tools/test-import-water-surface.py` et `tools/import-water-surface.py --check --workers 2` dans le même environnement virtuel.
 
 Pour Chromium : `BLUE_NIGHT_TEST_PORT=4182 npm run test:browser -- --workers=1`, avec un port libre. Cet environnement utilise `/usr/bin/chromium` ; ailleurs, installez-le avec `npx playwright install chromium`. Les fixtures synthétiques sont privées, refusées par le serveur et absentes du cache et des imports du jeu.
 
-Les contrôles exécutés et leurs limites figurent dans [VERIFICATION.md](docs/VERIFICATION.md). Aucun test physique sur Mac/Safari, téléphone ou séance humaine n’est revendiqué. Le téléchargement de WebKit a été refusé par la politique réseau de l’environnement ; les chemins de décodage compatibles sont contrôlés dans Chromium, ce qui ne remplace pas un essai sur Safari. Le projet reste un jeu Web local en développement, sans application native ni publication en ligne.
+Les contrôles actuels figurent dans [VERIFICATION-CALVI-LA-VIE.md](docs/VERIFICATION-CALVI-LA-VIE.md) ; [VERIFICATION.md](docs/VERIFICATION.md) conserve les contrôles antérieurs v17. Aucun test physique sur Mac/Safari, téléphone ou séance humaine n’est revendiqué. Le téléchargement de WebKit a été refusé par la politique réseau de l’environnement ; les chemins de décodage compatibles sont contrôlés dans Chromium, ce qui ne remplace pas un essai sur Safari. Le projet reste un jeu Web local en développement, sans application native ni publication en ligne.
 
 [Conception](docs/CONCEPTION.md) · [Cartographie](docs/CARTOGRAPHIE.md) · [Image HD](data/CALVI_IMAGERY_TILES.md) · [Relief](data/ELEVATION.md) · [Hauteurs](data/BUILDING_HEIGHTS.md) · [Essais humains](docs/PLAYTEST.md)

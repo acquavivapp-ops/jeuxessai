@@ -8,9 +8,11 @@ test('the arcade title has an accessible name and fits both supported phone size
   for (const [width, height] of [[320, 568], [390, 844]]) {
     await page.setViewportSize({ width, height });
     await page.goto('/');
-    const logo = page.getByRole('img', { name: 'Blue Night', exact: true });
+    const logo = page.getByRole('img', { name: 'CALVI LA VIE', exact: true });
     await expect(logo).toBeVisible();
     await expect.poll(() => loaded(logo)).toBe(true);
+    expect(await logo.evaluate(img => ({ width: img.naturalWidth, height: img.naturalHeight }))).toEqual({ width: 1536, height: 1024 });
+    await expect(logo).toHaveAttribute('src', 'assets/calvi-la-vie-logo.png');
     const imageBox = await logo.boundingBox();
     const cardBox = await page.locator('.menu-card').boundingBox();
     expect(imageBox.x).toBeGreaterThanOrEqual(cardBox.x);
@@ -50,11 +52,11 @@ test('fine local photographic tiles stay within their resident budget and decode
   await expect.poll(() => page.evaluate(async url => Boolean(await caches.match(url)), fineURL)).toBe(true);
   await context.setOffline(true);
   await page.reload();
-  const logo = page.getByRole('img', { name: 'Blue Night', exact: true });
+  const logo = page.getByRole('img', { name: 'CALVI LA VIE', exact: true });
   await expect(logo).toBeVisible();
   await expect.poll(() => loaded(logo)).toBe(true);
   const sizes = await page.evaluate(async tile => {
-    return Promise.all(['assets/blue-night-logo.svg', 'assets/victory.svg', 'assets/defeat.svg', 'assets/corsica-textures.png', 'assets/calvi-orthophoto.jpg', 'assets/aerial/calvi-overview.jpg', tile].map(async src => {
+    return Promise.all(['assets/calvi-la-vie-logo.png', 'assets/victory.svg', 'assets/defeat.svg', 'assets/corsica-textures.png', 'assets/calvi-orthophoto.jpg', 'assets/aerial/calvi-overview.jpg', tile].map(async src => {
       const img = new Image();
       img.src = src;
       await img.decode();
@@ -192,9 +194,13 @@ test('only the real Calvi map is offered, with its geographic credits and a driv
   await page.goto('/');
   await expect(page.getByRole('combobox', { name: 'Ville', exact: true })).toHaveCount(0);
   await expect(page.locator('#map-choice')).toHaveCount(0);
-  await expect(page.locator('.edition-pills')).toContainText('CALVI · COMMUNE ENTIÈRE');
+  await expect(page.locator('.edition-pills')).toHaveCount(0);
   const testFixture = await page.request.get('/tests/fixtures/street-grid.js');
   expect(testFixture.status()).toBe(403);
+  await page.evaluate(async () => await (await import('/render.js')).artReady);
+  await page.getByRole('button', { name: 'JOUER', exact: false }).click();
+  await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
+  await page.getByRole('button', { name: 'Options et accessibilité', exact: true }).click();
   await page.locator('.dossier-open:visible').first().click();
   await expect(page.locator('#map-credit')).toBeVisible();
   await expect(page.locator('#map-credit')).toContainText('IGN');
@@ -219,10 +225,8 @@ test('only the real Calvi map is offered, with its geographic credits and a driv
   expect(geography.mapBounds.south).toBeLessThanOrEqual(geography.boundary.bounds.south);
   expect(geography.mapBounds.east).toBeGreaterThanOrEqual(geography.boundary.bounds.east);
   expect(geography.mapBounds.north).toBeGreaterThanOrEqual(geography.boundary.bounds.north);
-  await page.evaluate(async () => await (await import('/render.js')).artReady);
-  await page.getByRole('button', { name: 'JOUER', exact: false }).click();
-  await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
   await expect(page.locator('#location')).toContainText('CALVI');
+  await page.locator('#hud-details').click();
   await expect(page.locator('#minimap')).toBeVisible();
   await page.keyboard.press('e');
   const entered = await page.evaluate(() => window.blueNight.snapshot());

@@ -225,7 +225,7 @@ export function cycleWeapon(game) {
 }
 
 export function shoot(game, options = {}) {
-  if (!active(game) || game.fireCooldown > 0) return false;
+  if (!active(game) || game.player?.airborneMode || game.fireCooldown > 0) return false;
   const angle = typeof options === 'number' ? options : options?.angle;
   const direction = Number.isFinite(angle) ? angle : game.player.dir;
   const weapon = game.weapon || WEAPONS[0], vehicle = game.vehicle;
