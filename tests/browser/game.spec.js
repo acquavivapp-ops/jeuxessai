@@ -336,7 +336,7 @@ test('the offline cache starts the playable city and retains local graphics, uni
     const img = new Image(); img.src = `assets/${name}.svg`; await img.decode(); return img.naturalWidth;
   })));
   expect(portraits.every(width => width > 0)).toBe(true);
-  const modules = await page.evaluate(async () => Promise.all(['universe.js', 'game-time.js', 'police.js', 'mobility.js', 'mobility-spawns.js', 'piers.js', 'vegetation.js', 'aerial-vehicles.js', 'data/calvi-aerial-objects.js', 'calvi-world.js', 'data/calvi-map.js', 'combat.js', 'neon-art.js', 'effects-art.js', 'street-life.js', 'terrain.js', 'data/calvi-elevation.js', 'data/calvi-lidar-elevation.js', 'data/calvi-lidar-urban-elevation.js', 'building-height.js', 'data/calvi-building-heights.js', 'illustrated-ground.js', 'illustrated-buildings.js', 'illustrated-vegetation.js'].map(async path => {
+  const modules = await page.evaluate(async () => Promise.all(['universe.js', 'game-time.js', 'police.js', 'mobility.js', 'mobility-spawns.js', 'piers.js', 'vegetation.js', 'aerial-vehicles.js', 'data/calvi-aerial-objects.js', 'calvi-world.js', 'data/calvi-map.js', 'combat.js', 'neon-art.js', 'effects-art.js', 'street-life.js', 'terrain.js', 'data/calvi-elevation.js', 'data/calvi-lidar-elevation.js', 'data/calvi-lidar-urban-elevation.js', 'building-height.js', 'data/calvi-building-heights.js', 'data/calvi-roof-observations.js', 'data/calvi-architecture.js', 'illustrated-ground.js', 'illustrated-buildings.js', 'illustrated-vegetation.js', 'illustrated-materials.js'].map(async path => {
     const response = await fetch(path);
     return { path, ok: response.ok, type: response.headers.get('content-type') };
   })));

@@ -45,11 +45,14 @@ test('illustrated materials stay local and within cache budgets and decode after
   });
   await expect.poll(() => page.evaluate(async () => Boolean(await caches.match('/assets/calvi-illustrated-materials.png')))).toBe(true);
   const cache = await page.evaluate(async () => {
-    const names = await caches.keys(), current = await caches.open('blue-night-v19-calvi-illustrated');
+    const names = await caches.keys(), current = await caches.open('blue-night-v20-calvi-readable');
     return { names: names.filter(name => name.startsWith('blue-night-')), paths: (await current.keys()).map(request => new URL(request.url).pathname) };
   });
-  expect(cache.names).toEqual(['blue-night-v19-calvi-illustrated']);
+  expect(cache.names).toEqual(['blue-night-v20-calvi-readable']);
   expect(cache.paths).toContain('/assets/calvi-illustrated-materials.png');
+  expect(cache.paths).toContain('/data/calvi-roof-observations.js');
+  expect(cache.paths).toContain('/data/calvi-architecture.js');
+  expect(cache.paths).toContain('/illustrated-materials.js');
   expect(cache.paths.filter(path => /\/assets\/(?:aerial\/.*\.jpe?g|calvi-orthophoto\.jpg)$/.test(path))).toEqual([]);
   expect(photographicRequests).toEqual([]);
   expect(photographicModules).toEqual([]);

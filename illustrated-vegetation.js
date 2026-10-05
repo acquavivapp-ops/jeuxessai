@@ -1,3 +1,5 @@
+import { drawMaterialGrain } from './illustrated-materials.js';
+
 // Illustrated foliage over the existing Calvi observations. Positions, source
 // contours, gameplay trunks and estimated heights remain owned by the world.
 const TAU = Math.PI * 2;
@@ -59,9 +61,9 @@ function polygon(ctx, points) {
   ctx.closePath();
 }
 function roundedMass(ctx, x, y, rx, ry, seed, begin = true) {
-  const points = Array.from({ length: 28 }, (_, i) => {
-    const a = i / 28 * TAU;
-    const edge = 1 + Math.sin(a * 5 + seed) * .11 + Math.sin(a * 9 + seed * .7) * .13 + Math.sin(a * 17 - seed) * .09;
+  const points = Array.from({ length: 12 }, (_, i) => {
+    const a = i / 12 * TAU;
+    const edge = 1 + Math.sin(a * 3 + seed) * .19 + Math.sin(a * 7 + seed * .7) * .14;
     return [x + Math.cos(a) * rx * edge, y + Math.sin(a) * ry * edge];
   });
   if (begin) ctx.beginPath();
@@ -77,22 +79,22 @@ function layout(tree, radius, style) {
   let value = layouts.get(tree);
   if (value?.radius === radius && value.style === style) return value;
   const rand = salt => hash(tree.x, tree.y, salt);
-  const count = style === 'scrub' ? 21 : style === 'bush' ? 9 : style === 'olive' ? 13 : 12;
+  const count = style === 'scrub' ? 7 : style === 'bush' ? 5 : style === 'pine' ? 5 : 6;
   const lobes = [];
   for (let i = 0; i < count; i++) {
     const a = i * 2.39996323 + rand(14) * TAU;
     const distance = Math.sqrt((i + .6) / count) * radius * .75;
-    const size = radius * (style === 'scrub' ? .09 + rand(i + 44) * .11 : .23 + rand(i + 44) * .13);
+    const size = radius * (style === 'scrub' ? .18 + rand(i + 44) * .12 : .32 + rand(i + 44) * .1);
     lobes.push({ x: Math.cos(a) * distance, y: Math.sin(a) * distance * .84,
       rx: size, ry: size * (style === 'scrub' ? .6 + rand(i + 64) * .16 : .72 + rand(i + 64) * .18), seed: rand(i + 84) * TAU });
   }
   lobes.sort((a, b) => a.y - b.y);
-  const fringe = Array.from({ length: 21 }, (_, i) => {
-    const a = i / 21 * TAU + rand(106) * TAU, distance = radius * (.7 + rand(i + 1100) * .15);
+  const fringe = Array.from({ length: 8 }, (_, i) => {
+    const a = i / 8 * TAU + rand(106) * TAU, distance = radius * (.7 + rand(i + 1100) * .15);
     return { x: Math.cos(a) * distance, y: Math.sin(a) * distance * .87,
-      rx: radius * (.065 + rand(i + 1150) * .07), ry: radius * (.055 + rand(i + 1190) * .055), seed: rand(i + 1250) * TAU };
+      rx: radius * (.12 + rand(i + 1150) * .08), ry: radius * (.1 + rand(i + 1190) * .07), seed: rand(i + 1250) * TAU };
   });
-  const flecks = Array.from({ length: Math.round(clamp(radius * radius * .3, 25, 290)) }, (_, i) => {
+  const flecks = Array.from({ length: Math.round(clamp(radius * radius * .035, 15, 25)) }, (_, i) => {
     const a = rand(i + 130) * TAU, distance = Math.sqrt(rand(i + 360)) * radius * .97;
     return { x: Math.cos(a) * distance, y: Math.sin(a) * distance * .88,
       size: (.48 + rand(i + 580) * .58) * Math.max(.65, Math.sqrt(radius / 18)),
@@ -101,10 +103,7 @@ function layout(tree, radius, style) {
   value = { radius, style, lobes, fringe, flecks, seed: rand(12) * TAU };
   layouts.set(tree, value); return value;
 }
-function fillTexture(ctx, textures, column, row, radius, opacity) {
-  const fill = typeof textures === 'function' ? textures : textures?.textureFill;
-  if (typeof fill === 'function') fill(ctx, column, row, -radius, -radius, radius * 2, radius * 2, 48, opacity);
-}
+
 function leafyCrown(ctx, tree, radius, style, colours, textures) {
   const { lobes, fringe, flecks, seed } = layout(tree, radius, style);
   const base = ctx.createLinearGradient(-radius * .5, -radius, radius * .6, radius);
@@ -122,22 +121,29 @@ function leafyCrown(ctx, tree, radius, style, colours, textures) {
         Math.cos(a) * radius * .72, Math.sin(a) * radius * .62); ctx.stroke();
     }
   }
-  for (const lobe of [...fringe, ...lobes]) {
-    roundedMass(ctx, lobe.x + lobe.rx * .065, lobe.y + lobe.ry * .11, lobe.rx, lobe.ry, lobe.seed);
-    ctx.save(); ctx.globalAlpha *= .32; ctx.fillStyle = colours.shade; ctx.fill(); ctx.restore();
+  // Whole-crown light follows one direction. Irregular interlocking patches
+  // vary gently, rather than giving every foliage lobe a spherical highlight.
+  const masses = [...fringe, ...lobes];
+  for (let i = 0; i < masses.length; i++) {
+    const lobe = masses[i];
     roundedMass(ctx, lobe.x, lobe.y, lobe.rx, lobe.ry, lobe.seed);
-    const volume = ctx.createRadialGradient(lobe.x - lobe.rx * .28, lobe.y - lobe.ry * .4, .1,
-      lobe.x + lobe.rx * .12, lobe.y + lobe.ry * .15, lobe.rx * 1.05);
-    volume.addColorStop(0, colours.mid); volume.addColorStop(.42, colours.mid);
-    volume.addColorStop(.78, colours.base); volume.addColorStop(1, style === 'scrub' ? colours.base : colours.shade);
+    const volume = ctx.createLinearGradient(-radius * .6, -radius, radius * .5, radius);
+    volume.addColorStop(0, i % 3 ? colours.mid : colours.base);
+    volume.addColorStop(.5, colours.base); volume.addColorStop(1, colours.shade);
     ctx.fillStyle = volume; ctx.fill();
+    // A leaf group has an angular, uneven lit edge; no circular specular rim.
+    if (i % 3 === 0) {
+      ctx.save(); ctx.globalAlpha *= .28; ctx.strokeStyle = colours.light; ctx.lineWidth = .45;
+      ctx.beginPath(); ctx.moveTo(lobe.x - lobe.rx * .54, lobe.y - lobe.ry * .32);
+      ctx.lineTo(lobe.x - lobe.rx * .12, lobe.y - lobe.ry * .68); ctx.lineTo(lobe.x + lobe.rx * .32, lobe.y - lobe.ry * .55);
+      ctx.stroke(); ctx.restore();
+    }
   }
-  // The material is restricted to foliage masses. Filling the entire source
-  // polygon would expose its straight survey edges as a flat green badge.
+  // Restrict grain to real foliage masses inside the source outline. An empty
+  // area between leaves remains transparent for the existing occlusion pass.
   ctx.save(); ctx.beginPath(); roundedMass(ctx, 0, 0, radius * .75, radius * .64, seed, false);
-  for (const lobe of [...fringe, ...lobes]) roundedMass(ctx, lobe.x, lobe.y, lobe.rx, lobe.ry, lobe.seed, false);
-  ctx.clip(); ctx.globalCompositeOperation = 'soft-light';
-  fillTexture(ctx, textures, 1, style === 'scrub' ? 1 : 2, radius, style === 'scrub' ? .45 : .8); ctx.restore();
+  for (const lobe of masses) roundedMass(ctx, lobe.x, lobe.y, lobe.rx, lobe.ry, lobe.seed, false);
+  ctx.clip(); drawMaterialGrain(ctx, -radius, -radius, radius * 2, radius * 2, { material: 'foliage', strength: .42 }); ctx.restore();
   for (const leaf of flecks) {
     ctx.save(); ctx.translate(leaf.x, leaf.y); ctx.rotate(leaf.angle);
     ctx.globalAlpha *= .48 + leaf.light * .28;
@@ -160,16 +166,16 @@ function leafyCrown(ctx, tree, radius, style, colours, textures) {
 }
 function palmCrown(ctx, tree, radius, colours) {
   const seed = hash(tree.x, tree.y, 14) * TAU;
-  for (let i = 0; i < 14; i++) {
-    const angle = seed + i / 14 * TAU, length = radius * (.78 + hash(tree.x, tree.y, 70 + i) * .23);
+  for (let i = 0; i < 10; i++) {
+    const angle = seed + i / 10 * TAU, length = radius * (.78 + hash(tree.x, tree.y, 70 + i) * .23);
     const bend = radius * (.04 + hash(tree.x, tree.y, 95 + i) * .12);
     ctx.save(); ctx.rotate(angle);
     ctx.beginPath(); ctx.moveTo(-radius * .035, 0);
     ctx.quadraticCurveTo(length * .32, -radius * .17, length, bend);
     ctx.quadraticCurveTo(length * .53, radius * .08, 0, radius * .06); ctx.closePath();
     ctx.fillStyle = i % 3 === 0 ? colours.mid : colours.base; ctx.fill();
-    for (let j = 1; j <= 9; j++) {
-      const t = j / 10, x = length * t, spineY = bend * t * t;
+    for (let j = 1; j <= 5; j++) {
+      const t = j / 6, x = length * t, spineY = bend * t * t;
       const spread = Math.sin(t * Math.PI) * radius * .15;
       for (const side of [-1, 1]) {
         ctx.beginPath(); ctx.moveTo(x - radius * .07, spineY);

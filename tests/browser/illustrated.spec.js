@@ -4,7 +4,7 @@ import { test, expect } from '@playwright/test';
 // load app.js or alter the running game's player, clock, health or missions.
 test.describe('isolated illustrated municipality render', () => {
   test.use({ serviceWorkers: 'block' });
-  test('port, citadel and airport use the same illustrated world without changing any source geometry', async ({ page }, testInfo) => {
+  test('port, citadel, beach and airport use the same illustrated world without changing any source geometry', async ({ page }, testInfo) => {
     test.setTimeout(60_000);
     const photographicRequests = [], errors = [];
     page.on('request', request => {
@@ -44,6 +44,7 @@ test.describe('isolated illustrated municipality render', () => {
     for (const sector of [
       { name: 'port', x: 16510, y: 8734 },
       { name: 'citadel', x: 17723.87, y: 7184.87 },
+      { name: 'beach', x: 22329.4, y: 12695.42 },
       { name: 'airport', x: 27508.09, y: 26382.85 },
     ]) for (const lighting of [{ name: 'day', minutes: 720 }, { name: 'night', minutes: 0 }]) {
       const frame = await page.evaluate(async ({ sector, lighting }) => {
@@ -85,7 +86,7 @@ test.describe('isolated illustrated municipality render', () => {
       await testInfo.attach(`Isolated rendered ${sector.name} ${lighting.name} fixture`, { path: capture, contentType: 'image/png' });
       frames.push(frame);
     }
-    expect(new Set(frames.map(frame => frame.pixels)).size).toBe(6);
+    expect(new Set(frames.map(frame => frame.pixels)).size).toBe(8);
     expect(photographicRequests).toEqual([]); expect(errors).toEqual([]);
   });
 });

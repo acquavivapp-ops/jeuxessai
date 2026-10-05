@@ -4,7 +4,7 @@ import { drawBloodDecal, drawFire, drawExplosion, drawDestructionDust } from './
 import { osmHeightMeters } from './building-height.js';
 import { timeOfDay } from './game-time.js';
 import { drawIllustratedGround, drawIllustratedPiers, clipIllustratedLand } from './illustrated-ground.js';
-import { drawIllustratedBuilding, drawIllustratedRubble } from './illustrated-buildings.js';
+import { drawIllustratedBuilding, drawIllustratedRubble, drawIllustratedFortifications } from './illustrated-buildings.js';
 import { drawIllustratedCanopy } from './illustrated-vegetation.js';
 
 export const MATERIALS_ASSET = 'assets/calvi-illustrated-materials.png';
@@ -84,6 +84,7 @@ const hash = (x, y, salt = 0) => {
 };
 const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 let backgroundCache = new WeakMap();
+let backgroundCacheBytes = new WeakMap();
 const GROUND_CACHE_BYTES = 32 * 1024 * 1024, GROUND_TILE_SIZE = 128, GROUND_CACHE_ENTRIES = 192;
 let groundPaintCount = 0, groundCacheMisses = 0, groundEvictions = 0, groundVisibleEvictions = 0;
 let groundDensity = 2, groundVisibleTiles = 0;
@@ -98,6 +99,14 @@ let roofVisibleObjects = new Set(), foliageVisibleObjects = new Set();
 let roofDensity = 2, foliageDensity = 2;
 let roofPaintCount = 0, roofCacheMisses = 0, roofEvictions = 0, roofVisibleEvictions = 0;
 let foliagePaintCount = 0, foliageCacheMisses = 0, foliageEvictions = 0, foliageVisibleEvictions = 0;
+const parkedVehicleCache = new Map(), PARKED_VEHICLE_CACHE_BYTES = 4 * 1024 * 1024;
+let parkedVehicleBytes = 0, parkedVehicleReservedBytes = 0, parkedVehicleVisibleObjects = new Set();
+let parkedVehiclePaintCount = 0, parkedVehicleCacheMisses = 0, parkedVehicleEvictions = 0, parkedVehicleVisibleEvictions = 0;
+let parkedVehiclePaintAllowance = 0, renderCount = 0, renderCpuMs = 0, renderTotalCpuMs = 0;
+let paletteBlendCount = 0, directPaletteDraws = 0;
+const PALETTE_PIXELS_PER_FRAME = 384 * 1024;
+const paletteBlendQueue = new Map();
+let paletteFramePixels = 0, paletteMaximumFramePixels = 0, paletteDeferredCount = 0;
 // Archived photographic classifications remain testable through an explicit
 // waterSurfaceContains argument; the drawn sea needs no image-derived mask.
 const waterSurface = null;
@@ -135,14 +144,22 @@ export function rendererStats() {
   return Object.freeze({ artMode: 'illustrated', photoMode: false, materialsAsset: MATERIALS_ASSET, materialsReady: atlasLoaded,
     sourceMapSha256: currentRenderWorld?.metadata?.sha256 || null,
     geometryFingerprint: currentRenderWorld ? cachedGeometryFingerprint(currentRenderWorld) : null,
-    groundEntries: ground?.size || 0, groundBytes: ground ? [...ground.values()].reduce((total, entry) => total + imageBytes(entry), 0) : 0,
+    groundEntries: ground?.size || 0, groundBytes: backgroundCacheBytes.get(currentRenderWorld) || 0,
     maximumGroundBytes: GROUND_CACHE_BYTES, maximumGroundEntries: GROUND_CACHE_ENTRIES, groundTileSize: GROUND_TILE_SIZE,
     groundDensity, groundVisibleTiles, groundPaintCount, groundCacheMisses, groundEvictions, groundVisibleEvictions,
-    roofEntries: roofCache.size, roofBytes: roofCacheBytes, roofVisibleObjects: roofVisibleObjects.size,
+    roofEntries: roofCache.size, roofBytes: roofCacheBytes + parkedVehicleBytes, roofBuildingBytes: roofCacheBytes, roofVisibleObjects: roofVisibleObjects.size,
     roofDensity, roofPaintCount, roofCacheMisses, roofEvictions, roofVisibleEvictions,
     maximumRoofBytes: ROOF_CACHE_BYTES, foliageEntries: foliageCache.size, foliageBytes,
     foliageDensity, foliagePaintCount, foliageCacheMisses, foliageEvictions, foliageVisibleEvictions,
-    maximumFoliageBytes: FOLIAGE_CACHE_BYTES, ...frameDetails,
+    maximumFoliageBytes: FOLIAGE_CACHE_BYTES,
+    parkedVehicleEntries: parkedVehicleCache.size, parkedVehicleBytes, maximumParkedVehicleBytes: PARKED_VEHICLE_CACHE_BYTES,
+    parkedVehicleReservedBytes,
+    parkedVehicleAdmitted: [...parkedVehicleCache.keys()].filter(item => parkedVehicleVisibleObjects.has(item)).length,
+    parkedVehicleNonAdmitted: [...parkedVehicleVisibleObjects].filter(item => !parkedVehicleCache.has(item)).length,
+    parkedVehiclePaintCount, parkedVehicleCacheMisses, parkedVehicleEvictions, parkedVehicleVisibleEvictions,
+    renderCount, renderCpuMs, renderTotalCpuMs, paletteBlendCount, directPaletteDraws,
+    palettePixelsPerFrame: PALETTE_PIXELS_PER_FRAME, paletteFramePixels, paletteMaximumFramePixels,
+    paletteQueuedEntries: paletteBlendQueue.size, paletteDeferredCount, ...frameDetails,
     visibleVegetation: frameDetails.vegetationVisible, seaRippleLines: frameDetails.seaRippleCount,
     appliedVehicleMasks: frameDetails.aerialMaskCount, waterMaskReady: waterSurface?.status === 'ready' });
 }
@@ -156,7 +173,7 @@ const atlasReady = typeof Image === 'undefined' ? Promise.resolve(false) : new P
     try { await atlas.decode(); } catch { /* onload still provides a usable image */ }
     textureAtlas = atlas;
     atlasLoaded = atlas.naturalWidth >= 192 && atlas.naturalWidth === atlas.naturalHeight;
-    backgroundCache = new WeakMap(); roofCache = new Map(); roofCacheBytes = 0; foliageCache.clear(); foliageBytes = 0;
+    backgroundCache = new WeakMap(); backgroundCacheBytes = new WeakMap(); roofCache = new Map(); roofCacheBytes = 0; foliageCache.clear(); foliageBytes = 0; paletteBlendQueue.clear();
     resolve(atlasLoaded);
   };
   atlas.onerror = () => resolve(false);
@@ -249,6 +266,29 @@ function inIndexedRings(rows, x, y) {
 export function photographicSeaAt(world, x, y) {
   const rows = coastRows(world);
   return inIndexedRings(rows.sea, x, y) && !inIndexedRings(rows.land, x, y);
+}
+function segmentTouchesBox(a, b, box) {
+  let low = 0, high = 1;
+  for (let axis = 0; axis < 2; axis++) {
+    const start = axis ? box.y : box.x, end = start + (axis ? box.h : box.w), delta = b[axis] - a[axis];
+    if (!delta) { if (a[axis] < start || a[axis] > end) return false; continue; }
+    let p = (start - a[axis]) / delta, q = (end - a[axis]) / delta;
+    if (p > q) [p, q] = [q, p]; low = Math.max(low, p); high = Math.min(high, q);
+    if (low > high) return false;
+  }
+  return true;
+}
+// Validate the complete moving stroke once, rather than testing its three
+// animated points every frame. A coast crossing anywhere in the envelope is
+// excluded, including a narrow island between its endpoints.
+export function seaRippleEnvelopeContains(world, x, y, width) {
+  if (!photographicSeaAt(world, x, y)) return false;
+  const box = { x: x - width - .3, y: y - 1.8, w: width * 2 + .6, h: 3 };
+  const rows = coastRows(world);
+  for (const ring of [...rows.land, ...rows.sea])
+    for (let row = Math.floor(box.y / 128); row <= Math.floor((box.y + box.h) / 128); row++)
+      for (const [a, b] of ring.get(row) || []) if (segmentTouchesBox(a, b, box)) return false;
+  return true;
 }
 const waterSurfaceIndexCache = new WeakMap();
 export function waterSurfaceContains(world, x, y, surface = waterSurface) {
@@ -499,7 +539,7 @@ function roadTexture(ctx, road, bounds) {
     ctx.moveTo(segment.a[0] + nx, segment.a[1] + ny); ctx.lineTo(segment.b[0] + nx, segment.b[1] + ny);
     ctx.lineTo(segment.b[0] - nx, segment.b[1] - ny); ctx.lineTo(segment.a[0] - nx, segment.a[1] - ny); ctx.closePath();
   }
-  ctx.clip(); textureFill(ctx, road.foot ? 0 : 1, 0, region.x, region.y, region.w, region.h, 112, road.foot ? .54 : .43);
+  ctx.clip(); textureFill(ctx, road.foot ? 0 : 1, 0, region.x, region.y, region.w, region.h, 112, road.foot ? .09 : .035);
   // Narrow old-town lanes receive setts, while asphalt stays a continuous neutral surface.
   if (road.foot) for (let y = Math.floor(region.y / 3.2) * 3.2; y < region.y + region.h; y += 3.2) {
     for (let x = Math.floor(region.x / 5.5) * 5.5 + (Math.round(y / 3.2) % 2) * 2.7; x < region.x + region.w; x += 5.5) {
@@ -507,9 +547,9 @@ function roadTexture(ctx, road, bounds) {
     }
   }
   if (!road.foot) {
-    ctx.globalAlpha = .13;
-    for (let y = Math.floor(region.y / 4) * 4; y < region.y + region.h; y += 4)
-      for (let x = Math.floor(region.x / 4) * 4; x < region.x + region.w; x += 4) {
+    ctx.globalAlpha = .05;
+    for (let y = Math.floor(region.y / 8) * 8; y < region.y + region.h; y += 8)
+      for (let x = Math.floor(region.x / 8) * 8; x < region.x + region.w; x += 8) {
         if (hash(x, y, 790) < .68) continue;
         rect(ctx, x + hash(x, y, 791) * 2, y + hash(x, y, 792) * 2, .55, .45, '#8a9fa2');
       }
@@ -788,19 +828,30 @@ function scenery(ctx, item) {
 function terrainShade(ctx, world, bounds) {
   if (world.terrain?.status !== 'ready') return;
   const step = 32;
-  ctx.save();
-  const land = rings(world.landPolygons), seas = rings(world.seaPolygons);
-  if (land.length) {
-    ctx.beginPath(); for (const ring of land) { ring.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath(); } ctx.clip();
-  }
-  if (seas.length) { path(ctx, [[bounds.x, bounds.y], [bounds.x + bounds.w, bounds.y], [bounds.x + bounds.w, bounds.y + bounds.h], [bounds.x, bounds.y + bounds.h]], seas); ctx.clip('evenodd'); }
-  for (let y = bounds.y; y < bounds.y + bounds.h; y += step) for (let x = bounds.x; x < bounds.x + bounds.w; x += step) {
-    const gradient = terrainGradient(world, x + step / 2, y + step / 2);
+  // Interpolate only the visual shade, never elevation or the projected mesh.
+  // Samples use one world-aligned grid, with a gutter so adjacent cached tiles
+  // interpolate the same neighbours rather than exposing 32 px cell edges.
+  const x0 = Math.floor(bounds.x / step) * step - step;
+  const y0 = Math.floor(bounds.y / step) * step - step;
+  const columns = Math.ceil((bounds.x + bounds.w - x0) / step) + 1;
+  const rows = Math.ceil((bounds.y + bounds.h - y0) / step) + 1;
+  const shadeCanvas = canvasFor(ctx, columns, rows), paint = shadeCanvas?.getContext('2d');
+  if (!paint) return;
+  const dark = surfaceColour('#10263b', '#526146');
+  const lightColour = surfaceColour('#9ebdcf', '#e5debc');
+  for (let row = 0; row < rows; row++) for (let col = 0; col < columns; col++) {
+    const gradient = terrainGradient(world, x0 + (col + .5) * step, y0 + (row + .5) * step);
     const gx = gradient.x || 0, gy = gradient.y || 0;
     const light = (-gx * -0.63 - gy * -0.52 + 0.7) / Math.sqrt(1 + gx * gx + gy * gy);
     const shade = clamp((0.7 - light) * 0.85, -0.2, 0.33);
-    ctx.globalAlpha = Math.abs(shade);
-    rect(ctx, x, y, step, step, shade >= 0 ? surfaceColour('#10263b', '#526146') : surfaceColour('#9ebdcf', '#e5debc'));
+    paint.globalAlpha = Math.abs(shade);
+    rect(paint, col, row, 1, 1, shade >= 0 ? dark : lightColour);
+  }
+  ctx.save();
+  if (clipIllustratedLand(ctx, world, bounds)) {
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(shadeCanvas, x0, y0, columns * step, rows * step);
   }
   ctx.restore();
 }
@@ -906,18 +957,51 @@ function blendedArt(ctx, entry, make, width, height, alpha = false) {
   // One colour-channel step is imperceptible; reblending every simulation tick
   // would upload all visible rooftop and ground bitmaps sixty times per second.
   const daylight = Math.round(materialLight.daylight * 128) / 128;
-  if (daylight < .0001) return entry.night ||= make(0);
-  if (daylight > .9999) return entry.day ||= make(1);
+  entry.paletteDirect = false;
+  if (daylight < .0001) { paletteBlendQueue.delete(entry); return entry.night ||= make(0); }
+  if (daylight > .9999) { paletteBlendQueue.delete(entry); return entry.day ||= make(1); }
   entry.night ||= make(0); entry.day ||= make(1);
-  if (!entry.night || !entry.day) return entry.day || entry.night;
-  entry.mixed ||= canvasFor(ctx, width, height, entry.density || 2);
-  if (entry.mixed && entry.daylight !== daylight) {
-    const paint = entry.mixed.getContext('2d', { alpha });
+  if (!entry.night || !entry.day) { paletteBlendQueue.delete(entry); return entry.day || entry.night; }
+  if (entry.mixed && entry.daylight === daylight) { paletteBlendQueue.delete(entry); return entry.mixed; }
+  // Keep one mixed bitmap for warm frames. FIFO requests spread colour-step
+  // uploads across frames, rather than making two full-scene blits forever or
+  // refreshing every visible ground/roof bitmap on the same simulation tick.
+  paletteBlendQueue.set(entry, renderCount);
+  const pixels = Math.ceil(width * (entry.density || 2)) * Math.ceil(height * (entry.density || 2));
+  const first = paletteBlendQueue.keys().next().value === entry;
+  const withinBudget = paletteFramePixels + pixels <= PALETTE_PIXELS_PER_FRAME;
+  const oversizedFirst = paletteFramePixels === 0 && pixels > PALETTE_PIXELS_PER_FRAME;
+  // An initially faded sprite requires isolation for correct parent alpha.
+  // All subsequent changes, including faded roofs, reuse their previous mix
+  // while waiting for the same bounded queue as opaque sprites.
+  const needsIsolation = !entry.mixed && ctx.globalAlpha !== 1;
+  if (needsIsolation || first && (withinBudget || oversizedFirst)) {
+    const mixed = entry.mixed || canvasFor(ctx, width, height, entry.density || 2);
+    const paint = mixed?.getContext('2d', { alpha });
+    if (!paint) { paletteBlendQueue.delete(entry); return entry.day; }
+    entry.mixed = mixed;
+    paletteBlendCount++;
+    paletteFramePixels += pixels;
+    paletteMaximumFramePixels = Math.max(paletteMaximumFramePixels, paletteFramePixels);
     paint.globalCompositeOperation = 'copy'; paint.globalAlpha = 1; paint.drawImage(entry.night, 0, 0);
     paint.globalCompositeOperation = 'source-over'; paint.globalAlpha = daylight; paint.drawImage(entry.day, 0, 0); paint.globalAlpha = 1;
     entry.daylight = daylight;
+    paletteBlendQueue.delete(entry);
+    return entry.mixed;
   }
-  return entry.mixed || entry.day;
+  paletteDeferredCount++;
+  if (entry.mixed) return entry.mixed;
+  // Cold opaque entries retain the exact live colour until their first mix is
+  // admitted. There is no placeholder, loss of detail or overall alpha change.
+  entry.paletteDirect = true; entry.paletteAmount = daylight;
+  return entry.day;
+}
+function drawPalette(ctx, entry, image, x, y, width, height) {
+  if (!entry.paletteDirect) { ctx.drawImage(image, x, y, width, height); return; }
+  directPaletteDraws++;
+  ctx.drawImage(entry.night, x, y, width, height);
+  ctx.save(); ctx.globalAlpha *= entry.paletteAmount;
+  ctx.drawImage(entry.day, x, y, width, height); ctx.restore();
 }
 function imageBytes(entry) { return ['night', 'day', 'mixed'].reduce((bytes, key) => bytes + (entry[key] ? entry[key].width * entry[key].height * 4 : 0), 0); }
 // Testable cache contract: each visible sprite reserves night, day and mixed
@@ -976,25 +1060,31 @@ function backdrop(ctx, world, camera) {
   const density = Math.max(.5, Math.min(2, Math.floor(Math.sqrt(GROUND_CACHE_BYTES * .78 / (nominalArea * 12)) * 4) / 4));
   groundDensity = density;
   const visibleKeys = new Set(tiles.map(tile => tile.key));
+  for (const entry of paletteBlendQueue.keys()) if (entry.paletteKind === 'ground'
+    && (entry.paletteWorld !== world || !visibleKeys.has(entry.paletteOwner))) paletteBlendQueue.delete(entry);
+  let bytes = backgroundCacheBytes.get(world) || 0;
   for (const { key, bounds, projected } of tiles) {
     const signature = 'illustrated-calvi-v19', existing = cache.get(key);
     const reusable = existing && existing.signature === signature && existing.density === density;
-    const entry = reusable ? existing : { signature, density };
+    if (existing && !reusable) { bytes -= existing.bytes || imageBytes(existing); paletteBlendQueue.delete(existing); cache.delete(key); }
+    const entry = reusable ? existing : { signature, density, paletteKind: 'ground', paletteOwner: key, paletteWorld: world };
+    const beforeBytes = reusable ? entry.bytes || imageBytes(entry) : 0;
     if (!reusable) groundCacheMisses++;
     // Relief and map geometry are static. Project each source palette once,
     // then blend the correctly warped tiles as daylight changes.
     const tile = blendedArt(ctx, entry, daylight => paintProjectedGround(ctx, world, bounds, projected, daylight, entry.density), projected.w, projected.h, true);
     if (!tile) continue;
+    entry.bytes = imageBytes(entry); bytes += entry.bytes - beforeBytes;
     cache.delete(key); cache.set(key, entry);
-    let bytes = [...cache.values()].reduce((sum, value) => sum + imageBytes(value), 0);
     while (cache.size > GROUND_CACHE_ENTRIES || bytes > GROUND_CACHE_BYTES && cache.size > 1) {
       // Offscreen palettes are always evicted before a tile visible this frame.
       const oldest = [...cache.keys()].find(candidate => !visibleKeys.has(candidate)) ?? cache.keys().next().value;
       if (visibleKeys.has(oldest)) groundVisibleEvictions++;
-      bytes -= imageBytes(cache.get(oldest)); cache.delete(oldest); groundEvictions++;
+      bytes -= cache.get(oldest).bytes; paletteBlendQueue.delete(cache.get(oldest)); cache.delete(oldest); groundEvictions++;
     }
-    ctx.drawImage(tile, projected.x, projected.y, projected.w, projected.h);
+    drawPalette(ctx, entry, tile, projected.x, projected.y, projected.w, projected.h);
   }
+  backgroundCacheBytes.set(world, bytes);
 }
 function onTerrain(ctx, world, item, paint) {
   const x = item.x + (item.w || 0) / 2, y = item.y + (item.h || 0) / 2;
@@ -1131,11 +1221,11 @@ function building(ctx, b, world) {
   const density = Math.min(roofDensity, Math.sqrt(256 * 1024 / (width * height)));
   let cached = roofCache.get(b);
   if (cached && (cached.signature !== signature || cached.density !== density)) {
-    roofCacheBytes -= imageBytes(cached); roofCache.delete(b); cached = null;
+    roofCacheBytes -= imageBytes(cached); paletteBlendQueue.delete(cached); roofCache.delete(b); cached = null;
   }
   if (!cached) {
     roofCacheMisses++;
-    cached = { z, width, height, signature, density };
+    cached = { z, width, height, signature, density, paletteKind: 'roof', paletteOwner: b };
   }
   const beforeBytes = imageBytes(cached);
   const make = daylight => underMaterialLight(daylight, () => {
@@ -1148,12 +1238,12 @@ function building(ctx, b, world) {
   if (!canvas) { ctx.save(); ctx.translate(b.x - 4, b.y - cached.z); paintRaisedBuilding(ctx, b, world); ctx.restore(); return; }
   roofCacheBytes += imageBytes(cached) - beforeBytes;
   roofCache.delete(b); roofCache.set(b, cached);
-  while (roofCacheBytes > ROOF_CACHE_BYTES && roofCache.size > 1) {
+  while (roofCacheBytes + parkedVehicleBytes > ROOF_CACHE_BYTES && roofCache.size > 1) {
     const first = [...roofCache.keys()].find(item => !roofVisibleObjects.has(item)) ?? roofCache.keys().next().value;
     if (roofVisibleObjects.has(first)) roofVisibleEvictions++;
-    roofCacheBytes -= imageBytes(roofCache.get(first)); roofCache.delete(first); roofEvictions++;
+    roofCacheBytes -= imageBytes(roofCache.get(first)); paletteBlendQueue.delete(roofCache.get(first)); roofCache.delete(first); roofEvictions++;
   }
-  ctx.drawImage(canvas, b.x - 4, b.y - cached.z, cached.width, cached.height);
+  drawPalette(ctx, cached, canvas, b.x - 4, b.y - cached.z, cached.width, cached.height);
   neonSign(ctx, b);
   const damage = Number.isFinite(b.maxHp) && b.maxHp > 0 ? clamp(1 - b.hp / b.maxHp, 0, 1) : 0;
   if (damage > 0.12) {
@@ -1327,8 +1417,86 @@ function eveningLights(ctx, game, camera, t, reducedEffects, nearbyBuildings = [
 }
 
 function car(ctx, vehicle, t, police = false, occupied = false, reducedEffects = false) {
-  drawArcadeCar(ctx, vehicle, t, { police, occupied, reducedEffects, externalEffects: true, lighting: materialLight, skipShadow: vehicleVisualLift(vehicle) > 0 });
+  if (!stationaryVehicleCanCache(vehicle, { police, occupied }) || !paintParkedVehicle(ctx, vehicle, t, reducedEffects))
+    drawArcadeCar(ctx, vehicle, t, { police, occupied, reducedEffects, externalEffects: true, lighting: materialLight, skipShadow: vehicleVisualLift(vehicle) > 0 });
   drawFire(ctx, vehicle, t, { reducedEffects });
+}
+// Bodies only: moving/occupied vehicles, police beacons, wakes, airborne
+// rotors and damage flashes must keep their live animation and interactions.
+export function stationaryVehicleCanCache(vehicle, { police = false, occupied = false } = {}) {
+  return Boolean(vehicle && !police && !occupied && !vehicle.destroyed && !vehicle.wreck && !vehicle.dead
+    && vehicle.kind !== 'traffic' && vehicle.kind !== 'wreck' && !(vehicle.hp <= 0)
+    && !(vehicle.damageFlash > 0) && !(vehicle.fireTimer > 0) && !(vehicle.wakeTimer > .01)
+    && !['plane', 'helicopter'].includes(vehicle.mobilityType || vehicle.model)
+    && Math.abs(vehicle.speed || 0) < .1 && Math.hypot(vehicle.vx || 0, vehicle.vy || 0) < .1);
+}
+export function parkedVehicleArtBounds(vehicle) {
+  const dimensions = photographicVehicleDimensions(vehicle), type = vehicle.mobilityType || vehicle.model;
+  const length = dimensions?.length || (type === 'boat' ? 46 : type === 'motorcycle' ? 26 : 34);
+  const width = dimensions?.width || (type === 'boat' ? 21 : type === 'motorcycle' ? 15 : 20);
+  const co = Math.abs(Math.cos(vehicle.angle || 0)), si = Math.abs(Math.sin(vehicle.angle || 0));
+  const rx = Math.ceil(co * (length / 2 + 4) + si * (width / 2 + 4));
+  const ry = Math.ceil(si * (length / 2 + 4) + co * (width / 2 + 4));
+  return { x: -rx, y: -ry, w: rx * 2, h: ry * 2, dimensions, type };
+}
+function paintParkedVehicle(ctx, vehicle, t, reducedEffects) {
+  const signature = `${vehicle.angle || 0}|${vehicle.steering || 0}|${vehicle.hp}|${vehicle.color}|${vehicle.model}|${vehicle.mobilityType}|${vehicle.sourceImage?.width}|${vehicle.sourceImage?.length}|${vehicle.collisionRadius}|${vehicle.collisionHalfLength}`;
+  let entry = parkedVehicleCache.get(vehicle);
+  if (entry && entry.signature !== signature) {
+    parkedVehicleBytes -= imageBytes(entry); parkedVehicleReservedBytes -= entry.reservedBytes;
+    paletteBlendQueue.delete(entry); parkedVehicleCache.delete(vehicle); entry = null;
+  }
+  let admitted = false;
+  if (!entry) {
+    // Cold bodies continue to use the exact live renderer while a small quota
+    // prepares their palettes. There is never a missing or placeholder sprite.
+    if (!parkedVehiclePaintAllowance) return false;
+    const bounds = parkedVehicleArtBounds(vehicle);
+    entry = { ...bounds, signature, solar: materialLight.sunAngle, density: Math.min(2, Math.sqrt(128 * 1024 / (bounds.w * bounds.h * 8))), paletteKind: 'vehicle', paletteOwner: vehicle };
+    entry.reservedBytes = Math.ceil(entry.w * entry.density) * Math.ceil(entry.h * entry.density) * 12;
+    // Reserve night/day/mixed even at noon. Never repeatedly paint and evict a
+    // visible body when the pool is full: unadmitted bodies use live drawing.
+    while (parkedVehicleReservedBytes + entry.reservedBytes > PARKED_VEHICLE_CACHE_BYTES) {
+      const first = [...parkedVehicleCache.keys()].find(item => !parkedVehicleVisibleObjects.has(item));
+      if (!first) return false;
+      const previous = parkedVehicleCache.get(first);
+      parkedVehicleBytes -= imageBytes(previous); parkedVehicleReservedBytes -= previous.reservedBytes;
+      paletteBlendQueue.delete(previous); parkedVehicleCache.delete(first); parkedVehicleEvictions++;
+    }
+    parkedVehicleReservedBytes += entry.reservedBytes; admitted = true;
+    parkedVehiclePaintAllowance--; parkedVehicleCacheMisses++;
+  }
+  const beforeBytes = imageBytes(entry);
+  const make = daylight => underMaterialLight(daylight, () => {
+    const image = canvasFor(ctx, entry.w, entry.h, entry.density), paint = image?.getContext('2d');
+    if (!paint) return null;
+    parkedVehiclePaintCount++;
+    paint.scale(entry.density, entry.density); paint.translate(-entry.x, -entry.y);
+    drawArcadeCar(paint, { ...vehicle, x: 0, y: 0 }, t,
+      { reducedEffects, externalEffects: true, lighting: { ...materialLight, sunAngle: entry.solar }, skipShadow: true });
+    return image;
+  });
+  const image = blendedArt(ctx, entry, make, entry.w, entry.h, true);
+  if (!image) {
+    if (admitted) parkedVehicleReservedBytes -= entry.reservedBytes;
+    paletteBlendQueue.delete(entry); return false;
+  }
+  parkedVehicleBytes += imageBytes(entry) - beforeBytes;
+  parkedVehicleCache.delete(vehicle); parkedVehicleCache.set(vehicle, entry);
+  while (roofCacheBytes + parkedVehicleBytes > ROOF_CACHE_BYTES && roofCache.size) {
+    const first = [...roofCache.keys()].find(item => !roofVisibleObjects.has(item)) ?? roofCache.keys().next().value;
+    if (roofVisibleObjects.has(first)) roofVisibleEvictions++;
+    roofCacheBytes -= imageBytes(roofCache.get(first)); paletteBlendQueue.delete(roofCache.get(first)); roofCache.delete(first); roofEvictions++;
+  }
+  // The original oval lives in world coordinates before body rotation. Keep
+  // it live so solar direction and opacity remain continuous at every hour.
+  const dimensions = entry.dimensions, type = entry.type;
+  const shape = dimensions ? [dimensions.length * .53, dimensions.width * .57]
+    : type === 'motorcycle' ? [12.5, 5.1] : type === 'boat' ? [19.5, 10] : [15.5, 9.2];
+  ctx.save(); ctx.globalAlpha *= .3 + materialLight.daylight * .2;
+  ellipse(ctx, vehicle.x + materialLight.shadowX * 4, vehicle.y + materialLight.shadowY * 4, ...shape, '#142731'); ctx.restore();
+  drawPalette(ctx, entry, image, vehicle.x + entry.x, vehicle.y + entry.y, entry.w, entry.h);
+  return true;
 }
 export function foliageProfile(tree) {
   const scrub = (tree.kind || tree.type) === 'scrub' && !(tree.heightMeters > 1.6);
@@ -1417,8 +1585,8 @@ function foliageBitmap(ctx, tree, world) {
   const { radius } = foliageProfile(tree);
   const signature = 'illustrated-calvi-v19', size = radius * 2 + 2;
   let entry = foliageCache.get(tree);
-  if (entry && (entry.signature !== signature || entry.density !== foliageDensity)) { foliageBytes -= entry.bytes; foliageCache.delete(tree); entry = null; }
-  if (!entry) { foliageCacheMisses++; entry = { signature, density: foliageDensity, bytes: 0 }; }
+  if (entry && (entry.signature !== signature || entry.density !== foliageDensity)) { foliageBytes -= entry.bytes; paletteBlendQueue.delete(entry); foliageCache.delete(tree); entry = null; }
+  if (!entry) { foliageCacheMisses++; entry = { signature, density: foliageDensity, bytes: 0, paletteKind: 'foliage', paletteOwner: tree }; }
   const beforeBytes = imageBytes(entry);
   const make = daylight => underMaterialLight(daylight, () => {
     const image = canvasFor(ctx, size, size, entry.density), paint = image?.getContext('2d');
@@ -1436,7 +1604,7 @@ function foliageBitmap(ctx, tree, world) {
   while (foliageBytes > FOLIAGE_CACHE_BYTES && foliageCache.size > 1) {
     const oldest = [...foliageCache.keys()].find(item => !foliageVisibleObjects.has(item)) ?? foliageCache.keys().next().value;
     if (foliageVisibleObjects.has(oldest)) foliageVisibleEvictions++;
-    foliageBytes -= foliageCache.get(oldest).bytes; foliageCache.delete(oldest); foliageEvictions++;
+    foliageBytes -= foliageCache.get(oldest).bytes; paletteBlendQueue.delete(foliageCache.get(oldest)); foliageCache.delete(oldest); foliageEvictions++;
   }
   return entry;
 }
@@ -1455,7 +1623,7 @@ function paintedFoliage(ctx, tree, world, native = false) {
   const { radius, height } = foliageProfile(tree), entry = foliageBitmap(ctx, tree, world);
   if (!entry) return;
   ctx.save(); ctx.translate(tree.x, tree.y);
-  ctx.translate(0, native ? 0 : -height); ctx.drawImage(entry.image, -radius - 1, -radius - 1, radius * 2 + 2, radius * 2 + 2);
+  ctx.translate(0, native ? 0 : -height); drawPalette(ctx, entry, entry.image, -radius - 1, -radius - 1, radius * 2 + 2, radius * 2 + 2);
   ctx.restore();
 }
 function paintedActorOcclusion(ctx, tree, person, world, angle) {
@@ -1486,15 +1654,14 @@ function seaRipples(ctx, world, bounds, time, reducedEffects) {
       let cell = cache.get(key);
       if (cell === undefined) {
         const seed = hash(column, row, 71), x = column * 44 + 9 + seed * 24, y = row * 44 + 10 + hash(column, row, 72) * 22;
-        cell = seed < .54 && [[0, 0], [-10, 0], [10, 0], [0, -5], [0, 5]].every(([dx, dy]) => photographicSeaAt(world, x + dx, y + dy))
-          ? { x, y, seed, width: 4 + seed * 8 } : null;
+        const width = 4 + seed * 8;
+        cell = seed < .54 && seaRippleEnvelopeContains(world, x, y, width) ? { x, y, seed, width } : null;
         cache.set(key, cell);
       }
       if (!cell || count >= 128) continue;
       const phase = (reducedEffects ? 0 : time * .8) + cell.seed * Math.PI * 8;
       const strength = .025 + (.035 + .045 * materialLight.daylight) * (.5 + .5 * Math.sin(phase));
       const dy = Math.sin(phase) * .7;
-      if (![[cell.x - cell.width, cell.y + dy], [cell.x, cell.y + dy - .8], [cell.x + cell.width, cell.y + dy]].every(([x, y]) => photographicSeaAt(world, x, y))) continue;
       ctx.globalAlpha = strength;
       ctx.beginPath(); ctx.moveTo(cell.x - cell.width, cell.y + dy);
       ctx.quadraticCurveTo(cell.x, cell.y + dy - .8, cell.x + cell.width, cell.y + dy); ctx.stroke(); count++;
@@ -1657,6 +1824,11 @@ function policeFireCue(ctx, unit, world, focus) {
   ctx.lineTo(x, y - liftAt(world, x, y)); ctx.stroke(); ctx.restore();
 }
 export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
+  const cpuStart = performance.now(); renderCount++; parkedVehiclePaintAllowance = 3;
+  paletteFramePixels = 0;
+  // Entries which left the visible scene must not block the FIFO or retain
+  // evicted canvases. Active requests keep their original insertion order.
+  for (const [entry, seen] of paletteBlendQueue) if (seen < renderCount - 1) paletteBlendQueue.delete(entry);
   const width = ctx.canvas?.viewWidth || ctx.canvas?.width || WIDTH, height = ctx.canvas?.viewHeight || ctx.canvas?.height || HEIGHT;
   const density = ctx.canvas?.renderScale || 1;
   const scaleX = ctx.canvas?.renderScaleX || density, scaleY = ctx.canvas?.renderScaleY || density;
@@ -1672,7 +1844,13 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
   const nearbyScenery = renderCandidates(world, rawBounds, 'scenery').filter(item => visible(item, camera, 65));
   const groundView = photoViewBounds(game, ctx.canvas);
   const nearTrees = renderCandidates(world, rawBounds, 'vegetation').filter(item => !item.destroyed && visible(item, camera, (item.radius || 8) + (item.heightMeters || 0) * ELEVATION_SCALE + 8));
+  parkedVehicleVisibleObjects = new Set((game.cars || []).filter(vehicle => vehicle.id !== game.vehicleId && stationaryVehicleCanCache(vehicle) && visible(vehicle, camera, 55)));
   prepareSpriteBudgets(world, ctx.canvas, nearbyBuildings, nearTrees);
+  for (const entry of paletteBlendQueue.keys()) {
+    const set = entry.paletteKind === 'roof' ? roofVisibleObjects : entry.paletteKind === 'foliage'
+      ? foliageVisibleObjects : entry.paletteKind === 'vehicle' ? parkedVehicleVisibleObjects : null;
+    if (set && !set.has(entry.paletteOwner)) paletteBlendQueue.delete(entry);
+  }
   const hasSourcedVegetation = renderIndex(world).sourcedVegetation;
   const groundPeople = [...renderIndex(world).people, ...(game.police || []).filter(unit => unit.onFoot || unit.kind === 'gendarme' || unit.role === 'officer'), ...(!game.vehicle && game.player ? [game.player] : [])]
     .filter(person => visible(person, camera, 30) && !(person.dead && Number.isFinite(person.deathTimer) && person.deathTimer <= 0));
@@ -1684,6 +1862,8 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
   rect(ctx, 0, 0, width, height, C.seaDark);
   ctx.translate(-camera.x, -camera.y);
   backdrop(ctx, world, camera); terrainCliffs(ctx, world, camera); municipalBorder(ctx, world, camera);
+  drawIllustratedFortifications(ctx, world, rawBounds, { lighting: materialLight,
+    projectPoint: (x, y) => [x, y - liftAt(world, x, y)] });
   frameDetails.seaRippleCount = seaRipples(ctx, world, groundView, t, reducedEffects);
   // Persistent marks belong to the street surface, below bodies and vehicles.
   for (const decal of game.blood || []) if (visible(decal, camera, 35)) onTerrain(ctx, world, decal, () => drawBloodDecal(ctx, decal, t, { reducedEffects }));
@@ -1811,6 +1991,7 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
     }
   }
   ctx.restore();
+  renderCpuMs = performance.now() - cpuStart; renderTotalCpuMs += renderCpuMs;
 }
 
 const minimapBackdropCache = new WeakMap();

@@ -1,6 +1,6 @@
-# CALVI LA VIE — v19, Calvi illustrée
+# CALVI LA VIE — v20, Calvi plus lisible
 
-CALVI LA VIE est un jeu d’action en vue aérienne, à pied et dans cinq types de transports, inspiré de l’arcade des années 90 et des premiers GTA. La v19 applique un décor dessiné en **2,5D** à toute la carte réelle de Calvi. La géographie importée reste la même : coordonnées, voies, littoral, empreintes bâties, relief et observations ne sont pas déplacés pour composer une nouvelle ville.
+CALVI LA VIE est un jeu d’action en vue aérienne, à pied et dans cinq types de transports, inspiré de l’arcade des années 90 et des premiers GTA. La v20 améliore le décor dessiné en **2,5D** à toute la carte réelle de Calvi. La géographie importée reste la même : coordonnées, voies, littoral, empreintes bâties, relief et observations ne sont pas déplacés pour composer une nouvelle ville.
 
 ## Territoire et rendu
 
@@ -8,7 +8,9 @@ L’unique carte suit la commune **INSEE 2B050**, relation OpenStreetMap **11512
 
 Les **1 552 tronçons routiers et 3 893 empreintes bâties** gardent leurs géométries source. Les routes sont dessinées sur leurs tracés, avec leurs largeurs de jeu ; les bâtiments portent toits et façades illustrés sur leurs volumes existants. Le **MNT IGN LiDAR HD**, à environ 20 m avec extrait urbain à 5 m, continue de donner le relief. Les **1 355 hauteurs IGN BD TOPO raccordées** restent utilisées ; les 2 538 autres empreintes gardent une estimation artistique ou une indication OSM exploitable. Ces estimations ne deviennent pas des mesures parce que le rendu est plus détaillé.
 
-Sol, pierre, asphalte, sable, mer, toitures et végétation reprennent les matières dessinées de `assets/calvi-illustrated-materials.png`. La photographie IGN demeure une référence archivée pour les observations et la provenance ; elle n’est plus le fond, un toit ou un houppier affiché. La couleur et le détail sont interprétés pour le jeu, avec ombres et lumière jour/nuit.
+Sol, pierre, asphalte, sable, mer, toitures et végétation reprennent les matières dessinées de `assets/calvi-illustrated-materials.png`, avec un contraste réduit et des détails moins répétitifs. Les typologies bâties distinguent les repères identifiés, les formes de toit explicitement renseignées et les volumes artistiques, sans changer leurs empreintes, hauteurs ou collisions. La photographie IGN demeure une référence archivée pour les observations et la provenance ; elle n’est plus le fond, un toit ou un houppier affiché. La couleur et le détail sont interprétés pour le jeu, avec ombres et lumière jour/nuit.
+
+Les palettes de **3 219 toitures** s’appuient sur des couleurs observées dans les JPEG IGN archivés et vérifiés. Elles ne certifient ni forme ni matériau. Des murailles suivent **67 nœuds OSM**, avec hauteur de 10 m et largeur de 3 m artistiques ; **30 références aéroportuaires et 376 points source** détaillent pistes, taxiways et aires. Ces ajouts visuels conservent la physique de base.
 
 La caméra suit le personnage avec un zoom rapproché d’environ **1,95**, puis recule progressivement à **1,65** en véhicule. Elle garde les mêmes distances physiques. Le terrain module légèrement la vitesse sur les pentes ; le nouvel habillage ne redessine pas les collisions.
 
@@ -54,6 +56,6 @@ La gravité des incidents alimente une recherche de **zéro à six étoiles** : 
 
 **© OpenStreetMap contributors · ODbL 1.0** et **© IGN · Licence Ouverte** restent les attributions des données utilisées. Requêtes, archives, empreintes et estimations restent documentées. L’illustration n’est ni un relevé cadastral ni une reconstruction historique de 1994 ; façades, détails, personnages, enseignes et missions sont des créations de jeu.
 
-Les rapports v17 et v18 restent des preuves de leurs versions respectives. Ils ne valident pas le nouveau rendu v19, sa cadence ni son confort sur Mac/Safari ou téléphone. Le protocole humain est une séance à réaliser, pas une observation obtenue.
+Les rapports v17, v18 et v19 restent des preuves de leurs versions respectives. La v20 est vérifiée séparément ; les mesures Chromium/Linux ne valident pas son confort sur Mac/Safari ou téléphone physique. Le protocole humain est une séance à réaliser, pas une observation obtenue.
 
-[Lancement](../README.md) · [Cartographie](CARTOGRAPHIE.md) · [Direction artistique](DIRECTION-ARTISTIQUE.md) · [Vérification v19](VERIFICATION-CALVI-ILLUSTREE.md) · [Historique v18](VERIFICATION-CALVI-LA-VIE.md) · [Historique v17](VERIFICATION.md) · [Essais humains](PLAYTEST.md)
+[Lancement](../README.md) · [Cartographie](CARTOGRAPHIE.md) · [Direction artistique](DIRECTION-ARTISTIQUE.md) · [Vérification v20](VERIFICATION-CALVI-FLUIDITE.md) · [Historique v19](VERIFICATION-CALVI-ILLUSTREE.md) · [Historique v18](VERIFICATION-CALVI-LA-VIE.md) · [Historique v17](VERIFICATION.md) · [Essais humains](PLAYTEST.md)

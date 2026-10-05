@@ -1,0 +1,335 @@
+{
+  "revision": "v20-calvi-readable",
+  "status": "final-validated",
+  "generatedAt": "2026-10-05T14:28:34.997429+00:00",
+  "browser": "Chromium on Linux",
+  "browserClosed": true,
+  "finalPublicCapturesPending": false,
+  "runtimeFreeze": {
+    "file": "/workspace/calvi-v20-render-freeze.json",
+    "allTenHashesUnchanged": true,
+    "renderSha256": "cb87fcf82ded3d61da986ce7b1a596126fef84aff3810fea1b12dadca6a7d4fc"
+  },
+  "browserSuite": {
+    "uniqueCasesPassed": 35,
+    "passes": [
+      {
+        "label": "graphics",
+        "exitCode": 0,
+        "passed": 12,
+        "durationSeconds": 186.152,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0,
+        "command": "BLUE_NIGHT_TEST_PORT=4185 PLAYWRIGHT_JSON_OUTPUT_NAME=/tmp/calvi-la-vie-v20-qa/final-graphics-tests.json npx playwright test tests/browser/graphics.spec.js tests/browser/aerial.spec.js tests/browser/illustrated.spec.js --workers=1 --reporter=list,json > /tmp/calvi-la-vie-v20-qa/final-graphics-tests.log 2>&1",
+        "report": "/tmp/calvi-la-vie-v20-qa/final-graphics-tests.json"
+      },
+      {
+        "label": "gameplay",
+        "exitCode": 0,
+        "passed": 23,
+        "durationSeconds": 393.36,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0,
+        "command": "BLUE_NIGHT_TEST_PORT=4185 PLAYWRIGHT_JSON_OUTPUT_NAME=/tmp/calvi-la-vie-v20-qa/final-gameplay-tests.json npx playwright test tests/browser/game.spec.js tests/browser/mobility.spec.js --workers=1 --reporter=list,json > /tmp/calvi-la-vie-v20-qa/final-gameplay-tests.log 2>&1",
+        "report": "/tmp/calvi-la-vie-v20-qa/final-gameplay-tests.json"
+      }
+    ]
+  },
+  "nodeSuiteReportedByRoot": {
+    "command": "npm test",
+    "exitCode": 0,
+    "passed": 212,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "log": "/workspace/calvi-la-vie-v20-node-tests.log"
+  },
+  "readinessReportedByRoot": {
+    "exitCode": 0,
+    "precacheUrls": 46,
+    "http200IncludingServiceWorker": 47,
+    "byteIdenticalOn4173": true
+  },
+  "offline": {
+    "cache": "blue-night-v20-calvi-readable",
+    "productionDependenciesPassed": true,
+    "aerialJpegRequests": 0
+  },
+  "strictPerformanceComparison": {
+    "command": "CALVI_QA_RUN=final-v20 node /tmp/benchmark-calvi-v20.mjs",
+    "exitCode": 0,
+    "rows": [
+      {
+        "condition": "1280x800-day",
+        "stageOrder": [
+          "stationary",
+          "heldDrivingCommand",
+          "orientation"
+        ],
+        "baselineRafPerSecond": [
+          34.51,
+          32.45,
+          32.07
+        ],
+        "finalRafPerSecond": [
+          39.09,
+          40.97,
+          39.54
+        ],
+        "finalP95Milliseconds": [
+          33.4,
+          33.4,
+          33.4
+        ]
+      },
+      {
+        "condition": "1280x800-dawn",
+        "stageOrder": [
+          "stationary",
+          "heldDrivingCommand",
+          "orientation"
+        ],
+        "baselineRafPerSecond": [
+          33.19,
+          28.44,
+          29.62
+        ],
+        "finalRafPerSecond": [
+          41.33,
+          39.4,
+          33.12
+        ],
+        "finalP95Milliseconds": [
+          33.4,
+          33.4,
+          33.4
+        ]
+      },
+      {
+        "condition": "390x844-day",
+        "stageOrder": [
+          "stationary",
+          "heldDrivingCommand",
+          "orientation"
+        ],
+        "baselineRafPerSecond": [
+          59.11,
+          53.32,
+          58.23
+        ],
+        "finalRafPerSecond": [
+          60.22,
+          58.24,
+          59.14
+        ],
+        "finalP95Milliseconds": [
+          16.8,
+          16.8,
+          16.7
+        ]
+      },
+      {
+        "condition": "390x844-dawn",
+        "stageOrder": [
+          "stationary",
+          "heldDrivingCommand",
+          "orientation"
+        ],
+        "baselineRafPerSecond": [
+          58.05,
+          49.0,
+          39.77
+        ],
+        "finalRafPerSecond": [
+          59.69,
+          54.55,
+          57.33
+        ],
+        "finalP95Milliseconds": [
+          16.8,
+          16.8,
+          16.8
+        ]
+      }
+    ],
+    "cacheChecks": [
+      {
+        "condition": "1280x800-day",
+        "stationaryNoRepaint": true,
+        "stationaryNoVisibleEvictions": true,
+        "budgetsRespected": true
+      },
+      {
+        "condition": "1280x800-dawn",
+        "stationaryNoRepaint": true,
+        "stationaryNoVisibleEvictions": true,
+        "budgetsRespected": true
+      },
+      {
+        "condition": "390x844-day",
+        "stationaryNoRepaint": true,
+        "stationaryNoVisibleEvictions": true,
+        "budgetsRespected": true
+      },
+      {
+        "condition": "390x844-dawn",
+        "stationaryNoRepaint": true,
+        "stationaryNoVisibleEvictions": true,
+        "budgetsRespected": true
+      }
+    ],
+    "stationaryPaintMissVisibleEvictionDeltas": 0,
+    "report": "/tmp/calvi-la-vie-v20-qa/final-v20/independent-comparison.md",
+    "sharedBudget": "roofBytes includes parkedVehicleBytes; do not add them again",
+    "limit": "CDP-instrumented Linux Chromium rAF observations; driving commands hit an obstacle after about 201 world units. Initial stationary geometry is exact; driving initial zoom/acceleration vary slightly. These windows do not prove continuous driving or Mac Safari performance."
+  },
+  "continuousPublicRoute": {
+    "command": "node /tmp/check-calvi-active-route.mjs",
+    "exitCode": 0,
+    "viewport": [
+      844,
+      390
+    ],
+    "distanceWorldUnits": 544.429,
+    "displacementWorldUnits": 507.613,
+    "waypointsReached": 6,
+    "wallSeconds": 12.416,
+    "simulationSeconds": 12.266,
+    "finalHearts": 3,
+    "errors": 0,
+    "method": "Starter car boarded with E; real visible joystick follows actual quay road waypoints. No player/health/time/collision injection. Functional evidence, not an FPS measurement.",
+    "capture": "/tmp/calvi-la-vie-v20-qa/active-route/public-driving-844x390.png"
+  },
+  "dpr2": {
+    "command": "node /tmp/check-calvi-dpr2.mjs",
+    "exitCode": 0,
+    "startingClockMinutes": 360,
+    "formats": [
+      {
+        "viewport": [
+          390,
+          844
+        ],
+        "walkDistance": 76.087,
+        "pausePixelsAndClockFrozen": true
+      },
+      {
+        "viewport": [
+          844,
+          390
+        ],
+        "walkDistance": 75.789,
+        "pausePixelsAndClockFrozen": true
+      },
+      {
+        "viewport": [
+          1280,
+          800
+        ],
+        "walkDistance": 75.867,
+        "pausePixelsAndClockFrozen": true
+      }
+    ],
+    "scope": "Linux Chromium DPR2 controls and world-to-screen mapping, with existing CSS-size canvas backing. WebKit is not installed; no native Mac Safari claim.",
+    "diagnostics": [
+      "dpr2-initial-up-blocked.log",
+      "dpr2-initial-down-blocked.log"
+    ],
+    "diagnosticCause": "Initial cardinal impulses meet parked starter-area vehicles; the already tested diagonal public foot segment is traversable. Movement threshold strengthened from 5 to 50 world units."
+  },
+  "sourceGeometry": {
+    "mapSha256": "0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf",
+    "geometrySha256": "bde3e54d6455fc8507077bf0e5772abfd02bca271450bca33b21e28e837db891",
+    "geometryFingerprint": "11f0e5b971f8f605",
+    "sourceVehicleActors": 251,
+    "sourcePlacementsUnchanged": true
+  },
+  "publicCaptures": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "lighting": "day",
+      "path": "/tmp/calvi-la-vie-v20-qa/final-captures/playing-port-day-1280x800.png",
+      "hudHeight": 189.296875,
+      "expandedHudHeight": null,
+      "consoleHttpPageErrors": 0,
+      "aerialJpegRequests": 0
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "lighting": "night",
+      "path": "/tmp/calvi-la-vie-v20-qa/final-captures/playing-port-night-1280x800.png",
+      "hudHeight": 189.296875,
+      "expandedHudHeight": null,
+      "consoleHttpPageErrors": 0,
+      "aerialJpegRequests": 0
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "lighting": "day",
+      "path": "/tmp/calvi-la-vie-v20-qa/final-captures/playing-port-day-390x844.png",
+      "hudHeight": 74,
+      "expandedHudHeight": 139.9375,
+      "consoleHttpPageErrors": 0,
+      "aerialJpegRequests": 0
+    }
+  ],
+  "isolatedSectorFixtures": [
+    {
+      "sector": "citadel",
+      "path": "/tmp/calvi-la-vie-v20-qa/evidence/fixture-citadel-day-1280x800.png",
+      "scope": "Separate renderer fixture using the same source world; not a public trip."
+    },
+    {
+      "sector": "beach",
+      "path": "/tmp/calvi-la-vie-v20-qa/evidence/fixture-beach-day-1280x800.png",
+      "scope": "Separate renderer fixture using the same source world; not a public trip."
+    },
+    {
+      "sector": "airport",
+      "path": "/tmp/calvi-la-vie-v20-qa/evidence/fixture-airport-day-1280x800.png",
+      "scope": "Separate renderer fixture using the same source world; not a public trip."
+    }
+  ],
+  "canopyProof": {
+    "publicCollisionAndCoordinatesPassed": true,
+    "isolatedSameRecordedPosePixelComparison": {
+      "liveGameAbsent": true,
+      "outside": {
+        "underCanopy": false,
+        "meanDifference": 14.639455782312925,
+        "changedPixels": 49
+      },
+      "covered": {
+        "underCanopy": true,
+        "meanDifference": 0,
+        "changedPixels": 0
+      }
+    }
+  },
+  "parachute": {
+    "publicHelicopterRoutePassed": true,
+    "jumpDeploySteerPauseLandingPassed": true,
+    "limit": "Safe contact speed and intact airborne hearts are checked; a later ground police interception remains possible.",
+    "capture": "/tmp/calvi-la-vie-v20-qa/evidence/parachute-mobile.png"
+  },
+  "historicalDiagnosticRun": "before-dawn-blend-fix/ is an invalidated diagnostic, not the final performance result.",
+  "postVerificationByteNormalization": {
+    "reason": "Remove two trailing spaces on one blank line after final verification. Executable JavaScript is unchanged.",
+    "file": "illustrated-buildings.js",
+    "testedSHA256": "3893063e7bc66cbf007389960d130c170ce7220e271750e828b69d0053a3d556",
+    "deliveredSHA256": "587065595bcfc4eaab6e3adcf82dec4c9cb639e27fddc0ca7727cb712b3eb6e4",
+    "normalization": "Strip trailing ASCII spaces on the single whitespace-only line; all other bytes equal",
+    "allOtherRuntimeFilesUnchanged": true
+  }
+}

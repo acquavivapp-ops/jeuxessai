@@ -1,6 +1,6 @@
-# CALVI LA VIE — direction artistique v19
+# CALVI LA VIE — direction artistique v20
 
-La v19 étend la maquette dessinée à **toute la vraie carte de Calvi**. Le résultat vise une ville d’arcade des années 90, en vue aérienne **2,5D**, avec une matière illustrée et des touches modernes de volume, lumière et profondeur. La configuration géographique reste celle du monde importé ; le traitement graphique habille ses formes.
+La v20 affine le décor dessiné de **toute la vraie carte de Calvi**. Le résultat vise une ville d’arcade des années 90, en vue aérienne **2,5D**, avec une matière illustrée et des touches modernes de volume, lumière et profondeur. La configuration géographique reste celle du monde importé ; le traitement graphique habille ses formes.
 
 ## Une géographie conservée, des matières dessinées
 
@@ -8,13 +8,13 @@ Les coordonnées, voies, empreintes bâties, littoral, contour communal, relief 
 
 Les matières de `assets/calvi-illustrated-materials.png`, en grille **3 × 3**, réunissent les surfaces de sol, eau, voirie, pierre, toitures et végétation. La photographie IGN reste une source archivée, avec requêtes et empreintes ; elle n’est plus affichée sous le joueur, sur les toits ou dans le feuillage. Elle continue d’expliquer les observations végétales et les positions de véhicules retenues.
 
-L’unité visuelle vient d’une palette commune, de petites variations de matière et d’ombres lisibles. Pierre claire, sable chaud, toits terracotta et végétation olive portent le jour ; bleu pétrole, cyan, corail et fenêtres chaudes portent la nuit. Les silhouettes conservent des contours francs et une animation d’arcade. Aucun sprite, texture, logo ou morceau de GTA ou Nintendo n’est repris.
+L’unité visuelle vient de matières moins contrastées, de variations espacées et d’ombres lisibles. Un grain fin et peu contrasté complète les aplats ; les détails de toiture ne doivent pas produire un damier uniforme. Pierre claire, sable chaud, toits aux palettes variées et végétation olive portent le jour ; bleu pétrole, cyan, corail et fenêtres chaudes portent la nuit. Les silhouettes conservent des contours francs et une animation d’arcade. Aucun sprite, texture, logo ou morceau de GTA ou Nintendo n’est repris.
 
 ## Sol, mer et routes
 
 Les surfaces terrestres suivent les contours et emprises importés. Les changements entre pierre urbaine, terre, sable et végétation aident à lire l’espace sans modifier ses accès physiques. Les textures s’ancrent au monde : elles doivent rester stables pendant les mouvements de caméra et le changement de zoom.
 
-La mer est dessinée, avec des variations de bleu et un **clapotis léger**. Les ondulations et reflets suivent le temps actif, s’arrêtent en pause et respectent les zones d’eau. Le rivage, les quais et les pontons doivent rester compréhensibles ; un motif décoratif ne doit pas donner l’impression qu’une coque peut traverser la terre.
+La mer est dessinée, avec des nuances progressives de bleu, un grain discret et un **clapotis léger**. Les ondulations et reflets suivent le temps actif, s’arrêtent en pause et respectent les zones d’eau. Le rivage, les quais et les pontons doivent rester compréhensibles ; un motif décoratif ne doit pas donner l’impression qu’une coque peut traverser la terre.
 
 Les routes suivent les vrais axes, courbes et raccords du réseau importé. Leur traitement distingue la chaussée, les bords et les intersections selon la catégorie disponible. Largeurs et détails ajoutés pour le jeu restent des estimations artistiques ; ils n’affirment pas un relevé exact de chaque trottoir, marquage ou voie de Calvi.
 
@@ -22,13 +22,17 @@ Les routes suivent les vrais axes, courbes et raccords du réseau importé. Leur
 
 Chaque bâtiment garde son empreinte OSM. Façades, étages, corniches, ouvertures et toits sont dessinés sur le volume correspondant. Les variations de pierre et de toiture renforcent le relief de la ville sans décaler un bâtiment ou étendre arbitrairement sa collision.
 
+Les couleurs retenues pour **3 219 toitures** viennent de **83 200 échantillons dans 193 JPEG IGN aux empreintes vérifiées**. Une couleur chaude guide une palette ; une couleur neutre n’impose ni toit plat ni métal. Forme et matériau restent inconnus sans indication explicite. Les typologies s’appuient sur les tags disponibles et les repères identifiés, puis sur un habillage artistique distinct.
+
+La citadelle reçoit un contour de murailles issu de **67 nœuds OSM**, avec largeur de **3 m** et hauteur de **10 m** estimées. L’aéroport reprend **30 axes ou surfaces et 376 points source** ; seule une dimension explicitement renseignée, comme les **45 m** de largeur de la piste principale, est présentée comme issue de la source. Ces repères visuels ne modifient pas les collisions existantes.
+
 Les **1 355 hauteurs IGN BD TOPO raccordées** restent utilisées. Les **2 538 autres empreintes** gardent un gabarit artistique ou une indication OSM exploitable. Une indication d’étages n’est pas une hauteur mesurée. La texture et les détails de façade ne certifient pas l’apparence réelle de chaque construction.
 
-Le terrain conserve le **MNT IGN LiDAR HD**, à environ **20 m**, avec l’extrait urbain à **5 m** et sa transition documentée. Ombres, pentes et bâtiments se lisent sur ce relief ; le dessin ne crée pas une nouvelle montagne ou ne lisse pas les hauteurs pour changer le trajet. La transparence de confort des bâtiments aide à voir le personnage masqué par un toit.
+Le terrain conserve le **MNT IGN LiDAR HD**, à environ **20 m**, avec l’extrait urbain à **5 m** et sa transition documentée. Les nuances statiques du terrain sont lissées pour éviter un quadrillage visible. Ombres, pentes et bâtiments se lisent sur ce relief ; le dessin ne crée pas une nouvelle montagne ou ne lisse pas les hauteurs pour changer le trajet. La transparence de confort des bâtiments aide à voir le personnage masqué par un toit.
 
 ## Végétation et profondeur
 
-Les **12 000 groupes végétaux**, dont 8 475 couronnes ou groupes boisés et 3 525 groupes bas, gardent les emplacements et silhouettes issus des observations. Les **32 observations manuelles** conservent 28 arbres sombres et quatre palmiers. Leur matière devient illustrée, avec petites variations de feuilles, volumes et ombres ; leurs coordonnées ne changent pas pour remplir arbitrairement le décor.
+Les **12 000 groupes végétaux**, dont 8 475 couronnes ou groupes boisés et 3 525 groupes bas, gardent les emplacements et silhouettes issus des observations. Les **32 observations manuelles** conservent 28 arbres sombres et quatre palmiers. Leur matière devient illustrée, avec un grain fin, des couronnes irrégulières, des volumes et des ombres ; leurs coordonnées ne changent pas pour remplir arbitrairement le décor.
 
 Le petit tronc d’implantation estimée demeure un obstacle physique. Le maquis bas ralentit et couvre les jambes ; les grands buissons peuvent bloquer. Une couronne n’est pas un mur entier : le personnage peut passer dessous, puis être masqué par le feuillage à la bonne profondeur. Pied du tronc et ombre restent ancrés au sol. Ces silhouettes, positions et hauteurs artistiques ne constituent pas un recensement mesuré d’arbres individuels.
 
@@ -62,6 +66,6 @@ La musique et les bruitages restent originaux, avec une couleur électronique et
 
 **© OpenStreetMap contributors · ODbL 1.0** et **© IGN · Licence Ouverte** restent les attributions des données utilisées. Requêtes, archives et empreintes restent conservées. Les dates locales IGN sont inconnues ; les références géographiques actuelles ne reconstituent pas Calvi en 1994. Façades, toitures, textures, enseignes, personnages et comportements restent une interprétation de jeu.
 
-Le nouveau rendu v19 doit être observé et vérifié séparément. Les captures, tests et cadences v17/v18 documentent leurs versions ; ils ne certifient ni son résultat ni une performance sur Mac/Safari ou téléphone. Le protocole humain reste à réaliser.
+Le rendu v20 est observé et vérifié séparément. Les captures, tests et cadences v17/v18/v19 documentent leurs versions ; les mesures Chromium/Linux ne certifient pas une performance sur Mac/Safari ou téléphone physique. Le protocole humain reste à réaliser.
 
-[Conception](CONCEPTION.md) · [Cartographie et provenance](CARTOGRAPHIE.md) · [Relief](../data/ELEVATION.md) · [Hauteurs](../data/BUILDING_HEIGHTS.md) · [Observations](../data/CALVI_AERIAL_OBJECTS.md) · [Vérification v19](VERIFICATION-CALVI-ILLUSTREE.md) · [Historique v18](VERIFICATION-CALVI-LA-VIE.md) · [Historique v17](VERIFICATION.md) · [Essais humains](PLAYTEST.md)
+[Conception](CONCEPTION.md) · [Cartographie et provenance](CARTOGRAPHIE.md) · [Relief](../data/ELEVATION.md) · [Hauteurs](../data/BUILDING_HEIGHTS.md) · [Observations](../data/CALVI_AERIAL_OBJECTS.md) · [Vérification v20](VERIFICATION-CALVI-FLUIDITE.md) · [Historique v19](VERIFICATION-CALVI-ILLUSTREE.md) · [Historique v18](VERIFICATION-CALVI-LA-VIE.md) · [Historique v17](VERIFICATION.md) · [Essais humains](PLAYTEST.md)

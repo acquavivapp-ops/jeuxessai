@@ -1,12 +1,16 @@
 # CALVI LA VIE
 
-**v19 — Calvi illustrée.** Toute la commune devient un décor dessiné en **2,5D** : mer, sol, routes, façades, toits et végétation reprennent une matière d’arcade, avec volumes, ombres et éclairage jour/nuit. Le dessin suit la carte réelle déjà importée. Il garde les coordonnées, le tracé des rues, les empreintes bâties, le littoral, les accès et le relief ; il ne remplace pas Calvi par une ville inventée.
+**v20 — Calvi plus lisible.** Le décor dessiné en **2,5D** reçoit des matières plus calmes, des bâtiments plus variés et des repères de la citadelle et de l’aéroport issus des sources archivées. Le rendu vise aussi à réduire les saccades par le cache des carrosseries et la réutilisation des palettes. Calvi reste l’unique carte : coordonnées, tracés des rues, empreintes bâties, littoral, relief et observations conservent leur configuration importée. Les nouveaux repères visuels sont distingués de cette géométrie de jeu conservée.
 
 La photographie IGN reste une **source archivée**, utilisée pour les observations et leur provenance. Elle n’est plus le fond de jeu, la texture des toits ou celle des couronnes. Les matières dessinées de `assets/calvi-illustrated-materials.png`, organisées en grille 3 × 3, donnent une palette commune au décor. Le rendu conserve le logo original fourni, les personnages cagoulés, les véhicules et les effets d’action.
 
 L’interface compacte garde les informations de jeu et les commandes. Le bouton **ⓘ** déplie les informations secondaires. Noms des personnages, dialogues, biographies et textes de présentation restent retirés.
 
-Captures du rendu v19 : [jour](docs/calvi-illustrated-day.png) · [nuit](docs/calvi-illustrated-night.png) · [téléphone](docs/calvi-illustrated-phone.png) · [port en paysage](docs/calvi-illustrated-port.png). Vues de secteurs obtenues avec des caméras diagnostiques : [citadelle](docs/calvi-illustrated-citadel-fixture.png) · [aéroport](docs/calvi-illustrated-airport-fixture.png). Ces deux dernières montrent le vrai monde, avec des placements d’essai plutôt qu’un trajet de jeu normal.
+Les contrôles et captures v20 sont consignés dans [VERIFICATION-CALVI-FLUIDITE.md](docs/VERIFICATION-CALVI-FLUIDITE.md). La comparaison isolée de cadence est terminée et les 212 tests Node ainsi que les 35 scénarios Chromium réussissent.
+
+Captures publiques v20 : [jour](docs/calvi-v20-day.png) · [nuit](docs/calvi-v20-night.png) · [format téléphone](docs/calvi-v20-phone.png).
+
+Vues sectorielles v20 contrôlées : [citadelle](docs/calvi-v20-citadel-fixture.png) · [plage et Pinède](docs/calvi-v20-beach-fixture.png) · [aéroport](docs/calvi-v20-airport-fixture.png). Ces captures utilisent un rendu isolé sur les sources ; elles ne montrent pas un trajet accompli par le joueur.
 
 ## Lancer
 
@@ -23,6 +27,8 @@ Ouvrez l’adresse indiquée dans le terminal, normalement **http://127.0.0.1:41
 Le contour vient de la **relation OpenStreetMap 1151255 / INSEE 2B050** : environ **31,6 km²**, cinq polygones, îlots compris. Le rectangle cartographique mesure environ **8,94 × 7,73 km**. Port, citadelle, gare, plage, Pinède, Revellata et secteur de l’aéroport restent sur une carte continue, avec **1 552 tronçons routiers et 3 893 empreintes bâties**. Les surfaces dessinées suivent ces formes ; les largeurs de jeu et raccords artistiques ne constituent pas un relevé de voirie.
 
 Le relief reste le **MNT IGN LiDAR HD**, échantillonné à environ **20 m**, avec un extrait urbain à **5 m** et une transition documentée. Les bâtiments gardent leurs **1 355 hauteurs IGN BD TOPO raccordées** ; les **2 538 autres** utilisent un gabarit artistique ou une indication OSM exploitable. Façades, toitures, textures et détails sont dessinés. La vue conserve le nord en haut, une caméra qui se rapproche à pied et recule progressivement en véhicule, et le relief déjà utilisé pour les déplacements.
+
+La v20 utilise **3 219 observations de couleur de toiture**, dérivées de **83 200 échantillons dans 193 JPEG IGN aux empreintes vérifiées**. Ces couleurs guident les palettes dessinées ; elles ne mesurent ni la forme ni le matériau des toits. Les murailles reprennent **67 nœuds OSM** avec largeur de 3 m et hauteur de 10 m estimées. L’aéroport reçoit **30 surfaces ou axes OSM, soit 376 points source** ; la piste principale porte une largeur source de 45 m. Ces repères sont décoratifs et conservent les collisions de base.
 
 La végétation conserve les **12 000 groupes observés**, dont **8 475 couronnes ou groupes boisés et 3 525 groupes bas**. Cet ensemble comprend **32 observations manuelles** : 28 arbres sombres et quatre palmiers. Le feuillage est désormais dessiné à leurs positions et selon leurs silhouettes. Les petits troncs d’implantation estimée restent physiques ; le maquis bas ralentit le passage et couvre les jambes, tandis que les grands buissons peuvent faire obstacle. Couronne visuelle et tronc physique restent distincts. Ces groupes et leurs hauteurs ne sont pas un inventaire mesuré d’arbres individuels.
 
@@ -82,13 +88,14 @@ Pour les tests : `npm ci`, puis `npm test`. Les contrôles géographiques sont l
 
 Pour Chromium : `BLUE_NIGHT_TEST_PORT=4182 npm run test:browser -- --workers=1`, avec un port libre. Cet environnement utilise `/usr/bin/chromium` ; ailleurs, installez-le avec `npx playwright install chromium`. Les fixtures synthétiques restent privées et absentes des imports du jeu.
 
-La comparaison géographique et l’état des vérifications du nouveau rendu sont consignés dans [VERIFICATION-CALVI-ILLUSTREE.md](docs/VERIFICATION-CALVI-ILLUSTREE.md). Un correctif évite la reconstruction répétée des toits dans les vues stables testées ; des saccades restent observées pendant les premières créations de cache en conduite et les changements de zoom. La v19 ne reprend pas les chiffres des versions précédentes comme preuve de son résultat. Aucun essai physique Mac/Safari, téléphone ou séance humaine n’est revendiqué pour ce rendu. Le projet reste un jeu Web local, sans application native.
+Le diagnostic, la comparaison v19/v20 et les vérifications de cette version sont consignés dans [VERIFICATION-CALVI-FLUIDITE.md](docs/VERIFICATION-CALVI-FLUIDITE.md). Les 212 tests Node réussissent et la comparaison isolée améliore les courtes fenêtres appariées ; la commande de conduite y rencontre un obstacle après environ 201 pixels, sans preuve de roulage continu. Les 35 scénarios Chromium réussissent. Les mesures portent sur Chromium/Linux instrumenté ; Safari sur Mac et les appareils physiques ne sont pas mesurés. Le projet reste un jeu Web local, sans application native.
 
 ## Historique des versions précédentes
 
+- **v19 — premier décor illustré :** [rapport](docs/VERIFICATION-CALVI-ILLUSTREE.md), [jour](docs/calvi-illustrated-day.png), [nuit](docs/calvi-illustrated-night.png), [téléphone](docs/calvi-illustrated-phone.png), [port](docs/calvi-illustrated-port.png), [citadelle — fixture](docs/calvi-illustrated-citadel-fixture.png), [aéroport — fixture](docs/calvi-illustrated-airport-fixture.png).
 - **v18 — logo, interface compacte et parachute :** [rapport](docs/VERIFICATION-CALVI-LA-VIE.md), [accueil](docs/calvi-la-vie-title.png), [téléphone](docs/calvi-la-vie-phone.png), [parachute](docs/calvi-la-vie-parachute.png).
 - **v17 — ancien décor photographique :** [rapport et limites](docs/VERIFICATION.md), [jour](docs/blue-night-day.png), [nuit](docs/blue-night-afterhours.png), [port](docs/blue-night-photo-origin.png).
 
-Ces rapports, captures et mesures documentent leur version ; ils ne montrent pas le nouveau décor illustré.
+Ces rapports, captures et mesures documentent leur version ; ils ne valident pas le rendu et la cadence v20.
 
 [Conception](docs/CONCEPTION.md) · [Cartographie et provenance](docs/CARTOGRAPHIE.md) · [Observations photographiques](data/CALVI_AERIAL_OBJECTS.md) · [Relief](data/ELEVATION.md) · [Hauteurs](data/BUILDING_HEIGHTS.md) · [Direction artistique](docs/DIRECTION-ARTISTIQUE.md) · [Essais humains](docs/PLAYTEST.md)

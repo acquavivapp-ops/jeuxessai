@@ -1,0 +1,292 @@
+{
+  "version": "v20-calvi-readable",
+  "baseURL": "http://127.0.0.1:4173",
+  "coreAssets": 46,
+  "checkedURLs": 47,
+  "allHTTPBytesMatchCheckout": true,
+  "noPhotoPrecache": true,
+  "results": [
+    {
+      "url": "./",
+      "status": 200,
+      "bytes": 7266,
+      "sha256": "8d165657833a62fde97259ed7a33dfddc2beb113f9ca509742c7bcf0e45f1592"
+    },
+    {
+      "url": "./index.html",
+      "status": 200,
+      "bytes": 7266,
+      "sha256": "8d165657833a62fde97259ed7a33dfddc2beb113f9ca509742c7bcf0e45f1592"
+    },
+    {
+      "url": "./style.css",
+      "status": 200,
+      "bytes": 35544,
+      "sha256": "e9ec91d965d84a8b53b0dc6024e33552c072e96ecb70d72c76fdc5dd4d0e6ccc"
+    },
+    {
+      "url": "./app.js",
+      "status": 200,
+      "bytes": 33779,
+      "sha256": "d869fd2c98b5c9140fa3a0242ff44e6f5dc7b428adf88deacb8517cfa4b5cdf1"
+    },
+    {
+      "url": "./engine.js",
+      "status": 200,
+      "bytes": 69378,
+      "sha256": "7488c11d65af1baed247b0e84d4d31fc7f76e6d67e010860d2a0e5cca5dd9b5c"
+    },
+    {
+      "url": "./game-time.js",
+      "status": 200,
+      "bytes": 1782,
+      "sha256": "e5d433afcdfd0b2f0f503160960bdccf30082d87d0d2697cb60d2951e44ed2d1"
+    },
+    {
+      "url": "./police.js",
+      "status": 200,
+      "bytes": 22052,
+      "sha256": "e0f900336c2d5a5a3dc9589039a8132fb33fc5f952ebc52bf4ed207a58d8fdbb"
+    },
+    {
+      "url": "./mobility.js",
+      "status": 200,
+      "bytes": 16857,
+      "sha256": "affbbccc262a8fc4aea35bfd91d3289306fa61b883a403d1c173ee7e5e1ead23"
+    },
+    {
+      "url": "./parachute.js",
+      "status": 200,
+      "bytes": 7300,
+      "sha256": "9472b921eeb4afd23efafc8567334c98cbb8fd6ab970a0acb212beeb9b51d913"
+    },
+    {
+      "url": "./mobility-spawns.js",
+      "status": 200,
+      "bytes": 10747,
+      "sha256": "ca377b5b126cd3bda8a1685a55bd9c6b6e779d4d869db07781e38430cb541c75"
+    },
+    {
+      "url": "./vegetation.js",
+      "status": 200,
+      "bytes": 6496,
+      "sha256": "9de2679bffd99a62671a3314ad4a814d13e7fd5d3b9e6a95408851173cd61e74"
+    },
+    {
+      "url": "./piers.js",
+      "status": 200,
+      "bytes": 2815,
+      "sha256": "d0d76a728c8a1f2dbf023391376ca29b41a92428da0815d2845f4debd1db93fc"
+    },
+    {
+      "url": "./aerial-vehicles.js",
+      "status": 200,
+      "bytes": 32917,
+      "sha256": "39ab56d3fac4301aee1b5b2aaf26cd7182b1b31ea3f00f3f10d67e4b4d97ffcf"
+    },
+    {
+      "url": "./data/calvi-aerial-objects.js",
+      "status": 200,
+      "bytes": 7105547,
+      "sha256": "0afcde5239616bd8f358430e4d0fbbb8c45a3be0e1f26b411ed83bf638410fa5"
+    },
+    {
+      "url": "./render.js",
+      "status": 200,
+      "bytes": 126727,
+      "sha256": "cb87fcf82ded3d61da986ce7b1a596126fef84aff3810fea1b12dadca6a7d4fc"
+    },
+    {
+      "url": "./audio.js",
+      "status": 200,
+      "bytes": 27345,
+      "sha256": "acd3a8709bfb6baaa15fc5600221f0173ca805b428b75d8c1322a610c8f566a3"
+    },
+    {
+      "url": "./manifest.webmanifest",
+      "status": 200,
+      "bytes": 489,
+      "sha256": "ef90aecd8295754c8d71eb1e17e6cb39b0e35274dbcb06c33d6ead2d36a686c0"
+    },
+    {
+      "url": "./assets/icon.svg",
+      "status": 200,
+      "bytes": 1661,
+      "sha256": "5681e4ccb502e6e920ab2f62aa286b9c06026202946add7f1b76f9a2eca6d715"
+    },
+    {
+      "url": "./assets/calvi-la-vie-logo.png",
+      "status": 200,
+      "bytes": 2063004,
+      "sha256": "85a063616229d97c98a85b9729a0e8819c08e7333968965bce595ed902522cb5"
+    },
+    {
+      "url": "./assets/victory.svg",
+      "status": 200,
+      "bytes": 4490,
+      "sha256": "c186ae2e346fbf589c6e9cc9f66f75185ad4465475b88a0d46a48b0f8433bb34"
+    },
+    {
+      "url": "./assets/defeat.svg",
+      "status": 200,
+      "bytes": 2795,
+      "sha256": "03c31975b35ced560c2e4e860cb5759456c2155316a882685ed5e9dc03d9502c"
+    },
+    {
+      "url": "./universe.js",
+      "status": 200,
+      "bytes": 9904,
+      "sha256": "67d47d5d1e6b4098c619a082d79123082bad04bfeadf5438874a4c66182c86b0"
+    },
+    {
+      "url": "./calvi-world.js",
+      "status": 200,
+      "bytes": 20701,
+      "sha256": "e138f6f3ff11900ace296f640526678a94c086e9714eae8649f6fa395c535f1f"
+    },
+    {
+      "url": "./calvi-detail.js",
+      "status": 200,
+      "bytes": 24466,
+      "sha256": "30735736f8a0ae7147c1eeef234458eac8d355889809b9715e4f30b8b632908e"
+    },
+    {
+      "url": "./data/calvi-map.js",
+      "status": 200,
+      "bytes": 2898270,
+      "sha256": "e49162975dadeaf127018620f4c8fcdee8a3937fdce73f9f291b7fed11389773"
+    },
+    {
+      "url": "./combat.js",
+      "status": 200,
+      "bytes": 29961,
+      "sha256": "f27385d0407818295346b9cb306b3eebec5148a3a6356d64a82fad81f647bdec"
+    },
+    {
+      "url": "./terrain.js",
+      "status": 200,
+      "bytes": 6815,
+      "sha256": "b129b6a2189b95d354a2cc2977dbad257717a806645cc0397aea10c5be9fd16d"
+    },
+    {
+      "url": "./street-life.js",
+      "status": 200,
+      "bytes": 13898,
+      "sha256": "611b6f94fb93e964e87a54d1f1ffdfc7aabc219463da20c9a965d2e5e79e9e04"
+    },
+    {
+      "url": "./data/calvi-elevation.js",
+      "status": 200,
+      "bytes": 613883,
+      "sha256": "c7fab9df29a466584ebaa9dac87f1111ca8a1903511b2255867a803ac1a5a6aa"
+    },
+    {
+      "url": "./neon-art.js",
+      "status": 200,
+      "bytes": 51066,
+      "sha256": "2d72e2748dfd5dcec1dc92431f268ce00a3a23c53c8c7a8d275caab9ecf166da"
+    },
+    {
+      "url": "./assets/ninu.svg",
+      "status": 200,
+      "bytes": 3934,
+      "sha256": "eab2bcb44abc1428e4fc59e46d2ca78bf41b6ae09274117cb1438e9fc097303b"
+    },
+    {
+      "url": "./assets/anto.svg",
+      "status": 200,
+      "bytes": 4577,
+      "sha256": "ccbfee5089c95ce2cc3755299457b765dc40c5d8730de8668a584017ab8789e4"
+    },
+    {
+      "url": "./effects-art.js",
+      "status": 200,
+      "bytes": 17041,
+      "sha256": "26f792b1d21747bba119552762799674349835453dfdcc1f4713e9c9a890f163"
+    },
+    {
+      "url": "./building-height.js",
+      "status": 200,
+      "bytes": 4524,
+      "sha256": "e18d11d3a0071daf96fb3d323eb10caad2922574f67357957e02abe952de016c"
+    },
+    {
+      "url": "./data/calvi-building-heights.js",
+      "status": 200,
+      "bytes": 884791,
+      "sha256": "c5139fd46c055ae94692918b8a1bb8290ed0caf1ca4e3ca6160e1d2d6ed0eeec"
+    },
+    {
+      "url": "./data/calvi-lidar-elevation.js",
+      "status": 200,
+      "bytes": 1041554,
+      "sha256": "b76d5ea229dc75711ccd72db245ff0c770d27534eba433defd63b310af27cd1f"
+    },
+    {
+      "url": "./data/calvi-lidar-urban-elevation.js",
+      "status": 200,
+      "bytes": 241268,
+      "sha256": "36c456b78eaaa9bd3bd6a41740b660256fe9b9a3bee706aef9b7da893f06f3e6"
+    },
+    {
+      "url": "./data/calvi-boundary.geojson",
+      "status": 200,
+      "bytes": 59040,
+      "sha256": "0dfe831ff03c1b248f785fd677e4e0fad7d8f4b6138faa0e48b7d68b546c7d46"
+    },
+    {
+      "url": "./data/calvi-roof-observations.js",
+      "status": 200,
+      "bytes": 163511,
+      "sha256": "03272a4b937a567cbe391178a55a6fb2c86ee42e35205490f7fd94968db19b0e"
+    },
+    {
+      "url": "./data/calvi-architecture.js",
+      "status": 200,
+      "bytes": 38520,
+      "sha256": "8b7b401cca46f181e89915c410750ea602f24091fe0fbbee5619dde1fc0b028f"
+    },
+    {
+      "url": "./illustrated-materials.js",
+      "status": 200,
+      "bytes": 3160,
+      "sha256": "0916cbc29b8fbe343eea00bf319e46a06c43873005eb3c6e743cfb5067f4c0e4"
+    },
+    {
+      "url": "./illustrated-ground.js",
+      "status": 200,
+      "bytes": 19844,
+      "sha256": "b3443e6a62de3d261d9d9491fd684faef79ba18ca8cadb3fc26123ff13675ab5"
+    },
+    {
+      "url": "./illustrated-buildings.js",
+      "status": 200,
+      "bytes": 31689,
+      "sha256": "587065595bcfc4eaab6e3adcf82dec4c9cb639e27fddc0ca7727cb712b3eb6e4"
+    },
+    {
+      "url": "./illustrated-vegetation.js",
+      "status": 200,
+      "bytes": 12593,
+      "sha256": "cd1339c389b243701985a5fb019618b48466d9d19c87c5a32821676856ada2c0"
+    },
+    {
+      "url": "./assets/calvi-illustrated-materials.png",
+      "status": 200,
+      "bytes": 3783136,
+      "sha256": "1f0ff4447eaaafbf27d8d4b588613c07a8bb62885dea14ba6e04368ea6675176"
+    },
+    {
+      "url": "./assets/calvi-illustrated-materials.json",
+      "status": 200,
+      "bytes": 813,
+      "sha256": "46f6419ee56c45b5bea7e62902367ae4de7fb8e2e9a76645fb4403ebeb4eec98"
+    },
+    {
+      "url": "./sw.js",
+      "status": 200,
+      "bytes": 3430,
+      "sha256": "064aaf8cdd321dcf3bffd03f0eacce6ef84614d160441d82ab5c8733d818397b"
+    }
+  ]
+}
