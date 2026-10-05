@@ -1,0 +1,272 @@
+{
+  "status": "validated-isolated-preview",
+  "generatedAt": "2026-10-05T15:07:22.699057+00:00",
+  "command": "node /tmp/check-calvi-hybrid-preview.mjs > /tmp/calvi-la-vie-hybrid-qa.log 2>&1",
+  "exitCode": 0,
+  "browserClosed": true,
+  "scope": "Fixed port fixture, same world/state/camera for drawn and hybrid views; live gameplay does not use the photo source. No FPS benchmark or full gameplay rerun.",
+  "views": [
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "lighting": "day",
+      "capture": "/tmp/calvi-la-vie-hybrid-qa/hybrid-preview-day-1280x800.png",
+      "photoChangedPixels": 159961,
+      "transparentChangedPixels": 0,
+      "transparentMatchesDrawn": true,
+      "returnedDefaultMatchesDrawn": true,
+      "hybridPixelsFrozen": true,
+      "sameCamera": true,
+      "actorStateHash": "d45de00f30c4eea30f58fdbbd56c38eb467b8e098ff67707d30b7cf38c200002",
+      "sourceWarmDeltas": {
+        "decodeCount": 0,
+        "drawCalls": 0,
+        "bufferPaints": 0,
+        "maskPaints": 0
+      },
+      "rendererWarmDeltas": {
+        "groundPaintCount": 0,
+        "groundCacheMisses": 0,
+        "groundVisibleEvictions": 0,
+        "roofPaintCount": 0,
+        "roofCacheMisses": 0,
+        "roofVisibleEvictions": 0,
+        "foliagePaintCount": 0,
+        "foliageCacheMisses": 0,
+        "foliageVisibleEvictions": 0,
+        "parkedVehiclePaintCount": 0,
+        "parkedVehicleCacheMisses": 0,
+        "parkedVehicleVisibleEvictions": 0
+      },
+      "sourceActors": 251,
+      "worldFingerprint": "11f0e5b971f8f605",
+      "errors": 0
+    },
+    {
+      "viewport": [
+        1280,
+        800
+      ],
+      "lighting": "night",
+      "capture": "/tmp/calvi-la-vie-hybrid-qa/hybrid-preview-night-1280x800.png",
+      "photoChangedPixels": 157499,
+      "transparentChangedPixels": 0,
+      "transparentMatchesDrawn": true,
+      "returnedDefaultMatchesDrawn": true,
+      "hybridPixelsFrozen": true,
+      "sameCamera": true,
+      "actorStateHash": "d45de00f30c4eea30f58fdbbd56c38eb467b8e098ff67707d30b7cf38c200002",
+      "sourceWarmDeltas": {
+        "decodeCount": 0,
+        "drawCalls": 0,
+        "bufferPaints": 0,
+        "maskPaints": 0
+      },
+      "rendererWarmDeltas": {
+        "groundPaintCount": 0,
+        "groundCacheMisses": 0,
+        "groundVisibleEvictions": 0,
+        "roofPaintCount": 0,
+        "roofCacheMisses": 0,
+        "roofVisibleEvictions": 0,
+        "foliagePaintCount": 0,
+        "foliageCacheMisses": 0,
+        "foliageVisibleEvictions": 0,
+        "parkedVehiclePaintCount": 0,
+        "parkedVehicleCacheMisses": 0,
+        "parkedVehicleVisibleEvictions": 0
+      },
+      "sourceActors": 251,
+      "worldFingerprint": "11f0e5b971f8f605",
+      "errors": 0
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "lighting": "day",
+      "capture": "/tmp/calvi-la-vie-hybrid-qa/hybrid-preview-day-390x844.png",
+      "photoChangedPixels": 159961,
+      "transparentChangedPixels": 0,
+      "transparentMatchesDrawn": true,
+      "returnedDefaultMatchesDrawn": true,
+      "hybridPixelsFrozen": true,
+      "sameCamera": true,
+      "actorStateHash": "d45de00f30c4eea30f58fdbbd56c38eb467b8e098ff67707d30b7cf38c200002",
+      "sourceWarmDeltas": {
+        "decodeCount": 0,
+        "drawCalls": 0,
+        "bufferPaints": 0,
+        "maskPaints": 0
+      },
+      "rendererWarmDeltas": {
+        "groundPaintCount": 0,
+        "groundCacheMisses": 0,
+        "groundVisibleEvictions": 0,
+        "roofPaintCount": 0,
+        "roofCacheMisses": 0,
+        "roofVisibleEvictions": 0,
+        "foliagePaintCount": 0,
+        "foliageCacheMisses": 0,
+        "foliageVisibleEvictions": 0,
+        "parkedVehiclePaintCount": 0,
+        "parkedVehicleCacheMisses": 0,
+        "parkedVehicleVisibleEvictions": 0
+      },
+      "sourceActors": 251,
+      "worldFingerprint": "11f0e5b971f8f605",
+      "errors": 0
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "lighting": "night",
+      "capture": "/tmp/calvi-la-vie-hybrid-qa/hybrid-preview-night-390x844.png",
+      "photoChangedPixels": 157499,
+      "transparentChangedPixels": 0,
+      "transparentMatchesDrawn": true,
+      "returnedDefaultMatchesDrawn": true,
+      "hybridPixelsFrozen": true,
+      "sameCamera": true,
+      "actorStateHash": "d45de00f30c4eea30f58fdbbd56c38eb467b8e098ff67707d30b7cf38c200002",
+      "sourceWarmDeltas": {
+        "decodeCount": 0,
+        "drawCalls": 0,
+        "bufferPaints": 0,
+        "maskPaints": 0
+      },
+      "rendererWarmDeltas": {
+        "groundPaintCount": 0,
+        "groundCacheMisses": 0,
+        "groundVisibleEvictions": 0,
+        "roofPaintCount": 0,
+        "roofCacheMisses": 0,
+        "roofVisibleEvictions": 0,
+        "foliagePaintCount": 0,
+        "foliageCacheMisses": 0,
+        "foliageVisibleEvictions": 0,
+        "parkedVehiclePaintCount": 0,
+        "parkedVehicleCacheMisses": 0,
+        "parkedVehicleVisibleEvictions": 0
+      },
+      "sourceActors": 251,
+      "worldFingerprint": "11f0e5b971f8f605",
+      "errors": 0
+    }
+  ],
+  "source": {
+    "loaded": [
+      {
+        "id": "detail-urban-c5-r4",
+        "boundsWorld": {
+          "x": 16120,
+          "y": 8596,
+          "w": 1024,
+          "h": 1024
+        },
+        "bytes": 4194304
+      },
+      {
+        "id": "detail-urban-c5-r3",
+        "boundsWorld": {
+          "x": 16120,
+          "y": 7572,
+          "w": 1024,
+          "h": 1024
+        },
+        "bytes": 4194304
+      },
+      {
+        "id": "detail-urban-c4-r4",
+        "boundsWorld": {
+          "x": 15096,
+          "y": 8596,
+          "w": 1024,
+          "h": 1024
+        },
+        "bytes": 4194304
+      },
+      {
+        "id": "detail-urban-c4-r3",
+        "boundsWorld": {
+          "x": 15096,
+          "y": 7572,
+          "w": 1024,
+          "h": 1024
+        },
+        "bytes": 4194304
+      }
+    ],
+    "selected": [
+      "detail-urban-c5-r4",
+      "detail-urban-c5-r3",
+      "detail-urban-c4-r4",
+      "detail-urban-c4-r3"
+    ],
+    "failed": [],
+    "decodeCount": 4,
+    "decodedBytes": 16777216,
+    "peakDecodedBytes": 16777216,
+    "bufferBytes": 262144,
+    "estimatedPixelBytes": 17039360,
+    "maskCount": 580,
+    "maskCounts": {
+      "building": 47,
+      "canopy": 33,
+      "canopyObservation": 33,
+      "vehicle": 143,
+      "vehicleObservation": 143,
+      "groundPatch": 151,
+      "excluded": 15,
+      "excludedObservation": 15
+    },
+    "maskVersion": "union-v1-2fa9b60e",
+    "previewBounds": {
+      "x": 16080,
+      "y": 8200,
+      "w": 1060,
+      "h": 1050
+    },
+    "uncoveredPreviewArea": 0,
+    "detailMetresPerPixel": {
+      "x": 0.25,
+      "y": 0.25
+    },
+    "attribution": "© IGN — BD ORTHO — Licence Ouverte / Open Licence"
+  },
+  "geometry": {
+    "geometry": "bde3e54d6455fc8507077bf0e5772abfd02bca271450bca33b21e28e837db891",
+    "vehicles": "06fa7ae5236cccc8ac10c7dafff7c0958680dda9f12b4d0b41c7c613e9356440"
+  },
+  "actorCount": 251,
+  "allActorStatesIdentical": true,
+  "defaultGame": {
+    "mode": "playing",
+    "artMode": "illustrated",
+    "photoMode": false,
+    "jpegOrHybridModuleRequests": [],
+    "imageryRequests": 0,
+    "errors": []
+  },
+  "limitations": [
+    "Photographic shadows and unannotated objects can remain. Known buildings, crowns and vehicle annotations are masked; no photographic inpainting.",
+    "The source pixel estimate is16MiB decoded photographs plus256KiB scratch. Renderer caches and total browser/GPU memory are separate.",
+    "Phone preview scales the same1280×800 fixed comparison canvas; it does not establish mobile gameplay camera coverage or native Safari performance."
+  ],
+  "historicalDiagnostic": {
+    "exitCode": 1,
+    "cause": "Implicit/favicon.ico404; explicit assets/icon.svg added to HTML. This diagnostic is excluded from final validation.",
+    "file": "/tmp/calvi-la-vie-hybrid-qa/initial-favicon-diagnostic.json"
+  },
+  "sourceHashes": {
+    "render.js": "797b0fd798494520773d8e103eca0b972a1f471a03404414b8b34d91a62c73b8",
+    "hybrid-ground-detail.js": "2b316cbdf30db7db4a9d7442c55c7fea2a484c209ba4ba14ea2c1bdf012136d1",
+    "docs/calvi-hybrid-preview.html": "25045e859aa74906645d8fe81dcf9ff00af68d802ccf302a566b8f60b761449b",
+    "docs/calvi-hybrid-preview.js": "e83aaac26ad797f239cb5bd2c7139114e0c226e3a16dc7eaa879cd5e5fb69735"
+  }
+}

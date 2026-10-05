@@ -86,6 +86,7 @@ const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 let backgroundCache = new WeakMap();
 let backgroundCacheBytes = new WeakMap();
 const GROUND_CACHE_BYTES = 32 * 1024 * 1024, GROUND_TILE_SIZE = 128, GROUND_CACHE_ENTRIES = 192;
+const GROUND_TILE_GUTTER = 3;
 let groundPaintCount = 0, groundCacheMisses = 0, groundEvictions = 0, groundVisibleEvictions = 0;
 let groundDensity = 2, groundVisibleTiles = 0;
 let currentRenderWorld = null;
@@ -923,7 +924,23 @@ function projectedGroundBounds(world, bounds) {
   while (cache.size > 256) cache.delete(cache.keys().next().value);
   return result;
 }
-function paintGroundTile(ctx, world, bounds, daylight) {
+function groundPaintBounds(bounds) {
+  const gutter = GROUND_TILE_GUTTER;
+  return { x: bounds.x - gutter, y: bounds.y - gutter, w: bounds.w + gutter * 2, h: bounds.h + gutter * 2 };
+}
+// Optional fixture source: the signature describes intersecting decoded crops,
+// blend settings and mask version. It must not change for unrelated arrivals.
+// No source means the exact production v20 path, without imagery imports.
+export function groundDetailCacheSignature(source, bounds) {
+  const base = 'illustrated-calvi-v19';
+  if (!source) return base;
+  if (typeof source.id !== 'string' || !source.id || typeof source.signatureForBounds !== 'function' || typeof source.draw !== 'function')
+    throw new TypeError('Ground detail requires a stable id, signatureForBounds and draw');
+  const local = source.signatureForBounds(bounds);
+  if (typeof local !== 'string') throw new TypeError('Ground detail bounds signature must be a string');
+  return `${base}|detail:${JSON.stringify([source.id, local])}`;
+}
+function paintGroundTile(ctx, world, bounds, daylight, groundDetailSource = null) {
   groundPaintCount++;
   return underMaterialLight(daylight, () => {
     const density = 2;
@@ -931,6 +948,12 @@ function paintGroundTile(ctx, world, bounds, daylight) {
     if (!paint) return null;
     paint.scale(density, density); paint.translate(-bounds.x, -bounds.y);
     drawIllustratedGround(paint, world, bounds, { lighting: materialLight, textures: textureFill });
+    if (groundDetailSource) {
+      paint.save();
+      try {
+        if (clipIllustratedLand(paint, world, bounds)) groundDetailSource.draw(paint, world, bounds, daylight);
+      } finally { paint.restore(); }
+    }
     terrainShade(paint, world, bounds);
     paint.save();
     if (clipIllustratedLand(paint, world, bounds)) drawRoads(paint, world, bounds);
@@ -941,11 +964,11 @@ function paintGroundTile(ctx, world, bounds, daylight) {
     return tile;
   });
 }
-function paintProjectedGround(ctx, world, bounds, projected, daylight, density = 2) {
+function paintProjectedGround(ctx, world, bounds, projected, daylight, density = 2, groundDetailSource = null) {
   // A source gutter keeps fractional camera translation from exposing
   // transparent seams between neighbouring painted terrain tiles.
-  const gutter = 3, expanded = { x: bounds.x - gutter, y: bounds.y - gutter, w: bounds.w + gutter * 2, h: bounds.h + gutter * 2 };
-  const source = paintGroundTile(ctx, world, expanded, daylight);
+  const gutter = GROUND_TILE_GUTTER, expanded = groundPaintBounds(bounds);
+  const source = paintGroundTile(ctx, world, expanded, daylight, groundDetailSource);
   if (!source) return null;
   const tile = canvasFor(ctx, projected.w, projected.h, density), paint = tile?.getContext('2d');
   if (!paint) return null;
@@ -1036,7 +1059,7 @@ function prepareSpriteBudgets(world, canvas, buildings, trees) {
   profiles.set(key, profile);
   while (profiles.size > 16) profiles.delete(profiles.keys().next().value);
 }
-function backdrop(ctx, world, camera) {
+function backdrop(ctx, world, camera, groundDetailSource = null) {
   const size = GROUND_TILE_SIZE;
   let cache = backgroundCache.get(world);
   if (!cache) { cache = new Map(); backgroundCache.set(world, cache); }
@@ -1064,7 +1087,7 @@ function backdrop(ctx, world, camera) {
     && (entry.paletteWorld !== world || !visibleKeys.has(entry.paletteOwner))) paletteBlendQueue.delete(entry);
   let bytes = backgroundCacheBytes.get(world) || 0;
   for (const { key, bounds, projected } of tiles) {
-    const signature = 'illustrated-calvi-v19', existing = cache.get(key);
+    const signature = groundDetailCacheSignature(groundDetailSource, groundDetailSource ? groundPaintBounds(bounds) : bounds), existing = cache.get(key);
     const reusable = existing && existing.signature === signature && existing.density === density;
     if (existing && !reusable) { bytes -= existing.bytes || imageBytes(existing); paletteBlendQueue.delete(existing); cache.delete(key); }
     const entry = reusable ? existing : { signature, density, paletteKind: 'ground', paletteOwner: key, paletteWorld: world };
@@ -1072,7 +1095,7 @@ function backdrop(ctx, world, camera) {
     if (!reusable) groundCacheMisses++;
     // Relief and map geometry are static. Project each source palette once,
     // then blend the correctly warped tiles as daylight changes.
-    const tile = blendedArt(ctx, entry, daylight => paintProjectedGround(ctx, world, bounds, projected, daylight, entry.density), projected.w, projected.h, true);
+    const tile = blendedArt(ctx, entry, daylight => paintProjectedGround(ctx, world, bounds, projected, daylight, entry.density, groundDetailSource), projected.w, projected.h, true);
     if (!tile) continue;
     entry.bytes = imageBytes(entry); bytes += entry.bytes - beforeBytes;
     cache.delete(key); cache.set(key, entry);
@@ -1823,7 +1846,7 @@ function policeFireCue(ctx, unit, world, focus) {
   const x = unit.x + Math.cos(angle) * length, y = unit.y + Math.sin(angle) * length;
   ctx.lineTo(x, y - liftAt(world, x, y)); ctx.stroke(); ctx.restore();
 }
-export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
+export function render(ctx, game, { reducedEffects = false, time = 0, groundDetailSource = null } = {}) {
   const cpuStart = performance.now(); renderCount++; parkedVehiclePaintAllowance = 3;
   paletteFramePixels = 0;
   // Entries which left the visible scene must not block the FIFO or retain
@@ -1861,7 +1884,7 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
   setMaterialLight(renderLighting(game));
   rect(ctx, 0, 0, width, height, C.seaDark);
   ctx.translate(-camera.x, -camera.y);
-  backdrop(ctx, world, camera); terrainCliffs(ctx, world, camera); municipalBorder(ctx, world, camera);
+  backdrop(ctx, world, camera, groundDetailSource); terrainCliffs(ctx, world, camera); municipalBorder(ctx, world, camera);
   drawIllustratedFortifications(ctx, world, rawBounds, { lighting: materialLight,
     projectPoint: (x, y) => [x, y - liftAt(world, x, y)] });
   frameDetails.seaRippleCount = seaRipples(ctx, world, groundView, t, reducedEffects);

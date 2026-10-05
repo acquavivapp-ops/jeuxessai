@@ -12,6 +12,8 @@ Captures publiques v20 : [jour](docs/calvi-v20-day.png) · [nuit](docs/calvi-v20
 
 Vues sectorielles v20 contrôlées : [citadelle](docs/calvi-v20-citadel-fixture.png) · [plage et Pinède](docs/calvi-v20-beach-fixture.png) · [aéroport](docs/calvi-v20-airport-fixture.png). Ces captures utilisent un rendu isolé sur les sources ; elles ne montrent pas un trajet accompli par le joueur.
 
+Un [aperçu hybride isolé du port](docs/APERCU-HYBRIDE-CALVI.md) compare le dessin avec des détails photographiques géoréférencés au sol. Le jeu principal reste illustré.
+
 ## Lancer
 
 Node.js **20 ou supérieur** suffit pour jouer. Décompressez le ZIP du jeu, placez-vous dans le dossier contenant `package.json`, puis :

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CALVI LA VIE — aperçu hybride</title>
+  <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+  <style>
+    :root{color-scheme:dark;font:16px system-ui,sans-serif;background:#101b24;color:#e8eee9}
+    *{box-sizing:border-box}body{margin:0;padding:20px}main{max-width:1280px;margin:auto}
+    h1{font-size:24px;margin:0 0 6px}p{line-height:1.5;color:#b8c6ce;margin:8px 0 16px}
+    .controls{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:18px 0}
+    label{display:flex;align-items:center;gap:8px;font-size:14px}select,input{min-height:44px}
+    input[type=range]{width:170px;accent-color:#66e7cf}select{padding:8px;background:#20333f;color:inherit;border:1px solid #526875;border-radius:8px}
+    .stage{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:12px;background:#243b46}
+    canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+    #hybrid{clip-path:inset(0 0 0 50%)}
+    #divider{position:absolute;top:0;bottom:0;left:50%;border-left:2px solid #f5f4da;pointer-events:none}
+    .badge{position:absolute;top:12px;padding:7px 10px;border-radius:8px;background:#101b24cc;font-size:13px;pointer-events:none}
+    .left{left:12px}.right{right:12px}#status{font-size:13px;color:#a1d8cd;min-height:22px}
+    footer{font-size:12px;color:#99adb7;line-height:1.5;margin:18px 0}
+    @media(max-width:550px){body{padding:12px}h1{font-size:20px}.controls{gap:8px 16px}label{flex-wrap:wrap}input[type=range]{width:130px}.badge{font-size:11px}}
+  </style>
+</head>
+<body>
+<main>
+  <h1>CALVI LA VIE · le port en version hybride</h1>
+  <p>Un aperçu fixe du même lieu : le dessin donne le relief, la photographie aérienne apporte les détails du sol.</p>
+  <div class="controls">
+    <label>Lumière <select id="light"><option value="720">Jour</option><option value="0">Nuit</option></select></label>
+    <label>Détail photo <input id="photo" type="range" min="20" max="85" value="65"><output id="amount">65 %</output></label>
+    <label>Avant / après <input id="compare" type="range" min="0" max="100" value="50" aria-label="Séparation entre dessin et hybride"></label>
+  </div>
+  <p id="status" role="status">Chargement de l’aperçu…</p>
+  <div class="stage">
+    <canvas id="drawn" width="1280" height="800" aria-label="Port de Calvi dessiné"></canvas>
+    <canvas id="hybrid" width="1280" height="800" aria-label="Port de Calvi en rendu hybride"></canvas>
+    <span class="badge left">DESSIN</span><span class="badge right">HYBRIDE</span><div id="divider"></div>
+  </div>
+  <footer>Aperçu graphique du port, indépendant de la partie. La mer, les bâtiments, les arbres et les véhicules restent dessinés. Des ombres présentes dans la photographie peuvent subsister. © IGN · Licence Ouverte / Open Licence — © OpenStreetMap contributors · ODbL 1.0.</footer>
+</main>
+<script type="module" src="calvi-hybrid-preview.js"></script>
+</body>
+</html>
