@@ -1,244 +1,67 @@
-# CALVI LA VIE · Calvi Afterhours
+# CALVI LA VIE — direction artistique v19
 
-**Une commune méditerranéenne du jour à la nuit, en 1994.** CALVI LA VIE associe la liberté des premiers GTA à
-une identité corse originale, des silhouettes d’arcade lisibles et une
-photographie aérienne réelle enrichie de lumière et de profondeur.
+La v19 étend la maquette dessinée à **toute la vraie carte de Calvi**. Le résultat vise une ville d’arcade des années 90, en vue aérienne **2,5D**, avec une matière illustrée et des touches modernes de volume, lumière et profondeur. La configuration géographique reste celle du monde importé ; le traitement graphique habille ses formes.
 
-## Palette et matière
+## Une géographie conservée, des matières dessinées
 
-Le bleu pétrole constitue le fond de nuit. Le **cyan** appartient aux
-reflets du port et aux enseignes ; le **corail** donne de l'énergie aux
-lieux ouverts tard. Le **prune** teinte les carrughji, tandis que les
-tons **dorés** portent la pierre de la citadelle. Le maquis et les tenues
-militaires gardent leurs verts olive. La palette conserve les contrastes
-nécessaires à la circulation, aux personnages et aux alertes.
+Les coordonnées, voies, empreintes bâties, littoral, contour communal, relief et observations restent stables. Les **1 552 tronçons routiers**, **3 893 empreintes bâties**, six axes de pontons et repères de Calvi conservent leurs positions source. La ville n’est pas redessinée librement pour composer un joli quartier à la place du vrai plan.
 
-Le rendu reste aérien et immédiatement jouable : contours francs,
-animation expressive, phares et reflets. La photographie IGN porte
-la matière réelle des rues, quais, plages et végétation. Les touches
-modernes servent la lecture de la ville : relief mesuré, volumes,
-ombres, éclairages et façades reconstituées. Les silhouettes et les
-couleurs évoquent l’arcade des années 90 ; les contrôles et la scène
-adaptée à toute la fenêtre appartiennent au jeu actuel. Aucun sprite,
-texture, logo ou morceau de GTA ou Nintendo n’est repris.
+Les matières de `assets/calvi-illustrated-materials.png`, en grille **3 × 3**, réunissent les surfaces de sol, eau, voirie, pierre, toitures et végétation. La photographie IGN reste une source archivée, avec requêtes et empreintes ; elle n’est plus affichée sous le joueur, sur les toits ou dans le feuillage. Elle continue d’expliquer les observations végétales et les positions de véhicules retenues.
 
-La vue aérienne se rapproche maintenant de **GTA 2** : les personnages
-ont des proportions adultes, les voitures des panneaux de carrosserie,
-essuie-glaces et petits reflets métalliques. Les façades montrent les
-étages, corniches et balcons ; les toits conservent maintenant leur
-texture photographique découpée dans l’empreinte OSM et élevée avec
-le bâtiment. Les personnages, véhicules et accessoires gardent un
-dessin original plus expressif que la géographie environnante. Les
-silhouettes du joueur et de sa visée restent repérables au premier plan.
+L’unité visuelle vient d’une palette commune, de petites variations de matière et d’ombres lisibles. Pierre claire, sable chaud, toits terracotta et végétation olive portent le jour ; bleu pétrole, cyan, corail et fenêtres chaudes portent la nuit. Les silhouettes conservent des contours francs et une animation d’arcade. Aucun sprite, texture, logo ou morceau de GTA ou Nintendo n’est repris.
 
-Les hauteurs donnent du volume aux rues et allongent les ombres. Un toit
-qui masque le personnage à l’extérieur devient partiellement transparent.
-Les données IGN BD TOPO donnent une hauteur à **1 355 empreintes OSM**
-compatibles. Les **2 538 autres** gardent un gabarit artistique ou une
-indication OSM exploitable ; un nombre d’étages ne constitue pas une
-hauteur mesurée en mètres. Même avec un toit photographique, les façades,
-les détails et la forme du volume restent une interprétation de jeu.
+## Sol, mer et routes
 
-L’atlas **IGN BD ORTHO** constitue le fond visible. Il conserve un export
-communal de **17 884 × 15 466 pixels**, à environ **0,50 m/pixel**, et un
-détail réel demandé à **0,25 m/pixel** sur deux régions de **23,875 km²** :
-centre, port, citadelle, pinède, entrée Est et aéroport. Les réponses des
-mêmes petites emprises à 0,50, 0,25 et 0,20 m sont archivées. Le niveau à
-0,25 m affine les contours et marquages ; le gain visuel à 0,20 m est
-faible et ce troisième niveau n’est pas utilisé.
+Les surfaces terrestres suivent les contours et emprises importés. Les changements entre pierre urbaine, terre, sable et végétation aident à lire l’espace sans modifier ses accès physiques. Les textures s’ancrent au monde : elles doivent rester stables pendant les mouvements de caméra et le changement de zoom.
 
-La photographie n’est pas recouverte de routes opaques ou d’une forêt
-uniforme dessinée pour le décor. Les groupes de houppiers matérialisés
-reprennent les pixels IGN découpés selon leurs silhouettes, avec des
-volumes, ombres et hauteurs artistiques. **Vingt-huit couronnes sombres**
-du square, du quai et des abords de la gare complètent le détecteur de verts ;
-les quatre palmes observées gardent leur silhouette. Ces groupes ne
-sont pas un inventaire mesuré d’arbres individuels. Le petit tronc
-d’implantation estimée a une présence physique, tandis que le maquis
-bas ralentit le passage et couvre les jambes ; les grands buissons
-peuvent faire obstacle.
+La mer est dessinée, avec des variations de bleu et un **clapotis léger**. Les ondulations et reflets suivent le temps actif, s’arrêtent en pause et respectent les zones d’eau. Le rivage, les quais et les pontons doivent rester compréhensibles ; un motif décoratif ne doit pas donner l’impression qu’une coque peut traverser la terre.
 
-Ombre et pied du tronc restent au sol. Les couronnes élevées sont
-ordonnées devant les acteurs concernés, avec restauration locale des
-feuilles photographiques sur la partie de silhouette réellement cachée.
-Le feuillage n’utilise pas de transparence spéciale autour du personnage ;
-la transparence de confort concerne les bâtiments. Cette occlusion garde
-le lien entre matière photographique, pied de l’arbre et profondeur.
-La projection du terrain utilise le vrai MNT LiDAR à environ **20 m**,
-avec un extrait urbain à **5 m** raccordé par une transition documentée.
-La photo n’ajoute aucune altitude manquante.
+Les routes suivent les vrais axes, courbes et raccords du réseau importé. Leur traitement distingue la chaussée, les bords et les intersections selon la catégorie disponible. Largeurs et détails ajoutés pour le jeu restent des estimations artistiques ; ils n’affirment pas un relevé exact de chaque trottoir, marquage ou voie de Calvi.
 
-Le pas de l’export aérien ne certifie ni la résolution native ni la
-précision locale. Les prises de vue et géométries peuvent présenter des
-décalages : le jeu ne masque pas cette limite par du détail inventé.
-La photographie actuelle n’est pas une reconstruction de 1994.
+## Bâtiments et relief
 
-Dans certains parkings, au port et à l’aéroport, des véhicules repérés
-manuellement sur l’image deviennent des voitures, bateaux ou avions
-physiques que l’on peut prendre et piloter. Leur ancienne silhouette
-fixe est masquée par une petite matière voisine reconstituée pour le jeu ;
-ce masque reste après le départ du véhicule. Les photographies originales
-ne sont pas modifiées. Cette transformation concerne des placements
-vérifiés et accessibles, sans exhaustivité sur toute la commune.
+Chaque bâtiment garde son empreinte OSM. Façades, étages, corniches, ouvertures et toits sont dessinés sur le volume correspondant. Les variations de pierre et de toiture renforcent le relief de la ville sans décaler un bâtiment ou étendre arbitrairement sa collision.
 
-La mer conserve sa matière aérienne et gagne un **léger clapotis**.
-Les reflets et ondulations suivent le temps actif du jeu et s’arrêtent
-en pause. Leur intensité reste discrète pour garder lisibles le littoral,
-les quais et le sillage du bateau.
+Les **1 355 hauteurs IGN BD TOPO raccordées** restent utilisées. Les **2 538 autres empreintes** gardent un gabarit artistique ou une indication OSM exploitable. Une indication d’étages n’est pas une hauteur mesurée. La texture et les détails de façade ne certifient pas l’apparence réelle de chaque construction.
 
-## Journée, caméra et poursuite
+Le terrain conserve le **MNT IGN LiDAR HD**, à environ **20 m**, avec l’extrait urbain à **5 m** et sa transition documentée. Ombres, pentes et bâtiments se lisent sur ce relief ; le dessin ne crée pas une nouvelle montagne ou ne lisse pas les hauteurs pour changer le trajet. La transparence de confort des bâtiments aide à voir le personnage masqué par un toit.
 
-Une journée dure douze minutes actives. Les départs à **06:00, 12:00,
-18:30 et 00:00** permettent de comparer aube, soleil, soirée et nuit ;
-18:30 est le choix initial et conserve encore de la lumière. Les matériaux
-de jour et de nuit se fondent progressivement : pierre claire, terracotta
-et verts naturels au soleil, bleu pétrole et fenêtres chaudes après
-le coucher. Les ombres évoluent avec l’heure ; les phares et lampes
-prennent davantage de place dans l’obscurité. Tout se fige en pause.
+## Végétation et profondeur
 
-Le zoom à pied, **1,95**, rapproche le personnage et les accessoires.
-En véhicule, un recul progressif vers **1,65** montre davantage de terrain.
-Les deux états conservent les mêmes coordonnées physiques et une visée
-sur le sol. Le bitmap de l’écran garde sa taille pendant le zoom, sans
-être reconstruit à chaque image.
+Les **12 000 groupes végétaux**, dont 8 475 couronnes ou groupes boisés et 3 525 groupes bas, gardent les emplacements et silhouettes issus des observations. Les **32 observations manuelles** conservent 28 arbres sombres et quatre palmiers. Leur matière devient illustrée, avec petites variations de feuilles, volumes et ombres ; leurs coordonnées ne changent pas pour remplir arbitrairement le décor.
 
-Les **698 tuiles locales** — 288 communales et 410 de détail — arrivent
-progressivement autour de la caméra. Les deux niveaux partagent le même
-maximum de **quatre tuiles / 16 Mio décodés**, en plus d’un aperçu de
-**1 024 × 886 pixels**. Les fonds projetés et toits ont leurs propres
-caches bornés. Ces budgets décrivent les textures, pas toute la mémoire
-du navigateur. Aucun service de cartes distant n’est nécessaire pendant
-une partie. Les flous permanents de l’interface sont réduits pour limiter
-le coût du rendu ; une cadence précise reste dépendante de l’appareil.
+Le petit tronc d’implantation estimée demeure un obstacle physique. Le maquis bas ralentit et couvre les jambes ; les grands buissons peuvent bloquer. Une couronne n’est pas un mur entier : le personnage peut passer dessous, puis être masqué par le feuillage à la bonne profondeur. Pied du tronc et ombre restent ancrés au sol. Ces silhouettes, positions et hauteurs artistiques ne constituent pas un recensement mesuré d’arbres individuels.
 
-La **moto** distingue roues et pilote dans une silhouette étroite ; le
-**bateau** montre sa coque et son sillage au niveau de l’eau. L’**hélicoptère**
-possède rotor et patins ; l’**avion** possède ailes et hélice. Leur ombre
-reste au sol et leur position visible suit l’altitude de vol. Les appareils
-pilotables sont distincts de l’hélicoptère de recherche policier. Les
-bateaux et avions issus des observations photographiques gardent leurs
-dimensions source dans une silhouette dessinée originale ; les marges
-physiques conservatrices de l’avion restent distinctes du dessin.
+## Personnages et transports
 
-Ces types de véhicules s’ajoutent aux voitures. La mer et le survol restent
-dans le rectangle de Calvi ; les déplacements à pied et atterrissages
-respectent la commune. Six vrais axes de pontons OSM ouvrent un passage
-à pied au port, avec une largeur de jeu estimée de 10 pixels, soit 2,5 m.
-Le bateau demande un accostage accessible. Les appareils permettent
-un atterrissage suivi d’une sortie ou un saut en vol avec **E/Entrée ou SAUTER**,
-puis l’ouverture du parachute avec **Espace ou PARACHUTE** pendant la chute.
-La voile et la silhouette doivent rendre la descente et la direction lisibles.
-Les déplacements des passants et agents à pied peuvent
-suivre le sol libre hors chaussée, en respectant le contour et les obstacles.
-Les placements fictifs et observations accessibles servent la partie,
-sans certifier les installations aéronautiques. Les quatre observations
-d’avions hors commune restent archivées sans devenir jouables.
+Les personnages conservent tenues olive, cagoules noires et regards expressifs. Leurs noms, biographies, répliques et textes de présentation restent retirés. Les portraits et silhouettes sont originaux ; leurs accessoires servent la lecture visuelle sans imposer de nouveau texte narratif.
 
-Six silhouettes d’armes et six sons distinguent l’équipement. Les six
-étoiles de recherche indiquent une réponse croissante. Barrages, véhicules
-lourds et militaires, hélicoptère avec rotor, ombre et projecteur rendent
-les renforts lisibles dans la ville. Les avertissements précèdent leur
-action ; les véhicules de barrage sont destructibles.
+Les **251 véhicules issus des observations**, dont 96 voitures, 153 bateaux et deux avions, gardent leur position photographique. Ils sont dessinés comme acteurs utilisables ; le sol illustré ne contient plus leurs anciennes silhouettes fixes. Les 40 placements fictifs ou véhicules de trafic restent distincts. La couverture ne prétend pas recenser tous les véhicules de la commune, et vingt observations exclues restent archivées.
 
-## Sang, feu et destruction
+La voiture montre carrosserie, vitres et phares ; la moto, roues et pilote ; le bateau, coque et sillage ; l’hélicoptère, patins et rotor ; l’avion, ailes et hélice. Ombre au sol et altitude rendent le vol lisible. Les appareils pilotables restent distincts de l’hélicoptère de recherche.
 
-Les morts laissent des éclaboussures et des traces rouge sombre au sol.
-Les impacts de véhicule étirent ces traces dans le sens du déplacement.
-Leur durée suit le temps du jeu et se fige pendant une pause.
+Un saut en vol utilise **E/Entrée ou SAUTER**. Pendant la chute, **Espace ou PARACHUTE** ouvre la voile, puis le déplacement dirige la descente. Voile, suspentes, silhouette et ombre doivent permettre de lire altitude, direction et retour au sol sans les confondre avec le pilotage. Les six pontons réels gardent leur largeur de jeu estimée de 10 pixels, soit 2,5 m ; ils restent réservés à l’accès à pied.
 
-L’explosion a une progression courte : éclair, noyau blanc, feu orange
-irrégulier, onde de choc, débris puis fumée qui se dissipe. Les flammes
-d’incendie utilisent plusieurs foyers et une fumée montante. Les tirs
-sur une voiture provoquent un incendie suivi d’une explosion différée ;
-les explosifs provoquent une détonation immédiate. Une destruction de
-bâtiment par tirs insiste sur la poussière et les débris, tandis que les
-explosifs ajoutent davantage de foyers. Le mode effets réduits diminue
-ces animations et leur coût de dessin.
+## Jour, nuit et caméra
 
-Les chaînes d’explosions conservent en priorité les effets proches du
-joueur en tenant compte de l’altitude, dans un budget de 64 effets. L’explosion qui
-déclenche la chaîne garde ainsi sa présence visuelle ; cette sélection
-concerne le rendu, avec les mêmes coordonnées et dégâts de jeu.
+Une journée dure **douze minutes actives**. Départs à **06:00, 12:00, 18:30 et 00:00** ; 18:30 est le choix initial. Lumière, ombres, fenêtres, enseignes, lampes et phares évoluent progressivement. Le décor doit conserver une route et des silhouettes lisibles de jour comme de nuit ; la couleur nocturne ne doit pas masquer les obstacles importants.
 
-## Silhouettes des personnages
+Le zoom passe d’environ **1,95 à pied à 1,65 en véhicule**. Les distances et coordonnées physiques restent identiques. La matière illustrée se projette sur le monde, sans agrandir la carte ni modifier la vitesse pour donner une impression de détail. Pause et interruption figent lumière, mer, projectiles, feu, chute et voile.
 
-Les personnages gardent leurs silhouettes et accessoires : regard
-mi-clos, volant et accent cyan pour l’un ; grands yeux, casque, cassette
-et accents prune et corail pour l’autre. Leurs noms, biographies et
-répliques n’apparaissent plus dans l’interface.
+## Interface et effets
 
-Les deux portraits originaux, [ninu.svg](../assets/ninu.svg) et
-[anto.svg](../assets/anto.svg), mesurent **88 × 88 pixels**. Cagoules
-noires, vestes olive et accessoires simples donnent la silhouette
-militaire humoristique demandée. Les regards distinguent les
-personnalités même avec des visages couverts. Il s'agit de personnages
-de fiction, pas de portraits photographiques.
+Le **logo original fourni** reste le titre du jeu. Le menu conserve mode, heure de départ et bouton de jeu. Le HUD compact affiche les informations nécessaires ; **ⓘ** déplie les détails. Le nouveau dessin n’introduit pas de récits, de noms ou de biographies dans le parcours utilisateur.
 
-## Sept repères dans toute la commune
+Six armes gardent silhouettes et sons distincts. Les six étoiles rendent lisible la réponse policière croissante : patrouilles, barrages, recherche aérienne, unités lourdes puis armée. Les renforts restent annoncés et les véhicules de barrage destructibles.
 
-| Repère | Accent | Ambiance |
-|---|---|---|
-| Le port · Afterhours | Cyan | Reflets, enseignes au bord de l'eau, voitures et face B dans l'autoradio. |
-| La citadelle | Or | Pierre, altitude, éclairage plus calme et plaisanteries sur la montée. |
-| La gare de Calvi | Bleu acier | Horaires, autoradios et cassettes qui arrivent après le train. |
-| La plage de Calvi | Sable doré | Bord de mer, reflets et sable dans les baskets. |
-| La Pinède | Vert | Ombre des pins, végétation et recherche d’une place. |
-| La Revellata | Vert marin | Maquis, relief et chemins vers la côte. |
-| Calvi · Sainte-Catherine | Gris lilas | Secteur de l’aéroport, décollages et départs improvisés. |
+Le sang temporaire reste rouge sombre au sol. L’explosion passe par éclair, noyau lumineux, feu, onde, débris et fumée ; les incendies ont plusieurs foyers. Une destruction par tirs insiste sur la combustion ou les débris, tandis que les explosifs peuvent déclencher une chaîne immédiate. Les effets réduits diminuent l’animation. La sélection bornée des explosions privilégie celles proches du joueur sans changer les dégâts.
 
-Les sept repères s’appuient sur les éléments géographiques OSM conservés.
-Leurs labels servent à l’orientation, sans constituer des entrées mesurées ;
-le label du port peut être placé sur une rue source voisine du bassin.
+La musique et les bruitages restent originaux, avec une couleur électronique et house des années 90. La présence de cassettes et d’autoradios est un accessoire visuel et musical ; aucun dialogue de personnage ne réapparaît.
 
-`DISTRICTS` et `districtFor(world, x, y)` proposent **neuf identités
-artistiques** : ces sept secteurs, les carrughji teintés de prune et
-le marché corail du dernier service. La classification choisit le
-centre d’habillage le plus proche. Ce sont des **zones approximatives**,
-pas des limites administratives ni des polygones OpenStreetMap.
-Elles ne modifient ni rues, ni empreintes bâties, ni DEM. Calvi est
-l’unique carte jouable et suit le contour communal OSM INSEE 2B050 ;
-ce contour reste distinct des ambiances artistiques.
+## Provenance et preuves
 
-## Interface, commerces et missions
+**© OpenStreetMap contributors · ODbL 1.0** et **© IGN · Licence Ouverte** restent les attributions des données utilisées. Requêtes, archives et empreintes restent conservées. Les dates locales IGN sont inconnues ; les références géographiques actuelles ne reconstituent pas Calvi en 1994. Façades, toitures, textures, enseignes, personnages et comportements restent une interprétation de jeu.
 
-Le menu conserve le titre, le choix du mode, l’heure de départ et le
-bouton de jeu. Les panneaux de répliques, biographies et présentation
-narrative ont été supprimés. L’humour vient des silhouettes, véhicules,
-accessoires et enseignes plutôt que de dialogues affichés.
+Le nouveau rendu v19 doit être observé et vérifié séparément. Les captures, tests et cadences v17/v18 documentent leurs versions ; ils ne certifient ni son résultat ni une performance sur Mac/Safari ou téléphone. Le protocole humain reste à réaliser.
 
-Les trois affaires gardent leurs identifiants et lieux : le hangar du
-port, le bureau des tampons de la vieille ville et la réserve de
-parpaings au marché. Leurs titres servent aux objectifs ; leurs anciens
-textes narratifs et répliques ont été retirés. Les missions ne décrivent
-pas les occupants réels des empreintes de bâtiments importées.
-
-La direction musicale vise une radio électronique locale : basse
-ronde, petites percussions, motif FM et souffle de cassette, avec une
-couleur house des années 90. Les compositions et
-bruitages restent originaux. Cette intention ne prétend pas reproduire
-un artiste, un répertoire ni la programmation historique d'une vraie
-radio de Calvi.
-
-## Une géographie réelle, une soirée inventée
-
-Rues et bâti proviennent de l’extrait OSM documenté ; sol et toits
-photographiques proviennent de l’IGN BD ORTHO. Le relief provient du
-MNT IGN LiDAR HD, avec l’ancien radar SRTM conservé en secours. Les
-dates locales d’acquisition IGN restent inconnues ; la géométrie actuelle
-et la campagne radar de 2000 ne prouvent pas l’état exact de la ville
-en 1994. Lumières, façades, enseignes, personnages, véhicules et petites
-affaires forment l’interprétation artistique de CALVI LA VIE.
-
-**© OpenStreetMap contributors · ODbL 1.0** et **© IGN · Licence Ouverte**
-restent les attributions des données effectivement importées. Requêtes,
-archives et empreintes sont conservées ; les droits et limites sont
-détaillés dans [CARTOGRAPHIE.md](CARTOGRAPHIE.md),
-[CALVI_IMAGERY_TILES.md](../data/CALVI_IMAGERY_TILES.md) et
-[ELEVATION.md](../data/ELEVATION.md).
-
-Cette direction concerne le prototype Web local. Elle n'affirme ni
-publication du jeu ni validation humaine sur téléphone ou Mac/Safari.
-Le téléchargement de WebKit a été refusé par la politique réseau de
-l’environnement. Les chemins de décodage de secours testés dans Chromium
-ne remplacent pas un essai sur Safari réel. Les résultats automatiques
-figurent dans [VERIFICATION-CALVI-LA-VIE.md](VERIFICATION-CALVI-LA-VIE.md) ; les mesures de performance antérieures restent dans [VERIFICATION.md](VERIFICATION.md).
+[Conception](CONCEPTION.md) · [Cartographie et provenance](CARTOGRAPHIE.md) · [Relief](../data/ELEVATION.md) · [Hauteurs](../data/BUILDING_HEIGHTS.md) · [Observations](../data/CALVI_AERIAL_OBJECTS.md) · [Vérification v19](VERIFICATION-CALVI-ILLUSTREE.md) · [Historique v18](VERIFICATION-CALVI-LA-VIE.md) · [Historique v17](VERIFICATION.md) · [Essais humains](PLAYTEST.md)

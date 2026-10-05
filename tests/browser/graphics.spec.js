@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { chooseGameMode, chooseStartingTime, drivingKey, canvasDigest, walkTo } from './helpers.js';
+import { chooseGameMode, chooseStartingTime, drivingKey, canvasDigest, walkTo, expectIllustrated } from './helpers.js';
 
 const loaded = (image) => image.evaluate(img => img.complete && img.naturalWidth > 0 && img.naturalHeight > 0);
 const painted = page => page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
@@ -24,78 +24,69 @@ test('the arcade title has an accessible name and fits both supported phone size
   }
 });
 
-test('fine local photographic tiles stay within their resident budget and decode after an offline reload', async ({ page, context }) => {
-  const visited = new Set();
-  page.on('response', response => {
-    if (/\/assets\/aerial\/calvi-(?:detail-(?:urban|airport)-)?c\d+-r\d+\.jpg$/.test(response.url()) && response.ok()) visited.add(response.url());
+test('illustrated materials stay local and within cache budgets and decode after an offline reload without game photographs', async ({ page, context }) => {
+  const photographicRequests = [], photographicModules = [], assets = new Set();
+  context.on('request', request => {
+    if (/\/assets\/(?:aerial\/.*\.jpe?g|calvi-orthophoto\.jpg)(?:\?|$)/.test(request.url())) photographicRequests.push(request.url());
+    if (/\/(?:imagery-stream|data\/calvi-water-surface)\.js(?:\?|$)/.test(request.url())) photographicModules.push(request.url());
+    if (/\/assets\//.test(request.url())) assets.add(request.url());
   });
   await page.goto('/');
   await page.evaluate(async () => await (await import('/render.js')).artReady);
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.resident).toBeGreaterThan(0);
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.pending).toBe(0);
-  const cacheStats = (await page.evaluate(() => window.blueNight.snapshot())).imagery;
-  expect(cacheStats.status).toBe('ready'); expect(cacheStats.baseAvailable).toBe(288);
-  expect(cacheStats.detailAvailable).toBeGreaterThan(0); expect(cacheStats.detailResident).toBeGreaterThan(0);
-  expect(cacheStats.bestMetresPerPixel.x).toBeCloseTo(.25, 2); expect(cacheStats.bestMetresPerPixel.y).toBeCloseTo(.25, 2);
-  expect(cacheStats.failed).toBe(0); expect(cacheStats.resident).toBeLessThanOrEqual(cacheStats.maximumResident);
-  expect(cacheStats.decodedBytes + cacheStats.reservedDecodeBytes).toBeLessThanOrEqual(cacheStats.maximumBytes); expect(cacheStats.overviewReady).toBe(true);
-  expect(visited.size).toBeGreaterThan(0);
-  const fineURL = [...visited].find(url => /calvi-detail-/.test(url));
-  expect(fineURL).toBeDefined();
-  expect([...visited].every(url => new URL(url).origin === new URL(page.url()).origin)).toBe(true);
+  const state = await expectIllustrated(page);
+  expect(state.renderer.materialsAsset).toBe('assets/calvi-illustrated-materials.png');
+  expect([...assets].some(url => new URL(url).pathname === '/assets/calvi-illustrated-materials.png')).toBe(true);
+  expect([...assets].every(url => new URL(url).origin === new URL(page.url()).origin)).toBe(true);
   await page.evaluate(async () => {
     await navigator.serviceWorker.ready;
     if (!navigator.serviceWorker.controller) {
       await new Promise(resolve => navigator.serviceWorker.addEventListener('controllerchange', resolve, { once: true }));
     }
   });
-  await expect.poll(() => page.evaluate(async url => Boolean(await caches.match(url)), fineURL)).toBe(true);
+  await expect.poll(() => page.evaluate(async () => Boolean(await caches.match('/assets/calvi-illustrated-materials.png')))).toBe(true);
+  const cache = await page.evaluate(async () => {
+    const names = await caches.keys(), current = await caches.open('blue-night-v19-calvi-illustrated');
+    return { names: names.filter(name => name.startsWith('blue-night-')), paths: (await current.keys()).map(request => new URL(request.url).pathname) };
+  });
+  expect(cache.names).toEqual(['blue-night-v19-calvi-illustrated']);
+  expect(cache.paths).toContain('/assets/calvi-illustrated-materials.png');
+  expect(cache.paths.filter(path => /\/assets\/(?:aerial\/.*\.jpe?g|calvi-orthophoto\.jpg)$/.test(path))).toEqual([]);
+  expect(photographicRequests).toEqual([]);
+  expect(photographicModules).toEqual([]);
   await context.setOffline(true);
   await page.reload();
   const logo = page.getByRole('img', { name: 'CALVI LA VIE', exact: true });
   await expect(logo).toBeVisible();
   await expect.poll(() => loaded(logo)).toBe(true);
-  const sizes = await page.evaluate(async tile => {
-    return Promise.all(['assets/calvi-la-vie-logo.png', 'assets/victory.svg', 'assets/defeat.svg', 'assets/corsica-textures.png', 'assets/calvi-orthophoto.jpg', 'assets/aerial/calvi-overview.jpg', tile].map(async src => {
+  const sizes = await page.evaluate(async () => {
+    return Promise.all(['assets/calvi-la-vie-logo.png', 'assets/victory.svg', 'assets/defeat.svg', 'assets/calvi-illustrated-materials.png'].map(async src => {
       const img = new Image();
       img.src = src;
       await img.decode();
       return { src, width: img.naturalWidth, height: img.naturalHeight };
     }));
-  }, fineURL);
+  });
   for (const size of sizes) {
     expect(size.width).toBeGreaterThan(0);
     expect(size.height).toBeGreaterThan(0);
   }
-  const imagery = await page.evaluate(async () => {
-    const response = await fetch('data/calvi-imagery-provenance.json');
-    return { ok: response.ok, provenance: await response.json() };
-  });
-  expect(imagery.ok).toBe(true); expect(imagery.provenance.status).toBe('ready');
-  expect(imagery.provenance.attribution).toContain('IGN');
-  const orthophoto = sizes.find(size => size.src === imagery.provenance.asset);
-  expect(orthophoto).toBeDefined();
-  expect(orthophoto.width).toBe(imagery.provenance.image.width);
-  expect(orthophoto.height).toBe(imagery.provenance.image.height);
-  const tiles = await page.evaluate(async tileURL => {
-    const response = await fetch('data/calvi-imagery-tiles.json'), manifest = await response.json();
-    return { ok: response.ok, baseCount: manifest.tiles.length, detailCount: manifest.detailTiles.length, detailMetresPerPixel: manifest.detailMetresPerPixel, tile: [...manifest.tiles, ...manifest.detailTiles].find(tile => new URL(tile.url, location.href).href === tileURL) };
-  }, fineURL);
-  expect(tiles.ok).toBe(true); expect(tiles.baseCount).toBe(288); expect(tiles.detailCount).toBeGreaterThan(0); expect(tiles.tile).toBeDefined();
-  expect(cacheStats.available).toBe(tiles.baseCount + tiles.detailCount);
-  expect(tiles.detailMetresPerPixel.x).toBeCloseTo(.25, 2); expect(tiles.detailMetresPerPixel.y).toBeCloseTo(.25, 2);
-  const tileImage = sizes.find(size => size.src === fineURL);
-  expect(tileImage.width).toBe(tiles.tile.width); expect(tileImage.height).toBe(tiles.tile.height);
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.resident).toBeGreaterThan(0);
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.pending).toBe(0);
-  const offlineStats = (await page.evaluate(() => window.blueNight.snapshot())).imagery;
-  expect(offlineStats.failed).toBe(0); expect(offlineStats.detailResident).toBeGreaterThan(0);
-  expect(offlineStats.bestMetresPerPixel.x).toBeCloseTo(.25, 2); expect(offlineStats.bestMetresPerPixel.y).toBeCloseTo(.25, 2);
+  expect(sizes.find(image => image.src === 'assets/calvi-illustrated-materials.png')).toMatchObject({ width: 1254, height: 1254 });
+  const materials = await page.evaluate(async () => await (await fetch('assets/calvi-illustrated-materials.json')).json());
+  expect(materials).toMatchObject({ dimensions: [1254, 1254], columns: 3, rows: 3, modified: false });
+  expect(sizes.find(image => image.src === 'assets/calvi-la-vie-logo.png')).toMatchObject({ width: 1536, height: 1024 });
+  await chooseStartingTime(page, 720);
+  await page.getByRole('button', { name: 'JOUER', exact: false }).click();
+  await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
+  const offline = await expectIllustrated(page);
+  expect(offline.map).toMatchObject({ city: 'Calvi', source: 'OpenStreetMap', status: 'ready' });
+  expect(offline.renderer.materialsAsset).toBe(state.renderer.materialsAsset);
+  expect(photographicRequests).toEqual([]);
+  expect(photographicModules).toEqual([]);
   await context.setOffline(false);
 });
 
 for (const bitmap of ['absent', 'rejecting']) {
-  test(`HTML image fallback with ${bitmap} bitmap API retains photographs, aiming and frozen pause frames`, async ({ page }) => {
+  test(`illustrated materials with ${bitmap} bitmap API retain drawing, aiming and frozen pause frames`, async ({ page }) => {
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   await page.addInitScript(bitmap => {
     Object.defineProperty(window, 'createImageBitmap', { configurable: true, value: bitmap === 'absent' ? undefined : async () => { throw new Error('Bitmap decoder unavailable'); } });
@@ -104,10 +95,7 @@ for (const bitmap of ['absent', 'rejecting']) {
   await page.goto('/'); await chooseStartingTime(page, 720);
   await page.getByRole('button', { name: 'JOUER', exact: false }).click();
   await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.resident).toBeGreaterThan(0);
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.pending).toBe(0);
-  const loaded = await page.evaluate(() => window.blueNight.snapshot());
-  expect(loaded.imagery.failed).toBe(0); expect(loaded.imagery.overviewReady).toBe(true);
+  const loaded = await expectIllustrated(page);
   const car = loaded.cars.find(car => car.id === 'car-start');
   const aim = await page.evaluate(car => window.blueNight.screenPoint(car.x, car.y), car);
   await page.mouse.move(aim.x, aim.y); await page.keyboard.down('f');
@@ -122,26 +110,30 @@ for (const bitmap of ['absent', 'rejecting']) {
   });
 }
 
-test.describe('delayed image delivery', () => {
+test.describe('delayed material delivery', () => {
   // Browser routing cannot gate requests handled inside a service worker.
-  // This case isolates photo arrival; the separate reload case covers its SW.
+  // This case isolates atlas arrival; the separate reload case covers its SW.
   test.use({ serviceWorkers: 'block' });
-  test('photographic tiles arriving during pause leave the canvas unchanged until resume', async ({ page }) => {
-  let releaseTiles, requested = 0;
-  const gate = new Promise(resolve => { releaseTiles = resolve; });
-  await page.route(/\/assets\/aerial\/calvi-(?:detail-(?:urban|airport)-)?c\d+-r\d+\.jpg$/, async route => {
+  test('a delayed material atlas keeps gameplay stopped until ready, then detailed frames freeze during pause', async ({ page }) => {
+  let releaseAtlas, requested = 0;
+  const gate = new Promise(resolve => { releaseAtlas = resolve; });
+  await page.route('**/assets/calvi-illustrated-materials.png', async route => {
     requested++; await gate; await route.continue();
   });
-  await page.goto('/');
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect.poll(() => requested).toBeGreaterThan(0);
   await page.getByRole('button', { name: 'JOUER', exact: false }).click();
+  await page.keyboard.press('Space'); await page.keyboard.press('e');
+  const waiting = await page.evaluate(() => window.blueNight.snapshot());
+  expect(waiting.mode).toBe('title'); expect(waiting.elapsed).toBe(0);
+  expect(waiting.bottles).toEqual([]); expect(waiting.vehicleId).toBeNull();
+  releaseAtlas();
   await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
+  await expectIllustrated(page);
   await page.keyboard.press('Escape');
   const frozen = await canvasDigest(page), paused = await page.evaluate(() => window.blueNight.snapshot());
-  expect(paused.mode).toBe('paused'); expect(paused.imagery.pending).toBeGreaterThan(0);
-  releaseTiles();
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.resident).toBeGreaterThan(0);
-  await expect.poll(async () => (await page.evaluate(() => window.blueNight.snapshot())).imagery.pending).toBe(0);
+  expect(paused.mode).toBe('paused'); expect(paused.renderer.materialsReady).toBe(true);
+  await page.waitForTimeout(250);
   expect(await canvasDigest(page)).toBe(frozen);
   expect((await page.evaluate(() => window.blueNight.snapshot())).elapsed).toBe(paused.elapsed);
   await page.getByRole('button', { name: 'REPRENDRE', exact: true }).click();

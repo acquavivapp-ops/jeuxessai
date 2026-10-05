@@ -1,0 +1,171 @@
+{
+  "revision": "v19-calvi-illustrated",
+  "browser": "Chromium on Linux cloud runner; one worker, port4182",
+  "finalBrowserTests": {
+    "unique": 35,
+    "passed": 35,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0,
+    "passes": [
+      {
+        "cases": 12,
+        "exitCode": 0,
+        "durationSeconds": 188.586,
+        "json": "final-graphics-tests.json",
+        "log": "final-graphics-tests.log",
+        "command": "BLUE_NIGHT_TEST_PORT=4182 PLAYWRIGHT_JSON_OUTPUT_NAME=/tmp/calvi-la-vie-illustrated-qa/final-graphics-tests.json npx playwright test tests/browser/graphics.spec.js tests/browser/aerial.spec.js tests/browser/illustrated.spec.js --workers=1 --reporter=list,json > /tmp/calvi-la-vie-illustrated-qa/final-graphics-tests.log 2>&1"
+      },
+      {
+        "cases": 23,
+        "exitCode": 0,
+        "durationSeconds": 434.607,
+        "json": "final-gameplay-tests.json",
+        "log": "final-gameplay-tests.log",
+        "command": "BLUE_NIGHT_TEST_PORT=4182 PLAYWRIGHT_JSON_OUTPUT_NAME=/tmp/calvi-la-vie-illustrated-qa/final-gameplay-tests.json npx playwright test tests/browser/game.spec.js tests/browser/mobility.spec.js --workers=1 --reporter=list,json > /tmp/calvi-la-vie-illustrated-qa/final-gameplay-tests.log 2>&1"
+      }
+    ]
+  },
+  "nodeTestsReportedByRoot": {
+    "passed": 208,
+    "exitCode": 0,
+    "durationSeconds": 47.48
+  },
+  "geometry": {
+    "sha256": "bde3e54d6455fc8507077bf0e5772abfd02bca271450bca33b21e28e837db891",
+    "sourceMapSha256": "0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf",
+    "observedVehicleSha256": "06fa7ae5236cccc8ac10c7dafff7c0958680dda9f12b4d0b41c7c613e9356440",
+    "vehicles": 251,
+    "roads": 1552,
+    "buildings": 3893,
+    "vegetation": 12000,
+    "piers": 6,
+    "width": 35766.74,
+    "height": 30930.25,
+    "unchangedBeforeAndAfterSectorRendering": true
+  },
+  "illustration": {
+    "artMode": "illustrated",
+    "photoMode": false,
+    "atlasDimensions": [
+      1254,
+      1254
+    ],
+    "aerialJpegRequests": 0,
+    "photographicRuntimeModuleRequests": 0,
+    "offlineAtlasAndProductionLogoVerified": true,
+    "cacheVersion": "blue-night-v19-calvi-illustrated",
+    "memoryBudgetsMiB": {
+      "ground": 32,
+      "roof": 16,
+      "foliage": 4
+    }
+  },
+  "pixelProof": {
+    "path": "crown-pixel-proof.json",
+    "kind": "isolated fixture with two poses recorded from the public route; opaque/blinking actor at same position",
+    "outsideChangedPixels": 49,
+    "coveredChangedPixels": 0,
+    "publicCollisionRouteRetained": true
+  },
+  "performance": {
+    "exitCode": 0,
+    "json": "performance.json",
+    "summary": "performance-summary.json",
+    "instrumentation": "1000us CDP sampling; rendererStats every10rAF; selected snapshot metrics before/after3-second periods",
+    "noStationaryRepaint": true,
+    "noVisibleEviction": true,
+    "priorDiagnostic": "performance-before-roof-fix/",
+    "possibleConcurrencyPassExcluded": "performance-confirmation-possible-concurrency/",
+    "runs": [
+      {
+        "lighting": "dawn",
+        "stationaryRafFps": 21.48,
+        "drivingRafFps": 11.23,
+        "afterOrientationRafFps": 18.44
+      },
+      {
+        "lighting": "day",
+        "stationaryRafFps": 25.79,
+        "drivingRafFps": 15.78,
+        "afterOrientationRafFps": 20.61
+      },
+      {
+        "lighting": "night",
+        "stationaryRafFps": 22.53,
+        "drivingRafFps": 17.06,
+        "afterOrientationRafFps": 19.39
+      }
+    ]
+  },
+  "earlierRuns": [
+    {
+      "cases": 12,
+      "exitCode": 1,
+      "passed": 11,
+      "failed": 1,
+      "reason": "Obsolete colour comparison across different positions",
+      "json": "targeted-tests.json"
+    },
+    {
+      "cases": 1,
+      "exitCode": 1,
+      "reason": "Translucent crown fringe at public pose y+25; all49head pixels varied",
+      "json": "crown-retest.json"
+    },
+    {
+      "cases": 1,
+      "exitCode": 0,
+      "reason": "Opaque crown core at public pose y+11;0changed pixels",
+      "json": "crown-interior-retest.json"
+    }
+  ],
+  "limits": [
+    "Physical Safari/iOS/Android devices were not measured.",
+    "Sector cameras and opaque/blinking actor comparisons are isolated render fixtures, not travel through public controls.",
+    "Public helicopter parachute route is covered; native airport plane travel is not a browser route.",
+    "Patrols remain active; safe pre-contact vertical speed and airborne hearts distinguish safe landing from an interception at ground contact."
+  ],
+  "finalPublicCapturesPending": false,
+  "browserClosed": true,
+  "captureValidation": {
+    "exitCode": 0,
+    "log": "final-captures.log",
+    "details": "final-captures.json",
+    "publicCaptures": 6,
+    "pageErrors": 0,
+    "consoleErrors": 0,
+    "httpErrors": 0,
+    "aerialJpegRequests": 0,
+    "sourceVehiclePositionMismatches": 0,
+    "vehiclesPerCapture": 251,
+    "originalLogoDimensions": [
+      1536,
+      1024
+    ],
+    "mobileFoldedHudHeightPx": 74,
+    "mobileExpandedHudHeightPx": 139.9375,
+    "physicalDeviceValidation": false
+  },
+  "captures": {
+    "publicPort": [
+      "playing-port-day-1280x800.png",
+      "playing-port-night-1280x800.png",
+      "playing-port-day-390x844.png",
+      "playing-port-night-390x844.png",
+      "playing-port-day-844x390.png",
+      "playing-port-night-844x390.png"
+    ],
+    "publicParachute": "parachute-390x844.png",
+    "publicCrownRoute": "source-crown-public.png",
+    "title": "title-390x844.png",
+    "isolatedSectorFixtures": [
+      "fixture-port-day-1280x800.png",
+      "fixture-port-night-1280x800.png",
+      "fixture-citadel-day-1280x800.png",
+      "fixture-citadel-night-1280x800.png",
+      "fixture-airport-day-1280x800.png",
+      "fixture-airport-night-1280x800.png"
+    ]
+  }
+}

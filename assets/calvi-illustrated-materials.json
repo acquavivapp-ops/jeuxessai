@@ -1,0 +1,52 @@
+{
+  "asset": "calvi-illustrated-materials.png",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "bytes": 3783136,
+  "sha256": "1f0ff4447eaaafbf27d8d4b588613c07a8bb62885dea14ba6e04368ea6675176",
+  "generation": "original illustrated 3x3 materials",
+  "modified": false,
+  "columns": 3,
+  "rows": 3,
+  "materialMap": {
+    "limestonePaving": [
+      0,
+      0
+    ],
+    "asphalt": [
+      1,
+      0
+    ],
+    "terracottaTiles": [
+      2,
+      0
+    ],
+    "gravel": [
+      0,
+      1
+    ],
+    "grass": [
+      1,
+      1
+    ],
+    "limestoneWall": [
+      2,
+      1
+    ],
+    "rock": [
+      0,
+      2
+    ],
+    "foliage": [
+      1,
+      2
+    ],
+    "water": [
+      2,
+      2
+    ]
+  },
+  "purpose": "Original game material atlas; geography comes from the existing Calvi datasets, not this image."
+}

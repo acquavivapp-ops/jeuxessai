@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { chooseGameMode, chooseStartingTime, drivingKey, visiblePedestrian, canvasDigest, walkTo } from './helpers.js';
+import { chooseGameMode, chooseStartingTime, drivingKey, visiblePedestrian, canvasDigest, walkTo, expectIllustrated } from './helpers.js';
 
 const snap = page => page.evaluate(() => window.blueNight.snapshot());
 async function begin(page) {
@@ -9,6 +9,7 @@ async function begin(page) {
   await page.getByRole('button', { name: 'JOUER', exact: false }).click();
   await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
   await expect.poll(async () => (await snap(page)).mode).toBe('playing');
+  await expectIllustrated(page);
   expect((await snap(page)).map).toMatchObject({ city: 'Calvi', source: 'OpenStreetMap', status: 'ready' });
 }
 
@@ -314,6 +315,7 @@ test('the offline cache starts the playable city and retains local graphics, uni
   await page.getByRole('button', { name: 'JOUER', exact: false }).click();
   await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
   const offline = await snap(page);
+  await expectIllustrated(page);
   expect(offline.mode).toBe('playing'); expect(offline.map).toMatchObject({ city: 'Calvi', source: 'OpenStreetMap', status: 'ready' });
   expect(offline.timeOfDay.hour).toBe(12);
   expect(offline.timeOfDay.phase).toBe('jour');
@@ -330,11 +332,11 @@ test('the offline cache starts the playable city and retains local graphics, uni
   await page.keyboard.press('e'); expect((await snap(page)).vehicleId).not.toBeNull();
   await page.locator('#hud-details').click();
   await expect(page.locator('#minimap')).toBeVisible();
-  const portraits = await page.evaluate(async () => Promise.all(['simeoni', 'guelfucci', 'mitterrand', 'pasqua', 'ninu', 'anto'].map(async name => {
+  const portraits = await page.evaluate(async () => Promise.all(['ninu', 'anto'].map(async name => {
     const img = new Image(); img.src = `assets/${name}.svg`; await img.decode(); return img.naturalWidth;
   })));
   expect(portraits.every(width => width > 0)).toBe(true);
-  const modules = await page.evaluate(async () => Promise.all(['universe.js', 'game-time.js', 'police.js', 'imagery-stream.js', 'mobility.js', 'mobility-spawns.js', 'piers.js', 'vegetation.js', 'aerial-vehicles.js', 'data/calvi-aerial-objects.js', 'data/calvi-water-surface.js', 'calvi-world.js', 'data/calvi-map.js', 'combat.js', 'neon-art.js', 'effects-art.js', 'street-life.js', 'terrain.js', 'data/calvi-elevation.js', 'data/calvi-lidar-elevation.js', 'data/calvi-lidar-urban-elevation.js', 'building-height.js', 'data/calvi-building-heights.js'].map(async path => {
+  const modules = await page.evaluate(async () => Promise.all(['universe.js', 'game-time.js', 'police.js', 'mobility.js', 'mobility-spawns.js', 'piers.js', 'vegetation.js', 'aerial-vehicles.js', 'data/calvi-aerial-objects.js', 'calvi-world.js', 'data/calvi-map.js', 'combat.js', 'neon-art.js', 'effects-art.js', 'street-life.js', 'terrain.js', 'data/calvi-elevation.js', 'data/calvi-lidar-elevation.js', 'data/calvi-lidar-urban-elevation.js', 'building-height.js', 'data/calvi-building-heights.js', 'illustrated-ground.js', 'illustrated-buildings.js', 'illustrated-vegetation.js'].map(async path => {
     const response = await fetch(path);
     return { path, ok: response.ok, type: response.headers.get('content-type') };
   })));

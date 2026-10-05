@@ -1,0 +1,31 @@
+{
+  "version": "v19-calvi-illustrated",
+  "allGeometrySectionsMatchV18": true,
+  "geometrySha256": "bde3e54d6455fc8507077bf0e5772abfd02bca271450bca33b21e28e837db891",
+  "sectionHashes": {
+    "width": "5921ddb3b3b8c2b42c8791ba7a5211cbc22f1bc9800c645ac648e2ce2251b63d",
+    "height": "230e498bb550a8fd1543db65b39c7634852dd86d151aee93dba52107711c4514",
+    "bounds": "918c6ea4533f21e7bce8005e8a571231d108820de749d9c1e0ad241ce15b529e",
+    "roads": "e3905f9522b9ee80b2d2c1b0acce8ab3566487da1294de6ff0cf9ccc409f5911",
+    "buildings": "8b9e126c47b24620147c3a531a3246a015f43c9a4eb77e7fdad2492ae4f7840b",
+    "land": "b95609690ed5591001aba8d7235deda4e4c4605764fa8883ad5efeca9f7c0580",
+    "sea": "19beb75158c1897a4ba452abcdab0084f8309b327f8fae319ad135e64ceb44e6",
+    "vegetation": "8dc73f8194ef6bacc9570c0092cd778f31a80c5f13bbca38c236c3ff5e2d7abf",
+    "piers": "b44df5aa5bea19d80b65c1acb5fd0d89de8f2e72a34bae790f6eb4810deba030"
+  },
+  "archivedDataFilesUnchanged": 41,
+  "observedVehiclesUnchanged": 251,
+  "observedVehiclesSha256": "06fa7ae5236cccc8ac10c7dafff7c0958680dda9f12b4d0b41c7c613e9356440",
+  "roads": 1552,
+  "buildings": 3893,
+  "vegetationGroups": 12000,
+  "piers": 6,
+  "bounds": {
+    "west": 8.7063593,
+    "south": 42.5150237,
+    "east": 8.8153936,
+    "north": 42.5844865
+  },
+  "width": 35766.74,
+  "height": 30930.25
+}

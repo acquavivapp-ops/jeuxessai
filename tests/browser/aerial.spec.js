@@ -1,13 +1,12 @@
 import { test, expect } from '@playwright/test';
-import { chooseStartingTime, canvasDigest, walkTo } from './helpers.js';
+import { chooseStartingTime, canvasDigest, walkTo, expectIllustrated } from './helpers.js';
 
 const snapshot = page => page.evaluate(() => window.blueNight.snapshot());
 async function begin(page) {
   await page.goto('/'); await chooseStartingTime(page, 720);
   await page.getByRole('button', { name: 'JOUER', exact: false }).click();
   await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
-  await expect.poll(async () => (await snapshot(page)).imagery.pending).toBe(0);
-  await expect.poll(async () => (await snapshot(page)).imagery.detailResident).toBeGreaterThan(0);
+  await expectIllustrated(page);
 }
 const patchDigest = (page, worldPoint) => page.locator('#game').evaluate(async (canvas, point) => {
   const screen = window.blueNight.screenPoint(point.x, point.y), box = canvas.getBoundingClientRect();
@@ -55,7 +54,6 @@ test('photo-derived trees keep source coordinates and the sea moves only while t
     expect(tree.estimatedHeight).toBe(true); expect(tree.heightSource).toContain('estimate');
   }
   await expect.poll(async () => (await snapshot(page)).renderer.vegetationVisible).toBeGreaterThan(0);
-  await expect.poll(async () => (await snapshot(page)).renderer.waterMaskReady).toBe(true);
   await expect.poll(async () => (await snapshot(page)).renderer.seaRippleCount).toBeGreaterThan(0);
   // The sample lies in open port water, away from the player and game actors.
   const water = { x: initial.player.x + 160, y: initial.player.y };
@@ -77,22 +75,10 @@ const centreColour = (page, point) => page.locator('#game').evaluate((canvas, po
   return rgb.map(value => value / (pixels.length / 4));
 }, point);
 
-// Read the actual black hood pixels rather than accepting an occlusion
-// counter alone. The sprite's small overhead head rotates with the aim.
-const hoodLuminance = page => page.locator('#game').evaluate(canvas => {
-  const player = window.blueNight.snapshot().player, angle = player.aimAngle ?? player.dir;
-  const head = window.blueNight.screenPoint(player.x + Math.cos(angle) * 2.05 + Math.sin(angle) * .05,
-    player.y + Math.sin(angle) * 2.05 - Math.cos(angle) * .05);
-  const box = canvas.getBoundingClientRect();
-  const x = Math.round((head.x - box.x) * canvas.width / box.width), y = Math.round((head.y - box.y) * canvas.height / box.height);
-  const pixels = canvas.getContext('2d').getImageData(x - 1, y - 1, 3, 3).data, rgb = [0, 0, 0];
-  for (let i = 0; i < pixels.length; i += 4) for (let channel = 0; channel < 3; channel++) rgb[channel] += pixels[i + channel] / 9;
-  return rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722;
-});
 const painted = page => page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
 
-test('a newly annotated square tree hides the hood, blocks its trunk and permits walking around it', async ({ page }) => {
-  test.setTimeout(60_000);
+test('the illustrated source crown obscures the hood, retains its contour and keeps its trunk collision', async ({ page, browser }, testInfo) => {
+  test.setTimeout(90_000);
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   await page.setViewportSize({ width: 1280, height: 800 }); await begin(page);
   const tree = await page.evaluate(async () => {
@@ -106,17 +92,17 @@ test('a newly annotated square tree hides the hood, blocks its trunk and permits
   expect(tree.sha256).toBe(tree.sourceSha256); expect(tree.method).toContain('manually verified photo crown');
   expect(tree.canopy.length).toBeGreaterThanOrEqual(8);
   // This footpath passes the real parked cars and newly solid square trees.
-  // No factory, player position, health or game timer is written by the test.
+  // The running game receives normal input; its factory, player position,
+  // health and clock remain untouched by the route and diagnostic fixture.
   for (const goal of [{ x: 16480, y: 8736 }, { x: 16464, y: 8768 }, { x: 16376, y: 8864 },
     { x: tree.x, y: tree.y + 65 }, { x: 16280, y: 8970 }]) await walkTo(page, goal, { radius: 2.5, timeout: 12000 });
   await painted(page);
   expect((await snapshot(page)).renderer.playerUnderCanopy).toBe(false);
-  const visibleHood = await hoodLuminance(page); expect(visibleHood).toBeLessThan(55);
+  const visiblePose = (await snapshot(page)).player;
   await walkTo(page, { x: tree.x, y: tree.y + 65 }, { radius: 2.5 });
   await walkTo(page, { x: tree.x, y: tree.y + 25 }, { radius: 2.5 });
   await painted(page);
   expect((await snapshot(page)).renderer.playerUnderCanopy).toBe(true);
-  expect(await hoodLuminance(page)).toBeGreaterThan(visibleHood + 15);
   await page.keyboard.down('ArrowUp');
   try {
     await page.waitForFunction(tree => window.blueNight.snapshot().player.y < tree.y + 8, tree);
@@ -131,6 +117,7 @@ test('a newly annotated square tree hides the hood, blocks its trunk and permits
   // shortcut would cut through its physical circle.
   await walkTo(page, { x: tree.x, y: tree.y + 11 }, { radius: 2.5 });
   const backedAway = (await snapshot(page)).player;
+  const coveredPose = backedAway;
   await walkTo(page, { x: tree.x - 16, y: backedAway.y }, { radius: 2.5 });
   await walkTo(page, { x: tree.x - 16, y: tree.y - 17 }, { radius: 2.5 });
   await walkTo(page, { x: tree.x, y: tree.y - 17 }, { radius: 2.5 });
@@ -138,9 +125,48 @@ test('a newly annotated square tree hides the hood, blocks its trunk and permits
   const around = await snapshot(page);
   expect(around.player.y).toBeLessThan(tree.y - 12); expect(around.renderer.playerUnderCanopy).toBe(true);
   expect(around.hearts).toBe(3); expect(errors).toEqual([]);
+  const publicCapture = testInfo.outputPath('source-crown-public.png');
+  await page.screenshot({ path: publicCapture });
+  await testInfo.attach('Source crown after the public foot and collision route', { path: publicCapture, contentType: 'image/png' });
+  // A separate render fixture holds each recorded pose still. The same sprite
+  // is opaque or blinking; this avoids assumptions about leaf and hood colours.
+  const fixtureContext = await browser.newContext({ serviceWorkers: 'block' });
+  try {
+    const fixture = await fixtureContext.newPage();
+    await fixture.route('**/', route => route.fulfill({ contentType: 'text/html', body: '<!doctype html><canvas id="sample" width="1280" height="1280"></canvas>' }));
+    await fixture.goto(new URL('/', page.url()).href);
+    const proof = await fixture.evaluate(async poses => {
+      const [{ Game }, renderer] = await Promise.all([import('/engine.js'), import('/render.js')]);
+      await renderer.artReady;
+      const game = new Game(), canvas = document.getElementById('sample');
+      Object.assign(canvas, { viewWidth: 320, viewHeight: 320, renderScale: 4, renderScaleX: 4, renderScaleY: 4 });
+      game.startClockMinutes = 720; game.elapsed = 0;
+      const ctx = canvas.getContext('2d'), results = [];
+      for (const pose of poses) {
+        Object.assign(game.player, pose);
+        const angle = pose.aimAngle ?? pose.dir;
+        const head = renderer.worldToScreen(game, pose.x + Math.cos(angle) * 2.05 + Math.sin(angle) * .05,
+          pose.y + Math.sin(angle) * 2.05 - Math.cos(angle) * .05, canvas);
+        const patch = () => Array.from(ctx.getImageData(Math.round(head.x * 4) - 3, Math.round(head.y * 4) - 3, 7, 7).data);
+        game.player.invulnerable = 0; renderer.render(ctx, game); const opaque = patch();
+        const underCanopy = renderer.rendererStats().playerUnderCanopy;
+        game.player.invulnerable = 1; renderer.render(ctx, game); const blinking = patch();
+        const channelDifferences = opaque.map((value, index) => index % 4 === 3 ? 0 : Math.abs(value - blinking[index]));
+        results.push({ underCanopy, meanDifference: channelDifferences.reduce((sum, value) => sum + value, 0) / (49 * 3),
+          changedPixels: Array.from({ length: 49 }, (_, pixel) => channelDifferences.slice(pixel * 4, pixel * 4 + 3).some(value => value > 0)).filter(Boolean).length });
+      }
+      return { liveGameAbsent: typeof window.blueNight === 'undefined', outside: results[0], covered: results[1] };
+    }, [visiblePose, coveredPose]);
+    expect(proof.liveGameAbsent).toBe(true);
+    await testInfo.attach('Same-position opaque/blinking head pixel proof (isolated fixture)', { body: JSON.stringify(proof, null, 2), contentType: 'application/json' });
+    expect(proof.outside.underCanopy).toBe(false); expect(proof.covered.underCanopy).toBe(true);
+    expect(proof.outside.changedPixels).toBeGreaterThan(40);
+    expect(proof.outside.meanDifference).toBeGreaterThan(10);
+    expect(proof.covered.changedPixels).toBe(0); expect(proof.covered.meanDifference).toBe(0);
+  } finally { await fixtureContext.close(); }
 });
 
-test('a previously rejected photo car can be stolen and driven away leaving its persistent pavement patch', async ({ page }) => {
+test('a source-positioned car can be stolen and driven away revealing the illustrated pavement without photographic patches', async ({ page }) => {
   test.setTimeout(60_000);
   await page.setViewportSize({ width: 1280, height: 800 }); await begin(page);
   const initial = await snapshot(page), origin = initial.cars.find(car => car.sourceImage?.annotationId === 'photo-car-port-03');
@@ -157,7 +183,7 @@ test('a previously rejected photo car can be stolen and driven away leaving its 
   }, origin.sourceImage.annotationId);
   expect(origin.x).toBe(observed.x); expect(origin.y).toBe(observed.y);
   expect(observed.sha256).toBe(observed.sourceSha256); expect(origin.sourceImage.sha256).toBe(observed.sha256);
-  await expect.poll(async () => (await snapshot(page)).renderer.maskSignature).toContain(mask.annotationId);
+  expect(initial.renderer.appliedVehicleMasks).toBe(0); expect(initial.renderer.maskSignature).toBe('');
   // Follow the real aisle around the starter and adjacent photographed cars;
   // the target is the formerly non-interactive body, rather than the owned car.
   expect(origin.entryPoint).toBeDefined();
@@ -182,11 +208,10 @@ test('a previously rejected photo car can be stolen and driven away leaving its 
   expect(moved.vehicle.owned).toBe(false); expect(moved.vehicle.stolen).toBe(true);
   expect(moved.wanted.level).toBeGreaterThanOrEqual(2); expect(moved.wanted.points).toBeGreaterThanOrEqual(12);
   expect(moved.aerial.vehicleMasks.find(candidate => candidate.vehicleId === origin.id)).toEqual(mask);
-  expect(moved.renderer.appliedVehicleMasks).toBeGreaterThan(0); expect(moved.renderer.maskSignature).toContain(mask.annotationId);
-  const pavement = await centreColour(page, origin), expected = mask.groundColor.match(/\w\w/g).map(channel => parseInt(channel, 16));
-  // Compare visible pixels at the old world position with the independently
-  // annotated pavement colour, rather than accepting a mask counter alone.
-  expect(Math.hypot(...pavement.map((value, channel) => value - expected[channel]))).toBeLessThan(70);
+  expect(moved.renderer.appliedVehicleMasks).toBe(0); expect(moved.renderer.maskSignature).toBe('');
+  const pavement = await centreColour(page, origin);
+  // The observed vehicle leaves the actual source parking, exposing the drawn
+  // ground underneath it. A photographic removal colour is no longer applied.
   expect(Math.hypot(...pavement.map((value, channel) => value - parkedColour[channel]))).toBeGreaterThan(30);
   expect(moved.hearts).toBe(3);
   await page.keyboard.press('Escape'); const frozen = await canvasDigest(page); await page.waitForTimeout(250);

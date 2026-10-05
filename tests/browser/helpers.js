@@ -1,3 +1,20 @@
+import { expect } from '@playwright/test';
+
+export async function expectIllustrated(page) {
+  await expect.poll(() => page.evaluate(() => window.blueNight.snapshot().renderer)).toMatchObject({
+    artMode: 'illustrated', photoMode: false, materialsReady: true,
+    sourceMapSha256: '0ba6530cd231d4eb22749450014d9e6ab103359899c22cfeccc276f65bfa6baf',
+    geometryFingerprint: '11f0e5b971f8f605',
+  });
+  const state = await page.evaluate(() => window.blueNight.snapshot());
+  expect(state.imagery.status).toBe('disabled');
+  for (const key of ['requests', 'resident', 'pending', 'decodedBytes']) expect(state.imagery[key], `Disabled photographic stream: ${key}`).toBe(0);
+  expect(state.renderer.groundBytes).toBeLessThanOrEqual(state.renderer.maximumGroundBytes);
+  expect(state.renderer.roofBytes).toBeLessThanOrEqual(state.renderer.maximumRoofBytes);
+  expect(state.renderer.foliageBytes).toBeLessThanOrEqual(state.renderer.maximumFoliageBytes);
+  return state;
+}
+
 // The timed mission route and free exploration are separate player choices.
 // Tests select the former explicitly instead of depending on the title default.
 export async function chooseGameMode(page, mode) {

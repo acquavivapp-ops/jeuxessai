@@ -3,25 +3,35 @@ import { drawArcadeActor, drawArcadeAirborneActor, drawArcadeAirborneShadow, dra
 import { drawBloodDecal, drawFire, drawExplosion, drawDestructionDust } from './effects-art.js';
 import { osmHeightMeters } from './building-height.js';
 import { timeOfDay } from './game-time.js';
-import { aerialImagery, imageryStreamReady, imageryManifestMatches } from './imagery-stream.js';
-export { imageryStats } from './imagery-stream.js';
+import { drawIllustratedGround, drawIllustratedPiers, clipIllustratedLand } from './illustrated-ground.js';
+import { drawIllustratedBuilding, drawIllustratedRubble } from './illustrated-buildings.js';
+import { drawIllustratedCanopy } from './illustrated-vegetation.js';
+
+export const MATERIALS_ASSET = 'assets/calvi-illustrated-materials.png';
+// Importing imagery-stream would itself decode an aerial overview. Illustrated
+// play deliberately has no imagery stream; the source archives remain intact.
+const DISABLED_IMAGERY_STATS = Object.freeze({ status: 'disabled', reason: 'illustrated-renderer', available: 0,
+  baseAvailable: 0, detailAvailable: 0, detailResident: 0, detailPending: 0, detailMetresPerPixel: null,
+  bestMetresPerPixel: null, resident: 0, pending: 0, failed: 0, decodedBytes: 0, reservedDecodeBytes: 0,
+  maximumBytes: 0, maximumResident: 0, requests: 0, revision: 0, overviewReady: false, overviewBytes: 0 });
+export const imageryStats = () => DISABLED_IMAGERY_STATS;
 
 export const WIDTH = 330;
 export const HEIGHT = 390;
 
 const NIGHT_COLOURS = {
   ink: '#111c2d', road: '#263343', roadDark: '#172333', curb: '#73828c',
-  ground: '#495d6b', groundDark: '#364d5c', cream: '#f6dfbb',
+  ground: '#566064', groundDark: '#354b53', cream: '#f6dfbb',
   roof: '#895b63', roofLight: '#aa7875', roofDark: '#574555',
   olive: '#46675f', oliveDark: '#263e43', mint: '#63eee0',
-  sea: '#123b51', seaDark: '#10283e', seaLight: '#63aaa9',
+  sea: '#164354', seaDark: '#103548', seaLight: '#63aaa9',
   orange: '#ffbc7c', police: '#5696bb', navy: '#213752',
 };
 const DAY_COLOURS = {
-  ...NIGHT_COLOURS, ink: '#263234', road: '#555a56', roadDark: '#404741', curb: '#b7b8ab',
-  ground: '#9a9a82', groundDark: '#7b856d', cream: '#f0e5c9',
-  roof: '#ae7863', roofLight: '#cfab8b', roofDark: '#785f55', olive: '#637955', oliveDark: '#42593f',
-  sea: '#2f747b', seaDark: '#285e6c', seaLight: '#b6d7ce', navy: '#395d72',
+  ...NIGHT_COLOURS, ink: '#263234', road: '#5b6260', roadDark: '#424e4e', curb: '#ccbfa1',
+  ground: '#c7b899', groundDark: '#938d74', cream: '#f0e5c9',
+  roof: '#b77452', roofLight: '#dfab7b', roofDark: '#885740', olive: '#637955', oliveDark: '#42593f',
+  sea: '#1c6f80', seaDark: '#125d72', seaLight: '#b6d7ce', navy: '#395d72',
 };
 let C = { ...NIGHT_COLOURS }, materialLight = { daylight: 0, night: 1, twilight: 0, sunAngle: -.75 * Math.PI };
 function mixColour(a, b, amount) {
@@ -74,67 +84,85 @@ const hash = (x, y, salt = 0) => {
 };
 const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
 let backgroundCache = new WeakMap();
+const GROUND_CACHE_BYTES = 32 * 1024 * 1024, GROUND_TILE_SIZE = 128, GROUND_CACHE_ENTRIES = 192;
+let groundPaintCount = 0, groundCacheMisses = 0, groundEvictions = 0, groundVisibleEvictions = 0;
+let groundDensity = 2, groundVisibleTiles = 0;
 let currentRenderWorld = null;
 let roofCache = new Map();
 const ROOF_CACHE_BYTES = 16 * 1024 * 1024;
 let roofCacheBytes = 0;
 const foliageCache = new Map(), FOLIAGE_CACHE_BYTES = 4 * 1024 * 1024;
 let foliageBytes = 0;
-let waterSurface = null;
-const waterSurfaceReady = typeof Image === 'undefined' ? Promise.resolve(false)
-  : import('./data/calvi-water-surface.js').then(module => {
-    waterSurface = module.CALVI_WATER_SURFACE; return waterSurface?.status === 'ready';
-  }).catch(() => false);
+const spriteBudgetProfiles = new WeakMap();
+let roofVisibleObjects = new Set(), foliageVisibleObjects = new Set();
+let roofDensity = 2, foliageDensity = 2;
+let roofPaintCount = 0, roofCacheMisses = 0, roofEvictions = 0, roofVisibleEvictions = 0;
+let foliagePaintCount = 0, foliageCacheMisses = 0, foliageEvictions = 0, foliageVisibleEvictions = 0;
+// Archived photographic classifications remain testable through an explicit
+// waterSurfaceContains argument; the drawn sea needs no image-derived mask.
+const waterSurface = null;
 let frameDetails = { vegetationVisible: 0, seaRippleCount: 0, aerialMaskCount: 0, maskSignature: '', actorUnderCanopy: 0, actorsInLowVegetation: 0, playerUnderCanopy: false };
+const geometryFingerprintCache = new WeakMap();
+// A reproducible non-cryptographic fingerprint of stored geometry, independent
+// of lighting, damage, character labels and moving vehicles. QA can compute it
+// before/after rendering; the frame diagnostics cache the initial static map.
+export function worldGeometryFingerprint(world) {
+  let a = 2166136261, b = 0x9e3779b9;
+  const add = value => {
+    const text = `${value};`;
+    for (let i = 0; i < text.length; i++) { const c = text.charCodeAt(i); a = Math.imul(a ^ c, 16777619); b = Math.imul(b ^ c, 2246822519); }
+  };
+  const points = value => { add(value?.length || 0); for (const point of value || []) for (const coordinate of point) add(coordinate); };
+  add(world?.width); add(world?.height);
+  for (const kind of ['landPolygons', 'seaPolygons', 'shorelines']) { add(kind); for (const ring of rings(world?.[kind])) points(ring); }
+  for (const road of world?.roads || []) { add(road.width); points(road.points); }
+  for (const building of world?.buildings || []) {
+    for (const key of ['x', 'y', 'w', 'h']) add(building[key]); points(building.polygon); for (const hole of building.holes || []) points(hole);
+  }
+  for (const area of world?.scenery || []) if (area.polygon) { points(area.polygon); for (const hole of area.holes || []) points(hole); }
+  for (const tree of world?.vegetation || []) { for (const key of ['x', 'y', 'radius', 'heightMeters']) add(tree[key]); points(tree.canopyPolygon); }
+  for (const pier of world?.piers || []) { add(pier.width); add(pier.heightMeters); points(pier.points); }
+  const terrain = world?.terrain;
+  add(terrain?.columns); add(terrain?.rows); add(terrain?.metadata?.sha256); add(terrain?.maxElevation);
+  return (a >>> 0).toString(16).padStart(8, '0') + (b >>> 0).toString(16).padStart(8, '0');
+}
+function cachedGeometryFingerprint(world) {
+  if (!geometryFingerprintCache.has(world)) geometryFingerprintCache.set(world, worldGeometryFingerprint(world));
+  return geometryFingerprintCache.get(world);
+}
 export function rendererStats() {
   const ground = backgroundCache.get(currentRenderWorld);
-  return Object.freeze({ photoMode: currentRenderWorld ? hasPhotograph(currentRenderWorld) : false,
+  return Object.freeze({ artMode: 'illustrated', photoMode: false, materialsAsset: MATERIALS_ASSET, materialsReady: atlasLoaded,
+    sourceMapSha256: currentRenderWorld?.metadata?.sha256 || null,
+    geometryFingerprint: currentRenderWorld ? cachedGeometryFingerprint(currentRenderWorld) : null,
     groundEntries: ground?.size || 0, groundBytes: ground ? [...ground.values()].reduce((total, entry) => total + imageBytes(entry), 0) : 0,
-    maximumGroundBytes: 32 * 1024 * 1024, roofEntries: roofCache.size, roofBytes: roofCacheBytes,
+    maximumGroundBytes: GROUND_CACHE_BYTES, maximumGroundEntries: GROUND_CACHE_ENTRIES, groundTileSize: GROUND_TILE_SIZE,
+    groundDensity, groundVisibleTiles, groundPaintCount, groundCacheMisses, groundEvictions, groundVisibleEvictions,
+    roofEntries: roofCache.size, roofBytes: roofCacheBytes, roofVisibleObjects: roofVisibleObjects.size,
+    roofDensity, roofPaintCount, roofCacheMisses, roofEvictions, roofVisibleEvictions,
     maximumRoofBytes: ROOF_CACHE_BYTES, foliageEntries: foliageCache.size, foliageBytes,
+    foliageDensity, foliagePaintCount, foliageCacheMisses, foliageEvictions, foliageVisibleEvictions,
     maximumFoliageBytes: FOLIAGE_CACHE_BYTES, ...frameDetails,
     visibleVegetation: frameDetails.vegetationVisible, seaRippleLines: frameDetails.seaRippleCount,
     appliedVehicleMasks: frameDetails.aerialMaskCount, waterMaskReady: waterSurface?.status === 'ready' });
 }
-// Original local art and verified IGN ground detail retain procedural fallbacks.
-// Loading invalidates static caches; both decoders belong to artReady.
+// The material sheet supplies surface art, never a flattened city image. Its
+// coordinates are clipped to the original ground and building geometry.
 let textureAtlas = null;
 let atlasLoaded = false;
-let orthophoto = null, imageryProvenance = null;
 const atlasReady = typeof Image === 'undefined' ? Promise.resolve(false) : new Promise(resolve => {
   const atlas = new Image();
   atlas.onload = async () => {
     try { await atlas.decode(); } catch { /* onload still provides a usable image */ }
     textureAtlas = atlas;
-    atlasLoaded = atlas.naturalWidth === 1254 && atlas.naturalHeight === 1254;
-    backgroundCache = new WeakMap(); roofCache = new Map(); roofCacheBytes = 0;
+    atlasLoaded = atlas.naturalWidth >= 192 && atlas.naturalWidth === atlas.naturalHeight;
+    backgroundCache = new WeakMap(); roofCache = new Map(); roofCacheBytes = 0; foliageCache.clear(); foliageBytes = 0;
     resolve(atlasLoaded);
   };
   atlas.onerror = () => resolve(false);
-  atlas.src = new URL('./assets/corsica-textures.png', import.meta.url).href;
+  atlas.src = new URL(`./${MATERIALS_ASSET}`, import.meta.url).href;
 });
-const imageryReady = typeof Image === 'undefined' ? Promise.resolve(false) : (async () => {
-  try {
-    if (await imageryStreamReady) { backgroundCache = new WeakMap(); return true; }
-    const response = await fetch(new URL('./data/calvi-imagery-provenance.json', import.meta.url));
-    if (!response.ok) return false;
-    const provenance = await response.json();
-    if (provenance.status !== 'ready' || provenance.asset !== 'assets/calvi-orthophoto.jpg'
-      || !Number.isInteger(provenance.image?.width) || provenance.image.width <= 0
-      || !Number.isInteger(provenance.image?.height) || provenance.image.height <= 0) return false;
-    return await new Promise(resolve => {
-      const image = new Image();
-      image.onload = async () => {
-        try { await image.decode(); } catch { /* A loaded image remains usable. */ }
-        if (image.naturalWidth !== provenance.image.width || image.naturalHeight !== provenance.image.height) { resolve(false); return; }
-        orthophoto = image; imageryProvenance = provenance; backgroundCache = new WeakMap(); resolve(true);
-      };
-      image.onerror = () => resolve(false);
-      image.src = new URL('./assets/calvi-orthophoto.jpg', import.meta.url).href;
-    });
-  } catch { return false; }
-})();
-export const artReady = Promise.all([atlasReady, imageryReady, waterSurfaceReady]).then(([atlas, photo]) => atlas || photo);
+export const artReady = atlasReady;
 function textureFill(ctx, column, row, x, y, w, h, size = 64, opacity = 1) {
   if (!atlasLoaded || w <= 0 || h <= 0) return;
   ctx.save(); ctx.imageSmoothingEnabled = true;
@@ -142,7 +170,8 @@ function textureFill(ctx, column, row, x, y, w, h, size = 64, opacity = 1) {
   ctx.globalAlpha *= opacity;
   for (let yy = Math.floor(y / size) * size; yy < y + h; yy += size) {
     for (let xx = Math.floor(x / size) * size; xx < x + w; xx += size) {
-      ctx.drawImage(textureAtlas, column * 418, row * 418, 418, 418, xx, yy, size, size);
+      const cell = textureAtlas.naturalWidth / 3;
+      ctx.drawImage(textureAtlas, column * cell + 1, row * cell + 1, cell - 2, cell - 2, xx, yy, size, size);
     }
   }
   ctx.restore();
@@ -156,7 +185,7 @@ function leafyTexture(ctx, x, y, r) {
     ctx.rect(Math.round(x - half + edge), Math.round(y + dy), Math.max(1, half * 2 + 1 - edge), 1);
   }
   ctx.clip();
-  textureFill(ctx, 2, 2, x - r, y - r, r * 2 + 1, r * 2 + 1, 64, 0.12);
+  textureFill(ctx, 1, 2, x - r, y - r, r * 2 + 1, r * 2 + 1, 64, 0.12);
   ctx.restore();
 }
 
@@ -315,8 +344,8 @@ export function screenToWorld(game, x, y, canvas = null) {
   }
   return { x: wx, y: wy };
 }
-// Request only the actual ground seen by the camera. Using the commune's
-// highest mountain as a photo margin wastes the four fine decoded images.
+// Ground view bounds remain the exact inverse of the terrain projection,
+// also during flight; existing consumers retain the historical helper name.
 export function photoViewBounds(game, canvas = null) {
   const camera = cameraFor(game, canvas), points = [];
   for (const fx of [0, .25, .5, .75, 1]) for (const fy of [0, .5, 1])
@@ -410,62 +439,7 @@ export function imageryMatches(world, provenance) {
     && Math.abs(world.width - source.worldWidth) < .05 && Math.abs(world.height - source.worldHeight) < .05
     && !!a && !!b && ['west', 'south', 'east', 'north'].every(key => Number.isFinite(a[key]) && Number.isFinite(b[key]) && Math.abs(a[key] - b[key]) < 1e-7);
 }
-function hasPhotograph(world) {
-  return !!aerialImagery.overviewImage && imageryManifestMatches(world, aerialImagery.manifest)
-    || !!orthophoto && imageryMatches(world, imageryProvenance);
-}
-function drawPhotograph(ctx, world, bounds) {
-  if (!aerialImagery.drawOverview(ctx, world, bounds) && orthophoto && imageryMatches(world, imageryProvenance)) {
-    const x = Math.max(0, bounds.x), y = Math.max(0, bounds.y);
-    const w = Math.min(world.width, bounds.x + bounds.w) - x, h = Math.min(world.height, bounds.y + bounds.h) - y;
-    if (w > 0 && h > 0) ctx.drawImage(orthophoto, x / world.width * orthophoto.width, y / world.height * orthophoto.height,
-      w / world.width * orthophoto.width, h / world.height * orthophoto.height, x, y, w, h);
-  }
-  aerialImagery.draw(ctx, world, bounds);
-}
-function photographicGround(ctx, world, bounds) {
-  if (!hasPhotograph(world)) return false;
-  ctx.save(); ctx.imageSmoothingEnabled = true;
-  drawPhotograph(ctx, world, bounds);
-  // Only accepted annotations are retouched, in the ground material itself.
-  // The pavement patch persists when its interactive vehicle drives away.
-  for (const mask of renderCandidates(world, bounds, 'masks')) {
-    if (!Array.isArray(mask.polygon) || mask.polygon.length < 3) continue;
-    ctx.save(); path(ctx, mask.polygon); ctx.clip();
-    rect(ctx, mask.x, mask.y, mask.w, mask.h, mask.groundColor || '#6e7068');
-    const source = mask.groundPatch?.sourceBoundsWorld;
-    if (source && [source.x, source.y, source.w, source.h].every(Number.isFinite) && source.w > 0 && source.h > 0) {
-      ctx.translate(mask.x, mask.y); ctx.scale(mask.w / source.w, mask.h / source.h); ctx.translate(-source.x, -source.y);
-      drawPhotograph(ctx, world, source);
-    }
-    ctx.restore();
-  }
-  // Exposure belongs to the photographic material; actors and local lights
-  // retain their own illumination rather than receiving a screen-wide filter.
-  if (materialLight.night > .001) {
-    ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha = materialLight.night * .74;
-    rect(ctx, bounds.x, bounds.y, bounds.w, bounds.h, '#244565');
-  }
-  ctx.restore();
-  return true;
-}
-function importedGround(ctx, world, bounds) {
-  rect(ctx, bounds.x, bounds.y, bounds.w, bounds.h, C.seaDark);
-  textureFill(ctx, 2, 1, bounds.x, bounds.y, bounds.w, bounds.h, 96, 0.065);
-  const land = rings(world.landPolygons);
-  for (const ring of land) {
-    if (!overlapsView(pointsBounds(ring), bounds)) continue;
-    polygon(ctx, ring, C.ground, bounds);
-    ctx.save(); path(ctx, ring); ctx.clip();
-    textureFill(ctx, 0, 0, bounds.x, bounds.y, bounds.w, bounds.h, 96, 0.09); ctx.restore();
-  }
-  for (const ring of rings(world.seaPolygons)) {
-    if (!overlapsView(pointsBounds(ring), bounds)) continue;
-    polygon(ctx, ring, C.sea, bounds);
-    ctx.save(); path(ctx, ring); ctx.clip();
-    textureFill(ctx, 2, 1, bounds.x, bounds.y, bounds.w, bounds.h, 96, 0.075); ctx.restore();
-  }
-}
+
 const roadGeometryCache = new WeakMap();
 function roadGeometry(world) {
   let cached = roadGeometryCache.get(world);
@@ -525,7 +499,7 @@ function roadTexture(ctx, road, bounds) {
     ctx.moveTo(segment.a[0] + nx, segment.a[1] + ny); ctx.lineTo(segment.b[0] + nx, segment.b[1] + ny);
     ctx.lineTo(segment.b[0] - nx, segment.b[1] - ny); ctx.lineTo(segment.a[0] - nx, segment.a[1] - ny); ctx.closePath();
   }
-  ctx.clip(); textureFill(ctx, road.foot ? 0 : 2, 0, region.x, region.y, region.w, region.h, 96, road.foot ? 0.075 : 0.055);
+  ctx.clip(); textureFill(ctx, road.foot ? 0 : 1, 0, region.x, region.y, region.w, region.h, 112, road.foot ? .54 : .43);
   // Narrow old-town lanes receive setts, while asphalt stays a continuous neutral surface.
   if (road.foot) for (let y = Math.floor(region.y / 3.2) * 3.2; y < region.y + region.h; y += 3.2) {
     for (let x = Math.floor(region.x / 5.5) * 5.5 + (Math.round(y / 3.2) % 2) * 2.7; x < region.x + region.w; x += 5.5) {
@@ -557,23 +531,6 @@ function roadTexture(ctx, road, bounds) {
   }
 }
 
-function ground(ctx, world, bounds = null) {
-  const w = world.width || 1500, h = world.height || 1400;
-  bounds ||= { x: 0, y: 0, w, h };
-  if (rings(world.landPolygons).length) { importedGround(ctx, world, bounds); return; }
-  rect(ctx, 0, 0, w, h, C.ground);
-  // Moss and old limestone are flat, walkable ground textures, not obstacles.
-  polygon(ctx, [[1000, 0], [w, 0], [w, h], [1080, h], [1010, 1120], [1090, 760], [1020, 420]], '#31544d');
-  rect(ctx, 0, h - 410, 1000, 410, '#4d606f');
-  textureFill(ctx, 0, 0, bounds.x, bounds.y, bounds.w, bounds.h, 96, 0.09);
-  textureFill(ctx, 1, 1, Math.max(0, bounds.x), Math.max(h - 410, bounds.y), Math.max(0, Math.min(1000, bounds.x + bounds.w) - bounds.x), Math.max(0, Math.min(h, bounds.y + bounds.h) - Math.max(h - 410, bounds.y)), 96, 0.06);
-  ctx.save(); ctx.beginPath();
-  ctx.moveTo(1000, 0); ctx.lineTo(w, 0); ctx.lineTo(w, h); ctx.lineTo(1080, h);
-  ctx.lineTo(1010, 1120); ctx.lineTo(1090, 760); ctx.lineTo(1020, 420); ctx.closePath(); ctx.clip();
-  textureFill(ctx, 1, 0, Math.max(1000, bounds.x), bounds.y, Math.max(0, bounds.x + bounds.w - Math.max(1000, bounds.x)), bounds.h, 96, 0.12);
-  ctx.restore();
-
-}
 
 function drawRoads(ctx, world, bounds = null) {
   bounds ||= { x: 0, y: 0, w: world.width || 1500, h: world.height || 1400 };
@@ -639,34 +596,6 @@ function drawRoads(ctx, world, bounds = null) {
   ctx.restore();
 }
 
-function water(ctx, item) {
-  const x = item.x || 0, y = item.y || 0, w = item.w || 1500, h = item.h || 60;
-  rect(ctx, x, y, w, h, C.sea);
-  rect(ctx, x, y + 23, w, Math.max(0, h - 23), C.seaDark);
-  textureFill(ctx, 2, 1, x, y, w, h, 64, 0.8);
-  for (let yy = y + 10; yy < y + h; yy += 15) {
-    for (let xx = x + 7; xx < x + w; xx += 43) {
-      const off = Math.floor(hash(xx, yy, 21) * 15);
-      rect(ctx, xx + off, yy, 14, 1, C.seaLight);
-      rect(ctx, xx + off + 4, yy + 2, 6, 1, '#459faf');
-    }
-  }
-  rect(ctx, x, y - 5, w, 5, '#d7c69b');
-  rect(ctx, x, y, w, 2, '#4c7779');
-  for (let xx = x + 42; xx < x + w - 28; xx += 140) {
-    rect(ctx, xx, y - 3, 3, 4, '#373c38');
-    rect(ctx, xx + 28, y - 3, 3, 4, '#373c38');
-    // Little moored wooden boats remain entirely inside blocked port water.
-    polygon(ctx, [[xx + 4, y + 14], [xx + 8, y + 8], [xx + 25, y + 8],
-      [xx + 31, y + 14], [xx + 25, y + 22], [xx + 8, y + 22]], '#273b4d');
-    polygon(ctx, [[xx + 5, y + 14], [xx + 9, y + 10], [xx + 25, y + 10],
-      [xx + 28, y + 14], [xx + 24, y + 19], [xx + 10, y + 19]], '#e2d7af');
-    rect(ctx, xx + 10, y + 12, 13, 4, '#b77448');
-    rect(ctx, xx + 17, y + 7, 1, 17, '#efe8c7');
-    line(ctx, xx + 2, y + 2, xx + 6, y + 13, '#a7c5af');
-    line(ctx, xx + 29, y + 2, xx + 27, y + 13, '#a7c5af');
-  }
-}
 
 function tree(ctx, x, y, scale = 1, type = 'olive') {
   const pine = type === 'pine', r = (type === 'maquis' ? 7.5 : pine ? 13 : 11.5) * scale;
@@ -696,7 +625,7 @@ function paving(ctx, item) {
   const { x, y } = item, w = item.w || 32, h = item.h || 26;
   const garden = item.material === 'garden';
   rect(ctx, x, y, w, h, garden ? '#2f3e3f' : '#47515b');
-  textureFill(ctx, garden ? 1 : 0, 0, x, y, w, h, 96, 0.07);
+  textureFill(ctx, garden ? 1 : 0, garden ? 1 : 0, x, y, w, h, 96, .25);
   if (garden) {
     for (let yy = 6; yy < h - 3; yy += 15) rect(ctx, x + w / 2 - 2, y + yy, 5, 6, '#4f5b5f');
   } else {
@@ -728,54 +657,12 @@ function boat(ctx, item) {
   line(ctx, x + w / 2, y + 1, x + w / 2, y + h - 1, '#a9a89d');
 }
 
-function areaGround(ctx, item, bounds, world) {
-  const shape = item.polygon, box = pointsBounds(shape);
-  if (!overlapsView(box, bounds)) return;
-  const area = item.areaKind || item.kind;
-  const green = ['maquis', 'wood', 'forest', 'scrub', 'grass', 'park', 'garden', 'meadow'].includes(area);
-  const beach = area === 'beach';
-  const region = { x: Math.max(box.x, bounds.x), y: Math.max(box.y, bounds.y),
-    w: Math.min(box.x + box.w, bounds.x + bounds.w) - Math.max(box.x, bounds.x),
-    h: Math.min(box.y + box.h, bounds.y + bounds.h) - Math.max(box.y, bounds.y) };
-  ctx.save();
-  // Land-use boundaries (a marina, for example) may include open water. They
-  // change surface art only; they must never invent land beyond the real coast.
-  const land = rings(world?.landPolygons), seas = rings(world?.seaPolygons);
-  if (land.length) {
-    ctx.beginPath();
-    for (const ring of land) {
-      ring.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y));
-      ctx.closePath();
-    }
-    ctx.clip();
-  }
-  if (seas.length) {
-    path(ctx, [[bounds.x, bounds.y], [bounds.x + bounds.w, bounds.y], [bounds.x + bounds.w, bounds.y + bounds.h], [bounds.x, bounds.y + bounds.h]], seas);
-    ctx.clip('evenodd');
-  }
-  path(ctx, shape, item.holes || []); ctx.clip('evenodd');
-  rect(ctx, region.x, region.y, region.w, region.h, green ? surfaceColour('#2d3d40', '#768464') : beach ? surfaceColour('#52545a', '#c9ba91') : C.ground);
-  textureFill(ctx, green ? 1 : beach ? 1 : 0, green ? 0 : beach ? 2 : 0,
-    region.x, region.y, region.w, region.h, 96, green ? 0.14 : beach ? 0.055 : 0.08);
-  if (green) {
-    for (let y = Math.floor(region.y / 16) * 16; y < region.y + region.h; y += 16) {
-      for (let x = Math.floor(region.x / 17) * 17; x < region.x + region.w; x += 17) {
-        const n = hash(x, y, 98);
-        if (n < 0.86) continue;
-        ellipse(ctx, x + 4, y + 3, 5, 3, '#425147');
-        rect(ctx, x + 1, y + 1, 3, 1, '#69735f');
-        rect(ctx, x + 5, y + 3, 2, 1, '#34413d');
-      }
-    }
-  }
-  ctx.restore();
-}
 
 function scenery(ctx, item) {
   const { x, y, kind } = item;
   if (kind === 'poster' && item.text) {
-    const colour = item.text.includes('K7') ? '#b69df5' : '#66dedb';
-    rect(ctx, x - 7, y - 6, 14, 12, '#122b3d'); rect(ctx, x - 6, y - 5, 12, 10, '#33485b');
+    const colour = item.text.includes('K7') ? '#a69b88' : '#92a99a';
+    rect(ctx, x - 7, y - 6, 14, 12, '#655f54'); rect(ctx, x - 6, y - 5, 12, 10, '#85806f');
     rect(ctx, x - 5, y - 4, 10, 1, colour); label(ctx, item.text.includes('K7') ? 'K7' : 'FM', x - 4, y - 2, colour, 5);
     return;
   }
@@ -787,12 +674,12 @@ function scenery(ctx, item) {
     rect(ctx, x + 3, y - 6, 4, 1, '#617a8a'); return;
   }
   if ((kind === 'market' || kind === 'awning') && item.theme) {
-    const w = item.w || 24, h = item.h || 18, radio = item.theme === 'radio-kiosk', colour = radio ? '#65d7db' : '#b599e6';
-    rect(ctx, x + 3, y + 4, w, h, '#1b2d42'); rect(ctx, x, y, w, h, '#37495d');
-    for (let xx = 0; xx < w; xx += 8) rect(ctx, x + xx, y, 4, h - 4, '#657280');
-    rect(ctx, x, y + h - 4, w, 4, '#122c3e'); rect(ctx, x + 2, y + h - 4, w - 4, 1, colour);
+    const w = item.w || 24, h = item.h || 18, radio = item.theme === 'radio-kiosk', colour = radio ? '#94ae9e' : '#b5a18a';
+    rect(ctx, x + 3, y + 4, w, h, '#5e6157'); rect(ctx, x, y, w, h, '#858475');
+    for (let xx = 0; xx < w; xx += 8) rect(ctx, x + xx, y, 4, h - 4, '#a6a18a');
+    rect(ctx, x, y + h - 4, w, 4, '#5e6459'); rect(ctx, x + 2, y + h - 4, w - 4, 1, colour);
     label(ctx, radio ? 'FM' : 'K7', x + 4, y + h - 3, colour, 5);
-    if (radio) { rect(ctx, x + w - 5, y + 3, 4, 7, '#162b3e'); rect(ctx, x + w - 4, y + 5, 2, 1, colour); }
+    if (radio) { rect(ctx, x + w - 5, y + 3, 4, 7, '#535b51'); rect(ctx, x + w - 4, y + 5, 2, 1, colour); }
     return;
   }
   if (kind === 'terrace' && item.theme) {
@@ -986,25 +873,26 @@ function projectedGroundBounds(world, bounds) {
   return result;
 }
 function paintGroundTile(ctx, world, bounds, daylight) {
+  groundPaintCount++;
   return underMaterialLight(daylight, () => {
-    const density = hasPhotograph(world) ? 1 : 2;
+    const density = 2;
     const tile = canvasFor(ctx, bounds.w, bounds.h, density), paint = tile?.getContext('2d', { alpha: false });
     if (!paint) return null;
     paint.scale(density, density); paint.translate(-bounds.x, -bounds.y);
-    if (photographicGround(paint, world, bounds)) return tile;
-    ground(paint, world, bounds);
-    for (const item of world.scenery || []) if (Array.isArray(item.polygon)) areaGround(paint, item, bounds, world);
-    photographicGround(paint, world, bounds);
-    terrainShade(paint, world, bounds); drawRoads(paint, world, bounds);
-    for (const item of world.scenery || []) if (!item.polygon && item.kind === 'water' && overlapsView(item, bounds)) water(paint, item);
-    for (const item of world.scenery || []) if (!item.polygon && item.ground && overlapsView(item, bounds, 20)) scenery(paint, item);
+    drawIllustratedGround(paint, world, bounds, { lighting: materialLight, textures: textureFill });
+    terrainShade(paint, world, bounds);
+    paint.save();
+    if (clipIllustratedLand(paint, world, bounds)) drawRoads(paint, world, bounds);
+    paint.restore();
+    drawIllustratedPiers(paint, world, bounds, { lighting: materialLight, textures: textureFill });
+    for (const item of renderCandidates(world, bounds, 'scenery')) if (!item.polygon && item.ground && item.kind !== 'water' && overlapsView(item, bounds, 20)) scenery(paint, item);
     if (!daylight) { paint.globalAlpha = .12; rect(paint, bounds.x, bounds.y, bounds.w, bounds.h, '#1e2d50'); }
     return tile;
   });
 }
 function paintProjectedGround(ctx, world, bounds, projected, daylight, density = 2) {
-  // Neighbouring photographs also supply a small source gutter. Fractional
-  // camera translation must never blend a transparent tile edge with the sea.
+  // A source gutter keeps fractional camera translation from exposing
+  // transparent seams between neighbouring painted terrain tiles.
   const gutter = 3, expanded = { x: bounds.x - gutter, y: bounds.y - gutter, w: bounds.w + gutter * 2, h: bounds.h + gutter * 2 };
   const source = paintGroundTile(ctx, world, expanded, daylight);
   if (!source) return null;
@@ -1032,28 +920,78 @@ function blendedArt(ctx, entry, make, width, height, alpha = false) {
   return entry.mixed || entry.day;
 }
 function imageBytes(entry) { return ['night', 'day', 'mixed'].reduce((bytes, key) => bytes + (entry[key] ? entry[key].width * entry[key].height * 4 : 0), 0); }
+// Testable cache contract: each visible sprite reserves night, day and mixed
+// RGBA canvases, including integer backing-store dimensions. Existing density
+// is a ceiling, so a stable viewport never sharpens/rebuilds when hours change.
+export function paletteBudgetDensity(items, maximumBytes, previousDensity = 2) {
+  const bytesAt = density => items.reduce((bytes, item) => {
+    const scale = Math.min(density, item.maximumDensity ?? 2);
+    return bytes + Math.ceil(item.width * scale) * Math.ceil(item.height * scale) * 12;
+  }, 0);
+  let density = Math.min(2, previousDensity);
+  while (density > .25 && bytesAt(density) > maximumBytes * .75) density -= .25;
+  while (density > 1 / 64 && bytesAt(density) > maximumBytes * .75) density /= 2;
+  return density;
+}
+function prepareSpriteBudgets(world, canvas, buildings, trees) {
+  roofVisibleObjects = new Set(buildings.filter(b => !b.destroyed && !(b.hp <= 0)));
+  foliageVisibleObjects = new Set(trees);
+  let profiles = spriteBudgetProfiles.get(world);
+  if (!profiles) { profiles = new Map(); spriteBudgetProfiles.set(world, profiles); }
+  // Canvas size stays fixed through a walking/driving camera zoom transition.
+  // A newly denser neighbourhood can lower density once, never oscillate it.
+  const key = `${canvas?.width || WIDTH},${canvas?.height || HEIGHT}`;
+  const profile = profiles.get(key) || { roof: 2, foliage: 2 };
+  const roofs = [...roofVisibleObjects].map(b => {
+    const width = Math.ceil(b.w + 6), height = Math.ceil(b.h + visualHeight(b) + 2);
+    return { width, height, maximumDensity: Math.min(2, Math.sqrt(256 * 1024 / (width * height))) };
+  });
+  const crowns = trees.map(tree => { const size = foliageProfile(tree).radius * 2 + 2; return { width: size, height: size }; });
+  profile.roof = roofDensity = paletteBudgetDensity(roofs, ROOF_CACHE_BYTES, profile.roof);
+  profile.foliage = foliageDensity = paletteBudgetDensity(crowns, FOLIAGE_CACHE_BYTES, profile.foliage);
+  profiles.set(key, profile);
+  while (profiles.size > 16) profiles.delete(profiles.keys().next().value);
+}
 function backdrop(ctx, world, camera) {
-  const size = 512;
+  const size = GROUND_TILE_SIZE;
   let cache = backgroundCache.get(world);
   if (!cache) { cache = new Map(); backgroundCache.set(world, cache); }
   const maxLift = maximumLift(world);
   const left = Math.floor(camera.x / size), top = Math.floor(camera.y / size);
   const right = Math.floor((camera.x + camera.width - 1) / size), bottom = Math.floor((camera.y + camera.height + maxLift - 1) / size);
+  const tiles = [];
   for (let ty = top; ty <= bottom; ty++) for (let tx = left; tx <= right; tx++) {
     const key = `${tx},${ty}`, bounds = { x: tx * size, y: ty * size, w: size, h: size };
     const mesh = projectedGroundBounds(world, bounds);
     if (!overlapsView(mesh, { x: camera.x, y: camera.y, w: camera.width, h: camera.height }, 2)) continue;
     const projected = { x: mesh.x - 1, y: mesh.y - 1, w: mesh.w + 2, h: Math.ceil(mesh.h) + 2 };
-    const signature = aerialImagery.signature(world, bounds), existing = cache.get(key);
-    const entry = existing && existing.signature === signature ? existing : { signature, density: hasPhotograph(world) ? 1 : 2 };
+    tiles.push({ key, bounds, projected });
+  }
+  groundVisibleTiles = tiles.length;
+  // Reserve all three palette bitmaps, even at noon. Small terrain tiles cut
+  // offscreen overdraw; resolution depends on viewport size rather than time
+  // or tile-edge camera movement, so ordinary scrolling never rebuilds a view.
+  const columns = Math.ceil(camera.width / size) + 1, rows = Math.ceil(camera.height / size) + 1;
+  const nominalArea = columns * rows * (size + 2) ** 2;
+  const density = Math.max(.5, Math.min(2, Math.floor(Math.sqrt(GROUND_CACHE_BYTES * .78 / (nominalArea * 12)) * 4) / 4));
+  groundDensity = density;
+  const visibleKeys = new Set(tiles.map(tile => tile.key));
+  for (const { key, bounds, projected } of tiles) {
+    const signature = 'illustrated-calvi-v19', existing = cache.get(key);
+    const reusable = existing && existing.signature === signature && existing.density === density;
+    const entry = reusable ? existing : { signature, density };
+    if (!reusable) groundCacheMisses++;
     // Relief and map geometry are static. Project each source palette once,
     // then blend the correctly warped tiles as daylight changes.
     const tile = blendedArt(ctx, entry, daylight => paintProjectedGround(ctx, world, bounds, projected, daylight, entry.density), projected.w, projected.h, true);
     if (!tile) continue;
     cache.delete(key); cache.set(key, entry);
     let bytes = [...cache.values()].reduce((sum, value) => sum + imageBytes(value), 0);
-    while (cache.size > 12 || bytes > 32 * 1024 * 1024 && cache.size > 1) {
-      const oldest = cache.keys().next().value; bytes -= imageBytes(cache.get(oldest)); cache.delete(oldest);
+    while (cache.size > GROUND_CACHE_ENTRIES || bytes > GROUND_CACHE_BYTES && cache.size > 1) {
+      // Offscreen palettes are always evicted before a tile visible this frame.
+      const oldest = [...cache.keys()].find(candidate => !visibleKeys.has(candidate)) ?? cache.keys().next().value;
+      if (visibleKeys.has(oldest)) groundVisibleEvictions++;
+      bytes -= imageBytes(cache.get(oldest)); cache.delete(oldest); groundEvictions++;
     }
     ctx.drawImage(tile, projected.x, projected.y, projected.w, projected.h);
   }
@@ -1113,145 +1051,13 @@ function municipalBorder(ctx, world, camera) {
   ctx.restore();
 }
 
-const nightTints = new Map();
-function nightTint(colour, fallback = '#70818c') {
-  const key = /^#[0-9a-f]{6}$/i.test(colour || '') ? colour : fallback;
-  if (nightTints.has(key)) return mixColour(nightTints.get(key), key, materialLight.daylight * .93);
-  const channels = [1, 3, 5].map(i => parseInt(key.slice(i, i + 2), 16)), luma = channels.reduce((a, b) => a + b) / 3;
-  const rgb = channels.map((v, i) => Math.round((luma + (v - luma) * .56) * .69 + [27, 49, 80][i] * .26));
-  const result = '#' + rgb.map(v => clamp(v, 0, 255).toString(16).padStart(2, '0')).join('');
-  nightTints.set(key, result); return mixColour(result, key, materialLight.daylight * .93);
-}
-function roofMaterial(b) {
-  const tags = b.osmTags || {}, source = tags['roof:shape'] || b.roofShape;
-  if (b.target || ['depot', 'warehouse', 'garage'].includes(b.kind) || /metal|steel|tin/.test(tags['roof:material'] || b.construction?.material || '')) return 'metal';
-  if (source === 'flat' || b.roof === 1 && hash(b.x, b.y, 620) > .76) return 'flat';
-  return 'hipped';
-}
-function roofFacet(ctx, points, light, shade, x0, y0, x1, y1) {
-  ctx.save(); path(ctx, points); ctx.clip();
-  const gradient = ctx.createLinearGradient(x0, y0, x1, y1);
-  gradient.addColorStop(0, light); gradient.addColorStop(1, shade);
-  ctx.fillStyle = gradient; ctx.fillRect(Math.min(...points.map(p => p[0])) - 1, Math.min(...points.map(p => p[1])) - 1,
-    Math.max(...points.map(p => p[0])) - Math.min(...points.map(p => p[0])) + 2, Math.max(...points.map(p => p[1])) - Math.min(...points.map(p => p[1])) + 2);
-  ctx.restore();
-}
-function paintRoof(ctx, b, x, y) {
-  const w = b.w, h = b.h, material = roofMaterial(b), horizontal = w >= h;
-  rect(ctx, x, y, w, h, '#273846');
-  if (material === 'metal') {
-    const gradient = ctx.createLinearGradient(x, y, x + w, y + h);
-    gradient.addColorStop(0, surfaceColour('#667a7f', '#adb5a9')); gradient.addColorStop(.48, surfaceColour('#465e68', '#909d94')); gradient.addColorStop(1, surfaceColour('#344b58', '#687e77'));
-    ctx.fillStyle = gradient; ctx.fillRect(x + 1, y + 1, w - 2, h - 2);
-    for (let xx = 2; xx < w - 1; xx += 2.6) {
-      line(ctx, x + xx, y + 1, x + xx, y + h - 1, '#809397', .33);
-      line(ctx, x + xx + .65, y + 1, x + xx + .65, y + h - 1, '#344d5a', .45);
-    }
-    for (let yy = 14; yy < h - 1; yy += 22) line(ctx, x + 1, y + yy, x + w - 1, y + yy, '#263f4c', .55);
-    for (let yy = 11; yy < h - 7; yy += 30) for (let xx = 12; xx < w - 8; xx += 34) {
-      rect(ctx, x + xx + .8, y + yy + 1, 11, 6.5, '#223e4b');
-      rect(ctx, x + xx, y + yy, 10, 6, '#668a92'); line(ctx, x + xx + 2, y + yy + .8, x + xx + 2, y + yy + 5.2, '#bfd0ca', .6);
-      line(ctx, x + xx + 6, y + yy, x + xx + 6, y + yy + 6, '#385c6d', .5);
-    }
-  } else if (material === 'flat') {
-    const gradient = ctx.createLinearGradient(x, y, x + w, y + h);
-    gradient.addColorStop(0, surfaceColour('#75818a', '#c0bdb0')); gradient.addColorStop(.5, surfaceColour('#5b6875', '#a4a798')); gradient.addColorStop(1, surfaceColour('#465869', '#808f81'));
-    ctx.fillStyle = gradient; ctx.fillRect(x + 1, y + 1, w - 2, h - 2);
-    for (let yy = 11; yy < h; yy += 13) line(ctx, x + 1.5, y + yy, x + w - 1.5, y + yy, '#465464', .4);
-    for (let xx = 14; xx < w; xx += 17) line(ctx, x + xx, y + 1.5, x + xx, y + h - 1.5, '#4d5b6a', .35);
-    // Parapets cast a narrow real-looking inner shadow across rooftop slabs.
-    rect(ctx, x + 1, y + 1, w - 2, 1.4, '#a3acae'); rect(ctx, x + 2, y + 2.4, w - 4, 1.2, '#344758');
-    rect(ctx, x + w - 2.4, y + 1, 1.4, h - 2, '#8b9ea7'); rect(ctx, x + w - 3.5, y + 2, 1, h - 4, '#354a5c');
-    for (let i = 0; i < 7; i++) {
-      const px = x + hash(b.x, b.y, 701 + i) * w, py = y + hash(b.x, b.y, 711 + i) * h;
-      ctx.save(); ctx.globalAlpha = .12; ellipse(ctx, px, py, 2 + i % 3, 1 + i % 2, '#233b50'); ctx.restore();
-    }
-    if (w > 25 && h > 25) {
-      rect(ctx, x + w * .52 + 1, y + h * .32 + 1.5, 11, 8, '#2b3e4b');
-      rect(ctx, x + w * .52, y + h * .32, 10, 7, '#9aa7a8');
-      ellipse(ctx, x + w * .52 + 5, y + h * .32 + 3.5, 2.1, 2, '#485f6e');
-      for (let grille = 1; grille < 9; grille += 1.4) line(ctx, x + w * .52 + grille, y + h * .32 + .8, x + w * .52 + grille, y + h * .32 + 6.2, '#687d87', .35);
-    }
-  } else {
-    const inset = Math.min(w, h) * .3;
-    const tl = [x, y], tr = [x + w, y], br = [x + w, y + h], bl = [x, y + h];
-    const a = horizontal ? [x + inset, y + h * .5] : [x + w * .5, y + inset];
-    const c = horizontal ? [x + w - inset, y + h * .5] : [x + w * .5, y + h - inset];
-    const north = horizontal ? [tl, tr, c, a] : [tl, tr, a];
-    const east = horizontal ? [tr, br, c] : [tr, br, c, a];
-    const south = horizontal ? [bl, br, c, a] : [bl, br, c];
-    const west = horizontal ? [tl, bl, a] : [tl, bl, c, a];
-    roofFacet(ctx, north, surfaceColour('#a68c7b', '#c4a286'), surfaceColour('#796764', '#9b7e69'), x, y, x + w * .35, y + h * .5);
-    roofFacet(ctx, east, surfaceColour('#6f6367', '#a1816c'), surfaceColour('#485160', '#707369'), x + w * .55, y, x + w, y + h);
-    roofFacet(ctx, south, surfaceColour('#7c6665', '#b68c73'), surfaceColour('#534c59', '#806e63'), x, y + h * .5, x + w * .45, y + h);
-    roofFacet(ctx, west, surfaceColour('#887368', '#c19c7d'), surfaceColour('#655960', '#957d67'), x, y, x + w * .5, y + h);
-    textureFill(ctx, 0, 1, x, y, w, h, 70, .035);
-    // Tile rolls are fine half-pixel edges, staggered instead of large painted bars.
-    ctx.save(); path(ctx, [[x + 1, y + 1], [x + w - 1, y + 1], [x + w - 1, y + h - 1], [x + 1, y + h - 1]]); ctx.clip();
-    const across = horizontal ? h : w, along = horizontal ? w : h;
-    for (let row = 1.5, n = 0; row < across; row += 2.9, n++) {
-      ctx.globalAlpha = .38;
-      if (horizontal) line(ctx, x + .7, y + row, x + w - .7, y + row, row < h * .5 ? '#c0a28e' : '#967c78', .35);
-      else line(ctx, x + row, y + .7, x + row, y + h - .7, row < w * .5 ? '#b79a86' : '#83747a', .35);
-      ctx.globalAlpha = .45;
-      for (let tile = (n % 2 ? 2 : .5); tile < along; tile += 5.2) {
-        if (horizontal) line(ctx, x + tile, y + row, x + tile + .35, y + row + 2.4, '#514f5a', .32);
-        else line(ctx, x + row, y + tile, x + row + 2.4, y + tile + .35, '#4b5060', .32);
-      }
-    }
-    ctx.restore();
-    for (const corner of horizontal ? [tl, bl] : [tl, tr]) line(ctx, corner[0], corner[1], a[0], a[1], '#433f49', 1.2);
-    for (const corner of horizontal ? [tr, br] : [bl, br]) line(ctx, corner[0], corner[1], c[0], c[1], '#3d3c4a', 1.2);
-    line(ctx, a[0], a[1], c[0], c[1], '#c6ac94', 1.25);
-    line(ctx, a[0] + .6, a[1] + 1, c[0] + .6, c[1] + 1, '#534c54', .8);
-  }
-  if (w > 35 && h > 27) {
-    const px = x + w * .24, py = y + h * .62;
-    rect(ctx, px + .7, py + 1, 8.4, 6.4, '#263c49'); rect(ctx, px, py, 8, 6, '#526f7b');
-    rect(ctx, px + .7, py + .7, 6.6, 4.6, '#6e9298'); line(ctx, px + 2.1, py + 1, px + 2.1, py + 5, '#b5d3cf', .55);
-    line(ctx, px + 5.2, py + .5, px + 5.2, py + 5.5, '#315867', .45);
-  }
-  if (b.roofDetails?.chimney !== false && w > 25 && h > 20) {
-    const px = x + w * .75, py = y + h * .27;
-    rect(ctx, px + 1.3, py + 2, 4.5, 5.5, '#2b3d4f'); rect(ctx, px, py, 4.5, 5.5, '#838784');
-    rect(ctx, px -.45, py -.55, 5.4, 1.6, '#b0ada5'); rect(ctx, px + .6, py -.25, 2.8, .6, '#354250');
-    for (const dy of [1.9, 3.7]) line(ctx, px, py + dy, px + 4.4, py + dy, '#5a6a73', .35);
-  }
-  if (b.roofDetails?.antenna !== false && w > 42 && h > 30) {
-    const px = x + w * .67, py = y + h * .69;
-    line(ctx, px + .7, py - 5, px + .7, py + 4, '#202e3d', .8); line(ctx, px, py - 5, px, py + 4, '#95a6ad', .45);
-    line(ctx, px - 3.4, py - 2, px + 3.4, py - 2, '#8c9da7', .5); line(ctx, px - 2.3, py + .6, px + 2.3, py + .6, '#7e919d', .5);
-  }
-  if (b.roofDetails?.satellite && w > 30 && h > 25) {
-    ellipse(ctx, x + w * .77 + .8, y + h * .3 + 1.2, 3.5, 2.4, '#304553');
-    ellipse(ctx, x + w * .77, y + h * .3, 3.5, 2.4, '#b1c0c2'); ellipse(ctx, x + w * .77 - .5, y + h * .3 -.2, 2.8, 1.8, '#819fa9');
-    line(ctx, x + w * .77, y + h * .3, x + w * .77 + 3, y + h * .3 + 4, '#334f61', .6);
-  }
-  if (b.sign && !b.neon && w > 25) {
-    const text = String(b.sign).toUpperCase().slice(0, 18), size = text.length > 12 ? 4 : 5;
-    const sw = Math.min(w - 8, text.length * size * .6 + 7);
-    rect(ctx, x + 4, y + h - 12, sw, 7, '#273b48'); label(ctx, text, x + 7, y + h - 10, '#c1ccc9', size);
-  }
-}
 
 function rubble(ctx, b) {
-  rect(ctx, b.x, b.y, b.w, b.h, '#30424d');
-  const scorch = ctx.createRadialGradient(b.x + b.w * .48, b.y + b.h * .45, 2, b.x + b.w * .5, b.y + b.h * .5, Math.max(b.w, b.h) * .68);
-  scorch.addColorStop(0, '#1a2935'); scorch.addColorStop(1, '#455360');
-  ctx.fillStyle = scorch; ctx.fillRect(b.x, b.y, b.w, b.h);
-  const pieces = Math.min(90, Math.max(22, Math.ceil(b.w * b.h / 110)));
-  for (let i = 0; i < pieces; i++) {
-    const x = b.x + hash(b.x, b.y, i + 62) * b.w, y = b.y + hash(b.x, b.y, i + 72) * b.h;
-    const size = 1.4 + hash(b.x, b.y, i + 82) * 4.2, angle = hash(b.x, b.y, i + 92) * Math.PI;
-    const piece = { x, y, angle };
-    boxAt(ctx, { ...piece, x: x + 1, y: y + .8 }, -size / 2, -size / 3, size, size * .6, '#182c3c');
-    boxAt(ctx, piece, -size / 2, -size / 3, size, size * .6, i % 4 ? '#737e7e' : '#86736a');
-    boxAt(ctx, piece, -size / 2, -size / 3, size, .45, '#a3a7a0');
-  }
-  for (let i = 0; i < 3; i++) {
-    const x = b.x + b.w * (.18 + i * .26), y = b.y + b.h * (.2 + hash(b.x, b.y, i + 95) * .6);
-    line(ctx, x - 3, y, x + 4, y + 1, '#102837', .65); line(ctx, x + 4, y + 1, x + 8, y - 3, '#102837', .5);
-  }
+  ctx.save(); ctx.translate(b.x, b.y);
+  drawIllustratedRubble(ctx, b, { lighting: materialLight, textureFill,
+    footprint: footprint(b).map(([x, y]) => [x - b.x, y - b.y]),
+    holes: (b.holes || []).map(ring => ring.map(([x, y]) => [x - b.x, y - b.y])) });
+  ctx.restore();
 }
 
 export function buildingProfile(b) {
@@ -1309,132 +1115,45 @@ function buildingShadow(ctx, b, photo = false) {
   ctx.fill(); ctx.restore();
 }
 
-function paintRaisedBuilding(ctx, b, world = null) {
-  const profile = buildingProfile(b), z = profile.height, ox = 4;
-  const photo = world && hasPhotograph(world);
-  const base = footprint(b).map(([x, y]) => [x - b.x + ox, y - b.y + z]);
-  const roof = base.map(([x, y]) => [x - ox, y - z]);
-  const inner = (b.holes || []).map(ring => ring.map(([x, y]) => [x - b.x + ox, y - b.y + z]));
-  const roofInner = inner.map(ring => ring.map(([x, y]) => [x - ox, y - z]));
-  const tone = photo ? '#b4b3aa' : nightTint(b.wallTone || '#c2c4c3');
-  for (const edgeRing of [base, ...inner]) for (let i = 0; i < edgeRing.length; i++) {
-    const a = edgeRing[i], c = edgeRing[(i + 1) % edgeRing.length], ar = [a[0] - ox, a[1] - z], cr = [c[0] - ox, c[1] - z];
-    const dx = c[0] - a[0], dy = c[1] - a[1], length = Math.hypot(dx, dy);
-    if (length < .1) continue;
-    const vertical = Math.abs(dy) > Math.abs(dx), face = [a, c, cr, ar];
-    polygon(ctx, face, vertical ? photo ? '#858b83' : surfaceColour('#43515f', mixColour(tone, '#5e7369', .24)) : tone);
-    ctx.save(); path(ctx, face); ctx.clip();
-    const shade = ctx.createLinearGradient(ar[0], ar[1], a[0], a[1]);
-    shade.addColorStop(0, 'rgba(12,23,38,.42)'); shade.addColorStop(.2, 'rgba(12,23,38,.03)'); shade.addColorStop(1, 'rgba(12,23,38,.17)');
-    ctx.fillStyle = shade; ctx.fillRect(Math.min(a[0], c[0]) - 5, Math.min(ar[1], cr[1]) - 1, Math.abs(dx) + 10, Math.abs(dy) + z + 2);
-    for (let row = 1; row < profile.floors; row++) {
-      const f = row / profile.floors;
-      line(ctx, ar[0] + ox * f, ar[1] + z * f, cr[0] + ox * f, cr[1] + z * f, '#a3aaa6', .42);
-      line(ctx, ar[0] + ox * f, ar[1] + z * f + .6, cr[0] + ox * f, cr[1] + z * f + .6, '#354556', .45);
-    }
-    if (length >= 11) {
-      const count = Math.max(1, Math.min(photo ? 9 : 18, Math.floor(length / (photo ? 20 : 13)))), rows = profile.floors;
-      for (let row = 0; row < rows; row++) for (let pane = 0; pane < count; pane++) {
-        const along = (pane + .5) / count, down = (row + .46) / rows;
-        const px = ar[0] + dx * along + ox * down, py = ar[1] + dy * along + z * down;
-        const windowWidth = vertical ? 2.6 : 3.8, windowHeight = Math.min(6, z / rows * .43);
-        rect(ctx, px - windowWidth / 2 - .5, py - windowHeight / 2 - .6, windowWidth + 1, windowHeight + 1.2, '#243444');
-        const lit = b.windowGlow && materialLight.night > .5 && hash(b.x + pane, b.y + row, 570) > .28;
-        rect(ctx, px - windowWidth / 2, py - windowHeight / 2, windowWidth, windowHeight, lit ? b.windowGlow : surfaceColour('#47636e', '#536c70'));
-        rect(ctx, px - windowWidth / 2, py - windowHeight / 2, .55, windowHeight, lit ? '#ffedd0' : surfaceColour('#7a9ca0', '#cad4c3'));
-        rect(ctx, px - .2, py - windowHeight / 2, .42, windowHeight, '#44515c');
-        rect(ctx, px - windowWidth / 2 - .8, py + windowHeight / 2, windowWidth + 1.7, .75, '#97a7a9');
-        if (b.shutterTone && !vertical) {
-          rect(ctx, px - windowWidth / 2 - 1.6, py - windowHeight / 2, .8, windowHeight, nightTint(b.shutterTone));
-          rect(ctx, px + windowWidth / 2 + .8, py - windowHeight / 2, .8, windowHeight, nightTint(b.shutterTone));
-        }
-        if (b.balcony && row < rows - 1 && pane % 3 === 1 && !vertical) {
-          rect(ctx, px - 4, py + 2.8, 8, 3, '#334657'); line(ctx, px - 4, py + 3, px + 4, py + 3, '#a5b3b5', .5);
-          for (let rail = -3; rail <= 3; rail += 2) line(ctx, px + rail, py + 3, px + rail, py + 5.6, '#91a4ab', .4);
-        }
-      }
-      // Street-level doors are small openings in the same real face.
-      const doorX = a[0] + dx * .54 - 1, doorY = a[1] + dy * .54 - 6;
-      rect(ctx, doorX - 2, doorY, 4.5, 6.3, '#293b49'); rect(ctx, doorX - 1.2, doorY + .7, 2.8, 5.4, '#46656b');
-      rect(ctx, doorX + .9, doorY + 3.2, .55, .55, '#c7b58e');
-    }
-    ctx.restore(); line(ctx, a[0], a[1], c[0], c[1], photo ? '#777d76' : '#1d3348', photo ? .35 : .8);
-    line(ctx, ar[0], ar[1], cr[0], cr[1], photo ? '#74786b' : '#263544', photo ? .35 : 1.5);
-  }
-  ctx.save(); path(ctx, roof, roofInner); ctx.clip('evenodd');
-  if (photo) { ctx.translate(-b.x, -b.y); drawPhotograph(ctx, world, { x: b.x, y: b.y, w: b.w, h: b.h }); }
-  else paintRoof(ctx, b, 0, 0);
-  ctx.restore();
-  for (const ring of [roof, ...roofInner]) for (let i = 0; i < ring.length; i++) {
-    const a = ring[i], c = ring[(i + 1) % ring.length];
-    line(ctx, a[0], a[1], c[0], c[1], photo ? '#9d9e8c' : i === 0 ? '#a2a5a0' : '#465161', photo ? .25 : .65);
-    if (!photo) line(ctx, a[0] + .8, a[1] + 1.1, c[0] + .8, c[1] + 1.1, '#27394a', .7);
-  }
+function paintRaisedBuilding(ctx, b) {
+  drawIllustratedBuilding(ctx, b, { lighting: materialLight, textureFill, profile: buildingProfile(b),
+    footprint: footprint(b).map(([x, y]) => [x - b.x, y - b.y]),
+    holes: (b.holes || []).map(ring => ring.map(([x, y]) => [x - b.x, y - b.y])), offsetX: 4 });
 }
 
-function photoBuildingNight(ctx, b, height) {
-  if (materialLight.night < .001) return;
-  const ring = footprint(b), roof = ring.map(([x, y]) => [x - 4, y - height]);
-  ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha *= materialLight.night * .72;
-  ctx.beginPath();
-  const add = points => {
-    const area = points.reduce((sum, p, i) => { const q = points[(i + 1) % points.length]; return sum + p[0] * q[1] - q[0] * p[1]; }, 0);
-    const ordered = area < 0 ? [...points].reverse() : points;
-    ordered.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); ctx.closePath();
-  };
-  add(roof);
-  for (let i = 0; i < ring.length; i++) { const j = (i + 1) % ring.length; add([ring[i], ring[j], roof[j], roof[i]]); }
-  ctx.fillStyle = '#244565'; ctx.fill(); ctx.restore();
-  if (b.windowGlow && materialLight.lamps > .01) {
-    ctx.save(); ctx.globalAlpha *= materialLight.lamps;
-    const floors = buildingProfile(b).floors;
-    for (let edge = 0; edge < ring.length; edge++) {
-      const a = ring[edge], c = ring[(edge + 1) % ring.length], dx = c[0] - a[0], dy = c[1] - a[1];
-      if (Math.abs(dx) < Math.abs(dy)) continue;
-      const count = Math.min(9, Math.floor(Math.hypot(dx, dy) / 20));
-      for (let row = 0; row < floors; row++) for (let pane = 0; pane < count; pane++) {
-        if (hash(b.x + pane, b.y + row, 570) <= .28) continue;
-        const along = (pane + .5) / count, down = (row + .46) / floors;
-        const px = a[0] - 4 + dx * along + 4 * down, py = a[1] - height + dy * along + height * down;
-        if (pointInRing(px, py, roof)) continue;
-        rect(ctx, px - 1.9, py - 2,
-          3.8, Math.min(4, height / floors * .36), b.windowGlow);
-      }
-    }
-    ctx.restore();
-  }
-}
 
 function building(ctx, b, world) {
   if (b.destroyed || b.hp <= 0) {
     ctx.save(); path(ctx, footprint(b), b.holes || []); ctx.clip('evenodd'); rubble(ctx, b); ctx.restore(); return;
   }
-  const photo = hasPhotograph(world), signature = photo ? aerialImagery.signature(world, b) : '';
+  const signature = 'illustrated-calvi-v19';
+  const z = visualHeight(b), width = Math.ceil(b.w + 6), height = Math.ceil(b.h + z + 2);
+  const density = Math.min(roofDensity, Math.sqrt(256 * 1024 / (width * height)));
   let cached = roofCache.get(b);
-  if (cached && (cached.photo !== photo || cached.signature !== signature)) {
+  if (cached && (cached.signature !== signature || cached.density !== density)) {
     roofCacheBytes -= imageBytes(cached); roofCache.delete(b); cached = null;
   }
   if (!cached) {
-    const z = visualHeight(b), width = Math.ceil(b.w + 6), height = Math.ceil(b.h + z + 2);
-    cached = { z, width, height, photo, signature, density: Math.min(photo ? 1.25 : 2, Math.sqrt(256 * 1024 / (width * height))) };
+    roofCacheMisses++;
+    cached = { z, width, height, signature, density };
   }
   const beforeBytes = imageBytes(cached);
   const make = daylight => underMaterialLight(daylight, () => {
     const image = canvasFor(ctx, cached.width, cached.height, cached.density), paint = image?.getContext('2d');
     if (!paint) return null;
+    roofPaintCount++;
     paint.scale(cached.density, cached.density); paintRaisedBuilding(paint, b, world); return image;
   });
-  // A photographic roof keeps one natural texture. Night exposure is a cheap
-  // local silhouette and window pass, avoiding three full roof bitmaps per view.
-  const canvas = photo ? cached.day ||= make(1) : blendedArt(ctx, cached, make, cached.width, cached.height, true);
+  const canvas = blendedArt(ctx, cached, make, cached.width, cached.height, true);
   if (!canvas) { ctx.save(); ctx.translate(b.x - 4, b.y - cached.z); paintRaisedBuilding(ctx, b, world); ctx.restore(); return; }
   roofCacheBytes += imageBytes(cached) - beforeBytes;
   roofCache.delete(b); roofCache.set(b, cached);
-  while ((roofCacheBytes > ROOF_CACHE_BYTES || roofCache.size > 160) && roofCache.size > 1) {
-    const first = roofCache.keys().next().value; roofCacheBytes -= imageBytes(roofCache.get(first)); roofCache.delete(first);
+  while (roofCacheBytes > ROOF_CACHE_BYTES && roofCache.size > 1) {
+    const first = [...roofCache.keys()].find(item => !roofVisibleObjects.has(item)) ?? roofCache.keys().next().value;
+    if (roofVisibleObjects.has(first)) roofVisibleEvictions++;
+    roofCacheBytes -= imageBytes(roofCache.get(first)); roofCache.delete(first); roofEvictions++;
   }
   ctx.drawImage(canvas, b.x - 4, b.y - cached.z, cached.width, cached.height);
-  if (photo) photoBuildingNight(ctx, b, cached.z);
   neonSign(ctx, b);
   const damage = Number.isFinite(b.maxHp) && b.maxHp > 0 ? clamp(1 - b.hp / b.maxHp, 0, 1) : 0;
   if (damage > 0.12) {
@@ -1544,21 +1263,11 @@ function headlights(ctx, c, world) {
 }
 const seaPointCache = new WeakMap();
 function eveningLights(ctx, game, camera, t, reducedEffects, nearbyBuildings = [], nearbyScenery = []) {
-  if (hasPhotograph(game.world)) {
-    if (materialLight.lamps < .001) return;
-    for (const b of nearbyBuildings) if (!b.destroyed) storefrontGlow(ctx, b, game.world);
-    for (const item of nearbyScenery) if (item.kind === 'lamppost' || item.kind === 'lamp')
-      onTerrain(ctx, game.world, item, () => lampGlow(ctx, item.x, item.y, item.lightColor || '#ffc493'));
-    for (const c of game.cars || []) if (!c.destroyed && (c.id === game.vehicleId || (c.kind === 'traffic' && Math.abs(c.speed || 0) > 5)) && visible(c, camera, 100))
-      onTerrain(ctx, game.world, c, () => headlights(ctx, c, game.world));
-    for (const c of game.police || []) if (!c.vehicleId && !c.dead && !c.onFoot && visible(c, camera, 100))
-      onTerrain(ctx, game.world, c, () => headlights(ctx, c, game.world));
-    return;
-  }
+
   for (const b of nearbyBuildings) {
     if (!b.destroyed && visible(b, camera, 70)) storefrontGlow(ctx, b, game.world);
   }
-  for (const item of game.world.scenery || []) {
+  for (const item of nearbyScenery) {
     if ((item.kind === 'lamppost' || item.kind === 'lamp') && visible(item, camera, 60)) onTerrain(ctx, game.world, item, () => lampGlow(ctx, item.x, item.y, item.lightColor || '#ffc493'));
     if ((item.theme === 'radio-kiosk' || item.theme === 'cassette-stall' || item.theme === 'pizzeria') && visible(item, camera, 45)) {
       const colour = item.theme === 'radio-kiosk' ? '#66dedb' : item.theme === 'cassette-stall' ? '#b69df5' : '#e99486';
@@ -1575,7 +1284,7 @@ function eveningLights(ctx, game, camera, t, reducedEffects, nearbyBuildings = [
         rect(ctx, x + 3 + phase, y + 2, 3, 1, '#9ed1d1');
       }
       // Reflections align with genuine lights along this actual quayside.
-      for (const light of game.world.scenery || []) {
+      for (const light of nearbyScenery) {
         if ((light.kind !== 'lamppost' && light.kind !== 'lamp') || light.y > item.y || item.y - light.y > 85 || light.x < x0 || light.x > x1) continue;
         ctx.globalAlpha = 0.16 * materialLight.lamps;
         for (let dy = 4; dy < Math.min(item.h, 36); dy += 5) rect(ctx, light.x - 5 + (dy % 3), item.y + dy, 10 - dy / 5, 2, '#ffda8b');
@@ -1603,7 +1312,7 @@ function eveningLights(ctx, game, camera, t, reducedEffects, nearbyBuildings = [
         rect(ctx, px, py, 9, 1, '#67bdbf'); rect(ctx, px + 3, py + 2, 3, 1, '#9ed1d1');
       }
     }
-    for (const light of game.world.scenery || []) {
+    for (const light of nearbyScenery) {
       if ((light.kind !== 'lamppost' && light.kind !== 'lamp') || !visible(light, camera, 60)) continue;
       ctx.globalAlpha = .13 * materialLight.lamps;
       for (let dy = 12; dy < 72; dy += 6) {
@@ -1622,7 +1331,7 @@ function car(ctx, vehicle, t, police = false, occupied = false, reducedEffects =
   drawFire(ctx, vehicle, t, { reducedEffects });
 }
 export function foliageProfile(tree) {
-  const scrub = (tree.kind || tree.type) === 'scrub';
+  const scrub = (tree.kind || tree.type) === 'scrub' && !(tree.heightMeters > 1.6);
   return { radius: clamp(tree.radius || 8, 2, 40), scrub,
     height: scrub ? 0 : Math.max(0, tree.heightMeters || 4) * ELEVATION_SCALE,
     legsOnly: scrub || (tree.heightMeters || 4) < 1.6 };
@@ -1706,24 +1415,28 @@ function crownPath(ctx, radius, seed, tree = null) {
 }
 function foliageBitmap(ctx, tree, world) {
   const { radius } = foliageProfile(tree);
-  const bounds = { x: tree.x - radius, y: tree.y - radius, w: radius * 2, h: radius * 2 };
-  const signature = aerialImagery.signature(world, bounds), seed = hash(tree.x, tree.y) * 10;
+  const signature = 'illustrated-calvi-v19', size = radius * 2 + 2;
   let entry = foliageCache.get(tree);
-  if (entry && entry.signature !== signature) { foliageBytes -= entry.bytes; foliageCache.delete(tree); entry = null; }
-  if (!entry) {
-    const image = canvasFor(ctx, radius * 2 + 2, radius * 2 + 2), paint = image?.getContext('2d');
+  if (entry && (entry.signature !== signature || entry.density !== foliageDensity)) { foliageBytes -= entry.bytes; foliageCache.delete(tree); entry = null; }
+  if (!entry) { foliageCacheMisses++; entry = { signature, density: foliageDensity, bytes: 0 }; }
+  const beforeBytes = imageBytes(entry);
+  const make = daylight => underMaterialLight(daylight, () => {
+    const image = canvasFor(ctx, size, size, entry.density), paint = image?.getContext('2d');
     if (!paint) return null;
-    paint.translate(radius + 1, radius + 1); crownPath(paint, radius, seed, tree); paint.clip();
-    paint.fillStyle = tree.color || '#677967'; paint.fill();
-    paint.save(); paint.translate(-tree.x, -tree.y); drawPhotograph(paint, world, bounds); paint.restore();
-    const shade = paint.createLinearGradient(-radius * .65, -radius, radius * .8, radius);
-    shade.addColorStop(0, 'rgba(220,230,189,.11)'); shade.addColorStop(.45, 'rgba(35,55,35,0)'); shade.addColorStop(1, 'rgba(12,33,26,.26)');
-    paint.fillStyle = shade; paint.fillRect(-radius - 1, -radius - 1, radius * 2 + 2, radius * 2 + 2);
-    entry = { image, signature, bytes: image.width * image.height * 4 }; foliageBytes += entry.bytes;
-  }
+    foliagePaintCount++;
+    paint.scale(entry.density, entry.density); paint.translate(radius + 1, radius + 1);
+    drawIllustratedCanopy(paint, tree, { lighting: materialLight, textures: textureFill, radius,
+      contour: foliageContour(tree).map(([x, y]) => [x - tree.x, y - tree.y]) });
+    return image;
+  });
+  entry.image = blendedArt(ctx, entry, make, size, size, true);
+  if (!entry.image) return null;
+  entry.bytes = imageBytes(entry); foliageBytes += entry.bytes - beforeBytes;
   foliageCache.delete(tree); foliageCache.set(tree, entry);
-  while (foliageCache.size > 256 || foliageBytes > FOLIAGE_CACHE_BYTES) {
-    const oldest = foliageCache.keys().next().value; foliageBytes -= foliageCache.get(oldest).bytes; foliageCache.delete(oldest);
+  while (foliageBytes > FOLIAGE_CACHE_BYTES && foliageCache.size > 1) {
+    const oldest = [...foliageCache.keys()].find(item => !foliageVisibleObjects.has(item)) ?? foliageCache.keys().next().value;
+    if (foliageVisibleObjects.has(oldest)) foliageVisibleEvictions++;
+    foliageBytes -= foliageCache.get(oldest).bytes; foliageCache.delete(oldest); foliageEvictions++;
   }
   return entry;
 }
@@ -1738,31 +1451,26 @@ function foliageTrunk(ctx, tree) {
   const { height, scrub } = foliageProfile(tree);
   if (!scrub) line(ctx, tree.x, tree.y, tree.x - .6, tree.y - height, surfaceColour('#283439', '#655e47'), 1.6);
 }
-function photographedFoliage(ctx, tree, world, native = false) {
+function paintedFoliage(ctx, tree, world, native = false) {
   const { radius, height } = foliageProfile(tree), entry = foliageBitmap(ctx, tree, world);
   if (!entry) return;
-  const seed = hash(tree.x, tree.y) * 10;
   ctx.save(); ctx.translate(tree.x, tree.y);
-  ctx.translate(0, native ? 0 : -height); ctx.drawImage(entry.image, -radius - 1, -radius - 1);
-  if (materialLight.night > .001) {
-    crownPath(ctx, radius, seed, tree); ctx.clip(); ctx.globalCompositeOperation = 'multiply'; ctx.globalAlpha *= materialLight.night * .62;
-    rect(ctx, -radius - 1, -radius - 1, radius * 2 + 2, radius * 2 + 2, '#31546a');
-  }
+  ctx.translate(0, native ? 0 : -height); ctx.drawImage(entry.image, -radius - 1, -radius - 1, radius * 2 + 2, radius * 2 + 2);
   ctx.restore();
 }
-function photographicActorOcclusion(ctx, tree, person, world, angle) {
+function paintedActorOcclusion(ctx, tree, person, world, angle) {
   if (!vegetationOccludes(tree, person, world, angle)) return false;
   const profile = foliageProfile(tree), projected = { x: person.x, y: person.y - liftAt(world, person.x, person.y) - playerVisualLift(person), angle };
   ctx.save();
   // Low scrub hides the trailing feet, preserving the head and shoulders.
-  // Taller crowns cover the body only where photographic leaves intersect.
+  // Taller crowns cover the body only where their source contour intersects.
   path(ctx, pointsAt(projected, profile.legsOnly ? [[-11, -4.3], [-2.8, -4.3], [-2.8, 4.3], [-11, 4.3]]
     : [[-12, -8], [21, -8], [21, 8], [-12, 8]])); ctx.clip();
   onTerrain(ctx, world, tree, () => {
-    photographedFoliage(ctx, tree, world, true);
+    paintedFoliage(ctx, tree, world, true);
     // Airborne bodies paint after ground objects. Restore raised leaves only
     // below their physical crown; vegetationOccludes excludes higher jumps.
-    if (playerVisualLift(person) > 0 && !profile.legsOnly) photographedFoliage(ctx, tree, world);
+    if (playerVisualLift(person) > 0 && !profile.legsOnly) paintedFoliage(ctx, tree, world);
   });
   ctx.restore(); return true;
 }
@@ -1786,7 +1494,7 @@ function seaRipples(ctx, world, bounds, time, reducedEffects) {
       const phase = (reducedEffects ? 0 : time * .8) + cell.seed * Math.PI * 8;
       const strength = .025 + (.035 + .045 * materialLight.daylight) * (.5 + .5 * Math.sin(phase));
       const dy = Math.sin(phase) * .7;
-      if (![[cell.x - cell.width, cell.y + dy], [cell.x, cell.y + dy - .8], [cell.x + cell.width, cell.y + dy]].every(([x, y]) => waterSurfaceContains(world, x, y))) continue;
+      if (![[cell.x - cell.width, cell.y + dy], [cell.x, cell.y + dy - .8], [cell.x + cell.width, cell.y + dy]].every(([x, y]) => photographicSeaAt(world, x, y))) continue;
       ctx.globalAlpha = strength;
       ctx.beginPath(); ctx.moveTo(cell.x - cell.width, cell.y + dy);
       ctx.quadraticCurveTo(cell.x, cell.y + dy - .8, cell.x + cell.width, cell.y + dy); ctx.stroke(); count++;
@@ -1962,31 +1670,30 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
   const rawBounds = { x: camera.x - 140, y: camera.y - 140, w: camera.width + 280, h: camera.height + maximumLift(world) + 280 };
   const nearbyBuildings = renderCandidates(world, rawBounds).filter(item => visible(item, camera, 140));
   const nearbyScenery = renderCandidates(world, rawBounds, 'scenery').filter(item => visible(item, camera, 65));
-  const photo = hasPhotograph(world);
-  const photoBounds = photoViewBounds(game, ctx.canvas);
-  aerialImagery.request(world, photoBounds);
+  const groundView = photoViewBounds(game, ctx.canvas);
   const nearTrees = renderCandidates(world, rawBounds, 'vegetation').filter(item => !item.destroyed && visible(item, camera, (item.radius || 8) + (item.heightMeters || 0) * ELEVATION_SCALE + 8));
+  prepareSpriteBudgets(world, ctx.canvas, nearbyBuildings, nearTrees);
   const hasSourcedVegetation = renderIndex(world).sourcedVegetation;
   const groundPeople = [...renderIndex(world).people, ...(game.police || []).filter(unit => unit.onFoot || unit.kind === 'gendarme' || unit.role === 'officer'), ...(!game.vehicle && game.player ? [game.player] : [])]
     .filter(person => visible(person, camera, 30) && !(person.dead && Number.isFinite(person.deathTimer) && person.deathTimer <= 0));
   const personSet = new Set(groundPeople);
-  const nearMasks = renderCandidates(world, photoBounds, 'masks');
+  const nearMasks = [];
   frameDetails = { vegetationVisible: nearTrees.length, seaRippleCount: 0, aerialMaskCount: nearMasks.length,
     maskSignature: nearMasks.map(mask => mask.annotationId || mask.vehicleId).sort().join('|'), actorUnderCanopy: 0, actorsInLowVegetation: 0, playerUnderCanopy: false };
   setMaterialLight(renderLighting(game));
   rect(ctx, 0, 0, width, height, C.seaDark);
   ctx.translate(-camera.x, -camera.y);
   backdrop(ctx, world, camera); terrainCliffs(ctx, world, camera); municipalBorder(ctx, world, camera);
-  if (photo) frameDetails.seaRippleCount = seaRipples(ctx, world, photoBounds, t, reducedEffects);
+  frameDetails.seaRippleCount = seaRipples(ctx, world, groundView, t, reducedEffects);
   // Persistent marks belong to the street surface, below bodies and vehicles.
   for (const decal of game.blood || []) if (visible(decal, camera, 35)) onTerrain(ctx, world, decal, () => drawBloodDecal(ctx, decal, t, { reducedEffects }));
-  for (const b of nearbyBuildings) onTerrain(ctx, world, b, () => buildingShadow(ctx, b, photo));
+  for (const b of nearbyBuildings) onTerrain(ctx, world, b, () => buildingShadow(ctx, b));
   for (const tree of nearTrees) onTerrain(ctx, world, tree, () => {
     foliageShadow(ctx, tree);
     // The native crown is also a leaf surface, not pavement. Paint the same
     // cached material before actors and during their occlusion, avoiding a
     // brighter rectangular patch that would appear only beneath a moving body.
-    photographedFoliage(ctx, tree, world, true);
+    paintedFoliage(ctx, tree, world, true);
   });
   for (const c of game.cars || []) if (vehicleVisualLift(c) > 0 && visible(c, camera, 180)) onTerrain(ctx, world, c, () => aircraftShadow(ctx, c));
   if (!game.vehicle && playerVisualLift(game.player) > 0 && visible(game.player, camera, 80))
@@ -2015,13 +1722,12 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
   });
   for (const tree of nearTrees) if (!foliageProfile(tree).legsOnly) {
     queue(tree, () => foliageTrunk(ctx, tree), tree.y - liftAt(world, tree.x, tree.y));
-    queue(tree, () => photographedFoliage(ctx, tree, world), foliageDepth(tree, world, groundPeople));
+    queue(tree, () => paintedFoliage(ctx, tree, world), foliageDepth(tree, world, groundPeople));
   }
   for (const item of [...nearbyScenery, ...renderIndex(world).people]) {
     if (item.polygon || item.ground || item.kind === 'water') continue;
     const person = item.kind === 'pedestrian' || item.kind === 'gendarme';
     if (hasSourcedVegetation && ['tree', 'olive', 'maquis', 'bush'].includes(item.kind)) continue;
-    if (photo && !person && !['lamppost', 'lamp'].includes(item.kind)) continue;
     queue(item, () => person ? actor(ctx, item, t, false, reducedEffects) : scenery(ctx, item));
   }
   for (const c of game.cars || []) {
@@ -2054,7 +1760,7 @@ export function render(ctx, game, { reducedEffects = false, time = 0 } = {}) {
       ctx.save(); ctx.translate(0, liftAt(world, entry.object.x, entry.object.y) + entry.airLift);
       const angle = entry.object === game.player && Number.isFinite(entry.object.aimAngle) ? entry.object.aimAngle : entry.object.dir ?? entry.object.angle ?? 0;
       let underTree = false, inScrub = false;
-      for (const tree of nearTrees) if (photographicActorOcclusion(ctx, tree, entry.object, world, angle)) {
+      for (const tree of nearTrees) if (paintedActorOcclusion(ctx, tree, entry.object, world, angle)) {
         if (foliageProfile(tree).legsOnly) inScrub = true; else underTree = true;
       }
       if (underTree) frameDetails.actorUnderCanopy++;

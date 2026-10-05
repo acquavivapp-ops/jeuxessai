@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { walkTo, canvasDigest } from './helpers.js';
+import { walkTo, canvasDigest, expectIllustrated } from './helpers.js';
 
 const snapshot = page => page.evaluate(() => window.blueNight.snapshot());
 async function begin(page) {
@@ -7,6 +7,7 @@ async function begin(page) {
   await page.getByRole('button', { name: 'JOUER', exact: false }).click();
   await page.getByRole('button', { name: "C'EST PARTI !", exact: true }).click();
   await expect.poll(async () => (await snapshot(page)).mode).toBe('playing');
+  await expectIllustrated(page);
 }
 async function brake(page) {
   await page.keyboard.down('Space');

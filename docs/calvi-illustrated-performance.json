@@ -1,0 +1,538 @@
+{
+  "version": "v19-calvi-illustrated",
+  "date": "2026-10-05",
+  "status": "final-isolated-confirmation",
+  "commandExitCode": 0,
+  "engine": "Chromium Linux cloud runner",
+  "isolatedFromOtherBrowserAndNodeWork": true,
+  "instrumentation": "Chrome sampling profiler at1000us; one lightweight rendererStats read per10 rAF; public snapshot once before and after each3-second period, returned selected metrics only; no Safari measurement",
+  "observation": {
+    "runs": 3,
+    "periodsPerRun": 3,
+    "nominalPeriodSeconds": 3,
+    "periods": 9,
+    "totalFrames": 522,
+    "wallMs": 27270.900000023845
+  },
+  "rawPerformanceSha256": "3bf7157b84f5d632a9a35cf8ddc1265ef37250ac1bf7b793b4f9ae399b5e7ca0",
+  "rawSummarySha256": "4a5859c3ac22f0ef22b503f054eb8e94cd6119745faff30b939da804cf8c3037",
+  "units": {
+    "cadence": "observed requestAnimationFrame callbacks per second",
+    "frameTimes": "ms",
+    "cacheBytes": "bytes",
+    "dimensions": "Canvas backing bitmap pixels"
+  },
+  "limits": [
+    "Instrumented Linux cloud observations, not Safari or a physical phone test.",
+    "Nine short 3-second periods do not establish sustained session performance.",
+    "CPU profiles span each whole run including preparation and transitions; no per-period profile attribution.",
+    "Profile groups can overlap and must not be summed into CPU utilization.",
+    "Simulation endpoint snapshots occur outside the rAF window; simulation-to-wall ratios are not used as speed claims.",
+    "Driving input is released before orientation changes; the final phase can include vehicle coasting.",
+    "Cold palette/cache creation and zoom transitions remain slower than warmed stationary views."
+  ],
+  "runs": [
+    {
+      "lighting": "dawn",
+      "startMinutes": 360,
+      "errors": {
+        "javascript": 0,
+        "console": 0,
+        "http": 0,
+        "photographRequests": 0
+      },
+      "cacheValidation": {
+        "stationaryNoRepaint": true,
+        "noVisibleEvictions": true,
+        "countersPresent": true
+      },
+      "profile": {
+        "status": "measured",
+        "totalSamples": 11323,
+        "profileSpanMs": 13169.489,
+        "scope": "Whole lighting run, all stages and transitions; no per-stage profiler attribution."
+      },
+      "periods": [
+        {
+          "label": "stationary-landscape",
+          "mode": "playing",
+          "frames": 65,
+          "wallMs": 3025.3999999999996,
+          "medianFrameMs": 50,
+          "p95FrameMs": 66.60000000000036,
+          "observedRafFramesPerSecond": 21.48476234547498,
+          "backingBitmap": [1920,1080],
+          "zoom": 1.95,
+          "cache": {
+            "ground": {
+              "start": [1.5,48,22588020,240,144,0,0],
+              "end": [1.5,48,22588020,240,144,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 22588020
+            },
+            "roofs": {
+              "start": [1.25,70,15883560,230,138,22,0],
+              "end": [1.25,70,15883560,230,138,22,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 15883560
+            },
+            "foliage": {
+              "start": [2,62,4109952,155,93,0,0],
+              "end": [2,62,4109952,155,93,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 4109952
+            }
+          }
+        },
+        {
+          "label": "driving-landscape",
+          "mode": "playing",
+          "frames": 34,
+          "wallMs": 3026.5999999880805,
+          "medianFrameMs": 66.60000000000218,
+          "p95FrameMs": 233.40000000000146,
+          "observedRafFramesPerSecond": 11.233727615189949,
+          "backingBitmap": [1920,1080],
+          "zoom": 1.65,
+          "cache": {
+            "ground": {
+              "start": [1.25,60,19700832,372,210,0,0],
+              "end": [1.25,80,26505756,412,230,0,0],
+              "delta": {
+                "paint": 40,
+                "miss": 20,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 26505756
+            },
+            "roofs": {
+              "start": [1,75,13428492,338,192,22,0],
+              "end": [0.75,128,12389244,626,336,26,0],
+              "delta": {
+                "paint": 288,
+                "miss": 144,
+                "eviction": 4,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 16474248
+            },
+            "foliage": {
+              "start": [2,62,4109952,155,93,0,0],
+              "end": [2,63,4130124,157,94,0,0],
+              "delta": {
+                "paint": 2,
+                "miss": 1,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 4130124
+            }
+          }
+        },
+        {
+          "label": "driving-after-orientation-change",
+          "mode": "playing",
+          "frames": 56,
+          "wallMs": 3036.2000000000007,
+          "medianFrameMs": 50,
+          "p95FrameMs": 66.70000000000073,
+          "observedRafFramesPerSecond": 18.444107766286802,
+          "backingBitmap": [1080,1920],
+          "zoom": 1.65,
+          "cache": {
+            "ground": {
+              "start": [1.25,92,30703332,436,242,0,0],
+              "end": [1.25,92,30703332,436,242,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 30703332
+            },
+            "roofs": {
+              "start": [0.75,155,14445636,682,364,26,0],
+              "end": [0.75,155,14445636,682,364,26,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 14445636
+            },
+            "foliage": {
+              "start": [2,65,4191672,163,97,1,0],
+              "end": [2,65,4191672,163,97,1,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 4191672
+            }
+          }
+        }
+      ]
+    },
+    {
+      "lighting": "day",
+      "startMinutes": 720,
+      "errors": {
+        "javascript": 0,
+        "console": 0,
+        "http": 0,
+        "photographRequests": 0
+      },
+      "cacheValidation": {
+        "stationaryNoRepaint": true,
+        "noVisibleEvictions": true,
+        "countersPresent": true
+      },
+      "profile": {
+        "status": "measured",
+        "totalSamples": 10673,
+        "profileSpanMs": 12116.001,
+        "scope": "Whole lighting run, all stages and transitions; no per-stage profiler attribution."
+      },
+      "periods": [
+        {
+          "label": "stationary-landscape",
+          "mode": "playing",
+          "frames": 78,
+          "wallMs": 3024.800000011921,
+          "medianFrameMs": 33.399999999999636,
+          "p95FrameMs": 50.099999999998545,
+          "observedRafFramesPerSecond": 25.786828881146718,
+          "backingBitmap": [1920,1080],
+          "zoom": 1.95,
+          "cache": {
+            "ground": {
+              "start": [1.5,48,7529340,144,144,0,0],
+              "end": [1.5,48,7529340,144,144,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 7529340
+            },
+            "roofs": {
+              "start": [1.25,92,7265904,138,138,0,0],
+              "end": [1.25,92,7265904,138,138,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 7265904
+            },
+            "foliage": {
+              "start": [2,62,1369984,93,93,0,0],
+              "end": [2,62,1369984,93,93,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 1369984
+            }
+          }
+        },
+        {
+          "label": "driving-landscape",
+          "mode": "playing",
+          "frames": 48,
+          "wallMs": 3040.9000000059605,
+          "medianFrameMs": 50,
+          "p95FrameMs": 100,
+          "observedRafFramesPerSecond": 15.78480055243708,
+          "backingBitmap": [1920,1080],
+          "zoom": 1.65,
+          "cache": {
+            "ground": {
+              "start": [1.25,60,6566944,210,210,0,0],
+              "end": [1.25,80,8835252,230,230,0,0],
+              "delta": {
+                "paint": 20,
+                "miss": 20,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 8835252
+            },
+            "roofs": {
+              "start": [1,97,6447548,192,192,0,0],
+              "end": [0.75,154,6283748,336,336,0,0],
+              "delta": {
+                "paint": 144,
+                "miss": 144,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 7462800
+            },
+            "foliage": {
+              "start": [2,62,1369984,93,93,0,0],
+              "end": [2,63,1376708,94,94,0,0],
+              "delta": {
+                "paint": 1,
+                "miss": 1,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 1376708
+            }
+          }
+        },
+        {
+          "label": "driving-after-orientation-change",
+          "mode": "playing",
+          "frames": 62,
+          "wallMs": 3008.7000000059597,
+          "medianFrameMs": 50,
+          "p95FrameMs": 66.69999999999709,
+          "observedRafFramesPerSecond": 20.606906637377335,
+          "backingBitmap": [1080,1920],
+          "zoom": 1.65,
+          "cache": {
+            "ground": {
+              "start": [1.25,92,10234444,242,242,0,0],
+              "end": [1.25,92,10234444,242,242,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 10234444
+            },
+            "roofs": {
+              "start": [0.75,181,6969212,364,364,0,0],
+              "end": [0.75,181,6969212,364,364,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 6969212
+            },
+            "foliage": {
+              "start": [2,66,1406440,97,97,0,0],
+              "end": [2,66,1406440,97,97,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 1406440
+            }
+          }
+        }
+      ]
+    },
+    {
+      "lighting": "night",
+      "startMinutes": 0,
+      "errors": {
+        "javascript": 0,
+        "console": 0,
+        "http": 0,
+        "photographRequests": 0
+      },
+      "cacheValidation": {
+        "stationaryNoRepaint": true,
+        "noVisibleEvictions": true,
+        "countersPresent": true
+      },
+      "profile": {
+        "status": "measured",
+        "totalSamples": 10724,
+        "profileSpanMs": 12326.942,
+        "scope": "Whole lighting run, all stages and transitions; no per-stage profiler attribution."
+      },
+      "periods": [
+        {
+          "label": "stationary-landscape",
+          "mode": "playing",
+          "frames": 68,
+          "wallMs": 3017.7000000000007,
+          "medianFrameMs": 50,
+          "p95FrameMs": 50.100000000000364,
+          "observedRafFramesPerSecond": 22.53371773204758,
+          "backingBitmap": [1920,1080],
+          "zoom": 1.95,
+          "cache": {
+            "ground": {
+              "start": [1.5,48,7529340,144,144,0,0],
+              "end": [1.5,48,7529340,144,144,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 7529340
+            },
+            "roofs": {
+              "start": [1.25,92,7265904,138,138,0,0],
+              "end": [1.25,92,7265904,138,138,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 7265904
+            },
+            "foliage": {
+              "start": [2,62,1369984,93,93,0,0],
+              "end": [2,62,1369984,93,93,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 1369984
+            }
+          }
+        },
+        {
+          "label": "driving-landscape",
+          "mode": "playing",
+          "frames": 52,
+          "wallMs": 3048,
+          "medianFrameMs": 50,
+          "p95FrameMs": 100.10000000000036,
+          "observedRafFramesPerSecond": 17.060367454068242,
+          "backingBitmap": [1920,1080],
+          "zoom": 1.65,
+          "cache": {
+            "ground": {
+              "start": [1.25,54,5892124,204,204,0,0],
+              "end": [1.25,80,8835252,230,230,0,0],
+              "delta": {
+                "paint": 26,
+                "miss": 26,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 8835252
+            },
+            "roofs": {
+              "start": [1,97,6447548,192,192,0,0],
+              "end": [0.75,152,6249424,334,334,0,0],
+              "delta": {
+                "paint": 142,
+                "miss": 142,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 7462800
+            },
+            "foliage": {
+              "start": [2,62,1369984,93,93,0,0],
+              "end": [2,63,1376708,94,94,0,0],
+              "delta": {
+                "paint": 1,
+                "miss": 1,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 1376708
+            }
+          }
+        },
+        {
+          "label": "driving-after-orientation-change",
+          "mode": "playing",
+          "frames": 59,
+          "wallMs": 3042.60000001192,
+          "medianFrameMs": 50,
+          "p95FrameMs": 66.70000000000073,
+          "observedRafFramesPerSecond": 19.391310063685285,
+          "backingBitmap": [1080,1920],
+          "zoom": 1.65,
+          "cache": {
+            "ground": {
+              "start": [1.25,92,10234444,242,242,0,0],
+              "end": [1.25,92,10234444,242,242,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 10234444
+            },
+            "roofs": {
+              "start": [0.75,181,6969212,364,364,0,0],
+              "end": [0.75,181,6969212,364,364,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 6969212
+            },
+            "foliage": {
+              "start": [2,66,1406440,97,97,0,0],
+              "end": [2,66,1406440,97,97,0,0],
+              "delta": {
+                "paint": 0,
+                "miss": 0,
+                "eviction": 0,
+                "visibleEviction": 0
+              },
+              "maximumObservedBytes": 1406440
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "cacheColumns": [
+    "density",
+    "entries",
+    "bytes",
+    "paintCount",
+    "missCount",
+    "evictionCount",
+    "visibleEvictionCount"
+  ],
+  "cacheBudgetsBytes": {
+    "ground": 33554432,
+    "roofs": 16777216,
+    "foliage": 4194304
+  },
+  "cacheEvidence": {
+    "allCountersPresent": true,
+    "byteBudgetsRespectedThroughoutObservedPeriods": true,
+    "noVisibleEvictionDelta": true
+  }
+}
